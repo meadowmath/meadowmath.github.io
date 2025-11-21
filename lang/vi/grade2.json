@@ -1,0 +1,48 @@
+{
+  "title": "Hoạt động Lớp 2",
+  "description": "Tự tin cộng và trừ các số",
+  "levels": {
+    "level1": {
+      "title": "Cấp 1",
+      "description": "Phép cộng trong phạm vi 100"
+    },
+    "level2": {
+      "title": "Cấp 2",
+      "description": "Phép trừ trong phạm vi 100"
+    },
+    "level3": {
+      "title": "Cấp 3",
+      "description": "Giá trị vị trí đến 1000"
+    },
+    "level4": {
+      "title": "Cấp 4",
+      "description": "Đo lường cơ bản"
+    },
+    "level5": {
+      "title": "Cấp 5",
+      "description": "Bài toán có lời văn"
+    }
+  },
+  "activities": {
+    "twoDigitAddition": {
+      "title": "Cộng số có hai chữ số",
+      "description": "Cộng các số lớn hơn",
+      "instruction": "Tìm tổng"
+    },
+    "twoDigitSubtraction": {
+      "title": "Trừ số có hai chữ số",
+      "description": "Trừ các số lớn hơn",
+      "instruction": "Tìm hiệu"
+    },
+    "skipCounting": {
+      "title": "Đếm nhảy",
+      "description": "Đếm theo 2, 5 và 10",
+      "instruction": "Số tiếp theo là gì?"
+    },
+    "moneyMath": {
+      "title": "Toán tiền",
+      "description": "Đếm tiền xu và tiền giấy",
+      "instruction": "Có bao nhiêu tiền?"
+    }
+  }
+}

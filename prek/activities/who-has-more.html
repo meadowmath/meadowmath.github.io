@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Who Has More - Pre-K Math Activity - Meadow Math">
+  <title>Who Has More? - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🤔</span>
+            <span data-i18n="section.activities.who-has-more.title">Who Has More?</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.who-has-more.description">Which group has more?</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Comparison Groups -->
+          <div class="comparison-container" id="comparison-area">
+            <div class="comparison-group" id="group-left" data-side="left">
+              <!-- Items will be generated -->
+            </div>
+            <div class="comparison-vs">VS</div>
+            <div class="comparison-group" id="group-right" data-side="right">
+              <!-- Items will be generated -->
+            </div>
+          </div>
+
+          <!-- Result Display -->
+          <div class="result-display" id="result" style="display: none;">
+            <span id="result-left">0</span>
+            <span class="result-vs">vs</span>
+            <span id="result-right">0</span>
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <!-- Auto-advance, no buttons needed -->
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Extra styles for comparison game */
+    .comparison-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      width: 100%;
+      padding: var(--space-4);
+    }
+
+    .comparison-group {
+      background: white;
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-5);
+      min-width: 160px;
+      min-height: 180px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      gap: var(--space-2);
+      box-shadow: 0 4px 0 var(--color-neutral-200);
+    }
+
+    .comparison-group:hover:not(.disabled) {
+      transform: translateY(-6px) scale(1.03);
+      border-color: var(--color-secondary);
+      box-shadow: 0 10px 0 var(--color-secondary-dark), 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .comparison-group:active:not(.disabled) {
+      transform: translateY(2px) scale(0.98);
+    }
+
+    .comparison-group.disabled {
+      cursor: default;
+    }
+
+    .comparison-group.correct {
+      border-color: #22c55e;
+      background: rgba(74, 222, 128, 0.15);
+      box-shadow: 0 4px 0 #16a34a;
+    }
+
+    .comparison-group.incorrect {
+      border-color: #f59e0b;
+      background: rgba(251, 191, 36, 0.1);
+      animation: shake 0.5s ease;
+    }
+
+    .comparison-group.correct .comparison-item {
+      animation: bounceItem 0.5s ease;
+      animation-delay: calc(var(--item-index) * 0.1s);
+    }
+
+    @keyframes bounceItem {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.1); }
+    }
+
+    .comparison-vs {
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-400);
+    }
+
+    .comparison-item {
+      font-size: 32px;
+      transition: transform 0.2s ease;
+    }
+
+    .result-display {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+      font-family: var(--font-secondary);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+    }
+
+    .result-display span {
+      color: var(--color-primary);
+    }
+
+    .result-vs {
+      color: var(--color-neutral-400) !important;
+      font-size: var(--text-xl);
+    }
+
+    @media (max-width: 767px) {
+      .comparison-container {
+        flex-direction: column;
+        gap: var(--space-4);
+      }
+
+      .comparison-group {
+        min-width: 140px;
+        min-height: 120px;
+        padding: var(--space-4);
+      }
+
+      .comparison-item {
+        font-size: 24px;
+      }
+
+      .comparison-vs {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Who Has More Activity
+    const WhoHasMore = {
+      // Game state
+      leftCount: 0,
+      rightCount: 0,
+      correctSide: null,
+      round: 1,
+      maxRounds: 8,
+      isComplete: false,
+      hasAnswered: false,
+      correctCount: 0,
+      wrongCount: 0,
+      autoAdvanceDelay: 1500,
+
+      // DOM elements
+      groupLeft: null,
+      groupRight: null,
+      feedback: null,
+      progress: null,
+      result: null,
+      resultLeft: null,
+      resultRight: null,
+      instruction: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      // Items to use
+      items: ['🍎', '🍊', '🍋', '🍇', '🍓', '🫐', '🍪', '⭐', '❤️', '🌸'],
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.groupLeft = document.getElementById('group-left');
+        this.groupRight = document.getElementById('group-right');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.result = document.getElementById('result');
+        this.resultLeft = document.getElementById('result-left');
+        this.resultRight = document.getElementById('result-right');
+        this.instruction = document.getElementById('instruction');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.groupLeft.addEventListener('click', () => this.selectGroup('left'));
+        this.groupRight.addEventListener('click', () => this.selectGroup('right'));
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Start
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Start a new round
+       */
+      startRound() {
+        this.hasAnswered = false;
+        this.isComplete = false;
+
+        // Generate two different counts
+        // Adjust difficulty based on round
+        let maxDiff = this.round <= 3 ? 4 : (this.round <= 6 ? 3 : 2);
+        let minCount = 1;
+        let maxCount = Math.min(5 + Math.floor(this.round / 2), 8);
+
+        this.leftCount = randomInt(minCount, maxCount);
+        do {
+          this.rightCount = randomInt(minCount, maxCount);
+        } while (this.rightCount === this.leftCount);
+
+        // Determine correct answer
+        this.correctSide = this.leftCount > this.rightCount ? 'left' : 'right';
+
+        // Pick random item for this round
+        const item = this.items[randomInt(0, this.items.length - 1)];
+
+        // Update UI
+        this.instruction.textContent = 'Which group has more?';
+        this.groupLeft.classList.remove('correct', 'incorrect', 'disabled');
+        this.groupRight.classList.remove('correct', 'incorrect', 'disabled');
+        this.feedback.classList.remove('show');
+        this.result.style.display = 'none';
+
+        // Render items
+        this.renderItems(this.groupLeft, this.leftCount, item);
+        this.renderItems(this.groupRight, this.rightCount, item);
+        this.renderProgress();
+      },
+
+      /**
+       * Render items in a group
+       */
+      renderItems(container, count, emoji) {
+        container.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+          const item = document.createElement('span');
+          item.className = 'comparison-item';
+          item.textContent = emoji;
+          item.style.setProperty('--item-index', i);
+          container.appendChild(item);
+        }
+      },
+
+      /**
+       * Handle group selection
+       */
+      selectGroup(side) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        const selectedGroup = side === 'left' ? this.groupLeft : this.groupRight;
+        const otherGroup = side === 'left' ? this.groupRight : this.groupLeft;
+
+        // Disable further clicks
+        this.groupLeft.classList.add('disabled');
+        this.groupRight.classList.add('disabled');
+
+        // Check answer
+        if (side === this.correctSide) {
+          // Correct!
+          selectedGroup.classList.add('correct');
+          this.feedback.textContent = '🎉 Yes! That group has more!';
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          // Show result
+          this.resultLeft.textContent = this.leftCount;
+          this.resultRight.textContent = this.rightCount;
+          this.result.style.display = 'flex';
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(selectedGroup);
+          }
+        } else {
+          // Incorrect
+          selectedGroup.classList.add('incorrect');
+          otherGroup.classList.add('correct');
+          this.feedback.textContent = 'Not quite! The other group has more.';
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+
+          // Show result
+          this.resultLeft.textContent = this.leftCount;
+          this.resultRight.textContent = this.rightCount;
+          this.result.style.display = 'flex';
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        // Set message based on performance
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = 'Amazing! You\'re a comparing champion!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = 'Great job! Keep practicing!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = 'Good effort! Try again to improve!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startRound();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      WhoHasMore.init();
+    });
+  </script>
+</body>
+</html>

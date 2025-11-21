@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Flash Dot Cards - Pre-K Math Activity - Meadow Math">
+  <title>Flash Dot Cards - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">⚫</span>
+            <span data-i18n="section.activities.flash-dot-cards.title">Flash Dot Cards</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.flash-dot-cards.description">Quick! How many dots did you see?</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Flash Card Display -->
+          <div class="flash-card" id="flash-card">
+            <div class="dots-container" id="dots-container">
+              <!-- Dots will be generated -->
+            </div>
+          </div>
+
+          <!-- Number Choices -->
+          <div class="number-choices" id="number-choices">
+            <!-- Number buttons will be generated -->
+          </div>
+
+          <!-- Start Banner Button (acts as Start button) -->
+          <button class="start-banner-btn show" id="btn-start" data-i18n="activity.clickStartBanner">⚫ Click here to start!</button>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons (empty - using banner button instead) -->
+        <div class="activity-actions">
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Flash Dot Cards specific styles */
+    .flash-card {
+      width: 200px;
+      height: 200px;
+      background: white;
+      border: 6px solid var(--color-neutral-300);
+      border-radius: var(--radius-2xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 0 var(--color-neutral-300), 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flash-card.hidden .dots-container {
+      opacity: 0;
+    }
+
+    .flash-card.showing {
+      animation: cardPulse 0.3s ease;
+    }
+
+    @keyframes cardPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .dots-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 8px;
+      padding: 20px;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.2s ease;
+    }
+
+    .dot {
+      width: 100%;
+      height: 100%;
+      background: var(--color-neutral-800);
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.1s ease;
+    }
+
+    .dot.show {
+      opacity: 1;
+    }
+
+    .question-mark {
+      font-size: 72px;
+      color: var(--color-neutral-400);
+      display: none;
+    }
+
+    .flash-card.hidden .question-mark {
+      display: block;
+    }
+
+    .flash-card.hidden .dots-container {
+      display: none;
+    }
+
+    .number-choices {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 400px;
+    }
+
+    .number-choice {
+      width: 72px;
+      height: 72px;
+      font-family: var(--font-secondary);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      background: linear-gradient(to bottom, #fff, #f0f0f0);
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 4px 0 var(--color-neutral-300);
+      color: var(--color-neutral-800);
+    }
+
+    .number-choice:hover:not(:disabled) {
+      transform: translateY(-4px) scale(1.05);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 0 var(--color-primary-dark);
+    }
+
+    .number-choice:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--color-neutral-300);
+    }
+
+    .number-choice:disabled {
+      cursor: default;
+      opacity: 0.7;
+    }
+
+    .number-choice.correct {
+      background: linear-gradient(to bottom, #4ade80, #22c55e);
+      border-color: #16a34a;
+      color: white;
+      box-shadow: 0 4px 0 #16a34a;
+    }
+
+    .number-choice.incorrect {
+      background: linear-gradient(to bottom, #fbbf24, #f59e0b);
+      border-color: #d97706;
+      color: white;
+      animation: shake 0.5s ease;
+    }
+
+    .countdown {
+      font-family: var(--font-secondary);
+      font-size: 64px;
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 767px) {
+      .flash-card {
+        width: 160px;
+        height: 160px;
+      }
+
+      .number-choice {
+        width: 60px;
+        height: 60px;
+        font-size: var(--text-2xl);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Flash Dot Cards Activity
+    const FlashDotCards = {
+      // Game state
+      targetNumber: 0,
+      round: 1,
+      maxRounds: 8,
+      isComplete: false,
+      hasAnswered: false,
+      flashDuration: 1500, // milliseconds to show dots
+      correctCount: 0,
+      wrongCount: 0,
+      autoAdvanceDelay: 1500,
+
+      // DOM elements
+      flashCard: null,
+      dotsContainer: null,
+      numberChoices: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      btnStart: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      // Dot patterns for 1-5 (positions in 3x3 grid, 0-8)
+      dotPatterns: {
+        1: [4],                    // center
+        2: [0, 8],                 // corners
+        3: [0, 4, 8],              // diagonal
+        4: [0, 2, 6, 8],           // corners
+        5: [0, 2, 4, 6, 8]         // X pattern
+      },
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.flashCard = document.getElementById('flash-card');
+        this.dotsContainer = document.getElementById('dots-container');
+        this.numberChoices = document.getElementById('number-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.btnStart = document.getElementById('btn-start');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnStart.addEventListener('click', () => this.startRound());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Create dots grid
+        this.createDotsGrid();
+        
+        // Create number choices
+        this.createNumberChoices();
+
+        // Initial state
+        this.flashCard.classList.add('hidden');
+        this.renderProgress();
+      },
+
+      /**
+       * Create the dots grid
+       */
+      createDotsGrid() {
+        this.dotsContainer.innerHTML = '';
+        for (let i = 0; i < 9; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'dot';
+          dot.dataset.position = i;
+          this.dotsContainer.appendChild(dot);
+        }
+      },
+
+      /**
+       * Create number choice buttons
+       */
+      createNumberChoices() {
+        this.numberChoices.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+          const btn = document.createElement('button');
+          btn.className = 'number-choice';
+          btn.textContent = i;
+          btn.dataset.value = i;
+          btn.addEventListener('click', () => this.selectAnswer(i));
+          this.numberChoices.appendChild(btn);
+        }
+        // Initially hide choices
+        this.numberChoices.style.visibility = 'hidden';
+      },
+
+      /**
+       * Start a round - show the dots
+       */
+      startRound() {
+        this.hasAnswered = false;
+        this.isComplete = false;
+
+        // Generate random target (1-5)
+        this.targetNumber = randomInt(1, 5);
+
+        // Reset UI
+        this.feedback.classList.remove('show');
+        this.btnStart.classList.remove('show');
+        this.numberChoices.style.visibility = 'hidden';
+
+        // Reset number buttons
+        const buttons = this.numberChoices.querySelectorAll('.number-choice');
+        buttons.forEach(btn => {
+          btn.classList.remove('correct', 'incorrect');
+          btn.disabled = false;
+        });
+
+        // Show dots
+        this.showDots();
+      },
+
+      /**
+       * Show dots pattern
+       */
+      showDots() {
+        // Reset all dots
+        const dots = this.dotsContainer.querySelectorAll('.dot');
+        dots.forEach(dot => dot.classList.remove('show'));
+
+        // Show flash card
+        this.flashCard.classList.remove('hidden');
+        this.flashCard.classList.add('showing');
+
+        // Show pattern
+        const pattern = this.dotPatterns[this.targetNumber];
+        pattern.forEach(pos => {
+          const dot = this.dotsContainer.querySelector(`[data-position="${pos}"]`);
+          if (dot) dot.classList.add('show');
+        });
+
+        this.instruction.textContent = i18n.t('section.activities.flash-dot-cards.lookAtDots') || 'Look at the dots...';
+
+        // Hide after duration
+        setTimeout(() => {
+          this.hideDots();
+        }, this.flashDuration);
+      },
+
+      /**
+       * Hide dots and show choices
+       */
+      hideDots() {
+        this.flashCard.classList.add('hidden');
+        this.flashCard.classList.remove('showing');
+        this.numberChoices.style.visibility = 'visible';
+        this.instruction.textContent = i18n.t('section.activities.flash-dot-cards.howMany') || 'How many dots did you see?';
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(number) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        const selectedBtn = this.numberChoices.querySelector(`[data-value="${number}"]`);
+        const correctBtn = this.numberChoices.querySelector(`[data-value="${this.targetNumber}"]`);
+
+        // Disable all buttons
+        const buttons = this.numberChoices.querySelectorAll('.number-choice');
+        buttons.forEach(btn => btn.disabled = true);
+
+        // Check answer
+        if (number === this.targetNumber) {
+          // Correct!
+          selectedBtn.classList.add('correct');
+          const correctMsg = i18n.t('section.activities.flash-dot-cards.correctMsg') || 'Yes! There were {n} dots!';
+          this.feedback.textContent = `🎉 ${correctMsg.replace('{n}', this.targetNumber)}`;
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.flashCard);
+          }
+        } else {
+          // Incorrect
+          selectedBtn.classList.add('incorrect');
+          correctBtn.classList.add('correct');
+          const wrongMsg = i18n.t('section.activities.flash-dot-cards.wrongMsg') || 'Not quite! There were {n} dots.';
+          this.feedback.textContent = wrongMsg.replace('{n}', this.targetNumber);
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        // Show dots again briefly
+        this.flashCard.classList.remove('hidden');
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        // Set message based on performance
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = i18n.t('stats.amazing') || 'Amazing! You\'re a superstar!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = i18n.t('stats.great') || 'Great job! Keep practicing!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = i18n.t('stats.goodEffort') || 'Good effort! Try again to improve!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.btnStart.classList.add('show');
+        this.flashCard.classList.add('hidden');
+        this.numberChoices.style.visibility = 'hidden';
+        this.feedback.classList.remove('show');
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      FlashDotCards.init();
+    });
+  </script>
+</body>
+</html>

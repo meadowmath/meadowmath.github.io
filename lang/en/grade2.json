@@ -1,0 +1,48 @@
+{
+  "title": "Grade 2 Activities",
+  "description": "Adding and taking away with confidence",
+  "levels": {
+    "level1": {
+      "title": "Level 1",
+      "description": "Addition within 100"
+    },
+    "level2": {
+      "title": "Level 2",
+      "description": "Subtraction within 100"
+    },
+    "level3": {
+      "title": "Level 3",
+      "description": "Place value to 1000"
+    },
+    "level4": {
+      "title": "Level 4",
+      "description": "Measurement basics"
+    },
+    "level5": {
+      "title": "Level 5",
+      "description": "Word problems"
+    }
+  },
+  "activities": {
+    "twoDigitAddition": {
+      "title": "Two-Digit Addition",
+      "description": "Add larger numbers",
+      "instruction": "Find the sum"
+    },
+    "twoDigitSubtraction": {
+      "title": "Two-Digit Subtraction",
+      "description": "Subtract larger numbers",
+      "instruction": "Find the difference"
+    },
+    "skipCounting": {
+      "title": "Skip Counting",
+      "description": "Count by 2s, 5s, and 10s",
+      "instruction": "What comes next?"
+    },
+    "moneyMath": {
+      "title": "Money Math",
+      "description": "Count coins and bills",
+      "instruction": "How much money?"
+    }
+  }
+}

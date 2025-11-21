@@ -1,0 +1,388 @@
+{
+  "title": "Pre-K Activities",
+  "description": "A cozy place to begin exploring numbers and shapes",
+  "tabs": {
+    "activities": "Activities",
+    "learnMore": "Learn More"
+  },
+  "levels": {
+    "level1": {
+      "title": "Number Awareness & Counting",
+      "goal": "Children understand that numbers have names and represent 'how many.'"
+    },
+    "level2": {
+      "title": "Subitizing & Quantity",
+      "goal": "Children can see 'how many' without counting one-by-one."
+    },
+    "level3": {
+      "title": "Number Relationships",
+      "goal": "Children see that numbers are made of smaller parts."
+    },
+    "level4": {
+      "title": "Comparing & Change",
+      "goal": "Children understand more, less, same, add one, take one."
+    }
+  },
+  "activities": {
+    "finger-counting": {
+      "title": "Finger Counting Songs",
+      "description": "Count fingers up and down with fun rhymes"
+    },
+    "snack-counting": {
+      "title": "Snack Counting",
+      "description": "Count yummy snacks before eating them",
+      "yummy": "Yummy! You counted {n} snacks!",
+      "complete": "You counted snacks in all {n} rounds! Great job!"
+    },
+    "toy-lineup": {
+      "title": "Toy Line-Up",
+      "description": "Line up 1-5 toys and count together"
+    },
+    "number-hunt": {
+      "title": "Number Hunt",
+      "description": "Find numbers hidden all around",
+      "findNumber": "Find the number:",
+      "found": "found",
+      "findInstruction": "Find all the {n}s!",
+      "success": "🎉 Great! You found all the {n}s!",
+      "complete": "You completed all {n} number hunts! Great job!"
+    },
+    "roll-and-count": {
+      "title": "Roll & Count",
+      "description": "Roll a die and place that many blocks",
+      "howMany": "How many dots are on the dice?",
+      "rollInstruction": "Roll the dice to see how many blocks to add!",
+      "tapToAdd": "Tap here to add blocks",
+      "tapToAddNow": "Tap to add blocks!",
+      "rolled": "You rolled {n}! Tap to add {n} blocks.",
+      "tooMany": "Oops! That's too many. Try again!",
+      "perfect": "🎉 Perfect! You added {n} blocks!",
+      "complete": "You completed all {n} rounds! Great counting!"
+    },
+    "zero-basket": {
+      "title": "Zero Basket",
+      "description": "Learn about zero with an empty basket",
+      "empty": "Empty!",
+      "howMany": "How many {fruit}s are in the basket?",
+      "howManyEmpty": "The basket is empty! How many items?",
+      "zeroCorrect": "🎉 Yes! Zero means nothing is there!",
+      "zeroWrong": "The basket is empty - that's zero!",
+      "correct": "🎉 That's right! There are {n}!",
+      "wrong": "Not quite! There are {n} in the basket.",
+      "complete": "You learned about zero and counting!"
+    },
+    "jump-and-count": {
+      "title": "Jump & Count",
+      "description": "Jump while counting aloud",
+      "jumpTo": "Jump to:",
+      "jumps": "jumps",
+      "tapToJump": "🦘 Tap here to make me jump!",
+      "jumpToN": "Jump {n} times!",
+      "success": "🎉 Great! You jumped {n} times!",
+      "complete": "You completed all {n} jumping rounds! Great counting!"
+    },
+    "bath-toy-count": {
+      "title": "Bath Toy Count",
+      "description": "Count toys going in and out",
+      "outside": "Outside",
+      "noToys": "None",
+      "howManyIn": "How many toys are in the tub?",
+      "howManyTotal": "How many toys are there in total?",
+      "correct": "🎉 Splash! That's right - {n} toys!",
+      "wrong": "Not quite! There are {n} toys.",
+      "complete": "Great bath time counting! You counted {n} rounds!"
+    },
+    "flash-dot-cards": {
+      "title": "Flash Dot Cards",
+      "description": "Quick! How many dots did you see?",
+      "lookAtDots": "Look at the dots...",
+      "howMany": "How many dots did you see?",
+      "correctMsg": "Yes! There were {n} dots!",
+      "wrongMsg": "Not quite! There were {n} dots."
+    },
+    "dice-play": {
+      "title": "Dice Play",
+      "description": "Say the number without counting dots",
+      "howMany": "How many dots do you see?",
+      "correct": "🎲 Correct! You rolled a {n}!",
+      "showsN": "The dice shows {n} dots."
+    },
+    "egg-carton-dots": {
+      "title": "Egg Carton Dots",
+      "description": "Spot dot patterns in egg cartons!",
+      "howMany": "How many dots do you see?",
+      "correct": "🥚 Great! There are {n} dots!",
+      "wrong": "Not quite! There are {n} dots."
+    },
+    "snack-guess": {
+      "title": "Snack Guess & Check",
+      "description": "Guess how many, then count to check!",
+      "lookQuick": "Look quick!",
+      "howManyGuess": "How many snacks were there?",
+      "nowCheck": "Now let's count to check!",
+      "reveal": "👀 Count to check!",
+      "correct": "🎉 Great guess! There are {n} snacks!",
+      "wrong": "Close! There are {n} snacks."
+    },
+    "cup-reveal": {
+      "title": "Cup Reveal Game",
+      "description": "Peek under the cup - how many?",
+      "peek": "👆 Tap to peek!",
+      "peekInstruction": "What's under the cup?",
+      "lookQuick": "Look quick!",
+      "howMany": "How many were under the cup?",
+      "correct": "🎉 Right! There are {n}!",
+      "wrong": "Not quite! There are {n}."
+    },
+    "clap-and-guess": {
+      "title": "Clap & Guess",
+      "description": "Listen to claps and guess the number!",
+      "listen": "Listen carefully...",
+      "howMany": "How many claps did you hear?",
+      "correct": "👏 Great! There were {n} claps!",
+      "wrong": "Not quite! There were {n} claps."
+    },
+    "button-toss": {
+      "title": "Button Toss",
+      "description": "Toss buttons and name the quantity!",
+      "toss": "🔘 Toss the buttons!",
+      "tossing": "Watch the buttons land!",
+      "howMany": "How many buttons landed?",
+      "correct": "🔘 Great! There are {n} buttons!",
+      "wrong": "Not quite! There are {n} buttons."
+    },
+    "same-or-different": {
+      "title": "Same or Different?",
+      "description": "Compare two groups - are they the same?",
+      "groupA": "Group A",
+      "groupB": "Group B",
+      "same": "Same",
+      "different": "Different",
+      "question": "Do both groups have the same number?",
+      "correctSame": "🎉 Right! Both have {n}!",
+      "correctDiff": "🎉 Right! {a} is not the same as {b}!",
+      "wrongSame": "Look again! Both have {n}.",
+      "wrongDiff": "Look again! {a} and {b} are different."
+    },
+    "split-the-toys": {
+      "title": "Split the Toys",
+      "description": "Split toys into two piles different ways",
+      "start": "🧸 Click here to start!",
+      "total": "Total:",
+      "toys": "toys",
+      "makeSplit": "Make {left} and {right}!",
+      "pileA": "Pile A",
+      "pileB": "Pile B",
+      "clickHint": "👆 Click Add to add a toy, or click the pile to return one!",
+      "correct": "🎉 Perfect! {left} + {right} = {total}",
+      "wrong": "Not quite! That's {left} + {right}, not {targetLeft} + {targetRight}"
+    },
+    "playdough-break": {
+      "title": "Playdough Break",
+      "description": "Roll one ball, break it into parts",
+      "start": "🟤 Click here to start!",
+      "breakBall": "The ball breaks into two pieces!",
+      "whichSplit": "Which way did the ball split?",
+      "correct": "🎉 Yes! {left} + {right} = {total}",
+      "wrong": "Look again! The ball split into {left} and {right}"
+    },
+    "hand-splits": {
+      "title": "Hand Splits",
+      "description": "Show numbers using two hands",
+      "start": "✋ Click here to start!",
+      "showNumber": "Show {n} with your two hands!",
+      "leftHand": "Left Hand",
+      "rightHand": "Right Hand",
+      "check": "Check!",
+      "correct": "🎉 Great! {left} + {right} = {total}",
+      "wrong": "That's {left} + {right} = {sum}, but we need {total}!"
+    },
+    "snack-sharing": {
+      "title": "Snack Sharing",
+      "description": "Share snacks between two plates",
+      "start": "🍇 Click here to start!",
+      "makeSplit": "Put {left} and {right} on the plates!",
+      "bowl": "Snack Bowl",
+      "friend1": "Friend 1",
+      "friend2": "Friend 2",
+      "clickHint": "👆 Click Add to add a snack, or click the plate to return one!",
+      "correct": "🎉 Yummy! {left} + {right} = {total}",
+      "wrong": "Not quite! That's {left} + {right}, try again!"
+    },
+    "box-and-lid": {
+      "title": "Box & Lid Game",
+      "description": "Hide some objects, show the rest",
+      "start": "📦 Click here to start!",
+      "totalIn": "There are {total} items in the box",
+      "canSee": "You can see {visible}...",
+      "howManyHidden": "How many are hidden under the lid?",
+      "correct": "🎉 Yes! {visible} showing + {hidden} hidden = {total}",
+      "wrong": "Not quite! {visible} + {hidden} = {total}"
+    },
+    "build-and-break": {
+      "title": "Build & Break Towers",
+      "description": "Stack blocks, then split them up",
+      "start": "🏗️ Click here to start!",
+      "buildTower": "Build a tower with {n} blocks!",
+      "addBlock": "Add Block",
+      "towerComplete": "Tower complete! Now let's break it into parts!",
+      "splitInto": "Split into {left} and {right}",
+      "clickHint": "👆 Click Add to add a block, or click the tower to return one!",
+      "correct": "🎉 Yes! {left} + {right} = {total}",
+      "wrong": "Look again! The tower split into {left} and {right}"
+    },
+    "two-color-counters": {
+      "title": "Two-Color Counters",
+      "description": "Same number, different color groups",
+      "start": "🔴 Click here to start!",
+      "shake": "Shake the counters!",
+      "howManyRed": "How many red counters?",
+      "howManyYellow": "How many yellow counters?",
+      "red": "red",
+      "yellow": "yellow",
+      "correct": "🎉 Yes! {red} red + {yellow} yellow = {total}",
+      "wrong": "There are {answer} {color} counters!"
+    },
+    "story-mats": {
+      "title": "Story Mats",
+      "description": "Tell stories with parts: pond and land",
+      "start": "🎭 Click here to start!",
+      "correct": "🎉 Yes! {left} + {right} = {total}",
+      "wrong": "The answer is {answer}!"
+    },
+    "who-has-more": {
+      "title": "Who Has More?",
+      "description": "Compare piles and find who has more"
+    },
+    "feed-the-monster": {
+      "title": "Feed the Monster",
+      "description": "Monster wants more or fewer blocks",
+      "monsterWants": "The monster wants",
+      "blocks": "blocks",
+      "more": "MORE",
+      "fewer": "FEWER",
+      "addBlock": "Add Block",
+      "removeBlock": "Remove Block",
+      "checkAnswer": "Check!",
+      "correct": "🎉 Yum! The monster is happy with {n} blocks!",
+      "wrongMore": "The monster wanted MORE! Add blocks!",
+      "wrongFewer": "The monster wanted FEWER! Remove blocks!"
+    },
+    "take-one-away": {
+      "title": "Take One Away",
+      "description": "Remove one and see what's left",
+      "items": "items",
+      "takeOneAway": "We take ONE away...",
+      "howManyLeft": "How many are left?",
+      "correct": "🎉 Right! {before} - 1 = {after}",
+      "wrong": "Not quite! {before} take away 1 is {after}"
+    },
+    "add-one-game": {
+      "title": "Add One Game",
+      "description": "Add one block to the tower",
+      "addOneMore": "We add ONE more block...",
+      "howManyNow": "How many blocks are there now?",
+      "correct": "🎉 Right! {before} + 1 = {after}",
+      "wrong": "Not quite! {before} plus 1 is {after}"
+    },
+    "one-more-cookie": {
+      "title": "One More Cookie",
+      "description": "If you get one more cookie, how many will you have?"
+    },
+    "balance-plates": {
+      "title": "Balance Plates",
+      "description": "Add or remove items to balance",
+      "plateA": "Plate A",
+      "plateB": "Plate B",
+      "makeEqual": "Make the plates equal!",
+      "add": "Add",
+      "remove": "Remove",
+      "correct": "🎉 Balanced! Both have {n}!",
+      "wrongNotEqual": "Not equal yet! Try again!"
+    },
+    "toy-shop": {
+      "title": "Toy Shop Role Play",
+      "description": "Buy and sell toys - more or less?",
+      "yourToys": "Your Toys",
+      "shop": "Shop",
+      "buy": "Buy",
+      "sell": "Sell",
+      "howManyAfterBuy": "If you buy {n} more, how many will you have?",
+      "howManyAfterSell": "If you sell {n}, how many will you have?",
+      "correct": "🎉 Right! You have {n} toys now!",
+      "wrong": "Not quite! You have {answer} toys."
+    },
+    "musical-counting": {
+      "title": "Musical Counting",
+      "description": "Add and remove from the circle",
+      "dancers": "dancers",
+      "join": "join",
+      "leave": "leave",
+      "howManyDancing": "How many friends are dancing now?",
+      "correct": "🎉 Right! There are {n} dancers!",
+      "wrong": "Not quite! There are {n} dancers."
+    },
+    "cleanup-math": {
+      "title": "Clean-Up Math",
+      "description": "Did we put away more or fewer toys?",
+      "before": "Before",
+      "after": "After",
+      "more": "More",
+      "fewer": "Fewer",
+      "same": "Same",
+      "correctMore": "🎉 Right! We have FEWER toys now!",
+      "correctFewer": "🎉 Right! We have MORE toys now!",
+      "correctSame": "🎉 Right! We have the SAME number!"
+    }
+  },
+  "learnMore": {
+    "numberblocks-1-5": {
+      "title": "Numberblocks Ep 1–5: One to Five",
+      "description": "Meet the Numberblocks and learn numbers 1-5"
+    },
+    "numberblocks-ten": {
+      "title": "Numberblocks Ep 20: Ten",
+      "description": "A big number! See how Ten is made"
+    },
+    "numberblocks-zero": {
+      "title": "Numberblocks Ep 35: Zero",
+      "description": "Meet Zero and learn about 'nothing'"
+    },
+    "numberblocks-how-to-count": {
+      "title": "Numberblocks Ep 10: How to Count",
+      "description": "Learn the secret of counting"
+    },
+    "numberblocks-stampolines": {
+      "title": "Numberblocks Ep 11: Stampolines",
+      "description": "Jump and count with stampolines"
+    },
+    "numberblocks-whats-my-number": {
+      "title": "Numberblocks Ep 94: What's My Number?",
+      "description": "Guess the number game with Numberblocks"
+    },
+    "numberblocks-whole-of-me": {
+      "title": "Numberblocks Ep 12: The Whole of Me ⭐",
+      "description": "The MOST important episode about parts and wholes!"
+    },
+    "numberblocks-hide-seek": {
+      "title": "Numberblocks Ep 15: Hide and Seek",
+      "description": "Numbers hide and show their parts"
+    },
+    "numberblocks-fruit-salad": {
+      "title": "Numberblocks Ep 34: Fruit Salad",
+      "description": "Mix different parts to make a whole"
+    },
+    "numberblocks-another-one": {
+      "title": "Numberblocks Ep 2: Another One",
+      "description": "What happens when you add one more?"
+    },
+    "numberblocks-holes": {
+      "title": "Numberblocks Ep 14: Holes",
+      "description": "Learn about taking away"
+    },
+    "numberblocks-blockzilla": {
+      "title": "Numberblocks Ep 32: Blockzilla",
+      "description": "A big adventure with adding and taking away"
+    }
+  }
+}

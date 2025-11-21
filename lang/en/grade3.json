@@ -1,0 +1,52 @@
+{
+  "title": "Grade 3 Activities",
+  "description": "Understanding times tables and groups",
+  "levels": {
+    "level1": {
+      "title": "Level 1",
+      "description": "Multiplication basics"
+    },
+    "level2": {
+      "title": "Level 2",
+      "description": "Times tables practice"
+    },
+    "level3": {
+      "title": "Level 3",
+      "description": "Division introduction"
+    },
+    "level4": {
+      "title": "Level 4",
+      "description": "Fractions basics"
+    },
+    "level5": {
+      "title": "Level 5",
+      "description": "Word problems"
+    },
+    "level6": {
+      "title": "Level 6",
+      "description": "Mixed practice"
+    }
+  },
+  "activities": {
+    "multiplicationArrays": {
+      "title": "Multiplication Arrays",
+      "description": "See multiplication as groups",
+      "instruction": "How many in all?"
+    },
+    "timesTablesDrill": {
+      "title": "Times Tables",
+      "description": "Practice multiplication facts",
+      "instruction": "What is the product?"
+    },
+    "divisionSharing": {
+      "title": "Fair Sharing",
+      "description": "Learn to divide equally",
+      "instruction": "How many in each group?"
+    },
+    "fractionPizzas": {
+      "title": "Fraction Pizzas",
+      "description": "Learn parts of a whole",
+      "instruction": "What fraction is shaded?"
+    }
+  }
+}

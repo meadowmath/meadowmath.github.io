@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bath Toy Count - Pre-K Math Activity - Meadow Math">
+  <title>Bath Toy Count - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🛁</span>
+            <span data-i18n="section.activities.bath-toy-count.title">Bath Toy Count</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.bath-toy-count.description">Count toys going in and out!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Question Display -->
+          <div class="question-display" id="question-display">
+            <span class="question-text" id="question-text">How many toys are in the tub?</span>
+          </div>
+
+          <!-- Bath Scene -->
+          <div class="bath-scene">
+            <!-- Bathtub -->
+            <div class="bathtub-area">
+              <div class="bathtub" id="bathtub">
+                <div class="water"></div>
+                <div class="bubbles">
+                  <span class="bubble">○</span>
+                  <span class="bubble">○</span>
+                  <span class="bubble">○</span>
+                </div>
+                <div class="tub-toys" id="tub-toys">
+                  <!-- Toys in the tub -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Toys on Floor -->
+            <div class="toys-outside" id="toys-outside">
+              <div class="toys-label">Floor</div>
+              <div class="toys-container" id="outside-container">
+                <!-- Toys on the floor -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Answer Choices -->
+          <div class="answer-choices" id="answer-choices">
+            <!-- Choices will be generated by JS -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <button class="btn-activity btn-secondary" id="btn-reset" style="display: none;" data-i18n="buttons.reset">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.wellDone">Well Done!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="correct-count">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="incorrect-count">0</span>
+              <span class="stat-label" data-i18n="stats.incorrect">Incorrect</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great bath time counting!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Extra styles for Bath Toy Count activity */
+    .question-display {
+      margin-bottom: var(--space-4);
+      text-align: center;
+    }
+
+    .question-text {
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      color: var(--color-neutral-800);
+      line-height: var(--leading-relaxed);
+    }
+
+    .bath-scene {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: var(--space-6);
+      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .toys-outside {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .toys-label {
+      font-size: var(--text-sm);
+      color: var(--color-neutral-500);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .toys-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-2);
+      min-width: 100px;
+      min-height: 80px;
+      padding: var(--space-3);
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: var(--radius-lg);
+      border: 2px dashed var(--color-neutral-300);
+    }
+
+    .bathtub-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .bathtub {
+      position: relative;
+      width: 200px;
+      height: 140px;
+      background: linear-gradient(to bottom, #e0e7ff, #c7d2fe);
+      border-radius: 20px 20px 60px 60px;
+      border: 6px solid #a5b4fc;
+      box-shadow: inset 0 -30px 40px rgba(99, 102, 241, 0.2), 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .water {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70%;
+      background: linear-gradient(to bottom, rgba(147, 197, 253, 0.6), rgba(96, 165, 250, 0.8));
+      border-radius: 0 0 54px 54px;
+      overflow: hidden;
+    }
+
+    .bubbles {
+      position: absolute;
+      top: 30%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      pointer-events: none;
+    }
+
+    .bubble {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.7);
+      animation: bubbleFloat 3s ease-in-out infinite;
+    }
+
+    .bubble:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .bubble:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    @keyframes bubbleFloat {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-10px); opacity: 1; }
+    }
+
+    .tub-toys {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      padding: var(--space-2);
+      z-index: 2;
+    }
+
+    .bath-toy {
+      font-size: 36px;
+      animation: toyFloat 2s ease-in-out infinite;
+      cursor: default;
+    }
+
+    .bath-toy:nth-child(odd) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes toyFloat {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-8px) rotate(5deg); }
+    }
+
+    .outside-toy {
+      font-size: 36px;
+      opacity: 0.7;
+    }
+
+    .answer-choices {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .choice-btn {
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-secondary);
+      font-size: 32px;
+      font-weight: var(--weight-bold);
+      cursor: pointer;
+      border: none;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      color: #1e40af;
+      box-shadow: 0 4px 0 #3b82f6, 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .choice-btn:hover:not(.correct):not(.incorrect):not(:disabled) {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 0 #3b82f6, 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .choice-btn:active:not(.correct):not(.incorrect):not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #3b82f6, 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .choice-btn.correct {
+      background: linear-gradient(135deg, #bbf7d0, #86efac);
+      box-shadow: 0 4px 0 #16a34a, 0 6px 15px rgba(0, 0, 0, 0.1);
+      color: #166534;
+      animation: correctPop 0.4s ease;
+    }
+
+    .choice-btn.incorrect {
+      background: linear-gradient(135deg, #fecaca, #fca5a5);
+      box-shadow: 0 4px 0 #dc2626, 0 6px 15px rgba(0, 0, 0, 0.1);
+      color: #991b1b;
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes correctPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    .choice-btn:disabled {
+      cursor: default;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 500px) {
+      .bathtub {
+        width: 160px;
+        height: 110px;
+      }
+
+      .bath-toy, .outside-toy {
+        font-size: 28px;
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Bath Toy Count Activity
+    const BathToyCount = {
+      // Game state
+      toysInTub: 0,
+      toysOutside: 0,
+      correctAnswer: 0,
+      questionType: 'in', // 'in' or 'total'
+      round: 1,
+      maxRounds: 6,
+      correctCount: 0,
+      incorrectCount: 0,
+      isComplete: false,
+      autoAdvanceDelay: 1500,
+
+      // Bath toy emojis
+      toys: ['🦆', '🐙', '🐠', '🐳', '🦀', '🐚', '⭐', '🚢'],
+
+      // DOM elements
+      tubToys: null,
+      outsideContainer: null,
+      questionText: null,
+      answerChoices: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      btnReset: null,
+      statsOverlay: null,
+      statsMessage: null,
+      correctCountEl: null,
+      incorrectCountEl: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.tubToys = document.getElementById('tub-toys');
+        this.outsideContainer = document.getElementById('outside-container');
+        this.questionText = document.getElementById('question-text');
+        this.answerChoices = document.getElementById('answer-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.btnReset = document.getElementById('btn-reset');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsMessage = document.getElementById('stats-message');
+        this.correctCountEl = document.getElementById('correct-count');
+        this.incorrectCountEl = document.getElementById('incorrect-count');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnReset.addEventListener('click', () => this.reset());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Start first round
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Update translations when language changes
+       */
+      updateTranslations() {
+        this.updateQuestion();
+      },
+
+      /**
+       * Start a new round
+       */
+      startRound() {
+        this.isComplete = false;
+        this.feedback.classList.remove('show');
+
+        // Generate random toy counts
+        this.toysInTub = randomInt(1, 4);
+        this.toysOutside = randomInt(0, 3);
+
+        // Alternate between question types
+        if (this.round % 2 === 1) {
+          this.questionType = 'in';
+          this.correctAnswer = this.toysInTub;
+        } else {
+          this.questionType = 'total';
+          this.correctAnswer = this.toysInTub + this.toysOutside;
+        }
+
+        // Render toys
+        this.renderToys();
+
+        // Update question
+        this.updateQuestion();
+
+        // Generate choices
+        this.generateChoices();
+
+        this.renderProgress();
+      },
+
+      /**
+       * Render toys in and outside tub
+       */
+      renderToys() {
+        // Shuffle toys for variety
+        const shuffledToys = shuffle([...this.toys]);
+
+        // Render tub toys
+        this.tubToys.innerHTML = '';
+        for (let i = 0; i < this.toysInTub; i++) {
+          const toy = document.createElement('span');
+          toy.className = 'bath-toy';
+          toy.textContent = shuffledToys[i];
+          toy.style.animationDelay = `${i * 0.2}s`;
+          this.tubToys.appendChild(toy);
+        }
+
+        // Render outside toys
+        this.outsideContainer.innerHTML = '';
+        for (let i = 0; i < this.toysOutside; i++) {
+          const toy = document.createElement('span');
+          toy.className = 'outside-toy';
+          toy.textContent = shuffledToys[this.toysInTub + i];
+          this.outsideContainer.appendChild(toy);
+        }
+
+        // Show empty state for floor if no toys
+        if (this.toysOutside === 0) {
+          const empty = document.createElement('span');
+          empty.style.cssText = 'color: var(--color-neutral-400); font-size: var(--text-sm);';
+          const getText = (key, fallback) => {
+            if (typeof i18n !== 'undefined' && i18n.t) {
+              const result = i18n.t(key);
+              return (result && !result.startsWith('section.')) ? result : fallback;
+            }
+            return fallback;
+          };
+          empty.textContent = getText('section.activities.bath-toy-count.noToys', 'None');
+          this.outsideContainer.appendChild(empty);
+        }
+      },
+
+      /**
+       * Update the question text
+       */
+      updateQuestion() {
+        const getText = (key, fallback) => {
+          if (typeof i18n !== 'undefined' && i18n.t) {
+            const result = i18n.t(key);
+            return (result && !result.startsWith('section.')) ? result : fallback;
+          }
+          return fallback;
+        };
+
+        if (this.questionType === 'in') {
+          this.questionText.textContent = getText('section.activities.bath-toy-count.howManyIn', 'How many toys are in the tub?');
+        } else {
+          this.questionText.textContent = getText('section.activities.bath-toy-count.howManyTotal', 'How many toys are there in total?');
+        }
+      },
+
+      /**
+       * Generate answer choices
+       */
+      generateChoices() {
+        this.answerChoices.innerHTML = '';
+
+        // Create choices including correct answer
+        let choices = [this.correctAnswer];
+        
+        // Add nearby numbers as distractors
+        const possibleNumbers = [];
+        for (let i = 0; i <= 7; i++) {
+          if (i !== this.correctAnswer) {
+            possibleNumbers.push(i);
+          }
+        }
+
+        // Add some close distractors
+        while (choices.length < 4 && possibleNumbers.length > 0) {
+          // Prefer numbers close to the correct answer
+          const closeNumbers = possibleNumbers.filter(n => Math.abs(n - this.correctAnswer) <= 2);
+          const pool = closeNumbers.length > 0 ? closeNumbers : possibleNumbers;
+          const randomIndex = randomInt(0, pool.length - 1);
+          const num = pool[randomIndex];
+          choices.push(num);
+          possibleNumbers.splice(possibleNumbers.indexOf(num), 1);
+        }
+
+        // Shuffle choices using Fisher-Yates in place
+        for (let i = choices.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [choices[i], choices[j]] = [choices[j], choices[i]];
+        }
+
+        // Create buttons
+        choices.forEach(num => {
+          const btn = document.createElement('button');
+          btn.className = 'choice-btn';
+          btn.textContent = num;
+          btn.dataset.value = num;
+
+          btn.addEventListener('click', () => this.handleChoice(btn, num));
+
+          this.answerChoices.appendChild(btn);
+        });
+      },
+
+      /**
+       * Handle choice selection
+       */
+      handleChoice(button, value) {
+        if (this.isComplete) return;
+
+        // Disable all buttons
+        const buttons = this.answerChoices.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => btn.disabled = true);
+
+        if (value === this.correctAnswer) {
+          // Correct!
+          button.classList.add('correct');
+          this.correctCount++;
+
+          // Show feedback
+          const correctMsg = i18n.t('section.activities.bath-toy-count.correct') || '🎉 Splash! That\'s right - {n} toys!';
+          this.feedback.textContent = correctMsg.replace('{n}', this.correctAnswer);
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.answerChoices);
+          }
+
+          // Play sound
+          if (typeof playSound === 'function') {
+            playSound('success');
+          }
+        } else {
+          // Incorrect
+          button.classList.add('incorrect');
+          this.incorrectCount++;
+
+          // Highlight correct answer
+          buttons.forEach(btn => {
+            if (parseInt(btn.dataset.value) === this.correctAnswer) {
+              btn.classList.add('correct');
+            }
+          });
+
+          // Show feedback
+          const wrongMsg = i18n.t('section.activities.bath-toy-count.wrong') || 'Not quite! There are {n} toys.';
+          this.feedback.textContent = wrongMsg.replace('{n}', this.correctAnswer);
+          this.feedback.classList.add('show', 'error');
+
+          // Play error sound
+          if (typeof playSound === 'function') {
+            playSound('error');
+          }
+        }
+
+        this.isComplete = true;
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.correctCountEl.textContent = this.correctCount;
+        this.incorrectCountEl.textContent = this.incorrectCount;
+        
+        const completeMsg = i18n.t('section.activities.bath-toy-count.complete') || 'Great bath time counting! You counted {n} rounds!';
+        this.statsMessage.textContent = completeMsg.replace('{n}', this.maxRounds);
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.incorrectCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startRound();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+      },
+
+      /**
+       * Reset current round
+       */
+      reset() {
+        this.startRound();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      BathToyCount.init();
+    });
+  </script>
+</body>
+</html>

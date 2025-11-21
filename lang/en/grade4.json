@@ -1,0 +1,52 @@
+{
+  "title": "Grade 4 Activities",
+  "description": "Learning to share and divide equally",
+  "levels": {
+    "level1": {
+      "title": "Level 1",
+      "description": "Multi-digit multiplication"
+    },
+    "level2": {
+      "title": "Level 2",
+      "description": "Long division"
+    },
+    "level3": {
+      "title": "Level 3",
+      "description": "Equivalent fractions"
+    },
+    "level4": {
+      "title": "Level 4",
+      "description": "Decimals introduction"
+    },
+    "level5": {
+      "title": "Level 5",
+      "description": "Geometry"
+    },
+    "level6": {
+      "title": "Level 6",
+      "description": "Word problems"
+    }
+  },
+  "activities": {
+    "multiDigitMultiply": {
+      "title": "Multi-Digit Multiplication",
+      "description": "Multiply larger numbers",
+      "instruction": "Find the product"
+    },
+    "longDivision": {
+      "title": "Long Division",
+      "description": "Divide step by step",
+      "instruction": "What is the quotient?"
+    },
+    "equivalentFractions": {
+      "title": "Equivalent Fractions",
+      "description": "Find fractions that are equal",
+      "instruction": "Which fractions are the same?"
+    },
+    "decimalPlace": {
+      "title": "Decimal Place Value",
+      "description": "Learn tenths and hundredths",
+      "instruction": "What is the decimal?"
+    }
+  }
+}

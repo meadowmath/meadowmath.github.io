@@ -1,0 +1,48 @@
+{
+  "title": "Grade 1 Activities",
+  "description": "First steps in counting, adding, and patterns",
+  "levels": {
+    "level1": {
+      "title": "Level 1",
+      "description": "Numbers to 20"
+    },
+    "level2": {
+      "title": "Level 2",
+      "description": "Addition within 20"
+    },
+    "level3": {
+      "title": "Level 3",
+      "description": "Subtraction basics"
+    },
+    "level4": {
+      "title": "Level 4",
+      "description": "Place value"
+    },
+    "level5": {
+      "title": "Level 5",
+      "description": "Word problems"
+    }
+  },
+  "activities": {
+    "additionFacts": {
+      "title": "Addition Facts",
+      "description": "Practice adding numbers",
+      "instruction": "What is the sum?"
+    },
+    "subtractionFacts": {
+      "title": "Subtraction Facts",
+      "description": "Practice taking away",
+      "instruction": "What is left?"
+    },
+    "placeValueBlocks": {
+      "title": "Place Value Blocks",
+      "description": "Learn tens and ones",
+      "instruction": "How many tens? How many ones?"
+    },
+    "numberPatterns": {
+      "title": "Number Patterns",
+      "description": "Find the pattern and continue",
+      "instruction": "What number comes next?"
+    }
+  }
+}

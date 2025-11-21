@@ -1,0 +1,258 @@
+/* Activity Styles - Meadow Math */
+
+/* ========== ACTIVITY GRID ========== */
+
+.activities-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: var(--space-6) 0;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+/* ========== ACTIVITY CARD ========== */
+
+.activity-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.activity-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.12), 0 16px 40px rgba(0, 0, 0, 0.12);
+  border-color: var(--color-secondary);
+}
+
+.activity-card:active {
+  transform: translateY(2px) scale(1);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.activity-icon {
+  width: var(--activity-icon-size);
+  height: var(--activity-icon-size);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--icon-3xl);
+  transition: transform var(--duration-medium) var(--ease-out);
+}
+
+.activity-card:hover .activity-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.activity-title {
+  font-family: var(--font-secondary);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-neutral-900);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-snug);
+}
+
+.activity-description {
+  font-size: var(--text-sm);
+  color: var(--color-neutral-600);
+  line-height: var(--leading-relaxed);
+  flex: 1;
+}
+
+/* ========== LEVEL SECTIONS ========== */
+
+.level-section {
+  margin-bottom: var(--space-12);
+}
+
+.level-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.level-title {
+  font-family: var(--font-secondary);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-neutral-900);
+  margin: 0;
+}
+
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4);
+  background: linear-gradient(to bottom, #72d0ff, #4fc1ff);
+  color: white;
+  font-family: var(--font-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  border-radius: var(--radius-full);
+  box-shadow: 0 3px 0 #2a9ad8, 0 4px 8px rgba(0, 0, 0, 0.15);
+  border: 2px solid white;
+  text-shadow: 1px 1px 0 #2a9ad8;
+}
+
+/* ========== TAB SYSTEM ========== */
+
+.tabs-container {
+  margin-bottom: var(--space-8);
+}
+
+.tabs-list {
+  display: flex;
+  gap: var(--space-2);
+  border-bottom: 2px solid var(--color-neutral-200);
+  margin-bottom: var(--space-6);
+}
+
+.tab-button {
+  padding: var(--space-4) var(--space-6);
+  font-family: var(--font-secondary);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-neutral-600);
+  background: linear-gradient(to bottom, #f8f8f8, #f0f0f0);
+  border: 2px solid #ddd;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-bottom: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  bottom: -2px;
+  box-shadow: 0 -3px 0 #ddd inset;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.tab-button:hover {
+  color: var(--color-primary);
+  background: linear-gradient(to bottom, #fff, #f8f8f8);
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  color: white;
+  background: linear-gradient(to bottom, #72d0ff, #4fc1ff);
+  border-color: #4fc1ff;
+  box-shadow: 0 -3px 0 #2a9ad8 inset;
+  text-shadow: 1px 1px 0 #2a9ad8;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+  animation: fadeIn var(--duration-slow) var(--ease-out);
+}
+
+/* ========== LEARN MORE SECTION ========== */
+
+.learn-more-content {
+  max-width: 800px;
+}
+
+.resource-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.resource-item {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(0, 201, 201, 0.1);
+}
+
+.resource-item:hover {
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px) scale(1.01);
+  border-color: var(--color-secondary);
+}
+
+.resource-title {
+  font-family: var(--font-secondary);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-2);
+}
+
+.resource-description {
+  font-size: var(--text-base);
+  color: var(--color-neutral-600);
+  margin-bottom: var(--space-3);
+}
+
+.resource-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-primary);
+  font-weight: var(--weight-medium);
+  transition: color var(--duration-normal) var(--ease-out);
+}
+
+.resource-link:hover {
+  color: var(--color-primary-dark);
+}
+
+/* ========== MOBILE RESPONSIVE ========== */
+
+@media (max-width: 767px) {
+  .activities-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .activity-card {
+    min-height: 250px;
+  }
+  
+  .level-title {
+    font-size: var(--text-2xl);
+  }
+  
+  .tabs-list {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .tab-button {
+    white-space: nowrap;
+    font-size: var(--text-base);
+  }
+}
+
+/* ========== TABLET RESPONSIVE ========== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

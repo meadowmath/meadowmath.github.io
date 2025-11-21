@@ -1,0 +1,122 @@
+{
+  "siteName": "Meadow Math",
+  "language": "Language",
+  "explore": "Explore",
+  "nav": {
+    "home": "Home",
+    "prek": "Pre-K",
+    "kindergarten": "Kinder",
+    "grade1": "Grade 1",
+    "grade2": "Grade 2",
+    "grade3": "Grade 3",
+    "grade4": "Grade 4",
+    "grade5": "Grade 5"
+  },
+  "home": {
+    "title": "Welcome to Meadow Math",
+    "subtitle": "A gentle, joyful space to explore mathematics"
+  },
+  "regions": {
+    "prek": {
+      "title": "Pre-K",
+      "desc": "A cozy place to begin exploring numbers and shapes"
+    },
+    "kindergarten": {
+      "title": "Kindergarten",
+      "desc": "Growing number skills through play and discovery"
+    },
+    "grade1": {
+      "title": "Grade 1",
+      "desc": "First steps in counting, adding, and patterns"
+    },
+    "grade2": {
+      "title": "Grade 2",
+      "desc": "Adding and taking away with confidence"
+    },
+    "grade3": {
+      "title": "Grade 3",
+      "desc": "Understanding times tables and groups"
+    },
+    "grade4": {
+      "title": "Grade 4",
+      "desc": "Learning to share and divide equally"
+    },
+    "grade5": {
+      "title": "Grade 5",
+      "desc": "Bigger numbers, fractions, and new ideas"
+    }
+  },
+  "grade": {
+    "pageTitle": "Math Adventures",
+    "activities": "Activities",
+    "comingSoon": "Coming Soon!",
+    "workInProgress": "We're working hard to bring you fun math activities. Check back soon!",
+    "backHome": "Back to Home"
+  },
+  "feedback": {
+    "correct": "Great job!",
+    "tryAgain": "Try again!",
+    "excellent": "Excellent!",
+    "keepGoing": "Keep going!",
+    "wellDone": "Well done!",
+    "amazing": "Amazing!",
+    "goodEffort": "Good effort!"
+  },
+  "buttons": {
+    "start": "Start!",
+    "next": "Next",
+    "reset": "Reset",
+    "back": "Back",
+    "roll": "Roll!",
+    "check": "Check!",
+    "playAgain": "Play Again",
+    "addOne": "+ 1 more!",
+    "ok": "OK, let's go!"
+  },
+  "tabs": {
+    "exercises": "Exercises",
+    "learnMore": "Learn More"
+  },
+  "activity": {
+    "backTo": "← Back to",
+    "clickStart": "Click Start to begin!",
+    "clickRoll": "Click Roll to roll the dice!",
+    "clickStartBanner": "⚫ Click here to start!",
+    "clickRollBanner": "🎲 Click here to roll the dice!",
+    "complete": "Activity Complete!",
+    "correct": "Correct",
+    "wrong": "Wrong",
+    "round": "Round",
+    "of": "of",
+    "yourLineup": "Your Lineup",
+    "count": "Count:",
+    "lineUp": "Line up",
+    "toys": "toys!",
+    "blocks": "blocks",
+    "fingers": "fingers",
+    "snacks": "snacks",
+    "completedRounds": "You completed all the rounds!"
+  },
+  "stats": {
+    "title": "Activity Complete!",
+    "correct": "Correct",
+    "wrong": "Wrong",
+    "incorrect": "Incorrect",
+    "correctAnswers": "Correct",
+    "totalTries": "Total Tries",
+    "amazing": "Amazing! You're a superstar!",
+    "great": "Great job! Keep practicing!",
+    "goodEffort": "Good effort! Try again to improve!",
+    "wellDone": "Well Done!"
+  },
+  "fruits": {
+    "apple": "apple",
+    "orange": "orange",
+    "lemon": "lemon",
+    "banana": "banana",
+    "strawberry": "strawberry",
+    "peach": "peach",
+    "pear": "pear",
+    "kiwi": "kiwi"
+  }
+}

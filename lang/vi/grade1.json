@@ -1,0 +1,48 @@
+{
+  "title": "Hoạt động Lớp 1",
+  "description": "Bước đầu đếm số, cộng và tìm quy luật",
+  "levels": {
+    "level1": {
+      "title": "Cấp 1",
+      "description": "Số đến 20"
+    },
+    "level2": {
+      "title": "Cấp 2",
+      "description": "Phép cộng trong phạm vi 20"
+    },
+    "level3": {
+      "title": "Cấp 3",
+      "description": "Phép trừ cơ bản"
+    },
+    "level4": {
+      "title": "Cấp 4",
+      "description": "Giá trị vị trí"
+    },
+    "level5": {
+      "title": "Cấp 5",
+      "description": "Bài toán có lời văn"
+    }
+  },
+  "activities": {
+    "additionFacts": {
+      "title": "Bảng cộng",
+      "description": "Luyện tập cộng số",
+      "instruction": "Tổng là bao nhiêu?"
+    },
+    "subtractionFacts": {
+      "title": "Bảng trừ",
+      "description": "Luyện tập phép trừ",
+      "instruction": "Còn lại bao nhiêu?"
+    },
+    "placeValueBlocks": {
+      "title": "Khối giá trị vị trí",
+      "description": "Học hàng chục và hàng đơn vị",
+      "instruction": "Có mấy chục? Có mấy đơn vị?"
+    },
+    "numberPatterns": {
+      "title": "Quy luật số",
+      "description": "Tìm quy luật và tiếp tục",
+      "instruction": "Số tiếp theo là gì?"
+    }
+  }
+}

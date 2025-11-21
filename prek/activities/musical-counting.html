@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Musical Counting - Pre-K Math Activity - Meadow Math">
+  <title>Musical Counting - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🎵</span>
+            <span data-i18n="section.activities.musical-counting.title">Musical Counting</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.musical-counting.description">Watch friends join and leave the dance circle!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Dance Circle -->
+          <div class="dance-circle-container">
+            <div class="dance-circle" id="dance-circle">
+              <!-- Dancers will be generated -->
+            </div>
+            <div class="music-notes">🎵 🎶 🎵</div>
+          </div>
+
+          <!-- Counter Display -->
+          <div class="dancer-count">
+            <span class="count-label" data-i18n="section.activities.musical-counting.dancers">Dancers:</span>
+            <span class="count-number" id="dancer-count">3</span>
+          </div>
+
+          <!-- Action Display -->
+          <div class="action-display" id="action-display">
+            <span id="action-text">1 friend joins!</span>
+          </div>
+
+          <!-- Question -->
+          <div class="question-display" id="question">
+            <span data-i18n="section.activities.musical-counting.howMany">How many dancers now?</span>
+          </div>
+
+          <!-- Number Choices -->
+          <div class="number-choices" id="number-choices">
+            <!-- Number buttons will be generated -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Musical Counting specific styles */
+    .dance-circle-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: var(--space-4);
+    }
+
+    .dance-circle {
+      width: 250px;
+      height: 250px;
+      border: 8px dashed #a855f7;
+      border-radius: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-4);
+      background: linear-gradient(to bottom, #faf5ff, #f3e8ff);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+      position: relative;
+    }
+
+    .music-notes {
+      font-size: 24px;
+      color: #a855f7;
+      margin-top: var(--space-2);
+      animation: musicFloat 2s ease-in-out infinite;
+    }
+
+    @keyframes musicFloat {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-10px); opacity: 1; }
+    }
+
+    .dancer {
+      font-size: 40px;
+      animation: danceBounce 0.8s ease-in-out infinite;
+    }
+
+    .dancer:nth-child(odd) {
+      animation-delay: 0.2s;
+    }
+
+    .dancer.joining {
+      animation: dancerJoin 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .dancer.leaving {
+      animation: dancerLeave 0.5s ease-out forwards;
+    }
+
+    @keyframes danceBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.05); }
+    }
+
+    @keyframes dancerJoin {
+      0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes dancerLeave {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0) translateY(-30px);
+        opacity: 0;
+      }
+    }
+
+    .dancer-count {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      color: var(--color-neutral-700);
+      margin-bottom: var(--space-4);
+      background: linear-gradient(to bottom, #fef3c7, #fde68a);
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-xl);
+      border: 3px solid #f59e0b;
+      box-shadow: 0 4px 0 #d97706;
+    }
+
+    .count-number {
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+    }
+
+    .action-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      margin-bottom: var(--space-4);
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-xl);
+      transition: all 0.3s ease;
+    }
+
+    .action-display.join {
+      background: linear-gradient(to bottom, #f0fdf4, #dcfce7);
+      border: 3px solid #4ade80;
+      color: #16a34a;
+      box-shadow: 0 4px 0 #22c55e;
+    }
+
+    .action-display.leave {
+      background: linear-gradient(to bottom, #fef2f2, #fecaca);
+      border: 3px solid #f87171;
+      color: #dc2626;
+      box-shadow: 0 4px 0 #ef4444;
+    }
+
+    .question-display {
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      text-align: center;
+      margin-bottom: var(--space-4);
+    }
+
+    .number-choices {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .number-choice {
+      width: 70px;
+      height: 70px;
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      background: white;
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 var(--color-neutral-300);
+    }
+
+    .number-choice:hover:not(:disabled) {
+      transform: translateY(-4px);
+      border-color: var(--color-secondary);
+      box-shadow: 0 8px 0 var(--color-secondary-dark);
+    }
+
+    .number-choice:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--color-neutral-300);
+    }
+
+    .number-choice:disabled {
+      cursor: not-allowed;
+    }
+
+    .number-choice.correct {
+      border-color: #22c55e;
+      background: linear-gradient(to bottom, #f0fdf4, #dcfce7);
+      box-shadow: 0 4px 0 #16a34a;
+      color: #16a34a;
+    }
+
+    .number-choice.incorrect {
+      border-color: #ef4444;
+      background: linear-gradient(to bottom, #fef2f2, #fecaca);
+      box-shadow: 0 4px 0 #dc2626;
+      color: #dc2626;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .dance-circle {
+        width: 200px;
+        height: 200px;
+      }
+
+      .dancer {
+        font-size: 32px;
+      }
+
+      .number-choice {
+        width: 60px;
+        height: 60px;
+        font-size: var(--text-xl);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    /**
+     * Musical Counting Activity
+     * Children learn about adding and subtracting by watching friends join and leave a dance circle
+     */
+    const MusicalCounting = {
+      // Activity state
+      round: 1,
+      maxRounds: 8,
+      correctCount: 0,
+      wrongCount: 0,
+      hasAnswered: false,
+      isComplete: false,
+      autoAdvanceDelay: 1500,
+
+      // Current round state
+      startCount: 0,
+      changeAmount: 0,
+      targetCount: 0,
+      isJoining: true, // true = join, false = leave
+
+      // Dancer emojis
+      dancers: ['🧒', '👧', '👦', '🧒🏻', '👧🏽', '👦🏾', '🧒🏼', '👧🏻'],
+
+      // DOM elements
+      danceCircle: null,
+      dancerCountEl: null,
+      actionDisplay: null,
+      actionText: null,
+      question: null,
+      numberChoices: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.danceCircle = document.getElementById('dance-circle');
+        this.dancerCountEl = document.getElementById('dancer-count');
+        this.actionDisplay = document.getElementById('action-display');
+        this.actionText = document.getElementById('action-text');
+        this.question = document.getElementById('question');
+        this.numberChoices = document.getElementById('number-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Start first round
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Create number choice buttons
+       */
+      createNumberChoices() {
+        this.numberChoices.innerHTML = '';
+        
+        // Generate choices around the target
+        const choices = new Set();
+        choices.add(this.targetCount);
+        
+        while (choices.size < 4) {
+          const offset = randomInt(-2, 2);
+          const choice = this.targetCount + offset;
+          if (choice >= 0 && choice <= 8) {
+            choices.add(choice);
+          }
+        }
+
+        // Sort and create buttons
+        const sortedChoices = Array.from(choices).sort((a, b) => a - b);
+        sortedChoices.forEach(num => {
+          const btn = document.createElement('button');
+          btn.className = 'number-choice';
+          btn.textContent = num;
+          btn.dataset.value = num;
+          btn.addEventListener('click', () => this.selectAnswer(num));
+          this.numberChoices.appendChild(btn);
+        });
+      },
+
+      /**
+       * Start a new round
+       */
+      startRound() {
+        // Reset state
+        this.hasAnswered = false;
+        this.isComplete = false;
+        this.changeAnimated = false;
+
+        // Decide join or leave
+        this.isJoining = Math.random() < 0.5;
+
+        if (this.isJoining) {
+          // Joining: start with 1-4, add 1-2
+          this.startCount = randomInt(1, 4);
+          this.changeAmount = randomInt(1, 2);
+          this.targetCount = this.startCount + this.changeAmount;
+        } else {
+          // Leaving: start with 3-5, remove 1-2
+          this.startCount = randomInt(3, 5);
+          this.changeAmount = randomInt(1, 2);
+          this.targetCount = this.startCount - this.changeAmount;
+        }
+
+        // Reset UI
+        this.feedback.classList.remove('show');
+
+        // Render initial dancers (only the starting count!)
+        this.renderDancers(this.startCount);
+        this.dancerCountEl.textContent = this.startCount;
+
+        // Update action display
+        if (this.isJoining) {
+          this.actionDisplay.className = 'action-display join';
+          if (this.changeAmount === 1) {
+            this.actionText.textContent = `➕ 1 friend joins! (${this.startCount} + 1 = ?)`;
+          } else {
+            this.actionText.textContent = `➕ ${this.changeAmount} friends join! (${this.startCount} + ${this.changeAmount} = ?)`;
+          }
+        } else {
+          this.actionDisplay.className = 'action-display leave';
+          if (this.changeAmount === 1) {
+            this.actionText.textContent = `➖ 1 friend leaves! (${this.startCount} - 1 = ?)`;
+          } else {
+            this.actionText.textContent = `➖ ${this.changeAmount} friends leave! (${this.startCount} - ${this.changeAmount} = ?)`;
+          }
+        }
+
+        // Create number choices
+        this.createNumberChoices();
+        this.renderProgress();
+      },
+
+      /**
+       * Render dancers in the circle
+       */
+      renderDancers(count) {
+        this.danceCircle.innerHTML = '';
+        const shuffled = [...this.dancers].sort(() => Math.random() - 0.5);
+        
+        for (let i = 0; i < count; i++) {
+          const dancer = document.createElement('span');
+          dancer.className = 'dancer';
+          dancer.textContent = shuffled[i % shuffled.length];
+          dancer.style.animationDelay = `${(i * 0.15)}s`;
+          this.danceCircle.appendChild(dancer);
+        }
+      },
+
+      /**
+       * Animate dancers joining or leaving
+       */
+      animateChange() {
+        if (this.changeAnimated) return;
+        this.changeAnimated = true;
+        
+        const currentDancers = this.danceCircle.querySelectorAll('.dancer');
+        const shuffled = [...this.dancers].sort(() => Math.random() - 0.5);
+
+        if (this.isJoining) {
+          // Add new dancers
+          for (let i = 0; i < this.changeAmount; i++) {
+            setTimeout(() => {
+              const dancer = document.createElement('span');
+              dancer.className = 'dancer joining';
+              dancer.textContent = shuffled[(this.startCount + i) % shuffled.length];
+              this.danceCircle.appendChild(dancer);
+            }, i * 300);
+          }
+        } else {
+          // Remove dancers
+          const dancersArray = Array.from(currentDancers);
+          for (let i = 0; i < this.changeAmount; i++) {
+            setTimeout(() => {
+              if (dancersArray.length > i) {
+                dancersArray[dancersArray.length - 1 - i].classList.add('leaving');
+                setTimeout(() => {
+                  if (dancersArray[dancersArray.length - 1 - i].parentNode) {
+                    dancersArray[dancersArray.length - 1 - i].remove();
+                  }
+                }, 500);
+              }
+            }, i * 300);
+          }
+        }
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(number) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        const selectedBtn = this.numberChoices.querySelector(`[data-value="${number}"]`);
+        const correctBtn = this.numberChoices.querySelector(`[data-value="${this.targetCount}"]`);
+
+        // Disable all buttons
+        const buttons = this.numberChoices.querySelectorAll('.number-choice');
+        buttons.forEach(btn => btn.disabled = true);
+
+        // Animate to show the result
+        this.animateChange();
+
+        // Update count display after animation
+        setTimeout(() => {
+          this.dancerCountEl.textContent = this.targetCount;
+        }, this.changeAmount * 300 + 100);
+
+        // Check answer
+        if (number === this.targetCount) {
+          // Correct!
+          selectedBtn.classList.add('correct');
+          
+          if (this.isJoining) {
+            this.feedback.textContent = `🎉 Yes! ${this.startCount} + ${this.changeAmount} = ${this.targetCount}!`;
+          } else {
+            this.feedback.textContent = `🎉 Yes! ${this.startCount} - ${this.changeAmount} = ${this.targetCount}!`;
+          }
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.danceCircle);
+          }
+        } else {
+          // Incorrect
+          selectedBtn.classList.add('incorrect');
+          correctBtn.classList.add('correct');
+          
+          if (this.isJoining) {
+            this.feedback.textContent = `${this.startCount} + ${this.changeAmount} = ${this.targetCount} dancers.`;
+          } else {
+            this.feedback.textContent = `${this.startCount} - ${this.changeAmount} = ${this.targetCount} dancers.`;
+          }
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = 'Amazing! You\'re a dance counting star!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = 'Great job counting dancers!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = 'Good effort! Try again!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startRound();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      MusicalCounting.init();
+    });
+  </script>
+</body>
+</html>

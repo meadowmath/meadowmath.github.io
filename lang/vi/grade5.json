@@ -1,0 +1,56 @@
+{
+  "title": "Hoạt động Lớp 5",
+  "description": "Số lớn hơn, phân số và ý tưởng mới",
+  "levels": {
+    "level1": {
+      "title": "Cấp 1",
+      "description": "Phép tính với số thập phân"
+    },
+    "level2": {
+      "title": "Cấp 2",
+      "description": "Phép tính với phân số"
+    },
+    "level3": {
+      "title": "Cấp 3",
+      "description": "Thứ tự phép tính"
+    },
+    "level4": {
+      "title": "Cấp 4",
+      "description": "Thể tích và đo lường"
+    },
+    "level5": {
+      "title": "Cấp 5",
+      "description": "Đồ thị tọa độ"
+    },
+    "level6": {
+      "title": "Cấp 6",
+      "description": "Biểu thức và phương trình"
+    },
+    "level7": {
+      "title": "Cấp 7",
+      "description": "Bài toán có lời văn"
+    }
+  },
+  "activities": {
+    "decimalOperations": {
+      "title": "Phép tính số thập phân",
+      "description": "Cộng, trừ, nhân số thập phân",
+      "instruction": "Tính kết quả"
+    },
+    "fractionAddSub": {
+      "title": "Cộng trừ phân số",
+      "description": "Cộng và trừ phân số",
+      "instruction": "Tìm tổng hoặc hiệu"
+    },
+    "orderOfOps": {
+      "title": "Thứ tự phép tính",
+      "description": "Giải biểu thức đúng cách",
+      "instruction": "Nhớ quy tắc thứ tự!"
+    },
+    "coordinateGrid": {
+      "title": "Lưới tọa độ",
+      "description": "Vẽ và tìm điểm",
+      "instruction": "Tọa độ là gì?"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "title": "Hoạt động Lớp 3",
+  "description": "Hiểu bảng nhân và nhóm số",
+  "levels": {
+    "level1": {
+      "title": "Cấp 1",
+      "description": "Phép nhân cơ bản"
+    },
+    "level2": {
+      "title": "Cấp 2",
+      "description": "Luyện bảng nhân"
+    },
+    "level3": {
+      "title": "Cấp 3",
+      "description": "Giới thiệu phép chia"
+    },
+    "level4": {
+      "title": "Cấp 4",
+      "description": "Phân số cơ bản"
+    },
+    "level5": {
+      "title": "Cấp 5",
+      "description": "Bài toán có lời văn"
+    },
+    "level6": {
+      "title": "Cấp 6",
+      "description": "Luyện tập tổng hợp"
+    }
+  },
+  "activities": {
+    "multiplicationArrays": {
+      "title": "Bảng nhân",
+      "description": "Nhìn phép nhân như các nhóm",
+      "instruction": "Tất cả có bao nhiêu?"
+    },
+    "timesTablesDrill": {
+      "title": "Bảng cửu chương",
+      "description": "Luyện tập phép nhân",
+      "instruction": "Tích là bao nhiêu?"
+    },
+    "divisionSharing": {
+      "title": "Chia đều",
+      "description": "Học cách chia đều",
+      "instruction": "Mỗi nhóm có bao nhiêu?"
+    },
+    "fractionPizzas": {
+      "title": "Phân số Pizza",
+      "description": "Học các phần của một tổng thể",
+      "instruction": "Phần tô màu là phân số gì?"
+    }
+  }
+}

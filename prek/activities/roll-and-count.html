@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Roll and Count - Pre-K Math Activity - Meadow Math">
+  <title>Roll & Count - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🎲</span>
+            <span data-i18n="section.activities.roll-and-count.title">Roll & Count</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.roll-and-count.description">Roll the dice, then tap to add that many blocks!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Dice -->
+          <div class="dice-container">
+            <div class="dice" id="dice" data-value="1">
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+            </div>
+          </div>
+
+          <!-- Question Display -->
+          <div class="question-display" id="question-display" style="display: none;">
+            <span class="question-text" id="question-text" data-i18n="section.activities.roll-and-count.howMany">How many dots are on the dice?</span>
+          </div>
+
+          <!-- Answer Choices -->
+          <div class="answer-choices" id="answer-choices" style="display: none;">
+            <!-- Choices will be generated by JS -->
+          </div>
+
+          <!-- Start Banner Button (acts as Roll button) -->
+          <button class="start-banner-btn show" id="btn-roll" data-i18n="activity.clickRollBanner">🎲 Click here to roll the dice!</button>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <button class="btn-activity btn-secondary" id="btn-reset" style="display: none;" data-i18n="buttons.reset">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.wellDone">Well Done!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="correct-count">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="incorrect-count">0</span>
+              <span class="stat-label" data-i18n="stats.incorrect">Incorrect</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message" data-i18n="activity.completedRounds">You completed all the rounds!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Extra styles for this activity */
+    .dice-container {
+      margin-bottom: var(--space-6);
+    }
+
+    .dice {
+      transition: transform 0.2s ease;
+    }
+
+    .question-display {
+      margin-bottom: var(--space-6);
+      text-align: center;
+    }
+
+    .question-text {
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      color: var(--color-neutral-800);
+      line-height: var(--leading-relaxed);
+    }
+
+    .answer-choices {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .choice-btn {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-secondary);
+      font-size: 36px;
+      font-weight: var(--weight-bold);
+      cursor: pointer;
+      border: none;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      color: var(--color-neutral-700);
+      box-shadow: 0 4px 0 #d97706, 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .choice-btn:hover:not(.correct):not(.incorrect):not(:disabled) {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 0 #d97706, 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .choice-btn:active:not(.correct):not(.incorrect):not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #d97706, 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .choice-btn.correct {
+      background: linear-gradient(135deg, #bbf7d0, #86efac);
+      box-shadow: 0 4px 0 #16a34a, 0 6px 15px rgba(0, 0, 0, 0.1);
+      color: #166534;
+      animation: correctPop 0.4s ease;
+    }
+
+    .choice-btn.incorrect {
+      background: linear-gradient(135deg, #fecaca, #fca5a5);
+      box-shadow: 0 4px 0 #dc2626, 0 6px 15px rgba(0, 0, 0, 0.1);
+      color: #991b1b;
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes correctPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    .choice-btn:disabled {
+      cursor: default;
+      opacity: 0.7;
+    }
+
+    .game-phase-roll .answer-choices,
+    .game-phase-roll .question-display {
+      display: none !important;
+    }
+
+    .game-phase-answer .dice {
+      opacity: 0.9;
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Roll & Count Activity
+    const RollAndCount = {
+      // Game state
+      targetNumber: 0,
+      round: 1,
+      maxRounds: 5,
+      correctCount: 0,
+      incorrectCount: 0,
+      phase: 'roll', // 'roll' or 'answer'
+      isComplete: false,
+      autoAdvanceDelay: 1500,
+
+      // DOM elements
+      dice: null,
+      questionDisplay: null,
+      questionText: null,
+      answerChoices: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      btnRoll: null,
+      btnReset: null,
+      statsOverlay: null,
+      statsMessage: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.dice = document.getElementById('dice');
+        this.questionDisplay = document.getElementById('question-display');
+        this.questionText = document.getElementById('question-text');
+        this.answerChoices = document.getElementById('answer-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.btnRoll = document.getElementById('btn-roll');
+        this.btnReset = document.getElementById('btn-reset');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsMessage = document.getElementById('stats-message');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnRoll.addEventListener('click', () => this.rollDice());
+        this.dice.addEventListener('click', () => this.rollDice());
+        this.btnReset.addEventListener('click', () => this.reset());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Start
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Update translations when language changes
+       */
+      updateTranslations() {
+        // Update dynamic content based on current game phase
+        if (this.phase === 'roll') {
+          this.instruction.textContent = i18n.t('section.activities.roll-and-count.rollInstruction') || 'Roll the dice to see how many dots!';
+        } else if (this.phase === 'answer') {
+          this.questionText.textContent = i18n.t('section.activities.roll-and-count.howMany') || 'How many dots are on the dice?';
+        }
+      },
+
+      /**
+       * Start a new round
+       */
+      startRound() {
+        this.targetNumber = 0;
+        this.phase = 'roll';
+        this.isComplete = false;
+
+        // Update UI
+        this.dice.dataset.value = '1';
+        this.questionDisplay.style.display = 'none';
+        this.answerChoices.style.display = 'none';
+        this.answerChoices.innerHTML = '';
+        this.feedback.classList.remove('show');
+        
+        // Only show start button on round 1
+        if (this.round === 1) {
+          this.btnRoll.classList.add('show');
+          this.instruction.textContent = i18n.t('section.activities.roll-and-count.rollInstruction') || 'Roll the dice to see how many dots!';
+        } else {
+          this.btnRoll.classList.remove('show');
+          // Auto-roll for subsequent rounds
+          setTimeout(() => this.rollDice(), 300);
+        }
+        this.btnReset.style.display = 'none';
+
+        document.querySelector('.activity-area').classList.add('game-phase-roll');
+        document.querySelector('.activity-area').classList.remove('game-phase-answer');
+
+        this.renderProgress();
+      },
+
+      /**
+       * Roll the dice
+       */
+      rollDice() {
+        if (this.phase !== 'roll') return;
+
+        // Hide start banner button
+        this.btnRoll.classList.remove('show');
+
+        // Animate dice
+        this.dice.classList.add('rolling');
+
+        // Generate random number
+        setTimeout(() => {
+          this.targetNumber = randomInt(1, 6);
+          this.dice.dataset.value = this.targetNumber;
+          this.dice.classList.remove('rolling');
+
+          // Switch to answer phase
+          this.phase = 'answer';
+          
+          // Show question and choices
+          this.questionDisplay.style.display = 'block';
+          this.answerChoices.style.display = 'flex';
+          this.questionText.textContent = i18n.t('section.activities.roll-and-count.howMany') || 'How many dots are on the dice?';
+          
+          // Generate answer choices
+          this.generateChoices();
+
+          const countMsg = i18n.t('section.activities.roll-and-count.countInstruction') || 'Count the dots and pick the right number!';
+          this.instruction.textContent = countMsg;
+          document.querySelector('.activity-area').classList.remove('game-phase-roll');
+          document.querySelector('.activity-area').classList.add('game-phase-answer');
+        }, 500);
+      },
+
+      /**
+       * Generate answer choices
+       */
+      generateChoices() {
+        this.answerChoices.innerHTML = '';
+
+        // Create choices: correct answer and 2-3 distractors
+        const choices = [this.targetNumber];
+        
+        // Add nearby distractors
+        const possibleDistractors = [];
+        for (let i = 1; i <= 6; i++) {
+          if (i !== this.targetNumber) {
+            possibleDistractors.push(i);
+          }
+        }
+        
+        // Shuffle and pick 3 distractors
+        for (let i = possibleDistractors.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [possibleDistractors[i], possibleDistractors[j]] = [possibleDistractors[j], possibleDistractors[i]];
+        }
+        
+        choices.push(...possibleDistractors.slice(0, 3));
+        
+        // Sort choices in order
+        choices.sort((a, b) => a - b);
+
+        // Create buttons
+        choices.forEach(num => {
+          const btn = document.createElement('button');
+          btn.className = 'choice-btn';
+          btn.textContent = num;
+          btn.dataset.value = num;
+          btn.addEventListener('click', () => this.checkAnswer(btn, num));
+          this.answerChoices.appendChild(btn);
+        });
+      },
+
+      /**
+       * Check the selected answer
+       */
+      checkAnswer(btn, selectedValue) {
+        if (this.isComplete) return;
+
+        // Disable all buttons
+        const allBtns = this.answerChoices.querySelectorAll('.choice-btn');
+        allBtns.forEach(b => b.disabled = true);
+
+        if (selectedValue === this.targetNumber) {
+          // Correct!
+          btn.classList.add('correct');
+          this.correctCount++;
+
+          const correctMsg = i18n.t('feedback.correct') || '🎉 Correct!';
+          this.feedback.textContent = correctMsg;
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+
+          // Play sound
+          if (typeof playSound === 'function') {
+            playSound('success');
+          }
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.dice);
+          }
+
+          this.completeRound();
+        } else {
+          // Wrong!
+          btn.classList.add('incorrect');
+          this.incorrectCount++;
+
+          // Highlight correct answer
+          allBtns.forEach(b => {
+            if (parseInt(b.dataset.value) === this.targetNumber) {
+              b.classList.add('correct');
+            }
+          });
+
+          const wrongMsg = i18n.t('feedback.tryAgain') || 'Not quite! The answer is {n}.';
+          this.feedback.textContent = wrongMsg.replace('{n}', this.targetNumber);
+          this.feedback.classList.add('show', 'error');
+
+          // Play sound
+          if (typeof playSound === 'function') {
+            playSound('error');
+          }
+
+          this.completeRound();
+        }
+      },
+
+      /**
+       * Complete the current round
+       */
+      completeRound() {
+        this.isComplete = true;
+        document.querySelector('.activity-area').classList.remove('game-phase-answer');
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        // Update stat counts
+        document.getElementById('correct-count').textContent = this.correctCount;
+        document.getElementById('incorrect-count').textContent = this.incorrectCount;
+        
+        const completeMsg = i18n.t('section.activities.roll-and-count.complete') || 'You got {correct} out of {total} correct!';
+        this.statsMessage.textContent = completeMsg
+          .replace('{correct}', this.correctCount)
+          .replace('{total}', this.maxRounds);
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.incorrectCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startRound();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+      },
+
+      /**
+       * Reset current round
+       */
+      reset() {
+        this.startRound();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      RollAndCount.init();
+    });
+  </script>
+</body>
+</html>

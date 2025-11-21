@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Button Toss - Pre-K Math Activity - Meadow Math">
+  <title>Button Toss - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🔘</span>
+            <span data-i18n="section.activities.button-toss.title">Button Toss</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.button-toss.description">Toss buttons and name the quantity!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Toss Area -->
+          <div class="toss-area" id="toss-area">
+            <div class="toss-mat">
+              <div class="buttons-container" id="buttons-container">
+                <!-- Buttons will be generated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Number Choices -->
+          <div class="number-choices" id="number-choices">
+            <!-- Number buttons will be generated -->
+          </div>
+
+          <!-- Start Banner Button -->
+          <button class="start-banner-btn show" id="btn-start" data-i18n="section.activities.button-toss.toss">🔘 Toss the buttons!</button>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Button Toss specific styles */
+    .toss-area {
+      margin-bottom: var(--space-8);
+    }
+
+    .toss-mat {
+      width: 240px;
+      height: 200px;
+      background: linear-gradient(145deg, #d4a574, #c49464);
+      border: 6px solid #a67c52;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 0 #8b6544, 0 10px 30px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .toss-mat::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(255, 255, 255, 0.03) 10px,
+          rgba(255, 255, 255, 0.03) 20px
+        );
+      pointer-events: none;
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 20px;
+      max-width: 200px;
+    }
+
+    .toss-button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+      position: relative;
+      opacity: 0;
+      transform: translateY(-100px) rotate(180deg);
+    }
+
+    .toss-button.landed {
+      animation: buttonLand 0.5s ease forwards;
+    }
+
+    @keyframes buttonLand {
+      0% { 
+        opacity: 0;
+        transform: translateY(-100px) rotate(180deg);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(10px) rotate(20deg);
+      }
+      80% {
+        transform: translateY(-5px) rotate(-10deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+
+    .toss-button::before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+    }
+
+    .toss-button::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+    }
+
+    /* Button hole positions */
+    .toss-button .hole {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 50%;
+    }
+
+    .toss-button .hole:nth-child(1) { top: 12px; left: 12px; }
+    .toss-button .hole:nth-child(2) { top: 12px; right: 12px; }
+    .toss-button .hole:nth-child(3) { bottom: 12px; left: 12px; }
+    .toss-button .hole:nth-child(4) { bottom: 12px; right: 12px; }
+
+    /* Button colors */
+    .toss-button.red { background: linear-gradient(145deg, #ef4444, #dc2626); }
+    .toss-button.blue { background: linear-gradient(145deg, #3b82f6, #2563eb); }
+    .toss-button.green { background: linear-gradient(145deg, #22c55e, #16a34a); }
+    .toss-button.yellow { background: linear-gradient(145deg, #facc15, #eab308); }
+    .toss-button.purple { background: linear-gradient(145deg, #a855f7, #9333ea); }
+
+    .number-choices {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 400px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .number-choices.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .number-choice {
+      width: 68px;
+      height: 68px;
+      font-family: var(--font-secondary);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      background: linear-gradient(to bottom, #fff, #f5f5f5);
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 4px 0 var(--color-neutral-300);
+      color: var(--color-neutral-800);
+    }
+
+    .number-choice:hover:not(:disabled) {
+      transform: translateY(-4px) scale(1.05);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 0 var(--color-primary-dark);
+    }
+
+    .number-choice:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--color-neutral-300);
+    }
+
+    .number-choice:disabled {
+      cursor: default;
+    }
+
+    .number-choice.correct {
+      background: linear-gradient(to bottom, #4ade80, #22c55e);
+      border-color: #16a34a;
+      color: white;
+      box-shadow: 0 4px 0 #16a34a;
+    }
+
+    .number-choice.incorrect {
+      background: linear-gradient(to bottom, #fbbf24, #f59e0b);
+      border-color: #d97706;
+      color: white;
+      animation: shake 0.5s ease;
+    }
+
+    @media (max-width: 767px) {
+      .toss-mat {
+        width: 200px;
+        height: 170px;
+      }
+
+      .toss-button {
+        width: 38px;
+        height: 38px;
+      }
+
+      .toss-button .hole {
+        width: 5px;
+        height: 5px;
+      }
+
+      .toss-button .hole:nth-child(1) { top: 10px; left: 10px; }
+      .toss-button .hole:nth-child(2) { top: 10px; right: 10px; }
+      .toss-button .hole:nth-child(3) { bottom: 10px; left: 10px; }
+      .toss-button .hole:nth-child(4) { bottom: 10px; right: 10px; }
+
+      .number-choice {
+        width: 56px;
+        height: 56px;
+        font-size: var(--text-2xl);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Button Toss Activity
+    const ButtonToss = {
+      // Game state
+      targetNumber: 0,
+      round: 1,
+      maxRounds: 8,
+      isComplete: false,
+      hasAnswered: false,
+      isTossing: false,
+      correctCount: 0,
+      wrongCount: 0,
+      autoAdvanceDelay: 1500,
+
+      // Button colors
+      colors: ['red', 'blue', 'green', 'yellow', 'purple'],
+
+      // DOM elements
+      tossArea: null,
+      buttonsContainer: null,
+      numberChoices: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      btnStart: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.tossArea = document.getElementById('toss-area');
+        this.buttonsContainer = document.getElementById('buttons-container');
+        this.numberChoices = document.getElementById('number-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.btnStart = document.getElementById('btn-start');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnStart.addEventListener('click', () => this.startRound());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Create number choices
+        this.createNumberChoices();
+
+        // Initial state
+        this.renderProgress();
+      },
+
+      /**
+       * Create number choice buttons
+       */
+      createNumberChoices() {
+        this.numberChoices.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+          const btn = document.createElement('button');
+          btn.className = 'number-choice';
+          btn.textContent = i;
+          btn.dataset.value = i;
+          btn.addEventListener('click', () => this.selectAnswer(i));
+          this.numberChoices.appendChild(btn);
+        }
+      },
+
+      /**
+       * Start a round
+       */
+      startRound() {
+        this.hasAnswered = false;
+        this.isComplete = false;
+        this.isTossing = true;
+
+        // Generate random target (1-5)
+        this.targetNumber = randomInt(1, 5);
+
+        // Reset UI
+        this.feedback.classList.remove('show');
+        this.btnStart.classList.remove('show');
+        this.numberChoices.classList.remove('show');
+        this.buttonsContainer.innerHTML = '';
+
+        // Reset number buttons
+        const buttons = this.numberChoices.querySelectorAll('.number-choice');
+        buttons.forEach(btn => {
+          btn.classList.remove('correct', 'incorrect');
+          btn.disabled = false;
+        });
+
+        // Update instruction
+        this.instruction.textContent = i18n.t('section.activities.button-toss.tossing') || 'Watch the buttons land!';
+
+        // Toss buttons
+        this.tossButtons();
+      },
+
+      /**
+       * Toss buttons onto the mat
+       */
+      tossButtons() {
+        // Shuffle colors and pick for this round
+        const shuffledColors = [...this.colors].sort(() => Math.random() - 0.5);
+
+        for (let i = 0; i < this.targetNumber; i++) {
+          const button = document.createElement('div');
+          button.className = `toss-button ${shuffledColors[i % shuffledColors.length]}`;
+          
+          // Add button holes
+          for (let h = 0; h < 4; h++) {
+            const hole = document.createElement('div');
+            hole.className = 'hole';
+            button.appendChild(hole);
+          }
+
+          // Random position offset
+          const randomX = randomInt(-20, 20);
+          const randomY = randomInt(-20, 20);
+          button.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+          this.buttonsContainer.appendChild(button);
+
+          // Animate landing with delay
+          setTimeout(() => {
+            button.classList.add('landed');
+          }, i * 200);
+        }
+
+        // Show choices after all buttons land
+        const totalDelay = this.targetNumber * 200 + 600;
+        setTimeout(() => {
+          this.isTossing = false;
+          this.instruction.textContent = i18n.t('section.activities.button-toss.howMany') || 'How many buttons landed?';
+          this.numberChoices.classList.add('show');
+        }, totalDelay);
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(number) {
+        if (this.hasAnswered || this.isTossing) return;
+        this.hasAnswered = true;
+
+        const selectedBtn = this.numberChoices.querySelector(`[data-value="${number}"]`);
+        const correctBtn = this.numberChoices.querySelector(`[data-value="${this.targetNumber}"]`);
+
+        // Disable all buttons
+        const buttons = this.numberChoices.querySelectorAll('.number-choice');
+        buttons.forEach(btn => btn.disabled = true);
+
+        // Check answer
+        if (number === this.targetNumber) {
+          // Correct!
+          selectedBtn.classList.add('correct');
+          const correctMsg = i18n.t('section.activities.button-toss.correct') || '🔘 Great! There are {n} buttons!';
+          this.feedback.textContent = correctMsg.replace('{n}', this.targetNumber);
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.tossArea);
+          }
+        } else {
+          // Incorrect
+          selectedBtn.classList.add('incorrect');
+          correctBtn.classList.add('correct');
+          const wrongMsg = i18n.t('section.activities.button-toss.wrong') || 'Not quite! There are {n} buttons.';
+          this.feedback.textContent = wrongMsg.replace('{n}', this.targetNumber);
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        // Set message based on performance
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = i18n.t('stats.amazing') || 'Amazing! You\'re a superstar!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = i18n.t('stats.great') || 'Great job! Keep practicing!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = i18n.t('stats.goodEffort') || 'Good effort! Try again to improve!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.hasAnswered = false;
+        this.isTossing = false;
+        this.statsOverlay.classList.remove('show');
+        this.btnStart.classList.add('show');
+        this.numberChoices.classList.remove('show');
+        this.feedback.classList.remove('show');
+        this.buttonsContainer.innerHTML = '';
+        this.instruction.textContent = i18n.t('section.activities.button-toss.description') || 'Toss buttons and name the quantity!';
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      ButtonToss.init();
+    });
+  </script>
+</body>
+</html>

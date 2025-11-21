@@ -1,0 +1,389 @@
+{
+  "title": "Hoạt động Mầm non",
+  "description": "Nơi ấm áp để bắt đầu khám phá số và hình",
+  "tabs": {
+    "activities": "Hoạt động",
+    "learnMore": "Tìm hiểu thêm"
+  },
+  "levels": {
+    "level1": {
+      "title": "Nhận biết số & Đếm",
+      "goal": "Trẻ hiểu rằng số có tên gọi và đại diện cho 'bao nhiêu'."
+    },
+    "level2": {
+      "title": "Nhận diện nhanh & Số lượng",
+      "goal": "Trẻ có thể nhìn thấy 'bao nhiêu' mà không cần đếm từng cái."
+    },
+    "level3": {
+      "title": "Mối quan hệ giữa các số",
+      "goal": "Trẻ thấy rằng số được tạo thành từ các phần nhỏ hơn."
+    },
+    "level4": {
+      "title": "So sánh & Thay đổi",
+      "goal": "Trẻ hiểu nhiều hơn, ít hơn, bằng nhau, thêm một, bớt một."
+    }
+  },
+  "activities": {
+    "finger-counting": {
+      "title": "Hát đếm ngón tay",
+      "description": "Đếm ngón tay với các bài hát vui"
+    },
+    "snack-counting": {
+      "title": "Đếm đồ ăn nhẹ",
+      "description": "Đếm đồ ăn trước khi ăn",
+      "yummy": "Ngon quá! Bạn đã đếm {n} món!",
+      "complete": "Bạn đã đếm đồ ăn trong tất cả {n} lượt! Giỏi lắm!"
+    },
+    "toy-lineup": {
+      "title": "Xếp hàng đồ chơi",
+      "description": "Xếp 1-5 đồ chơi và đếm cùng nhau"
+    },
+    "number-hunt": {
+      "title": "Săn tìm số",
+      "description": "Tìm các số ẩn xung quanh",
+      "findNumber": "Tìm số:",
+      "found": "đã tìm",
+      "findInstruction": "Tìm tất cả các số {n}!",
+      "success": "🎉 Giỏi lắm! Bạn đã tìm thấy tất cả các số {n}!",
+      "complete": "Bạn đã hoàn thành tất cả {n} lượt săn số! Tuyệt vời!"
+    },
+    "roll-and-count": {
+      "title": "Tung & Đếm",
+      "description": "Tung xúc xắc và đặt số khối tương ứng",
+      "howMany": "Có bao nhiêu chấm trên xúc xắc?",
+      "rollInstruction": "Tung xúc xắc để xem cần thêm bao nhiêu khối!",
+      "tapToAdd": "Chạm vào đây để thêm khối",
+      "tapToAddNow": "Chạm để thêm khối!",
+      "rolled": "Bạn tung được {n}! Chạm để thêm {n} khối.",
+      "tooMany": "Úi! Quá nhiều rồi. Thử lại nhé!",
+      "perfect": "🎉 Tuyệt vời! Bạn đã thêm {n} khối!",
+      "complete": "Bạn đã hoàn thành tất cả {n} lượt! Đếm giỏi lắm!"
+    },
+    "zero-basket": {
+      "title": "Giỏ số không",
+      "description": "Học về số không với giỏ rỗng",
+      "empty": "Trống!",
+      "howMany": "Có bao nhiêu {fruit} trong giỏ?",
+      "howManyEmpty": "Giỏ trống rỗi! Có bao nhiêu vật?",
+      "zeroCorrect": "🎉 Đúng rồi! Số không nghĩa là không có gì!",
+      "zeroWrong": "Giỏ trống - đó là số không!",
+      "correct": "🎉 Đúng rồi! Có {n}!",
+      "wrong": "Chưa đúng! Có {n} trong giỏ.",
+      "complete": "Bạn đã học về số không và đếm số!"
+    },
+    "jump-and-count": {
+      "title": "Nhảy & Đếm",
+      "description": "Nhảy trong khi đếm to",
+      "jumpTo": "Nhảy đến:",
+      "jumps": "lần nhảy",
+      "tapToJump": "🦘 Chạm để nhảy nào!",
+      "jumpToN": "Nhảy {n} lần!",
+      "success": "🎉 Giỏi lắm! Bạn đã nhảy {n} lần!",
+      "complete": "Bạn đã hoàn thành tất cả {n} lượt nhảy! Đếm giỏi lắm!"
+    },
+    "bath-toy-count": {
+      "title": "Đếm đồ chơi tắm",
+      "description": "Đếm đồ chơi vào và ra",
+      "outside": "Bên ngoài",
+      "noToys": "Không có",
+      "howManyIn": "Có bao nhiêu đồ chơi trong bồn?",
+      "howManyTotal": "Tổng cộng có bao nhiêu đồ chơi?",
+      "correct": "🎉 Tòe! Đúng rồi - {n} đồ chơi!",
+      "wrong": "Chưa đúng! Có {n} đồ chơi.",
+      "complete": "Giỏi đếm lắm! Bạn đã đếm {n} lượt!"
+    },
+    "flash-dot-cards": {
+      "title": "Thẻ chấm nhanh",
+      "description": "Nhanh! Bạn thấy bao nhiêu chấm?",
+      "lookAtDots": "Nhìn các chấm...",
+      "howMany": "Bạn thấy bao nhiêu chấm?",
+      "correctMsg": "Đúng rồi! Có {n} chấm!",
+      "wrongMsg": "Chưa đúng! Có {n} chấm."
+    },
+    "dice-play": {
+      "title": "Chơi xúc xắc",
+      "description": "Nói số mà không đếm chấm",
+      "howMany": "Bạn thấy bao nhiêu chấm?",
+      "correct": "🎲 Đúng rồi! Bạn tung được {n}!",
+      "showsN": "Xúc xắc hiện {n} chấm."
+    },
+    "egg-carton-dots": {
+      "title": "Chấm khay trứng",
+      "description": "Nhận biết mẫu chấm trong khay trứng!",
+      "howMany": "Bạn thấy bao nhiêu chấm?",
+      "correct": "🥚 Giỏi lắm! Có {n} chấm!",
+      "wrong": "Chưa đúng! Có {n} chấm."
+    },
+    "snack-guess": {
+      "title": "Đoán & Kiểm tra",
+      "description": "Đoán bao nhiêu, rồi đếm kiểm tra!",
+      "lookQuick": "Nhìn nhanh!",
+      "howManyGuess": "Có bao nhiêu đồ ăn?",
+      "nowCheck": "Giờ đếm để kiểm tra nhé!",
+      "reveal": "👀 Đếm để kiểm tra!",
+      "correct": "🎉 Đoán giỏi lắm! Có {n} đồ ăn!",
+      "wrong": "Gần đúng rồi! Có {n} đồ ăn."
+    },
+    "cup-reveal": {
+      "title": "Trò chơi lật cốc",
+      "description": "Nhìn dưới cốc - có bao nhiêu?",
+      "peek": "👆 Chạm để xem!",
+      "peekInstruction": "Có gì dưới cốc?",
+      "lookQuick": "Nhìn nhanh!",
+      "howMany": "Có bao nhiêu dưới cốc?",
+      "correct": "🎉 Đúng rồi! Có {n}!",
+      "wrong": "Chưa đúng! Có {n}."
+    },
+    "clap-and-guess": {
+      "title": "Vỗ tay & Đoán",
+      "description": "Nghe tiếng vỗ tay và đoán số!",
+      "listen": "Lắng nghe cẩn thận...",
+      "howMany": "Bạn nghe bao nhiêu tiếng vỗ tay?",
+      "correct": "👏 Giỏi lắm! Có {n} tiếng vỗ tay!",
+      "wrong": "Chưa đúng! Có {n} tiếng vỗ tay."
+    },
+    "button-toss": {
+      "title": "Tung nút",
+      "description": "Tung nút và nói số lượng!",
+      "toss": "🔘 Tung nút nào!",
+      "tossing": "Xem các nút rơi!",
+      "howMany": "Có bao nhiêu nút?",
+      "correct": "🔘 Giỏi lắm! Có {n} nút!",
+      "wrong": "Chưa đúng! Có {n} nút."
+    },
+    "same-or-different": {
+      "title": "Giống hay khác?",
+      "description": "So sánh hai nhóm - chúng giống nhau không?",
+      "groupA": "Nhóm A",
+      "groupB": "Nhóm B",
+      "same": "Giống",
+      "different": "Khác",
+      "question": "Hai nhóm có số lượng bằng nhau không?",
+      "correctSame": "🎉 Đúng rồi! Cả hai đều có {n}!",
+      "correctDiff": "🎉 Đúng rồi! {a} không giống {b}!",
+      "wrongSame": "Nhìn lại nhé! Cả hai đều có {n}.",
+      "wrongDiff": "Nhìn lại nhé! {a} và {b} khác nhau."
+    },
+    "split-the-toys": {
+      "title": "Chia đồ chơi",
+      "description": "Chia đồ chơi thành hai đống theo nhiều cách",
+      "start": "🧸 Nhấn vào đây để bắt đầu!",
+      "makeSplit": "Chia {total} đồ chơi thành {left} và {right}",
+      "clickHint": "👆 Nhấn Thêm để thêm đồ chơi, hoặc nhấn đống để trả lại!",
+      "total": "Tổng cộng",
+      "toys": "đồ chơi",
+      "pileA": "Đống A",
+      "pileB": "Đống B",
+      "correct": "🎉 Tuyệt vời! {left} + {right} = {total}",
+      "wrong": "Chưa đúng! Đó là {left} + {right}, không phải {targetLeft} + {targetRight}"
+    },
+    "playdough-break": {
+      "title": "Bẻ đất nặn",
+      "description": "Nặn một quả bóng, bẻ thành các phần",
+      "start": "🟤 Nhấn vào đây để bắt đầu!",
+      "breakBall": "Quả bóng bẻ ra thành hai mảnh!",
+      "whichSplit": "Quả bóng bẻ ra như thế nào?",
+      "correct": "🎉 Đúng rồi! {left} + {right} = {total}",
+      "wrong": "Nhìn lại nhé! Quả bóng bẻ thành {left} và {right}"
+    },
+    "hand-splits": {
+      "title": "Chia bằng tay",
+      "description": "Biểu diễn số bằng hai bàn tay",
+      "start": "✋ Nhấn vào đây để bắt đầu!",
+      "showNumber": "Biểu diễn {n} bằng hai bàn tay!",
+      "leftHand": "Tay trái",
+      "rightHand": "Tay phải",
+      "check": "Kiểm tra!",
+      "correct": "🎉 Giỏi lắm! {left} + {right} = {total}",
+      "wrong": "Đó là {left} + {right} = {sum}, nhưng cần {total}!"
+    },
+    "snack-sharing": {
+      "title": "Chia đồ ăn",
+      "description": "Chia đồ ăn cho hai người bạn",
+      "start": "🍪 Nhấn vào đây để bắt đầu!",
+      "makeSplit": "Chia {total} đồ ăn thành {left} và {right}",
+      "clickHint": "👆 Nhấn Thêm để thêm đồ ăn, hoặc nhấn đĩa để trả lại!",
+      "bowl": "Tô",
+      "friend1": "Bạn 1",
+      "friend2": "Bạn 2",
+      "correct": "🎉 Ngon quá! {left} + {right} = {total}",
+      "wrong": "Chưa đúng! Đó là {left} + {right}, thử lại nhé!"
+    },
+    "box-and-lid": {
+      "title": "Trò hộp & nắp",
+      "description": "Giấu một số vật, cho xem phần còn lại",
+      "start": "📦 Nhấn vào đây để bắt đầu!",
+      "totalIn": "Có {total} vật trong hộp",
+      "canSee": "Bạn thấy {visible}...",
+      "howManyHidden": "Bao nhiêu đang bị giấu dưới nắp?",
+      "correct": "🎉 Đúng rồi! {visible} thấy + {hidden} giấu = {total}",
+      "wrong": "Chưa đúng! {visible} + {hidden} = {total}"
+    },
+    "build-and-break": {
+      "title": "Xây & Bẻ tháp",
+      "description": "Xếp khối, rồi chia chúng ra",
+      "start": "🧱 Nhấn vào đây để bắt đầu!",
+      "tapToAdd": "Chạm để thêm khối!",
+      "buildTower": "Xây tháp với {n} khối",
+      "towerComplete": "🎉 Tháp hoàn thành! Giờ chia nó ra!",
+      "splitInto": "Chia tháp thành {left} và {right}",
+      "clickHint": "👆 Nhấn Thêm để thêm khối, hoặc nhấn tháp để trả lại!",
+      "whichSplit": "Tháp tách ra như thế nào?",
+      "correct": "🎉 Đúng rồi! {left} + {right} = {total}",
+      "wrong": "Nhìn lại nhé! Tháp tách thành {left} và {right}"
+    },
+    "two-color-counters": {
+      "title": "Quân hai màu",
+      "description": "Cùng số, nhóm màu khác nhau",
+      "start": "🔴 Nhấn vào đây để bắt đầu!",
+      "shake": "Lắc các quân!",
+      "howManyRed": "Có bao nhiêu quân đỏ?",
+      "howManyYellow": "Có bao nhiêu quân vàng?",
+      "red": "đỏ",
+      "yellow": "vàng",
+      "correct": "🎉 Đúng rồi! {red} đỏ + {yellow} vàng = {total}",
+      "wrong": "Có {answer} quân {color}!"
+    },
+    "story-mats": {
+      "title": "Thảm kể chuyện",
+      "description": "Kể chuyện với các phần: ao và đất",
+      "start": "🎭 Nhấn vào đây để bắt đầu!",
+      "correct": "🎉 Đúng rồi! {left} + {right} = {total}",
+      "wrong": "Đáp án là {answer}!"
+    },
+    "who-has-more": {
+      "title": "Ai có nhiều hơn?",
+      "description": "So sánh các đống và tìm ai có nhiều hơn"
+    },
+    "feed-the-monster": {
+      "title": "Cho quái vật ăn",
+      "description": "Quái vật muốn nhiều hơn hay ít hơn",
+      "monsterWants": "Quái vật muốn",
+      "blocks": "khối",
+      "more": "NHIỀU HƠN",
+      "fewer": "ÍT HƠN",
+      "addBlock": "Thêm khối",
+      "removeBlock": "Bớt khối",
+      "checkAnswer": "Kiểm tra!",
+      "correct": "🎉 Ngon! Quái vật vui với {n} khối!",
+      "wrongMore": "Quái vật muốn NHIỀU HƠN! Thêm khối!",
+      "wrongFewer": "Quái vật muốn ÍT HƠN! Bớt khối!"
+    },
+    "take-one-away": {
+      "title": "Bớt đi một",
+      "description": "Bỏ đi một và xem còn lại gì",
+      "items": "vật",
+      "takeOneAway": "Chúng ta bỏ đi MỘT...",
+      "howManyLeft": "Còn lại bao nhiêu?",
+      "correct": "🎉 Đúng rồi! {before} - 1 = {after}",
+      "wrong": "Chưa đúng! {before} bớt 1 là {after}"
+    },
+    "add-one-game": {
+      "title": "Trò thêm một",
+      "description": "Thêm một khối vào tháp",
+      "addOneMore": "Chúng ta thêm MỘT khối nữa...",
+      "howManyNow": "Bây giờ có bao nhiêu khối?",
+      "correct": "🎉 Đúng rồi! {before} + 1 = {after}",
+      "wrong": "Chưa đúng! {before} cộng 1 là {after}"
+    },
+    "one-more-cookie": {
+      "title": "Thêm một bánh",
+      "description": "Nếu bạn có thêm một bánh, bạn sẽ có bao nhiêu?"
+    },
+    "balance-plates": {
+      "title": "Cân bằng đĩa",
+      "description": "Thêm hoặc bớt để cân bằng",
+      "plateA": "Đĩa A",
+      "plateB": "Đĩa B",
+      "makeEqual": "Làm hai đĩa bằng nhau!",
+      "add": "Thêm",
+      "remove": "Bớt",
+      "correct": "🎉 Cân bằng! Cả hai có {n}!",
+      "wrongNotEqual": "Chưa bằng nhau! Thử lại!"
+    },
+    "toy-shop": {
+      "title": "Đóng vai cửa hàng",
+      "description": "Mua bán đồ chơi - nhiều hay ít?",
+      "yourToys": "Đồ chơi của bạn",
+      "shop": "Cửa hàng",
+      "buy": "Mua",
+      "sell": "Bán",
+      "howManyAfterBuy": "Nếu bạn mua thêm {n}, bạn sẽ có bao nhiêu?",
+      "howManyAfterSell": "Nếu bạn bán {n}, bạn sẽ có bao nhiêu?",
+      "correct": "🎉 Đúng rồi! Bạn có {n} đồ chơi!",
+      "wrong": "Chưa đúng! Bạn có {answer} đồ chơi."
+    },
+    "musical-counting": {
+      "title": "Đếm theo nhạc",
+      "description": "Thêm và bớt khỏi vòng tròn",
+      "dancers": "người nhảy",
+      "join": "tham gia",
+      "leave": "rời đi",
+      "howManyDancing": "Bây giờ có bao nhiêu bạn đang nhảy?",
+      "correct": "🎉 Đúng rồi! Có {n} người nhảy!",
+      "wrong": "Chưa đúng! Có {n} người nhảy."
+    },
+    "cleanup-math": {
+      "title": "Toán dọn dẹp",
+      "description": "Chúng ta dọn nhiều hơn hay ít hơn?",
+      "before": "Trước",
+      "after": "Sau",
+      "more": "Nhiều hơn",
+      "fewer": "Ít hơn",
+      "same": "Bằng nhau",
+      "correctMore": "🎉 Đúng rồi! Bây giờ có ÍT HƠN đồ chơi!",
+      "correctFewer": "🎉 Đúng rồi! Bây giờ có NHIỀU HƠN đồ chơi!",
+      "correctSame": "🎉 Đúng rồi! Số lượng BẰNG NHAU!"
+    }
+  },
+  "learnMore": {
+    "numberblocks-1-5": {
+      "title": "Numberblocks Tập 1–5: Một đến Năm",
+      "description": "Gặp gỡ các Numberblocks và học số 1-5"
+    },
+    "numberblocks-ten": {
+      "title": "Numberblocks Tập 20: Mười",
+      "description": "Một số lớn! Xem Mười được tạo thành như thế nào"
+    },
+    "numberblocks-zero": {
+      "title": "Numberblocks Tập 35: Số không",
+      "description": "Gặp gỡ Số không và học về 'không có gì'"
+    },
+    "numberblocks-how-to-count": {
+      "title": "Numberblocks Tập 10: Cách đếm",
+      "description": "Học bí quyết đếm số"
+    },
+    "numberblocks-stampolines": {
+      "title": "Numberblocks Tập 11: Stampolines",
+      "description": "Nhảy và đếm cùng stampolines"
+    },
+    "numberblocks-whats-my-number": {
+      "title": "Numberblocks Tập 94: Số của tôi là gì?",
+      "description": "Trò đoán số với Numberblocks"
+    },
+    "numberblocks-whole-of-me": {
+      "title": "Numberblocks Tập 12: Tất cả của tôi ⭐",
+      "description": "Tập QUAN TRỌNG NHẤT về các phần và tổng thể!"
+    },
+    "numberblocks-hide-seek": {
+      "title": "Numberblocks Tập 15: Trốn tìm",
+      "description": "Các số ẩn nấp và cho thấy các phần của chúng"
+    },
+    "numberblocks-fruit-salad": {
+      "title": "Numberblocks Tập 34: Salad trái cây",
+      "description": "Trộn các phần khác nhau để tạo thành tổng thể"
+    },
+    "numberblocks-another-one": {
+      "title": "Numberblocks Tập 2: Thêm một",
+      "description": "Điều gì xảy ra khi bạn thêm một?"
+    },
+    "numberblocks-holes": {
+      "title": "Numberblocks Tập 14: Lỗ hổng",
+      "description": "Học về việc bớt đi"
+    },
+    "numberblocks-blockzilla": {
+      "title": "Numberblocks Tập 32: Blockzilla",
+      "description": "Cuộc phiêu lưu lớn với cộng và trừ"
+    }
+  }
+}

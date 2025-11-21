@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Toy Shop Role Play - Pre-K Math Activity - Meadow Math">
+  <title>Toy Shop - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🏪</span>
+            <span data-i18n="section.activities.toy-shop.title">Toy Shop</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.toy-shop.description">Buy toys and count your collection!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Shop Display -->
+          <div class="shop-container">
+            <div class="shop-header">
+              <span class="shop-sign">🏪 Toy Shop</span>
+            </div>
+            
+            <!-- Shop Shelves -->
+            <div class="shop-shelves" id="shop-shelves">
+              <!-- Toys will be generated -->
+            </div>
+          </div>
+
+          <!-- Your Collection -->
+          <div class="collection-container">
+            <div class="collection-header">
+              <span data-i18n="section.activities.toy-shop.yourToys">Your Toys:</span>
+              <span class="collection-count" id="collection-count">0</span>
+            </div>
+            <div class="collection-items" id="collection-items">
+              <!-- Bought toys will appear here -->
+            </div>
+          </div>
+
+          <!-- Question -->
+          <div class="shop-question" id="question">
+            <span id="question-text">If you buy 1 more toy, how many will you have?</span>
+          </div>
+
+          <!-- Number Choices -->
+          <div class="number-choices" id="number-choices">
+            <!-- Number buttons will be generated -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Toy Shop specific styles */
+    .shop-container {
+      background: linear-gradient(to bottom, #fef3c7, #fde68a);
+      border: 4px solid #f59e0b;
+      border-radius: var(--radius-2xl);
+      padding: var(--space-4);
+      margin-bottom: var(--space-4);
+      box-shadow: 0 4px 0 #d97706;
+    }
+
+    .shop-header {
+      text-align: center;
+      margin-bottom: var(--space-3);
+    }
+
+    .shop-sign {
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: #92400e;
+      background: white;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-lg);
+      border: 3px solid #f59e0b;
+      display: inline-block;
+    }
+
+    .shop-shelves {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: var(--radius-xl);
+      min-height: 80px;
+    }
+
+    .shop-toy {
+      font-size: 48px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      animation: toyBounce 2s ease-in-out infinite;
+    }
+
+    .shop-toy:hover {
+      transform: scale(1.2);
+    }
+
+    .shop-toy.sold {
+      opacity: 0.3;
+      cursor: not-allowed;
+      animation: none;
+    }
+
+    @keyframes toyBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .collection-container {
+      background: linear-gradient(to bottom, #dbeafe, #bfdbfe);
+      border: 4px solid #3b82f6;
+      border-radius: var(--radius-xl);
+      padding: var(--space-4);
+      margin-bottom: var(--space-4);
+      box-shadow: 0 4px 0 #2563eb;
+    }
+
+    .collection-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: #1e40af;
+      margin-bottom: var(--space-3);
+    }
+
+    .collection-count {
+      font-size: var(--text-2xl);
+      background: white;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-lg);
+      border: 2px solid #3b82f6;
+    }
+
+    .collection-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: 60px;
+      padding: var(--space-2);
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: var(--radius-lg);
+    }
+
+    .collection-toy {
+      font-size: 40px;
+      animation: collectToy 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes collectToy {
+      0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+      }
+    }
+
+    .shop-question {
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      text-align: center;
+      margin-bottom: var(--space-4);
+      background: white;
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-xl);
+      border: 3px solid var(--color-neutral-200);
+    }
+
+    .number-choices {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .number-choice {
+      width: 70px;
+      height: 70px;
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      background: white;
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 var(--color-neutral-300);
+    }
+
+    .number-choice:hover:not(:disabled) {
+      transform: translateY(-4px);
+      border-color: var(--color-secondary);
+      box-shadow: 0 8px 0 var(--color-secondary-dark);
+    }
+
+    .number-choice:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--color-neutral-300);
+    }
+
+    .number-choice:disabled {
+      cursor: not-allowed;
+    }
+
+    .number-choice.correct {
+      border-color: #22c55e;
+      background: linear-gradient(to bottom, #f0fdf4, #dcfce7);
+      box-shadow: 0 4px 0 #16a34a;
+      color: #16a34a;
+    }
+
+    .number-choice.incorrect {
+      border-color: #ef4444;
+      background: linear-gradient(to bottom, #fef2f2, #fecaca);
+      box-shadow: 0 4px 0 #dc2626;
+      color: #dc2626;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .shop-toy {
+        font-size: 40px;
+      }
+
+      .collection-toy {
+        font-size: 32px;
+      }
+
+      .number-choice {
+        width: 60px;
+        height: 60px;
+        font-size: var(--text-xl);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    /**
+     * Toy Shop Activity
+     * Children learn about addition by "buying" toys and predicting their collection count
+     */
+    const ToyShop = {
+      // Activity state
+      round: 1,
+      maxRounds: 6,
+      correctCount: 0,
+      wrongCount: 0,
+      hasAnswered: false,
+      isComplete: false,
+      autoAdvanceDelay: 1500,
+
+      // Current round state
+      collectionCount: 0,
+      targetCount: 0,
+      buyAmount: 1,
+
+      // Available toys
+      toys: ['🧸', '🚗', '🎈', '⚽', '🪀', '🎮', '🪁', '🎨', '🎺', '🦖'],
+
+      // DOM elements
+      shopShelves: null,
+      collectionItems: null,
+      collectionCountEl: null,
+      question: null,
+      questionText: null,
+      numberChoices: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.shopShelves = document.getElementById('shop-shelves');
+        this.collectionItems = document.getElementById('collection-items');
+        this.collectionCountEl = document.getElementById('collection-count');
+        this.question = document.getElementById('question');
+        this.questionText = document.getElementById('question-text');
+        this.numberChoices = document.getElementById('number-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Start first round
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Create number choice buttons
+       */
+      createNumberChoices() {
+        this.numberChoices.innerHTML = '';
+        
+        // Generate choices around the target
+        const choices = new Set();
+        choices.add(this.targetCount);
+        
+        while (choices.size < 4) {
+          const offset = randomInt(-2, 2);
+          const choice = this.targetCount + offset;
+          if (choice >= 0 && choice <= 8) {
+            choices.add(choice);
+          }
+        }
+
+        // Sort and create buttons
+        const sortedChoices = Array.from(choices).sort((a, b) => a - b);
+        sortedChoices.forEach(num => {
+          const btn = document.createElement('button');
+          btn.className = 'number-choice';
+          btn.textContent = num;
+          btn.dataset.value = num;
+          btn.addEventListener('click', () => this.selectAnswer(num));
+          this.numberChoices.appendChild(btn);
+        });
+      },
+
+      /**
+       * Start a new round
+       */
+      startRound() {
+        // Reset state
+        this.hasAnswered = false;
+        this.isComplete = false;
+
+        // Generate starting collection (0-3)
+        this.collectionCount = randomInt(0, 3);
+        
+        // Decide buy amount (1-2)
+        this.buyAmount = randomInt(1, 2);
+        this.targetCount = this.collectionCount + this.buyAmount;
+
+        // Reset UI
+        this.feedback.classList.remove('show');
+
+        // Render shop
+        this.renderShop();
+        
+        // Render collection
+        this.renderCollection();
+
+        // Update question
+        if (this.buyAmount === 1) {
+          this.questionText.textContent = `If you buy 1 more toy, how many will you have?`;
+        } else {
+          this.questionText.textContent = `If you buy ${this.buyAmount} more toys, how many will you have?`;
+        }
+
+        // Create number choices
+        this.createNumberChoices();
+
+        this.renderProgress();
+      },
+
+      /**
+       * Render shop with toys
+       */
+      renderShop() {
+        this.shopShelves.innerHTML = '';
+        
+        // Show 5-8 toys in shop
+        const toyCount = randomInt(5, 8);
+        const shuffledToys = [...this.toys].sort(() => Math.random() - 0.5);
+        
+        for (let i = 0; i < toyCount; i++) {
+          const toy = document.createElement('span');
+          toy.className = 'shop-toy';
+          toy.textContent = shuffledToys[i % shuffledToys.length];
+          toy.style.animationDelay = `${i * 0.2}s`;
+          this.shopShelves.appendChild(toy);
+        }
+      },
+
+      /**
+       * Render collection
+       */
+      renderCollection() {
+        this.collectionItems.innerHTML = '';
+        
+        const shuffledToys = [...this.toys].sort(() => Math.random() - 0.5);
+        
+        for (let i = 0; i < this.collectionCount; i++) {
+          const toy = document.createElement('span');
+          toy.className = 'collection-toy';
+          toy.textContent = shuffledToys[i % shuffledToys.length];
+          this.collectionItems.appendChild(toy);
+        }
+
+        this.collectionCountEl.textContent = this.collectionCount;
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(number) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        const selectedBtn = this.numberChoices.querySelector(`[data-value="${number}"]`);
+        const correctBtn = this.numberChoices.querySelector(`[data-value="${this.targetCount}"]`);
+
+        // Disable all buttons
+        const buttons = this.numberChoices.querySelectorAll('.number-choice');
+        buttons.forEach(btn => btn.disabled = true);
+
+        // Check answer
+        if (number === this.targetCount) {
+          // Correct!
+          selectedBtn.classList.add('correct');
+          
+          // Add bought toys to collection
+          this.addToysToCollection();
+          
+          this.feedback.textContent = `🎉 Yes! ${this.collectionCount} + ${this.buyAmount} = ${this.targetCount}!`;
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.collectionItems);
+          }
+        } else {
+          // Incorrect
+          selectedBtn.classList.add('incorrect');
+          correctBtn.classList.add('correct');
+          this.feedback.textContent = `${this.collectionCount} + ${this.buyAmount} = ${this.targetCount} toys.`;
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Add bought toys to collection with animation
+       */
+      addToysToCollection() {
+        const shuffledToys = [...this.toys].sort(() => Math.random() - 0.5);
+        
+        for (let i = 0; i < this.buyAmount; i++) {
+          setTimeout(() => {
+            const toy = document.createElement('span');
+            toy.className = 'collection-toy';
+            toy.textContent = shuffledToys[(this.collectionCount + i) % shuffledToys.length];
+            this.collectionItems.appendChild(toy);
+            this.collectionCountEl.textContent = parseInt(this.collectionCountEl.textContent) + 1;
+          }, i * 200);
+        }
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = 'Amazing shopper! Great counting!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = 'Great job at the toy shop!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = 'Good effort! Try again!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startRound();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      ToyShop.init();
+    });
+  </script>
+</body>
+</html>

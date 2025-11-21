@@ -1,0 +1,44 @@
+{
+  "title": "Kindergarten Activities",
+  "description": "Growing number skills through play and discovery",
+  "levels": {
+    "level1": {
+      "title": "Level 1",
+      "description": "Numbers 1-10"
+    },
+    "level2": {
+      "title": "Level 2",
+      "description": "Simple addition"
+    },
+    "level3": {
+      "title": "Level 3",
+      "description": "Shapes and patterns"
+    },
+    "level4": {
+      "title": "Level 4",
+      "description": "Comparing numbers"
+    }
+  },
+  "activities": {
+    "countingGarden": {
+      "title": "Counting Garden",
+      "description": "Count flowers in the garden",
+      "instruction": "How many flowers are there?"
+    },
+    "numberBonds": {
+      "title": "Number Bonds",
+      "description": "Learn number pairs that make 10",
+      "instruction": "What two numbers make 10?"
+    },
+    "shapeSort": {
+      "title": "Shape Sort",
+      "description": "Sort shapes by type",
+      "instruction": "Put shapes in the right groups"
+    },
+    "additionStory": {
+      "title": "Addition Stories",
+      "description": "Solve simple addition problems",
+      "instruction": "How many altogether?"
+    }
+  }
+}

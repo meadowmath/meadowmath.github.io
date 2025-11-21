@@ -1,0 +1,56 @@
+{
+  "title": "Grade 5 Activities",
+  "description": "Bigger numbers, fractions, and new ideas",
+  "levels": {
+    "level1": {
+      "title": "Level 1",
+      "description": "Operations with decimals"
+    },
+    "level2": {
+      "title": "Level 2",
+      "description": "Fraction operations"
+    },
+    "level3": {
+      "title": "Level 3",
+      "description": "Order of operations"
+    },
+    "level4": {
+      "title": "Level 4",
+      "description": "Volume and measurement"
+    },
+    "level5": {
+      "title": "Level 5",
+      "description": "Coordinate graphing"
+    },
+    "level6": {
+      "title": "Level 6",
+      "description": "Expressions and equations"
+    },
+    "level7": {
+      "title": "Level 7",
+      "description": "Word problems"
+    }
+  },
+  "activities": {
+    "decimalOperations": {
+      "title": "Decimal Operations",
+      "description": "Add, subtract, multiply decimals",
+      "instruction": "Calculate the answer"
+    },
+    "fractionAddSub": {
+      "title": "Fraction Addition",
+      "description": "Add and subtract fractions",
+      "instruction": "Find the sum or difference"
+    },
+    "orderOfOps": {
+      "title": "Order of Operations",
+      "description": "Solve expressions correctly",
+      "instruction": "Remember PEMDAS!"
+    },
+    "coordinateGrid": {
+      "title": "Coordinate Grid",
+      "description": "Plot and find points",
+      "instruction": "What are the coordinates?"
+    }
+  }
+}

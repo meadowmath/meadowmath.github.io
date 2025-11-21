@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Balance Plates - Pre-K Math Activity - Meadow Math">
+  <title>Balance Plates - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">⚖️</span>
+            <span data-i18n="section.activities.balance-plates.title">Balance Plates</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.balance-plates.description">Make both plates have the same number!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Target Display -->
+          <div class="target-display" id="target-display">
+            <span data-i18n="section.activities.balance-plates.makeEqual">Make both plates equal!</span>
+          </div>
+
+          <!-- Balance Scale -->
+          <div class="balance-container">
+            <!-- Left Plate -->
+            <div class="plate-section">
+              <div class="plate" id="plate-left">
+                <!-- Items will be generated -->
+              </div>
+              <div class="plate-count" id="count-left">3</div>
+              <div class="plate-buttons">
+                <button class="plate-btn add-btn" id="btn-add-left">➕</button>
+                <button class="plate-btn remove-btn" id="btn-remove-left">➖</button>
+              </div>
+            </div>
+
+            <!-- Balance Indicator -->
+            <div class="balance-indicator" id="balance-indicator">
+              <span class="balance-icon" id="balance-icon">⚖️</span>
+              <span class="balance-status" id="balance-status">Not balanced</span>
+            </div>
+
+            <!-- Right Plate -->
+            <div class="plate-section">
+              <div class="plate" id="plate-right">
+                <!-- Items will be generated -->
+              </div>
+              <div class="plate-count" id="count-right">2</div>
+              <div class="plate-buttons">
+                <button class="plate-btn add-btn" id="btn-add-right">➕</button>
+                <button class="plate-btn remove-btn" id="btn-remove-right">➖</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Check Button -->
+          <button class="check-balance-btn" id="btn-check">
+            <span>✓</span>
+            <span data-i18n="section.activities.balance-plates.check">Check Balance!</span>
+          </button>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Balance Plates specific styles */
+    .target-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      margin-bottom: var(--space-6);
+      background: linear-gradient(to bottom, #fef3c7, #fde68a);
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-xl);
+      border: 3px solid #f59e0b;
+      box-shadow: 0 4px 0 #d97706;
+    }
+
+    .balance-container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .plate-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .plate {
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+      border: 6px solid #d4d4d4;
+      border-radius: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-1);
+      padding: var(--space-2);
+      box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.1), 0 6px 0 #bbb;
+      transition: all 0.3s ease;
+    }
+
+    .plate.highlight {
+      border-color: var(--color-primary);
+      box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.1), 0 6px 0 var(--color-primary-dark), 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .plate.balanced {
+      border-color: #22c55e;
+      box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.1), 0 6px 0 #16a34a;
+    }
+
+    .plate-item {
+      font-size: 28px;
+      animation: itemPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes itemPop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    .plate-count {
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      background: white;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-lg);
+      border: 3px solid var(--color-neutral-200);
+      box-shadow: 0 2px 0 var(--color-neutral-300);
+    }
+
+    .plate-buttons {
+      display: flex;
+      gap: var(--space-2);
+    }
+
+    .plate-btn {
+      width: 50px;
+      height: 50px;
+      border: 3px solid var(--color-neutral-200);
+      border-radius: var(--radius-lg);
+      background: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 0 var(--color-neutral-300);
+    }
+
+    .plate-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 0 var(--color-neutral-300);
+    }
+
+    .plate-btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 var(--color-neutral-300);
+    }
+
+    .plate-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .add-btn {
+      border-color: #4ade80;
+      box-shadow: 0 3px 0 #22c55e;
+    }
+
+    .add-btn:hover:not(:disabled) {
+      background: #f0fdf4;
+      box-shadow: 0 5px 0 #22c55e;
+    }
+
+    .remove-btn {
+      border-color: #f87171;
+      box-shadow: 0 3px 0 #ef4444;
+    }
+
+    .remove-btn:hover:not(:disabled) {
+      background: #fef2f2;
+      box-shadow: 0 5px 0 #ef4444;
+    }
+
+    .balance-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-4);
+    }
+
+    .balance-icon {
+      font-size: 60px;
+      transition: transform 0.3s ease;
+    }
+
+    .balance-indicator.tilted-left .balance-icon {
+      transform: rotate(-15deg);
+    }
+
+    .balance-indicator.tilted-right .balance-icon {
+      transform: rotate(15deg);
+    }
+
+    .balance-indicator.balanced .balance-icon {
+      transform: rotate(0deg);
+      animation: balanceWobble 0.5s ease;
+    }
+
+    @keyframes balanceWobble {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+    }
+
+    .balance-status {
+      font-family: var(--font-secondary);
+      font-size: var(--text-md);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-600);
+      text-align: center;
+    }
+
+    .balance-indicator.balanced .balance-status {
+      color: #16a34a;
+    }
+
+    .check-balance-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-6);
+      background: linear-gradient(to bottom, #dbeafe, #bfdbfe);
+      border: 4px solid #3b82f6;
+      border-radius: var(--radius-xl);
+      font-family: var(--font-secondary);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      color: #1d4ed8;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 #2563eb;
+      margin-bottom: var(--space-4);
+    }
+
+    .check-balance-btn:hover:not(:disabled) {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 0 #2563eb;
+    }
+
+    .check-balance-btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #2563eb;
+    }
+
+    .check-balance-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .plate {
+        width: 120px;
+        height: 120px;
+      }
+
+      .plate-item {
+        font-size: 24px;
+      }
+
+      .balance-icon {
+        font-size: 48px;
+      }
+
+      .plate-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    /**
+     * Balance Plates Activity
+     * Children learn about equality by making both plates have the same number of items
+     */
+    const BalancePlates = {
+      // Activity state
+      round: 1,
+      maxRounds: 6,
+      correctCount: 0,
+      wrongCount: 0,
+      hasAnswered: false,
+      isComplete: false,
+      autoAdvanceDelay: 1500,
+
+      // Current round state
+      leftCount: 0,
+      rightCount: 0,
+      maxItems: 6,
+
+      // Item emoji
+      itemEmoji: '⭐',
+
+      // DOM elements
+      plateLeft: null,
+      plateRight: null,
+      countLeft: null,
+      countRight: null,
+      btnAddLeft: null,
+      btnRemoveLeft: null,
+      btnAddRight: null,
+      btnRemoveRight: null,
+      balanceIndicator: null,
+      balanceIcon: null,
+      balanceStatus: null,
+      btnCheck: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      // Items to use
+      items: ['⭐', '🍎', '🔵', '💜', '🌸', '🍪'],
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.plateLeft = document.getElementById('plate-left');
+        this.plateRight = document.getElementById('plate-right');
+        this.countLeft = document.getElementById('count-left');
+        this.countRight = document.getElementById('count-right');
+        this.btnAddLeft = document.getElementById('btn-add-left');
+        this.btnRemoveLeft = document.getElementById('btn-remove-left');
+        this.btnAddRight = document.getElementById('btn-add-right');
+        this.btnRemoveRight = document.getElementById('btn-remove-right');
+        this.balanceIndicator = document.getElementById('balance-indicator');
+        this.balanceIcon = document.getElementById('balance-icon');
+        this.balanceStatus = document.getElementById('balance-status');
+        this.btnCheck = document.getElementById('btn-check');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnAddLeft.addEventListener('click', () => this.addItem('left'));
+        this.btnRemoveLeft.addEventListener('click', () => this.removeItem('left'));
+        this.btnAddRight.addEventListener('click', () => this.addItem('right'));
+        this.btnRemoveRight.addEventListener('click', () => this.removeItem('right'));
+        this.btnCheck.addEventListener('click', () => this.checkBalance());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Start first round
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Start a new round
+       */
+      startRound() {
+        // Reset state
+        this.hasAnswered = false;
+        this.isComplete = false;
+
+        // Pick random item for this round
+        this.itemEmoji = this.items[randomInt(0, this.items.length - 1)];
+
+        // Generate random starting counts that are NOT equal
+        this.leftCount = randomInt(1, 4);
+        do {
+          this.rightCount = randomInt(1, 4);
+        } while (this.rightCount === this.leftCount);
+
+        // Reset UI
+        this.enableButtons(true);
+        this.btnCheck.disabled = false;
+        this.feedback.classList.remove('show');
+        this.plateLeft.classList.remove('balanced', 'highlight');
+        this.plateRight.classList.remove('balanced', 'highlight');
+        this.balanceIndicator.classList.remove('balanced', 'tilted-left', 'tilted-right');
+
+        // Render plates
+        this.renderPlate('left');
+        this.renderPlate('right');
+        this.updateBalanceIndicator();
+        this.renderProgress();
+      },
+
+      /**
+       * Render items on a plate
+       */
+      renderPlate(side) {
+        const plate = side === 'left' ? this.plateLeft : this.plateRight;
+        const count = side === 'left' ? this.leftCount : this.rightCount;
+        const countEl = side === 'left' ? this.countLeft : this.countRight;
+
+        plate.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+          const item = document.createElement('span');
+          item.className = 'plate-item';
+          item.textContent = this.itemEmoji;
+          plate.appendChild(item);
+        }
+
+        countEl.textContent = count;
+      },
+
+      /**
+       * Add item to plate
+       */
+      addItem(side) {
+        if (this.hasAnswered) return;
+
+        if (side === 'left' && this.leftCount < this.maxItems) {
+          this.leftCount++;
+          this.renderPlate('left');
+        } else if (side === 'right' && this.rightCount < this.maxItems) {
+          this.rightCount++;
+          this.renderPlate('right');
+        }
+
+        this.updateBalanceIndicator();
+      },
+
+      /**
+       * Remove item from plate
+       */
+      removeItem(side) {
+        if (this.hasAnswered) return;
+
+        if (side === 'left' && this.leftCount > 0) {
+          this.leftCount--;
+          this.renderPlate('left');
+        } else if (side === 'right' && this.rightCount > 0) {
+          this.rightCount--;
+          this.renderPlate('right');
+        }
+
+        this.updateBalanceIndicator();
+      },
+
+      /**
+       * Update balance indicator based on counts
+       */
+      updateBalanceIndicator() {
+        this.balanceIndicator.classList.remove('balanced', 'tilted-left', 'tilted-right');
+
+        if (this.leftCount === this.rightCount) {
+          this.balanceIndicator.classList.add('balanced');
+          this.balanceStatus.textContent = 'Balanced! ✓';
+        } else if (this.leftCount > this.rightCount) {
+          this.balanceIndicator.classList.add('tilted-left');
+          this.balanceStatus.textContent = 'Left has more';
+        } else {
+          this.balanceIndicator.classList.add('tilted-right');
+          this.balanceStatus.textContent = 'Right has more';
+        }
+      },
+
+      /**
+       * Check if plates are balanced
+       */
+      checkBalance() {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        // Disable buttons
+        this.enableButtons(false);
+        this.btnCheck.disabled = true;
+
+        // Check if balanced
+        if (this.leftCount === this.rightCount) {
+          // Correct!
+          this.plateLeft.classList.add('balanced');
+          this.plateRight.classList.add('balanced');
+          this.feedback.textContent = `🎉 Perfect! Both plates have ${this.leftCount}!`;
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.balanceIndicator);
+          }
+        } else {
+          // Not balanced
+          this.feedback.textContent = `Not balanced! ${this.leftCount} ≠ ${this.rightCount}. Try again!`;
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Enable/disable add/remove buttons
+       */
+      enableButtons(enabled) {
+        this.btnAddLeft.disabled = !enabled;
+        this.btnRemoveLeft.disabled = !enabled;
+        this.btnAddRight.disabled = !enabled;
+        this.btnRemoveRight.disabled = !enabled;
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = 'Amazing! You\'re a balance master!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = 'Great job balancing!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = 'Good effort! Try again!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startRound();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      BalancePlates.init();
+    });
+  </script>
+</body>
+</html>

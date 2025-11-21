@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Clean-Up Math - Pre-K Math Activity - Meadow Math">
+  <title>Clean-Up Math - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🧹</span>
+            <span data-i18n="section.activities.cleanup-math.title">Clean-Up Math</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.cleanup-math.description">Compare how many toys we cleaned up!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Comparison Display -->
+          <div class="cleanup-container">
+            <!-- Before -->
+            <div class="cleanup-section">
+              <div class="cleanup-label" data-i18n="section.activities.cleanup-math.before">Before</div>
+              <div class="cleanup-box before-box" id="before-box">
+                <!-- Toys will be generated -->
+              </div>
+              <div class="cleanup-count" id="before-count">5</div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="cleanup-arrow">
+              <span>🧹</span>
+              <span>→</span>
+            </div>
+
+            <!-- After -->
+            <div class="cleanup-section">
+              <div class="cleanup-label" data-i18n="section.activities.cleanup-math.after">After</div>
+              <div class="cleanup-box after-box" id="after-box">
+                <!-- Toys will be generated -->
+              </div>
+              <div class="cleanup-count" id="after-count">3</div>
+            </div>
+          </div>
+
+          <!-- Question -->
+          <div class="question-display" id="question">
+            <span id="question-text">Did we clean up MORE or FEWER toys?</span>
+          </div>
+
+          <!-- Choice Buttons -->
+          <div class="choice-buttons" id="choice-buttons">
+            <button class="cleanup-choice-btn" id="btn-more" data-action="more">
+              <span class="choice-icon">📈</span>
+              <span data-i18n="section.activities.cleanup-math.more">More</span>
+            </button>
+            <button class="cleanup-choice-btn" id="btn-same" data-action="same">
+              <span class="choice-icon">=</span>
+              <span data-i18n="section.activities.cleanup-math.same">Same</span>
+            </button>
+            <button class="cleanup-choice-btn" id="btn-fewer" data-action="fewer">
+              <span class="choice-icon">📉</span>
+              <span data-i18n="section.activities.cleanup-math.fewer">Fewer</span>
+            </button>
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Clean-Up Math specific styles */
+    .cleanup-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .cleanup-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .cleanup-label {
+      font-family: var(--font-secondary);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-600);
+      background: white;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--color-neutral-200);
+    }
+
+    .cleanup-box {
+      width: 140px;
+      height: 140px;
+      border-radius: var(--radius-xl);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-1);
+      padding: var(--space-3);
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .before-box {
+      background: linear-gradient(to bottom, #fef2f2, #fecaca);
+      border: 4px solid #f87171;
+    }
+
+    .after-box {
+      background: linear-gradient(to bottom, #f0fdf4, #dcfce7);
+      border: 4px solid #4ade80;
+    }
+
+    .cleanup-item {
+      font-size: 28px;
+      animation: itemAppear 0.3s ease;
+    }
+
+    @keyframes itemAppear {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .cleanup-count {
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      background: white;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-lg);
+      border: 3px solid var(--color-neutral-200);
+      box-shadow: 0 2px 0 var(--color-neutral-300);
+    }
+
+    .cleanup-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 32px;
+      color: var(--color-neutral-400);
+    }
+
+    .question-display {
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      text-align: center;
+      margin-bottom: var(--space-4);
+      background: linear-gradient(to bottom, #dbeafe, #bfdbfe);
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-xl);
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 0 #2563eb;
+    }
+
+    .choice-buttons {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .cleanup-choice-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-5);
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      background: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 var(--color-neutral-300);
+      font-family: var(--font-secondary);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      min-width: 100px;
+    }
+
+    .cleanup-choice-btn:hover:not(:disabled) {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 0 var(--color-neutral-300);
+    }
+
+    .cleanup-choice-btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--color-neutral-300);
+    }
+
+    .cleanup-choice-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .cleanup-choice-btn.correct {
+      border-color: #22c55e;
+      background: linear-gradient(to bottom, #f0fdf4, #dcfce7);
+      box-shadow: 0 4px 0 #16a34a;
+    }
+
+    .cleanup-choice-btn.incorrect {
+      border-color: #ef4444;
+      background: linear-gradient(to bottom, #fef2f2, #fecaca);
+      box-shadow: 0 4px 0 #dc2626;
+    }
+
+    .choice-icon {
+      font-size: 32px;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .cleanup-box {
+        width: 120px;
+        height: 120px;
+      }
+
+      .cleanup-item {
+        font-size: 24px;
+      }
+
+      .cleanup-choice-btn {
+        padding: var(--space-3) var(--space-4);
+        min-width: 85px;
+      }
+
+      .choice-icon {
+        font-size: 28px;
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    /**
+     * Clean-Up Math Activity
+     * Children learn about comparing by seeing how many toys were cleaned up
+     */
+    const CleanupMath = {
+      // Activity state
+      round: 1,
+      maxRounds: 8,
+      correctCount: 0,
+      wrongCount: 0,
+      hasAnswered: false,
+      isComplete: false,
+      autoAdvanceDelay: 1500,
+
+      // Current round state
+      beforeCount: 0,
+      afterCount: 0,
+      correctAnswer: '', // 'more', 'fewer', 'same'
+
+      // Toys to use
+      toys: ['🧸', '🚗', '⚽', '🎈', '🪀', '🧩', '🎮', '🦖'],
+
+      // DOM elements
+      beforeBox: null,
+      afterBox: null,
+      beforeCountEl: null,
+      afterCountEl: null,
+      question: null,
+      questionText: null,
+      btnMore: null,
+      btnSame: null,
+      btnFewer: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.beforeBox = document.getElementById('before-box');
+        this.afterBox = document.getElementById('after-box');
+        this.beforeCountEl = document.getElementById('before-count');
+        this.afterCountEl = document.getElementById('after-count');
+        this.question = document.getElementById('question');
+        this.questionText = document.getElementById('question-text');
+        this.btnMore = document.getElementById('btn-more');
+        this.btnSame = document.getElementById('btn-same');
+        this.btnFewer = document.getElementById('btn-fewer');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnMore.addEventListener('click', () => this.selectChoice('more'));
+        this.btnSame.addEventListener('click', () => this.selectChoice('same'));
+        this.btnFewer.addEventListener('click', () => this.selectChoice('fewer'));
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Start
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Start a new round
+       */
+      startRound() {
+        this.hasAnswered = false;
+        this.isComplete = false;
+
+        // Decide comparison type
+        const comparisonType = randomInt(0, 2); // 0 = fewer after, 1 = more after, 2 = same
+
+        if (comparisonType === 0) {
+          // After has FEWER toys (we cleaned up)
+          this.beforeCount = randomInt(3, 5);
+          this.afterCount = randomInt(1, this.beforeCount - 1);
+          this.correctAnswer = 'fewer';
+          this.questionText.textContent = 'We cleaned up toys! Are there MORE or FEWER toys now?';
+        } else if (comparisonType === 1) {
+          // After has MORE toys (we got more out)
+          this.beforeCount = randomInt(2, 4);
+          this.afterCount = randomInt(this.beforeCount + 1, 6);
+          this.correctAnswer = 'more';
+          this.questionText.textContent = 'We got more toys out! Are there MORE or FEWER toys now?';
+        } else {
+          // Same
+          this.beforeCount = randomInt(2, 4);
+          this.afterCount = this.beforeCount;
+          this.correctAnswer = 'same';
+          this.questionText.textContent = 'Look at the toys. Are there MORE, FEWER, or the SAME?';
+        }
+
+        // Reset UI
+        this.btnMore.classList.remove('correct', 'incorrect');
+        this.btnSame.classList.remove('correct', 'incorrect');
+        this.btnFewer.classList.remove('correct', 'incorrect');
+        this.btnMore.disabled = false;
+        this.btnSame.disabled = false;
+        this.btnFewer.disabled = false;
+        this.feedback.classList.remove('show');
+
+        // Render boxes
+        this.renderBox(this.beforeBox, this.beforeCount);
+        this.renderBox(this.afterBox, this.afterCount);
+        this.beforeCountEl.textContent = this.beforeCount;
+        this.afterCountEl.textContent = this.afterCount;
+
+        this.renderProgress();
+      },
+
+      /**
+       * Render items in a box
+       */
+      renderBox(box, count) {
+        box.innerHTML = '';
+        const shuffled = [...this.toys].sort(() => Math.random() - 0.5);
+        
+        for (let i = 0; i < count; i++) {
+          const item = document.createElement('span');
+          item.className = 'cleanup-item';
+          item.textContent = shuffled[i % shuffled.length];
+          item.style.animationDelay = `${i * 0.1}s`;
+          box.appendChild(item);
+        }
+      },
+
+      /**
+       * Handle choice selection
+       */
+      selectChoice(choice) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        // Disable buttons
+        this.btnMore.disabled = true;
+        this.btnSame.disabled = true;
+        this.btnFewer.disabled = true;
+
+        const selectedBtn = choice === 'more' ? this.btnMore : 
+                          choice === 'same' ? this.btnSame : this.btnFewer;
+        const correctBtn = this.correctAnswer === 'more' ? this.btnMore :
+                          this.correctAnswer === 'same' ? this.btnSame : this.btnFewer;
+
+        // Check answer
+        if (choice === this.correctAnswer) {
+          // Correct!
+          selectedBtn.classList.add('correct');
+          
+          if (this.correctAnswer === 'fewer') {
+            this.feedback.textContent = `🎉 Right! We have FEWER toys now. ${this.beforeCount} → ${this.afterCount}!`;
+          } else if (this.correctAnswer === 'more') {
+            this.feedback.textContent = `🎉 Right! We have MORE toys now. ${this.beforeCount} → ${this.afterCount}!`;
+          } else {
+            this.feedback.textContent = `🎉 Right! We have the SAME number: ${this.beforeCount}!`;
+          }
+          
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.afterBox);
+          }
+        } else {
+          // Incorrect
+          selectedBtn.classList.add('incorrect');
+          correctBtn.classList.add('correct');
+          
+          if (this.correctAnswer === 'fewer') {
+            this.feedback.textContent = `Look again! ${this.beforeCount} → ${this.afterCount}. We have FEWER toys now!`;
+          } else if (this.correctAnswer === 'more') {
+            this.feedback.textContent = `Look again! ${this.beforeCount} → ${this.afterCount}. We have MORE toys now!`;
+          } else {
+            this.feedback.textContent = `Look again! Both have ${this.beforeCount}. They're the SAME!`;
+          }
+          
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = 'Amazing! You\'re a comparing champion!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = 'Great job comparing!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = 'Good effort! Try again!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startRound();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      CleanupMath.init();
+    });
+  </script>
+</body>
+</html>

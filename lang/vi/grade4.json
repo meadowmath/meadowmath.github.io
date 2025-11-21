@@ -1,0 +1,52 @@
+{
+  "title": "Hoạt động Lớp 4",
+  "description": "Học cách chia đều và phân chia",
+  "levels": {
+    "level1": {
+      "title": "Cấp 1",
+      "description": "Nhân số nhiều chữ số"
+    },
+    "level2": {
+      "title": "Cấp 2",
+      "description": "Chia số dài"
+    },
+    "level3": {
+      "title": "Cấp 3",
+      "description": "Phân số tương đương"
+    },
+    "level4": {
+      "title": "Cấp 4",
+      "description": "Giới thiệu số thập phân"
+    },
+    "level5": {
+      "title": "Cấp 5",
+      "description": "Hình học"
+    },
+    "level6": {
+      "title": "Cấp 6",
+      "description": "Bài toán có lời văn"
+    }
+  },
+  "activities": {
+    "multiDigitMultiply": {
+      "title": "Nhân số nhiều chữ số",
+      "description": "Nhân các số lớn hơn",
+      "instruction": "Tìm tích"
+    },
+    "longDivision": {
+      "title": "Chia số dài",
+      "description": "Chia từng bước",
+      "instruction": "Thương là bao nhiêu?"
+    },
+    "equivalentFractions": {
+      "title": "Phân số tương đương",
+      "description": "Tìm các phân số bằng nhau",
+      "instruction": "Phân số nào bằng nhau?"
+    },
+    "decimalPlace": {
+      "title": "Giá trị vị trí thập phân",
+      "description": "Học phần mười và phần trăm",
+      "instruction": "Số thập phân là gì?"
+    }
+  }
+}

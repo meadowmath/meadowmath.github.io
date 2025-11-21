@@ -1,0 +1,44 @@
+{
+  "title": "Hoạt động Mẫu giáo",
+  "description": "Phát triển kỹ năng số qua chơi và khám phá",
+  "levels": {
+    "level1": {
+      "title": "Cấp 1",
+      "description": "Số từ 1-10"
+    },
+    "level2": {
+      "title": "Cấp 2",
+      "description": "Phép cộng đơn giản"
+    },
+    "level3": {
+      "title": "Cấp 3",
+      "description": "Hình dạng và quy luật"
+    },
+    "level4": {
+      "title": "Cấp 4",
+      "description": "So sánh các số"
+    }
+  },
+  "activities": {
+    "countingGarden": {
+      "title": "Vườn đếm số",
+      "description": "Đếm hoa trong vườn",
+      "instruction": "Có bao nhiêu bông hoa?"
+    },
+    "numberBonds": {
+      "title": "Cặp số",
+      "description": "Học các cặp số tạo thành 10",
+      "instruction": "Hai số nào tạo thành 10?"
+    },
+    "shapeSort": {
+      "title": "Phân loại hình",
+      "description": "Phân loại hình theo loại",
+      "instruction": "Xếp hình vào đúng nhóm"
+    },
+    "additionStory": {
+      "title": "Câu chuyện cộng",
+      "description": "Giải bài cộng đơn giản",
+      "instruction": "Tất cả có bao nhiêu?"
+    }
+  }
+}

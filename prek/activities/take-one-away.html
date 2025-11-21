@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Take One Away - Pre-K Math Activity - Meadow Math">
+  <title>Take One Away - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">➖</span>
+            <span data-i18n="section.activities.take-one-away.title">Take One Away</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.take-one-away.description">Remove one and see what's left!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Starting Display -->
+          <div class="start-display" id="start-display">
+            <span class="start-label">You have</span>
+            <span class="start-number" id="start-number">5</span>
+            <span class="start-items" id="start-items">apples</span>
+          </div>
+
+          <!-- Items Display -->
+          <div class="items-container" id="items-container">
+            <!-- Items will be generated -->
+          </div>
+
+          <!-- Take Away Button -->
+          <button class="take-away-btn" id="btn-take">
+            <span class="take-icon">👆</span>
+            <span data-i18n="section.activities.take-one-away.takeOne">Take one away!</span>
+          </button>
+
+          <!-- Question -->
+          <div class="question-display" id="question" style="display: none;">
+            <span data-i18n="section.activities.take-one-away.howMany">How many are left?</span>
+          </div>
+
+          <!-- Number Choices -->
+          <div class="number-choices" id="number-choices" style="display: none;">
+            <!-- Number buttons will be generated -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Take One Away specific styles */
+    .start-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      color: var(--color-neutral-700);
+      margin-bottom: var(--space-4);
+      background: linear-gradient(to bottom, #dbeafe, #bfdbfe);
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-xl);
+      border: 3px solid #3b82f6;
+      box-shadow: 0 4px 0 #2563eb;
+    }
+
+    .start-number {
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+    }
+
+    .items-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3);
+      min-height: 100px;
+      padding: var(--space-6);
+      background: linear-gradient(to bottom, #fef3c7, #fde68a);
+      border: 4px solid #f59e0b;
+      border-radius: var(--radius-2xl);
+      margin-bottom: var(--space-6);
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .item {
+      font-size: 48px;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .item.removing {
+      animation: itemRemove 0.5s ease forwards;
+    }
+
+    @keyframes itemRemove {
+      0% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2) translateY(-20px);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(0) translateY(-50px);
+        opacity: 0;
+      }
+    }
+
+    .take-away-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-6);
+      background: linear-gradient(to bottom, #fef2f2, #fecaca);
+      border: 4px solid #f87171;
+      border-radius: var(--radius-xl);
+      font-family: var(--font-secondary);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      color: #b91c1c;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 #dc2626;
+      margin-bottom: var(--space-6);
+    }
+
+    .take-away-btn:hover:not(:disabled) {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 0 #dc2626;
+    }
+
+    .take-away-btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #dc2626;
+    }
+
+    .take-away-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .take-icon {
+      font-size: 28px;
+    }
+
+    .question-display {
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      text-align: center;
+      margin-bottom: var(--space-4);
+    }
+
+    .number-choices {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .number-choice {
+      width: 70px;
+      height: 70px;
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      background: white;
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 var(--color-neutral-300);
+    }
+
+    .number-choice:hover:not(:disabled) {
+      transform: translateY(-4px);
+      border-color: var(--color-secondary);
+      box-shadow: 0 8px 0 var(--color-secondary-dark);
+    }
+
+    .number-choice:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--color-neutral-300);
+    }
+
+    .number-choice:disabled {
+      cursor: not-allowed;
+    }
+
+    .number-choice.correct {
+      border-color: #22c55e;
+      background: linear-gradient(to bottom, #f0fdf4, #dcfce7);
+      box-shadow: 0 4px 0 #16a34a;
+      color: #16a34a;
+    }
+
+    .number-choice.incorrect {
+      border-color: #ef4444;
+      background: linear-gradient(to bottom, #fef2f2, #fecaca);
+      box-shadow: 0 4px 0 #dc2626;
+      color: #dc2626;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .item {
+        font-size: 40px;
+      }
+
+      .number-choice {
+        width: 60px;
+        height: 60px;
+        font-size: var(--text-xl);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    /**
+     * Take One Away Activity
+     * Children learn subtraction by removing one item and counting what's left
+     */
+    const TakeOneAway = {
+      // Activity state
+      round: 1,
+      maxRounds: 8,
+      correctCount: 0,
+      wrongCount: 0,
+      hasRemoved: false,
+      hasAnswered: false,
+      isComplete: false,
+      autoAdvanceDelay: 1500,
+
+      // Current round state
+      startNumber: 0,
+      targetNumber: 0,
+      currentItem: '',
+
+      // Items to use
+      items: [
+        { emoji: '🍎', name: 'apples' },
+        { emoji: '🍊', name: 'oranges' },
+        { emoji: '⭐', name: 'stars' },
+        { emoji: '🍪', name: 'cookies' },
+        { emoji: '🌸', name: 'flowers' },
+        { emoji: '🎈', name: 'balloons' }
+      ],
+
+      // DOM elements
+      startDisplay: null,
+      startNumberEl: null,
+      startItemsEl: null,
+      itemsContainer: null,
+      btnTake: null,
+      question: null,
+      numberChoices: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.startDisplay = document.getElementById('start-display');
+        this.startNumberEl = document.getElementById('start-number');
+        this.startItemsEl = document.getElementById('start-items');
+        this.itemsContainer = document.getElementById('items-container');
+        this.btnTake = document.getElementById('btn-take');
+        this.question = document.getElementById('question');
+        this.numberChoices = document.getElementById('number-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnTake.addEventListener('click', () => this.takeOneAway());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Create number choices
+        this.createNumberChoices();
+
+        // Start first round
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Create number choice buttons
+       */
+      createNumberChoices() {
+        this.numberChoices.innerHTML = '';
+        for (let i = 0; i <= 5; i++) {
+          const btn = document.createElement('button');
+          btn.className = 'number-choice';
+          btn.textContent = i;
+          btn.dataset.value = i;
+          btn.addEventListener('click', () => this.selectAnswer(i));
+          this.numberChoices.appendChild(btn);
+        }
+      },
+
+      /**
+       * Start a new round
+       */
+      startRound() {
+        // Reset state
+        this.hasRemoved = false;
+        this.hasAnswered = false;
+        this.isComplete = false;
+
+        // Generate start number (2-5)
+        this.startNumber = randomInt(2, 5);
+        this.targetNumber = this.startNumber - 1;
+
+        // Pick random item
+        const itemData = this.items[randomInt(0, this.items.length - 1)];
+        this.currentItem = itemData;
+
+        // Update UI
+        this.startNumberEl.textContent = this.startNumber;
+        this.startItemsEl.textContent = itemData.name;
+        this.btnTake.style.display = 'flex';
+        this.btnTake.disabled = false;
+        this.question.style.display = 'none';
+        this.numberChoices.style.display = 'none';
+        this.feedback.classList.remove('show');
+
+        // Reset number buttons
+        const buttons = this.numberChoices.querySelectorAll('.number-choice');
+        buttons.forEach(btn => {
+          btn.classList.remove('correct', 'incorrect');
+          btn.disabled = false;
+        });
+
+        // Render items
+        this.renderItems(this.startNumber);
+        this.renderProgress();
+      },
+
+      /**
+       * Render items
+       */
+      renderItems(count) {
+        this.itemsContainer.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+          const item = document.createElement('span');
+          item.className = 'item';
+          item.textContent = this.currentItem.emoji;
+          item.style.animationDelay = `${i * 0.1}s`;
+          this.itemsContainer.appendChild(item);
+        }
+      },
+
+      /**
+       * Take one item away
+       */
+      takeOneAway() {
+        if (this.hasRemoved) return;
+        this.hasRemoved = true;
+
+        // Disable button
+        this.btnTake.disabled = true;
+
+        // Animate removal of last item
+        const items = this.itemsContainer.querySelectorAll('.item');
+        const lastItem = items[items.length - 1];
+        lastItem.classList.add('removing');
+
+        // After animation, update display
+        setTimeout(() => {
+          lastItem.remove();
+          
+          // Update start display
+          this.startNumberEl.textContent = `${this.startNumber} - 1 = ?`;
+          
+          // Show question and choices
+          this.btnTake.style.display = 'none';
+          this.question.style.display = 'block';
+          this.numberChoices.style.display = 'flex';
+        }, 500);
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(number) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        const selectedBtn = this.numberChoices.querySelector(`[data-value="${number}"]`);
+        const correctBtn = this.numberChoices.querySelector(`[data-value="${this.targetNumber}"]`);
+
+        // Disable all buttons
+        const buttons = this.numberChoices.querySelectorAll('.number-choice');
+        buttons.forEach(btn => btn.disabled = true);
+
+        // Check answer
+        if (number === this.targetNumber) {
+          // Correct!
+          selectedBtn.classList.add('correct');
+          this.feedback.textContent = `🎉 Yes! ${this.startNumber} - 1 = ${this.targetNumber}!`;
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.itemsContainer);
+          }
+        } else {
+          // Incorrect
+          selectedBtn.classList.add('incorrect');
+          correctBtn.classList.add('correct');
+          this.feedback.textContent = `${this.startNumber} take away 1 equals ${this.targetNumber}.`;
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = 'Amazing! You\'re a subtraction star!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = 'Great job taking away!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = 'Good effort! Try again!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startRound();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      TakeOneAway.init();
+    });
+  </script>
+</body>
+</html>

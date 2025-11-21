@@ -1,0 +1,122 @@
+{
+  "siteName": "Meadow Math",
+  "language": "Ngôn ngữ",
+  "explore": "Khám phá",
+  "nav": {
+    "home": "Trang chủ",
+    "prek": "Mầm non",
+    "kindergarten": "Mẫu giáo",
+    "grade1": "Lớp 1",
+    "grade2": "Lớp 2",
+    "grade3": "Lớp 3",
+    "grade4": "Lớp 4",
+    "grade5": "Lớp 5"
+  },
+  "home": {
+    "title": "Chào mừng đến Meadow Math",
+    "subtitle": "Không gian vui vẻ để khám phá toán học"
+  },
+  "regions": {
+    "prek": {
+      "title": "Mầm non",
+      "desc": "Nơi ấm áp để bắt đầu khám phá số và hình"
+    },
+    "kindergarten": {
+      "title": "Mẫu giáo",
+      "desc": "Phát triển kỹ năng số qua chơi và khám phá"
+    },
+    "grade1": {
+      "title": "Lớp 1",
+      "desc": "Bước đầu đếm số, cộng và tìm quy luật"
+    },
+    "grade2": {
+      "title": "Lớp 2",
+      "desc": "Tự tin cộng và trừ các số"
+    },
+    "grade3": {
+      "title": "Lớp 3",
+      "desc": "Hiểu bảng nhân và nhóm số"
+    },
+    "grade4": {
+      "title": "Lớp 4",
+      "desc": "Học cách chia đều và phân chia"
+    },
+    "grade5": {
+      "title": "Lớp 5",
+      "desc": "Số lớn hơn, phân số và ý tưởng mới"
+    }
+  },
+  "grade": {
+    "pageTitle": "Cuộc phiêu lưu Toán học",
+    "activities": "Hoạt động",
+    "comingSoon": "Sắp ra mắt!",
+    "workInProgress": "Chúng tôi đang làm việc chăm chỉ để mang đến các hoạt động toán học vui nhộn. Hãy quay lại sớm nhé!",
+    "backHome": "Về Trang chủ"
+  },
+  "feedback": {
+    "correct": "Giỏi lắm!",
+    "tryAgain": "Thử lại nhé!",
+    "excellent": "Xuất sắc!",
+    "keepGoing": "Tiếp tục nào!",
+    "wellDone": "Làm tốt lắm!",
+    "amazing": "Tuyệt vời!",
+    "goodEffort": "Cố gắng tốt!"
+  },
+  "buttons": {
+    "start": "Bắt đầu!",
+    "next": "Tiếp theo",
+    "reset": "Đặt lại",
+    "back": "Quay lại",
+    "roll": "Tung!",
+    "check": "Kiểm tra!",
+    "playAgain": "Chơi lại",
+    "addOne": "+ 1 nữa!",
+    "ok": "OK, bắt đầu nào!"
+  },
+  "tabs": {
+    "exercises": "Bài tập",
+    "learnMore": "Tìm hiểu thêm"
+  },
+  "activity": {
+    "backTo": "← Quay lại",
+    "clickStart": "Nhấn Bắt đầu để chơi!",
+    "clickRoll": "Nhấn Tung để tung xúc xắc!",
+    "clickStartBanner": "⚫ Nhấn vào đây để bắt đầu!",
+    "clickRollBanner": "🎲 Nhấn vào đây để tung xúc xắc!",
+    "complete": "Hoàn thành!",
+    "correct": "Đúng",
+    "wrong": "Sai",
+    "round": "Lượt",
+    "of": "trên",
+    "yourLineup": "Hàng của bạn",
+    "count": "Đếm:",
+    "lineUp": "Xếp hàng",
+    "toys": "đồ chơi!",
+    "blocks": "khối",
+    "fingers": "ngón tay",
+    "snacks": "đồ ăn",
+    "completedRounds": "Bạn đã hoàn thành tất cả các lượt!"
+  },
+  "stats": {
+    "title": "Hoàn thành!",
+    "correct": "Đúng",
+    "wrong": "Sai",
+    "incorrect": "Sai",
+    "correctAnswers": "Đúng",
+    "totalTries": "Tổng lần thử",
+    "amazing": "Tuyệt vời! Bạn là ngôi sao!",
+    "great": "Giỏi lắm! Tiếp tục luyện tập nhé!",
+    "goodEffort": "Cố gắng tốt! Thử lại để tiến bộ hơn!",
+    "wellDone": "Làm tốt lắm!"
+  },
+  "fruits": {
+    "apple": "táo",
+    "orange": "cam",
+    "lemon": "chanh",
+    "banana": "chuối",
+    "strawberry": "dâu tây",
+    "peach": "đào",
+    "pear": "lê",
+    "kiwi": "kiwi"
+  }
+}

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Same or Different - Pre-K Math Activity - Meadow Math">
+  <title>Same or Different - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">⚖️</span>
+            <span data-i18n="section.activities.same-or-different.title">Same or Different?</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.same-or-different.description">Compare two groups - are they the same?</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Groups Comparison -->
+          <div class="groups-comparison" id="groups-comparison">
+            <div class="group-card left-group">
+              <div class="group-label" data-i18n="section.activities.same-or-different.groupA">Group A</div>
+              <div class="group-items" id="group-left">
+                <!-- Items will be generated -->
+              </div>
+            </div>
+            <div class="comparison-symbol">
+              <span id="comparison-result">?</span>
+            </div>
+            <div class="group-card right-group">
+              <div class="group-label" data-i18n="section.activities.same-or-different.groupB">Group B</div>
+              <div class="group-items" id="group-right">
+                <!-- Items will be generated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Answer Choices -->
+          <div class="answer-choices" id="answer-choices">
+            <button class="answer-btn same-btn" id="btn-same">
+              <span class="answer-icon">✓</span>
+              <span class="answer-text" data-i18n="section.activities.same-or-different.same">Same</span>
+            </button>
+            <button class="answer-btn different-btn" id="btn-different">
+              <span class="answer-icon">✗</span>
+              <span class="answer-text" data-i18n="section.activities.same-or-different.different">Different</span>
+            </button>
+          </div>
+
+          <!-- Start Banner Button -->
+          <button class="start-banner-btn show" id="btn-start" data-i18n="activity.clickStartBanner">⚖️ Click here to start!</button>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Same or Different specific styles */
+    .groups-comparison {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    .group-card {
+      background: white;
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      padding: var(--space-4);
+      min-width: 120px;
+      min-height: 140px;
+      box-shadow: 0 4px 0 var(--color-neutral-300);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .group-card.highlight {
+      animation: cardPulse 0.5s ease;
+    }
+
+    @keyframes cardPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .left-group {
+      border-color: #f472b6;
+      box-shadow: 0 4px 0 #db2777;
+    }
+
+    .right-group {
+      border-color: #60a5fa;
+      box-shadow: 0 4px 0 #2563eb;
+    }
+
+    .group-label {
+      font-family: var(--font-secondary);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-500);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .group-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      padding: var(--space-2);
+      min-height: 80px;
+      max-width: 100px;
+    }
+
+    .group-item {
+      font-size: 28px;
+      animation: itemAppear 0.3s ease backwards;
+    }
+
+    @keyframes itemAppear {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .comparison-symbol {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 3px solid #fbbf24;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      box-shadow: 0 3px 0 #d97706;
+    }
+
+    .comparison-symbol.same {
+      background: linear-gradient(135deg, #bbf7d0, #86efac);
+      border-color: #22c55e;
+      box-shadow: 0 3px 0 #16a34a;
+    }
+
+    .comparison-symbol.different {
+      background: linear-gradient(135deg, #fed7aa, #fdba74);
+      border-color: #f97316;
+      box-shadow: 0 3px 0 #ea580c;
+    }
+
+    .answer-choices {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .answer-choices.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .answer-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-6);
+      font-family: var(--font-secondary);
+      font-weight: var(--weight-bold);
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 4px solid;
+      min-width: 100px;
+    }
+
+    .answer-btn:hover:not(:disabled) {
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    .answer-btn:active:not(:disabled) {
+      transform: translateY(2px);
+    }
+
+    .answer-btn:disabled {
+      cursor: default;
+      opacity: 0.7;
+    }
+
+    .same-btn {
+      background: linear-gradient(to bottom, #bbf7d0, #86efac);
+      border-color: #22c55e;
+      color: #166534;
+      box-shadow: 0 4px 0 #16a34a;
+    }
+
+    .same-btn:hover:not(:disabled) {
+      box-shadow: 0 8px 0 #16a34a;
+    }
+
+    .same-btn:active:not(:disabled) {
+      box-shadow: 0 2px 0 #16a34a;
+    }
+
+    .different-btn {
+      background: linear-gradient(to bottom, #fed7aa, #fdba74);
+      border-color: #f97316;
+      color: #9a3412;
+      box-shadow: 0 4px 0 #ea580c;
+    }
+
+    .different-btn:hover:not(:disabled) {
+      box-shadow: 0 8px 0 #ea580c;
+    }
+
+    .different-btn:active:not(:disabled) {
+      box-shadow: 0 2px 0 #ea580c;
+    }
+
+    .answer-icon {
+      font-size: var(--text-3xl);
+    }
+
+    .answer-text {
+      font-size: var(--text-lg);
+    }
+
+    .answer-btn.correct {
+      animation: correctPulse 0.5s ease;
+    }
+
+    .answer-btn.incorrect {
+      animation: shake 0.5s ease;
+    }
+
+    @keyframes correctPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    @media (max-width: 767px) {
+      .groups-comparison {
+        gap: var(--space-2);
+      }
+
+      .group-card {
+        min-width: 100px;
+        min-height: 120px;
+        padding: var(--space-3);
+      }
+
+      .group-items {
+        max-width: 80px;
+        min-height: 60px;
+      }
+
+      .group-item {
+        font-size: 22px;
+      }
+
+      .comparison-symbol {
+        width: 40px;
+        height: 40px;
+        font-size: var(--text-xl);
+      }
+
+      .answer-btn {
+        padding: var(--space-3) var(--space-4);
+        min-width: 80px;
+      }
+
+      .answer-icon {
+        font-size: var(--text-2xl);
+      }
+
+      .answer-text {
+        font-size: var(--text-base);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Same or Different Activity
+    const SameOrDifferent = {
+      // Game state
+      leftCount: 0,
+      rightCount: 0,
+      isSame: false,
+      round: 1,
+      maxRounds: 8,
+      isComplete: false,
+      hasAnswered: false,
+      correctCount: 0,
+      wrongCount: 0,
+      autoAdvanceDelay: 1500,
+
+      // Item emojis
+      items: ['⭐', '❤️', '🔵', '🟢', '🟡', '🟣', '🌸', '🍎'],
+
+      // DOM elements
+      groupsComparison: null,
+      groupLeft: null,
+      groupRight: null,
+      comparisonResult: null,
+      answerChoices: null,
+      btnSame: null,
+      btnDifferent: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      btnStart: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.groupsComparison = document.getElementById('groups-comparison');
+        this.groupLeft = document.getElementById('group-left');
+        this.groupRight = document.getElementById('group-right');
+        this.comparisonResult = document.getElementById('comparison-result');
+        this.answerChoices = document.getElementById('answer-choices');
+        this.btnSame = document.getElementById('btn-same');
+        this.btnDifferent = document.getElementById('btn-different');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.btnStart = document.getElementById('btn-start');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnStart.addEventListener('click', () => this.startRound());
+        this.btnSame.addEventListener('click', () => this.selectAnswer(true));
+        this.btnDifferent.addEventListener('click', () => this.selectAnswer(false));
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Initial state
+        this.renderProgress();
+      },
+
+      /**
+       * Start a round
+       */
+      startRound() {
+        this.hasAnswered = false;
+        this.isComplete = false;
+
+        // Decide if same or different (roughly 50/50)
+        this.isSame = Math.random() < 0.5;
+
+        // Generate counts
+        this.leftCount = randomInt(1, 5);
+        if (this.isSame) {
+          this.rightCount = this.leftCount;
+        } else {
+          // Make sure right count is different
+          do {
+            this.rightCount = randomInt(1, 5);
+          } while (this.rightCount === this.leftCount);
+        }
+
+        // Reset UI
+        this.feedback.classList.remove('show');
+        this.btnStart.classList.remove('show');
+        this.answerChoices.classList.remove('show');
+        this.comparisonResult.textContent = '?';
+        this.comparisonResult.parentElement.classList.remove('same', 'different');
+
+        // Reset answer buttons
+        this.btnSame.classList.remove('correct', 'incorrect');
+        this.btnDifferent.classList.remove('correct', 'incorrect');
+        this.btnSame.disabled = false;
+        this.btnDifferent.disabled = false;
+
+        // Generate items
+        this.generateItems();
+
+        // Update instruction and show choices
+        setTimeout(() => {
+          this.instruction.textContent = i18n.t('section.activities.same-or-different.question') || 'Do both groups have the same number?';
+          this.answerChoices.classList.add('show');
+        }, this.leftCount * 100 + this.rightCount * 100 + 300);
+      },
+
+      /**
+       * Generate items in both groups
+       */
+      generateItems() {
+        // Clear groups
+        this.groupLeft.innerHTML = '';
+        this.groupRight.innerHTML = '';
+
+        // Pick random item for this round
+        const itemEmoji = this.items[randomInt(0, this.items.length - 1)];
+
+        // Generate left group
+        for (let i = 0; i < this.leftCount; i++) {
+          const item = document.createElement('span');
+          item.className = 'group-item';
+          item.textContent = itemEmoji;
+          item.style.animationDelay = `${i * 0.1}s`;
+          this.groupLeft.appendChild(item);
+        }
+
+        // Generate right group (might use different item for visual variety)
+        const rightItemEmoji = Math.random() < 0.5 ? itemEmoji : this.items[randomInt(0, this.items.length - 1)];
+        for (let i = 0; i < this.rightCount; i++) {
+          const item = document.createElement('span');
+          item.className = 'group-item';
+          item.textContent = rightItemEmoji;
+          item.style.animationDelay = `${(this.leftCount + i) * 0.1}s`;
+          this.groupRight.appendChild(item);
+        }
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(answeredSame) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        // Disable buttons
+        this.btnSame.disabled = true;
+        this.btnDifferent.disabled = true;
+
+        // Check answer
+        const isCorrect = answeredSame === this.isSame;
+
+        // Update comparison symbol
+        if (this.isSame) {
+          this.comparisonResult.textContent = '=';
+          this.comparisonResult.parentElement.classList.add('same');
+        } else {
+          this.comparisonResult.textContent = '≠';
+          this.comparisonResult.parentElement.classList.add('different');
+        }
+
+        if (isCorrect) {
+          // Correct!
+          if (answeredSame) {
+            this.btnSame.classList.add('correct');
+          } else {
+            this.btnDifferent.classList.add('correct');
+          }
+
+          let correctMsg;
+          if (this.isSame) {
+            correctMsg = i18n.t('section.activities.same-or-different.correctSame') || '🎉 Right! Both have {n}!';
+            this.feedback.textContent = correctMsg.replace('{n}', this.leftCount);
+          } else {
+            correctMsg = i18n.t('section.activities.same-or-different.correctDiff') || '🎉 Right! {a} is not the same as {b}!';
+            this.feedback.textContent = correctMsg.replace('{a}', this.leftCount).replace('{b}', this.rightCount);
+          }
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.groupsComparison);
+          }
+        } else {
+          // Incorrect
+          if (answeredSame) {
+            this.btnSame.classList.add('incorrect');
+            this.btnDifferent.classList.add('correct');
+          } else {
+            this.btnDifferent.classList.add('incorrect');
+            this.btnSame.classList.add('correct');
+          }
+
+          let wrongMsg;
+          if (this.isSame) {
+            wrongMsg = i18n.t('section.activities.same-or-different.wrongSame') || 'Look again! Both have {n}.';
+            this.feedback.textContent = wrongMsg.replace('{n}', this.leftCount);
+          } else {
+            wrongMsg = i18n.t('section.activities.same-or-different.wrongDiff') || 'Look again! {a} and {b} are different.';
+            this.feedback.textContent = wrongMsg.replace('{a}', this.leftCount).replace('{b}', this.rightCount);
+          }
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        // Set message based on performance
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = i18n.t('stats.amazing') || 'Amazing! You\'re a superstar!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = i18n.t('stats.great') || 'Great job! Keep practicing!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = i18n.t('stats.goodEffort') || 'Good effort! Try again to improve!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.hasAnswered = false;
+        this.statsOverlay.classList.remove('show');
+        this.btnStart.classList.add('show');
+        this.answerChoices.classList.remove('show');
+        this.feedback.classList.remove('show');
+        this.groupLeft.innerHTML = '';
+        this.groupRight.innerHTML = '';
+        this.comparisonResult.textContent = '?';
+        this.comparisonResult.parentElement.classList.remove('same', 'different');
+        this.instruction.textContent = i18n.t('section.activities.same-or-different.description') || 'Compare two groups - are they the same?';
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      SameOrDifferent.init();
+    });
+  </script>
+</body>
+</html>

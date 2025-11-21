@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Snack Guess & Check - Pre-K Math Activity - Meadow Math">
+  <title>Snack Guess & Check - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🍪</span>
+            <span data-i18n="section.activities.snack-guess.title">Snack Guess & Check</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.snack-guess.description">Guess how many, then count to check!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Snack Plate Display -->
+          <div class="snack-plate" id="snack-plate">
+            <div class="plate-cover" id="plate-cover">
+              <span class="cover-text">?</span>
+            </div>
+            <div class="snacks-container" id="snacks-container">
+              <!-- Snacks will be generated -->
+            </div>
+          </div>
+
+          <!-- Guess Phase: Number Choices -->
+          <div class="number-choices" id="guess-choices">
+            <!-- Number buttons will be generated -->
+          </div>
+
+          <!-- Check Phase: Reveal Button -->
+          <button class="reveal-btn" id="btn-reveal">
+            <span data-i18n="section.activities.snack-guess.reveal">👀 Count to check!</span>
+          </button>
+
+          <!-- Start Banner Button -->
+          <button class="start-banner-btn show" id="btn-start" data-i18n="activity.clickStartBanner">🍪 Click here to start!</button>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Snack Guess & Check specific styles */
+    .snack-plate {
+      width: 220px;
+      height: 220px;
+      background: linear-gradient(145deg, #fff5eb, #ffe4c9);
+      border: 6px solid #e8c9a8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 0 #d4b494, 0 12px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plate-cover {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(145deg, #8b7355, #6d5a44);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .plate-cover.lifted {
+      transform: translateY(-150px) rotate(15deg);
+      opacity: 0;
+    }
+
+    .cover-text {
+      font-size: 72px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .snacks-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 20px;
+      max-width: 180px;
+    }
+
+    .snack-item {
+      font-size: 36px;
+      animation: snackBounce 0.4s ease backwards;
+    }
+
+    @keyframes snackBounce {
+      0% { transform: scale(0) rotate(-180deg); }
+      50% { transform: scale(1.2) rotate(10deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    .number-choices {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 400px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .number-choices.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .number-choice {
+      width: 68px;
+      height: 68px;
+      font-family: var(--font-secondary);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      background: linear-gradient(to bottom, #fff, #f5f5f5);
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 4px 0 var(--color-neutral-300);
+      color: var(--color-neutral-800);
+    }
+
+    .number-choice:hover:not(:disabled) {
+      transform: translateY(-4px) scale(1.05);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 0 var(--color-primary-dark);
+    }
+
+    .number-choice:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--color-neutral-300);
+    }
+
+    .number-choice:disabled {
+      cursor: default;
+    }
+
+    .number-choice.selected {
+      background: linear-gradient(to bottom, #a78bfa, #8b5cf6);
+      border-color: #7c3aed;
+      color: white;
+      box-shadow: 0 4px 0 #6d28d9;
+    }
+
+    .number-choice.correct {
+      background: linear-gradient(to bottom, #4ade80, #22c55e);
+      border-color: #16a34a;
+      color: white;
+      box-shadow: 0 4px 0 #16a34a;
+    }
+
+    .number-choice.incorrect {
+      background: linear-gradient(to bottom, #fbbf24, #f59e0b);
+      border-color: #d97706;
+      color: white;
+      animation: shake 0.5s ease;
+    }
+
+    .reveal-btn {
+      display: none;
+      padding: var(--space-4) var(--space-8);
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 4px solid #fbbf24;
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 #d97706;
+      color: var(--color-neutral-800);
+    }
+
+    .reveal-btn.show {
+      display: block;
+      animation: pulse 1.5s ease infinite;
+    }
+
+    .reveal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #d97706;
+    }
+
+    .reveal-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #d97706;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    @media (max-width: 767px) {
+      .snack-plate {
+        width: 180px;
+        height: 180px;
+      }
+
+      .plate-cover {
+        width: 160px;
+        height: 160px;
+      }
+
+      .cover-text {
+        font-size: 56px;
+      }
+
+      .snack-item {
+        font-size: 28px;
+      }
+
+      .number-choice {
+        width: 56px;
+        height: 56px;
+        font-size: var(--text-2xl);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Snack Guess & Check Activity
+    const SnackGuess = {
+      // Game state
+      targetNumber: 0,
+      guessedNumber: 0,
+      round: 1,
+      maxRounds: 8,
+      isComplete: false,
+      hasGuessed: false,
+      hasRevealed: false,
+      correctCount: 0,
+      wrongCount: 0,
+      autoAdvanceDelay: 1500,
+
+      // Snack emojis
+      snacks: ['🍪', '🍩', '🍬', '🍭', '🧁', '🍫'],
+
+      // DOM elements
+      snackPlate: null,
+      plateCover: null,
+      snacksContainer: null,
+      guessChoices: null,
+      btnReveal: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      btnStart: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.snackPlate = document.getElementById('snack-plate');
+        this.plateCover = document.getElementById('plate-cover');
+        this.snacksContainer = document.getElementById('snacks-container');
+        this.guessChoices = document.getElementById('guess-choices');
+        this.btnReveal = document.getElementById('btn-reveal');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.btnStart = document.getElementById('btn-start');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnStart.addEventListener('click', () => this.startRound());
+        this.btnReveal.addEventListener('click', () => this.revealSnacks());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Create number choices
+        this.createNumberChoices();
+
+        // Initial state
+        this.renderProgress();
+      },
+
+      /**
+       * Create number choice buttons
+       */
+      createNumberChoices() {
+        this.guessChoices.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+          const btn = document.createElement('button');
+          btn.className = 'number-choice';
+          btn.textContent = i;
+          btn.dataset.value = i;
+          btn.addEventListener('click', () => this.makeGuess(i));
+          this.guessChoices.appendChild(btn);
+        }
+      },
+
+      /**
+       * Start a round
+       */
+      startRound() {
+        this.hasGuessed = false;
+        this.hasRevealed = false;
+        this.isComplete = false;
+        this.guessedNumber = 0;
+
+        // Generate random target (1-5)
+        this.targetNumber = randomInt(1, 5);
+
+        // Reset UI
+        this.feedback.classList.remove('show');
+        this.btnStart.classList.remove('show');
+        this.btnReveal.classList.remove('show');
+        this.guessChoices.classList.remove('show');
+        this.plateCover.classList.remove('lifted');
+
+        // Reset number buttons
+        const buttons = this.guessChoices.querySelectorAll('.number-choice');
+        buttons.forEach(btn => {
+          btn.classList.remove('correct', 'incorrect', 'selected');
+          btn.disabled = false;
+        });
+
+        // Generate snacks (hidden under cover)
+        this.generateSnacks();
+
+        // Flash the cover briefly to show snacks
+        setTimeout(() => {
+          // Lift cover briefly
+          this.plateCover.classList.add('lifted');
+          this.instruction.textContent = i18n.t('section.activities.snack-guess.lookQuick') || 'Look quick!';
+          
+          setTimeout(() => {
+            // Lower cover
+            this.plateCover.classList.remove('lifted');
+            this.instruction.textContent = i18n.t('section.activities.snack-guess.howManyGuess') || 'How many snacks were there?';
+            this.guessChoices.classList.add('show');
+          }, 800);
+        }, 500);
+      },
+
+      /**
+       * Generate snacks on the plate
+       */
+      generateSnacks() {
+        this.snacksContainer.innerHTML = '';
+        const snackEmoji = this.snacks[randomInt(0, this.snacks.length - 1)];
+        
+        for (let i = 0; i < this.targetNumber; i++) {
+          const snack = document.createElement('span');
+          snack.className = 'snack-item';
+          snack.textContent = snackEmoji;
+          snack.style.animationDelay = `${i * 0.1}s`;
+          this.snacksContainer.appendChild(snack);
+        }
+      },
+
+      /**
+       * Make a guess
+       */
+      makeGuess(number) {
+        if (this.hasGuessed) return;
+        this.hasGuessed = true;
+        this.guessedNumber = number;
+
+        // Mark selected button
+        const buttons = this.guessChoices.querySelectorAll('.number-choice');
+        buttons.forEach(btn => {
+          btn.disabled = true;
+          if (parseInt(btn.dataset.value) === number) {
+            btn.classList.add('selected');
+          }
+        });
+
+        // Show reveal button
+        this.instruction.textContent = i18n.t('section.activities.snack-guess.nowCheck') || 'Now let\'s count to check!';
+        this.btnReveal.classList.add('show');
+      },
+
+      /**
+       * Reveal snacks and check answer
+       */
+      revealSnacks() {
+        if (this.hasRevealed) return;
+        this.hasRevealed = true;
+
+        // Hide reveal button
+        this.btnReveal.classList.remove('show');
+
+        // Lift cover
+        this.plateCover.classList.add('lifted');
+
+        // Check answer after reveal animation
+        setTimeout(() => {
+          this.checkAnswer();
+        }, 600);
+      },
+
+      /**
+       * Check the answer
+       */
+      checkAnswer() {
+        const selectedBtn = this.guessChoices.querySelector(`[data-value="${this.guessedNumber}"]`);
+        const correctBtn = this.guessChoices.querySelector(`[data-value="${this.targetNumber}"]`);
+
+        if (this.guessedNumber === this.targetNumber) {
+          // Correct guess!
+          selectedBtn.classList.remove('selected');
+          selectedBtn.classList.add('correct');
+          const correctMsg = i18n.t('section.activities.snack-guess.correct') || '🎉 Great guess! There are {n} snacks!';
+          this.feedback.textContent = correctMsg.replace('{n}', this.targetNumber);
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.snackPlate);
+          }
+        } else {
+          // Incorrect guess
+          selectedBtn.classList.remove('selected');
+          selectedBtn.classList.add('incorrect');
+          correctBtn.classList.add('correct');
+          const wrongMsg = i18n.t('section.activities.snack-guess.wrong') || 'Close! There are {n} snacks.';
+          this.feedback.textContent = wrongMsg.replace('{n}', this.targetNumber);
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        // Set message based on performance
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = i18n.t('stats.amazing') || 'Amazing! You\'re a superstar!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = i18n.t('stats.great') || 'Great job! Keep practicing!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = i18n.t('stats.goodEffort') || 'Good effort! Try again to improve!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.hasGuessed = false;
+        this.hasRevealed = false;
+        this.statsOverlay.classList.remove('show');
+        this.btnStart.classList.add('show');
+        this.btnReveal.classList.remove('show');
+        this.guessChoices.classList.remove('show');
+        this.feedback.classList.remove('show');
+        this.plateCover.classList.remove('lifted');
+        this.snacksContainer.innerHTML = '';
+        this.instruction.textContent = i18n.t('section.activities.snack-guess.description') || 'Guess how many, then count to check!';
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.startRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      SnackGuess.init();
+    });
+  </script>
+</body>
+</html>

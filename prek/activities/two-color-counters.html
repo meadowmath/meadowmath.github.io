@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Two-Color Counters - Pre-K Math Activity - Meadow Math">
+  <title>Two-Color Counters - Meadow Math</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.prek">Pre-K</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🔴</span>
+            <span data-i18n="section.activities.two-color-counters.title">Two-Color Counters</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.two-color-counters.description">Same number, different color groups</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Shake Button -->
+          <button class="shake-btn" id="btn-shake">
+            <span>🎲</span>
+            <span data-i18n="section.activities.two-color-counters.shake">Shake the counters!</span>
+          </button>
+
+          <!-- Counters Display -->
+          <div class="counters-container" id="counters-container" style="display: none;">
+            <div class="counters-display" id="counters-display">
+              <!-- Counters will be generated here -->
+            </div>
+
+            <div class="color-summary">
+              <div class="color-group red-group">
+                <div class="color-sample red"></div>
+                <span class="color-count" id="red-count">0</span>
+                <span class="color-label" data-i18n="section.activities.two-color-counters.red">red</span>
+              </div>
+              <span class="plus-sign">+</span>
+              <div class="color-group yellow-group">
+                <div class="color-sample yellow"></div>
+                <span class="color-count" id="yellow-count">0</span>
+                <span class="color-label" data-i18n="section.activities.two-color-counters.yellow">yellow</span>
+              </div>
+              <span class="equals-sign">=</span>
+              <span class="total-count" id="total-count">5</span>
+            </div>
+          </div>
+
+          <!-- Question -->
+          <div class="question-container" id="question-container" style="display: none;">
+            <p class="question-text" data-i18n="section.activities.two-color-counters.howManyRed">How many red counters?</p>
+            <div class="answer-choices" id="answer-choices">
+              <!-- Answer buttons will be generated -->
+            </div>
+          </div>
+
+          <!-- Start Banner Button -->
+          <button class="start-banner-btn show" id="btn-start" data-i18n="section.activities.two-color-counters.start">🔴 Click here to start!</button>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Two-Color Counters specific styles */
+    .shake-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-8);
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      background: linear-gradient(to bottom, #a855f7, #9333ea);
+      color: white;
+      border: none;
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      box-shadow: 0 4px 0 #7e22ce, 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
+      margin-bottom: var(--space-6);
+    }
+
+    .shake-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #7e22ce, 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .shake-btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #7e22ce;
+    }
+
+    .shake-btn.shaking {
+      animation: shakeAnimation 0.5s ease;
+    }
+
+    @keyframes shakeAnimation {
+      0%, 100% { transform: translateX(0) rotate(0); }
+      25% { transform: translateX(-10px) rotate(-5deg); }
+      50% { transform: translateX(10px) rotate(5deg); }
+      75% { transform: translateX(-5px) rotate(-2deg); }
+    }
+
+    .counters-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .counters-display {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      background: white;
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 4px 0 var(--color-neutral-300);
+      min-width: 200px;
+    }
+
+    .counter {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      box-shadow: 
+        inset -4px -4px 8px rgba(0, 0, 0, 0.2),
+        inset 4px 4px 8px rgba(255, 255, 255, 0.3),
+        0 4px 0 rgba(0, 0, 0, 0.2);
+      animation: counterDrop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation-fill-mode: both;
+    }
+
+    @keyframes counterDrop {
+      0% { transform: translateY(-50px) scale(0); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .counter.red {
+      background: linear-gradient(145deg, #ef4444, #dc2626);
+    }
+
+    .counter.yellow {
+      background: linear-gradient(145deg, #fbbf24, #f59e0b);
+    }
+
+    .color-summary {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .color-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .color-sample {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+    }
+
+    .color-sample.red {
+      background: linear-gradient(145deg, #ef4444, #dc2626);
+    }
+
+    .color-sample.yellow {
+      background: linear-gradient(145deg, #fbbf24, #f59e0b);
+    }
+
+    .color-count {
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-800);
+    }
+
+    .color-label {
+      color: var(--color-neutral-600);
+    }
+
+    .plus-sign, .equals-sign {
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-400);
+      font-size: var(--text-2xl);
+    }
+
+    .total-count {
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      background: var(--color-primary-light);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .question-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      animation: fadeIn 0.5s ease;
+    }
+
+    .question-text {
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      color: var(--color-neutral-700);
+    }
+
+    .answer-choices {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .answer-btn {
+      width: 64px;
+      height: 64px;
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      background: linear-gradient(to bottom, #fff, #f0f0f0);
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 4px 0 var(--color-neutral-300);
+    }
+
+    .answer-btn:hover:not(:disabled) {
+      transform: translateY(-4px) scale(1.05);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 0 var(--color-primary-dark);
+    }
+
+    .answer-btn:disabled {
+      cursor: default;
+      opacity: 0.7;
+    }
+
+    .answer-btn.correct {
+      background: linear-gradient(to bottom, #4ade80, #22c55e);
+      border-color: #16a34a;
+      color: white;
+      box-shadow: 0 4px 0 #16a34a;
+    }
+
+    .answer-btn.incorrect {
+      background: linear-gradient(to bottom, #fbbf24, #f59e0b);
+      border-color: #d97706;
+      color: white;
+      animation: shake 0.5s ease;
+    }
+
+    @media (max-width: 767px) {
+      .counter {
+        width: 40px;
+        height: 40px;
+      }
+
+      .counters-display {
+        min-width: 160px;
+        gap: var(--space-2);
+      }
+
+      .answer-btn {
+        width: 56px;
+        height: 56px;
+        font-size: var(--text-xl);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Two-Color Counters Activity
+    const TwoColorCounters = {
+      // Game state
+      totalCounters: 0,
+      redCount: 0,
+      yellowCount: 0,
+      round: 1,
+      maxRounds: 8,
+      isComplete: false,
+      correctCount: 0,
+      wrongCount: 0,
+      autoAdvanceDelay: 1500,
+      hasStarted: false,
+      hasAnswered: false,
+      askingFor: 'red', // or 'yellow'
+
+      // DOM elements
+      btnShake: null,
+      countersContainer: null,
+      countersDisplay: null,
+      redCountEl: null,
+      yellowCountEl: null,
+      totalCountEl: null,
+      questionContainer: null,
+      questionText: null,
+      answerChoices: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      btnStart: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.btnShake = document.getElementById('btn-shake');
+        this.countersContainer = document.getElementById('counters-container');
+        this.countersDisplay = document.getElementById('counters-display');
+        this.redCountEl = document.getElementById('red-count');
+        this.yellowCountEl = document.getElementById('yellow-count');
+        this.totalCountEl = document.getElementById('total-count');
+        this.questionContainer = document.getElementById('question-container');
+        this.questionText = document.querySelector('.question-text');
+        this.answerChoices = document.getElementById('answer-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.btnStart = document.getElementById('btn-start');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnStart.addEventListener('click', () => this.startGame());
+        this.btnShake.addEventListener('click', () => this.shakeCounters());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Initialize
+        this.renderProgress();
+      },
+
+      /**
+       * Start the game
+       */
+      startGame() {
+        this.hasStarted = true;
+        this.btnStart.classList.remove('show');
+        this.startRound();
+      },
+
+      /**
+       * Start a new round
+       */
+      startRound() {
+        this.isComplete = false;
+        this.hasAnswered = false;
+
+        // Reset UI
+        this.btnShake.style.display = 'flex';
+        this.countersContainer.style.display = 'none';
+        this.questionContainer.style.display = 'none';
+        this.feedback.classList.remove('show');
+
+        this.renderProgress();
+      },
+
+      /**
+       * Shake the counters
+       */
+      shakeCounters() {
+        // Animate shake button
+        this.btnShake.classList.add('shaking');
+        this.btnShake.disabled = true;
+
+        setTimeout(() => {
+          this.btnShake.classList.remove('shaking');
+          this.btnShake.style.display = 'none';
+
+          // Generate counters
+          this.totalCounters = randomInt(3, 6);
+          this.redCount = randomInt(1, this.totalCounters - 1);
+          this.yellowCount = this.totalCounters - this.redCount;
+
+          // Randomly choose which color to ask about
+          this.askingFor = Math.random() > 0.5 ? 'red' : 'yellow';
+          this.questionText.textContent = `How many ${this.askingFor} counters?`;
+
+          // Show counters
+          this.renderCounters();
+          this.countersContainer.style.display = 'flex';
+
+          // Update summary (but hide the answer)
+          this.redCountEl.textContent = '?';
+          this.yellowCountEl.textContent = '?';
+          this.totalCountEl.textContent = this.totalCounters;
+
+          // Show question after delay
+          setTimeout(() => {
+            this.showQuestion();
+          }, 800);
+        }, 500);
+      },
+
+      /**
+       * Render counters
+       */
+      renderCounters() {
+        this.countersDisplay.innerHTML = '';
+
+        // Create array of colors
+        const colors = [];
+        for (let i = 0; i < this.redCount; i++) colors.push('red');
+        for (let i = 0; i < this.yellowCount; i++) colors.push('yellow');
+
+        // Shuffle
+        shuffle(colors);
+
+        // Render
+        colors.forEach((color, i) => {
+          const counter = document.createElement('div');
+          counter.className = `counter ${color}`;
+          counter.style.animationDelay = `${i * 0.1}s`;
+          this.countersDisplay.appendChild(counter);
+        });
+      },
+
+      /**
+       * Show the question
+       */
+      showQuestion() {
+        const correctAnswer = this.askingFor === 'red' ? this.redCount : this.yellowCount;
+        const choices = [correctAnswer];
+
+        // Add wrong answers
+        while (choices.length < 4) {
+          const wrongAnswer = randomInt(0, this.totalCounters);
+          if (!choices.includes(wrongAnswer)) {
+            choices.push(wrongAnswer);
+          }
+        }
+
+        // Shuffle
+        shuffle(choices);
+
+        // Render
+        this.answerChoices.innerHTML = '';
+        choices.forEach(choice => {
+          const btn = document.createElement('button');
+          btn.className = 'answer-btn';
+          btn.textContent = choice;
+          btn.addEventListener('click', () => this.checkAnswer(choice, correctAnswer, btn));
+          this.answerChoices.appendChild(btn);
+        });
+
+        this.questionContainer.style.display = 'flex';
+      },
+
+      /**
+       * Check the answer
+       */
+      checkAnswer(selected, correct, selectedBtn) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        // Disable all buttons
+        const buttons = this.answerChoices.querySelectorAll('.answer-btn');
+        buttons.forEach(btn => btn.disabled = true);
+
+        // Reveal counts
+        this.redCountEl.textContent = this.redCount;
+        this.yellowCountEl.textContent = this.yellowCount;
+
+        if (selected === correct) {
+          // Correct!
+          selectedBtn.classList.add('correct');
+          this.feedback.textContent = `🎉 Yes! ${this.redCount} red + ${this.yellowCount} yellow = ${this.totalCounters}`;
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.isComplete = true;
+          this.correctCount++;
+
+          if (typeof celebrate === 'function') {
+            celebrate(this.countersDisplay);
+          }
+        } else {
+          // Incorrect
+          selectedBtn.classList.add('incorrect');
+          buttons.forEach(btn => {
+            if (parseInt(btn.textContent) === correct) {
+              btn.classList.add('correct');
+            }
+          });
+          this.feedback.textContent = `There are ${correct} ${this.askingFor} counters!`;
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+        
+        const percent = this.correctCount / this.maxRounds;
+        if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = 'Amazing! You\'re a color counter pro!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '🎉';
+          this.statsMessage.textContent = 'Great job! Keep practicing!';
+        } else {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = 'Good effort! Try again to improve!';
+        }
+        
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.hasStarted = false;
+        this.statsOverlay.classList.remove('show');
+        this.btnStart.classList.add('show');
+        this.btnShake.disabled = false;
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.btnShake.disabled = false;
+        this.startRound();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round || (i === this.round && this.isComplete)) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      TwoColorCounters.init();
+    });
+  </script>
+</body>
+</html>

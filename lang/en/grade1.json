@@ -3,46 +3,775 @@
   "description": "First steps in counting, adding, and patterns",
   "levels": {
     "level1": {
-      "title": "Level 1",
-      "description": "Numbers to 20"
+      "title": "Numbers to 120 & Place Value",
+      "goal": "Understand numbers to 120, recognize place value, and compare two-digit numbers.",
+      "learnMore": {
+        "g1-l1-big-idea": {
+          "title": "Big idea",
+          "content": "Numbers tell \"how many,\" and they also have structure. In Grade 1, kids learn that **two-digit numbers are tens and ones** (like 47 = 4 tens and 7 ones). This makes counting to 120, comparing, and finding patterns much easier."
+        },
+        "g1-l1-notice": {
+          "title": "What to notice",
+          "content": "* Counts forward from any number (not only from 1).\n* Can say a number as \"__ tens and __ ones.\"\n* Compares using tens first (82 > 79 because 8 tens > 7 tens).\n* Skip-counts by 10s and notices the pattern (10, 20, 30…).\n* Spots patterns on a 120 chart (same ones digit down a column)."
+        },
+        "g1-l1-home": {
+          "title": "Try at home",
+          "content": "* **Game A (objects, core idea): \"Tens Bundles\"**\n  Grab 30–60 small items (beans/coins/straws). Make bundles of 10 (cups or rubber bands). Ask:\n  \"How many **tens**? How many **ones**? What number is that?\"\n* **Game B (second representation): \"Hop +10 / +1\"**\n  Draw a number line 0–120. Pick a start (like 34). Take turns calling \"+10\" or \"+1\" and hopping a token. Ask: \"Where did we land? What changed?\""
+        },
+        "g1-l1-videos": {
+          "title": "Optional videos",
+          "content": "**Search YouTube for:**\n* <a href='https://www.youtube.com/results?search_query=tens+and+ones+base+ten+blocks+for+kids' target='_blank' rel='noopener noreferrer'>tens and ones base ten blocks for kids</a>\n* <a href='https://www.youtube.com/results?search_query=120+chart+patterns+for+kids' target='_blank' rel='noopener noreferrer'>120 chart patterns for kids</a>\n* <a href='https://www.youtube.com/results?search_query=counting+to+120+starting+from+any+number' target='_blank' rel='noopener noreferrer'>counting to 120 starting from any number</a>\n* <a href='https://www.youtube.com/results?search_query=greater+than+less+than+for+kids' target='_blank' rel='noopener noreferrer'>greater than less than for kids</a>"
+        }
+      }
     },
     "level2": {
-      "title": "Level 2",
-      "description": "Addition within 20"
+      "title": "Addition Within 20",
+      "goal": "Develop fluency with addition facts to 20 using multiple strategies.",
+      "learnMore": {
+        "g1-l2-big-idea": {
+          "title": "Big idea",
+          "content": "Addition means \"put together\" or \"how many in all.\" The goal isn't just answers—it's building a few friendly strategies (count on, make ten, doubles) so sums to 20 feel natural."
+        },
+        "g1-l2-notice": {
+          "title": "What to notice",
+          "content": "* Starts counting from the bigger number (counts on).\n* Uses **make ten** (8 + 5 → 10 + 3).\n* Recognizes doubles quickly (6 + 6, 7 + 7).\n* Can show thinking with objects, a quick drawing, or a number line.\n* Story problems: can explain what \"in all / altogether\" means."
+        },
+        "g1-l2-home": {
+          "title": "Try at home",
+          "content": "* **Game A (core idea): \"Make 10 First\"**\n  Draw a 10-frame (2 rows of 5). Show 7 dots, then add 5 dots. Ask:\n  \"How many to fill to 10? How many left over? So 7 + 5 = 10 + __.\"\n* **Game B (second representation): \"Number Line Jumps\"**\n  Draw 0–20. For 8 + 6: start at 8, jump +6. Then try two jumps (+2, +4) and notice it's the same total."
+        },
+        "g1-l2-videos": {
+          "title": "Optional videos",
+          "content": "**Search YouTube for:**\n* <a href='https://www.youtube.com/results?search_query=make+ten+strategy+for+kids' target='_blank' rel='noopener noreferrer'>make ten strategy for kids</a>\n* <a href='https://www.youtube.com/results?search_query=number+line+addition+grade+1' target='_blank' rel='noopener noreferrer'>number line addition grade 1</a>\n* <a href='https://www.youtube.com/results?search_query=doubles+facts+addition+for+kids' target='_blank' rel='noopener noreferrer'>doubles facts addition for kids</a>\n* <a href='https://www.youtube.com/results?search_query=addition+within+20+strategies+for+kids' target='_blank' rel='noopener noreferrer'>addition within 20 strategies for kids</a>"
+        }
+      }
     },
     "level3": {
-      "title": "Level 3",
-      "description": "Subtraction basics"
+      "title": "Subtraction Within 20",
+      "goal": "Develop fluency with subtraction facts to 20 and understand the relationship between addition and subtraction.",
+      "learnMore": {
+        "g1-l3-big-idea": {
+          "title": "Big idea",
+          "content": "Subtraction can mean \"take away\" **or** \"find the difference.\" It also connects to addition: if 8 + 5 = 13, then 13 − 8 = 5. These connections build confidence and number sense."
+        },
+        "g1-l3-notice": {
+          "title": "What to notice",
+          "content": "* Can act it out with objects (start, take away, what's left).\n* Can hop back on a number line.\n* Understands \"how many more?\" as a comparison/difference.\n* Uses addition to check subtraction (answer + part = whole).\n* Gets comfortable with \"missing part\" problems (5 + __ = 8)."
+        },
+        "g1-l3-home": {
+          "title": "Try at home",
+          "content": "* **Game A (core idea): \"Take Away Snack\"**\n  Put 12 snacks on a plate. Take away 4. Ask \"How many left?\" Swap roles.\n* **Game B (second representation): \"Compare in Pairs\"**\n  Make two piles (9 vs 6). Line them up in pairs. Count the leftovers. Say:\n  \"9 is __ more than 6.\""
+        },
+        "g1-l3-videos": {
+          "title": "Optional videos",
+          "content": "**Search YouTube for:**\n* <a href='https://www.youtube.com/results?search_query=subtraction+within+20+using+number+line' target='_blank' rel='noopener noreferrer'>subtraction within 20 using a number line</a>\n* <a href='https://www.youtube.com/results?search_query=fact+families+addition+and+subtraction+for+kids' target='_blank' rel='noopener noreferrer'>fact families addition and subtraction for kids</a>\n* <a href='https://www.youtube.com/results?search_query=how+many+more+subtraction+for+kids' target='_blank' rel='noopener noreferrer'>how many more subtraction for kids</a>\n* <a href='https://www.youtube.com/results?search_query=think+addition+to+solve+subtraction+for+kids' target='_blank' rel='noopener noreferrer'>think addition to solve subtraction for kids</a>"
+        }
+      }
     },
     "level4": {
-      "title": "Level 4",
-      "description": "Place value"
+      "title": "Word Problems & Equal Sign",
+      "goal": "Solve word problems involving addition and subtraction, and understand the meaning of the equal sign.",
+      "learnMore": {
+        "g1-l4-big-idea": {
+          "title": "Big idea",
+          "content": "Word problems bring math to life. The equal sign means **\"the same as,\"** not \"the answer comes next.\" Kids learn to represent stories with drawings and equations, sometimes with a mystery number."
+        },
+        "g1-l4-notice": {
+          "title": "What to notice",
+          "content": "* Retells the story: what happened first, what changed, what's asked.\n* Draws a simple picture before calculating (circles/boxes/tallies).\n* Understands equations like □ + 3 = 9 or 10 = 6 + 4.\n* Chooses + or − based on the situation (not just keyword hunting)."
+        },
+        "g1-l4-home": {
+          "title": "Try at home",
+          "content": "* **Game A (core idea): \"Draw the Story\"**\n  Say: \"I had 6 stickers. I got 3 more.\"\n  Child draws 6 circles, then 3 circles, then writes: `6 + 3 = __`.\n* **Game B (second representation / everyday): \"Equation Balance\"**\n  Put 5 coins total, show 2 coins, hide the rest under a cup:\n  \"2 + □ = 5. How many are hiding?\""
+        },
+        "g1-l4-videos": {
+          "title": "Optional videos",
+          "content": "**Search YouTube for:**\n* <a href='https://www.youtube.com/results?search_query=equal+sign+means+the+same+as+for+kids' target='_blank' rel='noopener noreferrer'>equal sign means the same as for kids</a>\n* <a href='https://www.youtube.com/results?search_query=grade+1+word+problems+draw+a+picture' target='_blank' rel='noopener noreferrer'>grade 1 word problems draw a picture</a>\n* <a href='https://www.youtube.com/results?search_query=missing+number+equations+for+kids' target='_blank' rel='noopener noreferrer'>missing number equations for kids</a>\n* <a href='https://www.youtube.com/results?search_query=more+and+fewer+comparison+word+problems+for+kids' target='_blank' rel='noopener noreferrer'>more and fewer comparison word problems for kids</a>"
+        }
+      }
     },
     "level5": {
-      "title": "Level 5",
-      "description": "Word problems"
+      "title": "Measurement, Time & Shapes",
+      "goal": "Measure length, tell time, read data, and identify shapes and their attributes.",
+      "learnMore": {
+        "g1-l5-big-idea": {
+          "title": "Big idea",
+          "content": "This level is \"math you can touch.\" Kids compare and measure length, tell time, read simple graphs, and describe shapes. These skills grow best through small daily practice in real life."
+        },
+        "g1-l5-notice": {
+          "title": "What to notice",
+          "content": "* Measures by lining up ends and counting units with **no gaps/overlaps**.\n* For time, checks the hour hand first, then the minute hand.\n* Reads graphs: can answer \"most/least/how many more.\"\n* Names shapes and describes sides/corners.\n* For halves/fourths, checks that parts are truly equal."
+        },
+        "g1-l5-home": {
+          "title": "Try at home",
+          "content": "* **Game A (core idea): \"Measure With Paper Clips\"**\n  Measure 2–3 objects (pencil, spoon, book) using paper clips. Ask:\n  \"How many clips long? Which is longer?\"\n* **Game B (everyday-life): \"Clock Check\"**\n  Twice today, ask: \"What time is it?\"\n  First: hour only. Second: hour + half hour if applicable. Bonus: \"What will the hour be in 1 hour?\""
+        },
+        "g1-l5-videos": {
+          "title": "Optional videos",
+          "content": "**Search YouTube for:**\n* <a href='https://www.youtube.com/results?search_query=measuring+with+nonstandard+units+for+kids' target='_blank' rel='noopener noreferrer'>measuring with nonstandard units for kids</a>\n* <a href='https://www.youtube.com/results?search_query=telling+time+to+the+hour+and+half+hour+for+kids' target='_blank' rel='noopener noreferrer'>telling time to the hour and half hour for kids</a>\n* <a href='https://www.youtube.com/results?search_query=how+to+read+a+bar+graph+for+kids' target='_blank' rel='noopener noreferrer'>how to read a bar graph for kids</a>\n* <a href='https://www.youtube.com/results?search_query=2d+shapes+sides+and+corners+for+kids' target='_blank' rel='noopener noreferrer'>2d shapes sides and corners for kids</a>\n* <a href='https://www.youtube.com/results?search_query=halves+and+fourths+equal+shares+for+kids' target='_blank' rel='noopener noreferrer'>halves and fourths equal shares for kids</a>"
+        }
+      }
     }
   },
   "activities": {
-    "additionFacts": {
-      "title": "Addition Facts",
-      "description": "Practice adding numbers",
-      "instruction": "What is the sum?"
+    "count-to-twenty": {
+      "title": "Count to Twenty",
+      "description": "Tap the stars to count from 1 to 20!"
     },
-    "subtractionFacts": {
-      "title": "Subtraction Facts",
-      "description": "Practice taking away",
-      "instruction": "What is left?"
+    "number-order": {
+      "title": "Number Order",
+      "description": "Choose the list that is in the right order!",
+      "instruction": "Pick the list that goes from smallest to largest.",
+      "prompt": "Which list is in order from smallest to largest?",
+      "question": "Round {round} of {total}"
     },
-    "placeValueBlocks": {
-      "title": "Place Value Blocks",
-      "description": "Learn tens and ones",
-      "instruction": "How many tens? How many ones?"
+    "tens-ones-blocks": {
+      "title": "Tens and Ones Blocks",
+      "description": "How many tens? How many ones?",
+      "howMany": "How many tens and ones?",
+      "tens": "Tens",
+      "ones": "Ones",
+      "tensWord": "tens",
+      "onesWord": "ones",
+      "and": "and"
     },
-    "numberPatterns": {
-      "title": "Number Patterns",
-      "description": "Find the pattern and continue",
-      "instruction": "What number comes next?"
+    "number-match": {
+      "title": "Number Match",
+      "description": "Match the number to the right amount!",
+      "instruction": "Tap a number, then tap the matching group!",
+      "selectNumberFirst": "Select a number first!"
+    },
+    "greater-or-less": {
+      "title": "Greater or Less",
+      "description": "Which number is greater? Which is less?",
+      "instruction": "Choose the correct symbol!",
+      "lessThan": "Less than",
+      "equalTo": "Equal to",
+      "greaterThan": "Greater than",
+      "leftIsLess": "(left is less)",
+      "leftIsGreater": "(left is greater)",
+      "areEqual": "(they are equal)"
+    },
+    "count-by-tens": {
+      "title": "Count by Tens",
+      "description": "Skip count by 10s to reach the goal!",
+      "instruction": "Fill in the missing numbers!",
+      "wellDone": "You counted by tens perfectly!",
+      "checkPattern": "Look at the pattern - each number goes up by 10!"
+    },
+    "missing-number-sequence": {
+      "title": "Missing Number",
+      "description": "Find the number that's hiding!",
+      "instruction": "What number is missing?",
+      "pattern": "Pattern:",
+      "patternHint": "+1",
+      "wellDone": "You found it!",
+      "correctIs": "The correct number is {n}."
+    },
+    "hundred-chart": {
+      "title": "120 Chart Hunt",
+      "description": "Find numbers on the 120 chart!",
+      "findNumber": "Find the number {n}!",
+      "findTens": "Find all numbers with {n} tens!",
+      "findOnes": "Find all numbers with {n} ones!",
+      "findRange": "Find all numbers between {start} and {end}!",
+      "findPattern": "Find all numbers in the {n}s!",
+      "findMultiple": "Find these numbers: {nums}!",
+      "findColumn": "Find all numbers in the same column as {n}!",
+      "wellDone": "You found them all!"
+    },
+    "add-with-pictures": {
+      "title": "Add with Pictures",
+      "description": "Count the objects to find the sum!",
+      "instruction": "Count all the objects!",
+      "howMany": "{a} + {b} = ?",
+      "countAll": "Count them all to find the sum!",
+      "correct": "Correct! {a} + {b} = {sum}",
+      "tryAgain": "Not quite! Count again: {a} + {b} = {sum}"
+    },
+    "number-line-addition": {
+      "title": "Number Line Jump",
+      "description": "Jump along the number line to add!",
+      "instruction": "Watch the frog jump and find the answer!",
+      "watchJump": "Watch the Jump!",
+      "correct": "Correct! {a} + {b} = {sum}",
+      "tryAgain": "Not quite! {a} + {b} = {sum}"
+    },
+    "make-ten": {
+      "title": "Make Ten",
+      "description": "Find pairs of numbers that make 10!",
+      "instruction": "Pick the missing number to make 10!",
+      "findPair": "Find the number that makes 10 with {n}!",
+      "practiceInstruction": "Find any two numbers that make 10!",
+      "phaseLearn": "Learning Phase",
+      "phasePractice": "Practice Phase",
+      "pairsFound": "pairs found",
+      "correct": "Perfect! {a} + {b} = 10",
+      "tryAgain": "Not quite! That makes {sum}, not 10!",
+      "complete": "Amazing! You found all pairs that make 10! Correct: {correct}, Incorrect: {incorrect}"
+    },
+    "addition-facts": {
+      "title": "Addition Facts Flash",
+      "description": "Quick! What's the sum?",
+      "correct": "Fast! {a} + {b} = {sum}",
+      "wrong": "Not quite! {a} + {b} = {sum}",
+      "perfect": "Perfect! You got every single one right! 🎉",
+      "great": "Great job! You're really quick with your addition facts!",
+      "good": "Good work! Keep practicing to get even faster!",
+      "keepPracticing": "Keep practicing! You'll get faster with more practice!"
+    },
+    "doubles-addition": {
+      "title": "Doubles Fun",
+      "description": "Double the fun! Add the same number twice!",
+      "question": "What is the double of {n}?",
+      "correct": "✓ Correct! {n} + {n} = {answer}",
+      "wrong": "Not quite! {n} + {n} = {answer}",
+      "perfect": "Perfect! You know all your doubles!",
+      "great": "Great job! You're doing really well with doubles!",
+      "good": "Good work! Keep practicing your doubles!",
+      "keepPracticing": "Keep practicing! Doubles get easier with practice!"
+    },
+    "dice-addition": {
+      "title": "Dice Addition",
+      "description": "Roll two dice and add the dots!",
+      "clickToRoll": "Click here to roll the dice!",
+      "whatIsSum": "What is the sum?",
+      "correct": "✓ Correct! {a} + {b} = {sum}",
+      "wrong": "Not quite! {a} + {b} = {sum}",
+      "perfect": "Perfect! You're amazing at adding dice!",
+      "great": "Great job! You're really good at dice addition!",
+      "good": "Good work! Keep practicing dice addition!",
+      "keepPracticing": "Keep practicing! Dice addition gets easier!"
+    },
+    "add-three-numbers": {
+      "title": "Add Three Numbers",
+      "description": "Add three numbers together!",
+      "hint": "Look for pairs that make 10!",
+      "correct": "Correct! {a} + {b} + {c} = {sum}",
+      "wrong": "Not quite! {a} + {b} + {c} = {sum}",
+      "perfect": "Perfect! You're amazing at adding three numbers!",
+      "great": "Great job! You're really good at adding three numbers!",
+      "good": "Good work! Keep practicing adding three numbers!",
+      "keepPracticing": "Keep practicing! Adding three numbers gets easier!"
+    },
+    "addition-stories": {
+      "title": "Story Addition",
+      "description": "Read the story and add!",
+      "stories": {
+        "crayons": "Sam has {a} crayons. Mom gives him {b} more. How many crayons does Sam have now?",
+        "birds": "Emma sees {a} birds in a tree. Then {b} more birds land. How many birds are there in total?",
+        "toyCars": "Jake has {a} toy cars. His friend gives him {b} more. How many toy cars does Jake have altogether?",
+        "apples": "There are {a} apples in a basket. Dad adds {b} more apples. How many apples are in the basket now?",
+        "books": "Lily reads {a} books on Monday. She reads {b} books on Tuesday. How many books did Lily read in all?",
+        "flowers": "There are {a} flowers in the garden. Mom plants {b} more. How many flowers are there now?",
+        "stickers": "Ben has {a} stickers. His sister gives him {b} more stickers. How many stickers does Ben have now?",
+        "cookies": "There are {a} cookies on a plate. Dad bakes {b} more cookies. How many cookies are there in total?"
+      },
+      "correct": "Correct! {a} + {b} = {sum}",
+      "wrong": "Not quite! {a} + {b} = {sum}",
+      "perfect": "Perfect! You're amazing at solving addition stories!",
+      "great": "Great job! You're really good at word problems!",
+      "good": "Good work! Keep practicing addition stories!",
+      "keepPracticing": "Keep practicing! Word problems get easier!"
+    },
+    "take-away-visual": {
+      "title": "Take Away Objects",
+      "description": "Watch some objects disappear!",
+      "clickToStart": "🎈 Click here to watch objects disappear!",
+      "correct": "Correct! {minuend} − {subtrahend} = {answer}",
+      "wrong": "Not quite! {minuend} − {subtrahend} = {answer}",
+      "perfect": "Perfect! You're a subtraction star!",
+      "great": "Great job! You're really good at subtraction!",
+      "good": "Good work! Keep practicing subtraction!",
+      "keepPracticing": "Keep practicing! Subtraction gets easier!"
+    },
+    "subtraction-facts": {
+      "title": "Subtraction Facts Flash",
+      "description": "Quick! What's left?",
+      "correct": "Fast! {a} − {b} = {diff}",
+      "wrong": "Not quite! {a} − {b} = {diff}",
+      "perfect": "Perfect! You got every single one right! 🎉",
+      "great": "Great job! You're really quick with your subtraction facts!",
+      "good": "Good work! Keep practicing to get even faster!",
+      "keepPracticing": "Keep practicing! You'll get faster with more practice!"
+    },
+    "number-line-subtraction": {
+      "title": "Number Line Count Back",
+      "description": "Hop backwards on the number line!",
+      "instruction": "Watch the turtle hop backwards and find the answer!",
+      "watchJump": "Watch the Hop!",
+      "correct": "Correct! {a} − {b} = {diff}",
+      "tryAgain": "Not quite! {a} − {b} = {diff}"
+    },
+    "related-facts": {
+      "title": "Related Facts",
+      "description": "Addition and subtraction are friends!",
+      "givenFact": "Given fact:",
+      "findRelated": "Find the related fact:",
+      "correct": "Correct! The answer is {answer}!",
+      "wrong": "Not quite! The answer is {answer}.",
+      "perfect": "Perfect! You understand fact families completely! 🎉",
+      "great": "Great job! You really understand how addition and subtraction are related!",
+      "good": "Good work! Keep practicing fact families!",
+      "keepPracticing": "Keep practicing! Fact families will become easier with more practice!"
+    },
+    "missing-part": {
+      "title": "Missing Part",
+      "description": "Find the missing number!",
+      "hint": "What number makes this true?",
+      "visualHint": "{num1} blocks + ? more blocks = {total} total",
+      "correct": "Correct! {num1} + {answer} = {total}",
+      "wrong": "Not quite! {num1} + {answer} = {total}",
+      "perfect": "Perfect! You found every missing part! 🎉",
+      "great": "Great job! You're really good at finding missing numbers!",
+      "good": "Good work! Keep practicing to get even better!",
+      "keepPracticing": "Keep practicing! Finding missing parts will become easier!"
+    },
+    "subtract-from-ten": {
+      "title": "Subtract from Ten",
+      "description": "Take away from 10!",
+      "frameLabel": "Start with 10, take away {n}",
+      "correct": "🎯 Correct! 10 − {n} = {answer}",
+      "wrong": "Not quite! 10 − {n} = {answer}",
+      "perfect": "🌟 Perfect! You know all your 10-bonds!",
+      "great": "Excellent! You're mastering subtracting from 10!",
+      "good": "Good work! Keep practicing these important facts!",
+      "keepPracticing": "Keep practicing! These facts will become automatic!"
+    },
+    "how-many-more": {
+      "title": "How Many More?",
+      "description": "Compare and find the difference!",
+      "howManyMore": "How many more {items} does Group A have?",
+      "correct": "Correct! Group A has {difference} more than Group B.",
+      "wrong": "Not quite! The difference is {difference}. ({groupA} - {groupB} = {difference})",
+      "perfect": "Perfect! You're a comparison expert!",
+      "great": "Great job! You understand differences!",
+      "good": "Good work! Keep practicing comparisons!",
+      "keepPracticing": "Keep practicing! Comparing gets easier!"
+    },
+    "think-addition": {
+      "title": "Think Addition",
+      "description": "Use addition to help you subtract!",
+      "subtractionProblem": "Subtraction problem:",
+      "thinkAddition": "Think:",
+      "correct": "Correct! {minuend} − {subtrahend} = {answer}",
+      "wrong": "Not quite! {minuend} − {subtrahend} = {answer}",
+      "perfect": "Perfect! You're a subtraction expert! 🎉",
+      "great": "Great job! You really understand how to use addition to subtract!",
+      "good": "Good work! Keep practicing this strategy!",
+      "keepPracticing": "Keep practicing! This strategy will become easier!"
+    },
+    "subtraction-stories": {
+      "title": "Story Subtraction",
+      "description": "Read the story and subtract!",
+      "stories": {
+        "stickers": "Emma had {a} stickers. She gave {b} to her friend. How many stickers does Emma have now?",
+        "balloons": "Jake had {a} balloons. {b} balloons floated away. How many balloons does Jake have left?",
+        "cookies": "There were {a} cookies on a plate. Mom ate {b} cookies. How many cookies are left?",
+        "apples": "Sam picked {a} apples. He gave {b} apples to his teacher. How many apples does Sam have now?",
+        "toyCars": "Ben had {a} toy cars. He gave {b} cars to his brother. How many toy cars does Ben have left?",
+        "flowers": "There were {a} flowers in a vase. {b} flowers wilted. How many flowers are still fresh?",
+        "pencils": "Lily had {a} pencils. She lost {b} pencils. How many pencils does Lily have now?",
+        "cupcakes": "Dad baked {a} cupcakes. The family ate {b} cupcakes. How many cupcakes are left?"
+      },
+      "correct": "Correct! {a} − {b} = {answer}",
+      "wrong": "Not quite! {a} − {b} = {answer}",
+      "perfect": "Perfect! You're amazing at solving subtraction stories!",
+      "great": "Great job! You're really good at subtraction word problems!",
+      "good": "Good work! Keep practicing subtraction stories!",
+      "keepPracticing": "Keep practicing! Subtraction word problems get easier!"
+    },
+    "equal-sign": {
+      "title": "Equal Sign Explorer",
+      "description": "The equal sign means 'the same as'!",
+      "question": "Is this equation true?",
+      "true": "True",
+      "false": "False",
+      "correct": "Yes! Both sides are equal!",
+      "correctFalse": "Correct! Both sides are NOT equal!",
+      "wrong": "Not quite! Both sides ARE equal.",
+      "wrongFalse": "Not quite! Both sides are NOT equal.",
+      "perfect": "Perfect! You understand the equal sign completely! 🏆",
+      "great": "Great job! You really understand what = means!",
+      "good": "Good work! Keep practicing!",
+      "keepPracticing": "Keep practicing! Understanding = gets easier!"
+    },
+    "balance-equation": {
+      "title": "Balance the Equation",
+      "description": "Make both sides equal!",
+      "enterNumber": "Enter the missing number:",
+      "pleaseEnter": "Please enter a number!",
+      "correct": "Perfect! The missing number is {n}!",
+      "wrong": "Not quite! The correct answer is {n}.",
+      "perfect": "Perfect! You can balance any equation! 🏆",
+      "great": "Great job! You understand how to balance equations!",
+      "good": "Good work! Keep practicing!",
+      "keepPracticing": "Keep practicing! Balancing equations gets easier!"
+    },
+    "picture-problems": {
+      "title": "Picture Problems",
+      "description": "Look at the picture and solve!",
+      "addJoin": "{a} birds on a branch. {b} more birds fly in. How many birds now?",
+      "addApples": "{a} apples in the basket. Add {b} more apples. How many apples total?",
+      "addButterflies": "{a} butterflies in the garden. {b} more butterflies come. How many butterflies altogether?",
+      "addFlowers": "{a} flowers bloom. Then {b} more flowers bloom. How many flowers now?",
+      "subBalloons": "{a} balloons. {b} balloons float away. How many balloons left?",
+      "subCookies": "{a} cookies on the plate. Eat {b} cookies. How many cookies remain?",
+      "subStars": "{a} stars in the sky. {b} stars disappear. How many stars are left?",
+      "subFish": "{a} fish in the pond. {b} fish swim away. How many fish left?",
+      "correct": "Yes! {a} {op} {b} = {answer}",
+      "tryAgain": "Not quite! The answer is {answer}.",
+      "perfect": "Perfect! You can solve any picture problem!",
+      "great": "Great job! You understand picture problems!",
+      "good": "Good work! Keep practicing!",
+      "keepPracticing": "Keep practicing! Picture problems get easier!"
+    },
+    "word-problem-mix": {
+      "title": "Word Problem Mix",
+      "description": "Read, think, and solve!",
+      "addCookies": "Sam has {a} cookies. Mom gives him {b} more cookies. How many cookies does Sam have now?",
+      "addFlowers": "There are {a} flowers in the garden. {b} more flowers bloom. How many flowers are there now?",
+      "addBalloons": "Anna has {a} balloons. Dad buys her {b} more balloons. How many balloons does Anna have?",
+      "addBooks": "There are {a} blue books and {b} red books on the shelf. How many books in total?",
+      "addCaterpillars": "{a} caterpillars crawl on a leaf. {b} more caterpillars join them. How many caterpillars now?",
+      "subApples": "Tom has {a} apples. He eats {b} apples. How many apples are left?",
+      "subBirds": "{a} birds sit on a fence. {b} birds fly away. How many birds are left?",
+      "subCrayons": "Emma has {a} crayons. She gives {b} crayons to her friend. How many crayons does Emma have now?",
+      "subStars": "There were {a} stars. {b} stars disappear behind clouds. How many stars can you see?",
+      "subStrawberries": "Ben picks {a} strawberries. He shares {b} strawberries with friends. How many strawberries does Ben keep?",
+      "correct": "Correct! {a} {op} {b} = {answer}",
+      "tryAgain": "Not quite! The answer is {answer}.",
+      "perfect": "Perfect! You can solve any word problem!",
+      "great": "Great job! You understand word problems!",
+      "good": "Good work! Keep practicing!",
+      "keepPracticing": "Keep practicing! Word problems get easier!"
+    },
+    "more-fewer-problems": {
+      "title": "More and Fewer Problems",
+      "description": "Who has more? How many more?",
+      "howManyMoreApples": "{person1} has {a} apples. {person2} has {b} apples. How many more apples does {person2} have?",
+      "howManyMoreBooks": "{person1} has {a} books. {person2} has {b} books. How many more books does {person2} have?",
+      "howManyMoreStars": "{person1} has {a} stars. {person2} has {b} stars. How many more stars does {person2} have?",
+      "howManyMoreBalloons": "{person1} has {a} balloons. {person2} has {b} balloons. How many more balloons does {person2} have?",
+      "fewerBooks": "{person1} has {a} books. {person2} has {diff} fewer books. How many books does {person2} have?",
+      "fewerCrayons": "{person1} has {a} crayons. {person2} has {diff} fewer crayons. How many crayons does {person2} have?",
+      "fewerCookies": "{person1} has {a} cookies. {person2} has {diff} fewer cookies. How many cookies does {person2} have?",
+      "fewerFlowers": "{person1} has {a} flowers. {person2} has {diff} fewer flowers. How many flowers does {person2} have?",
+      "correct": "Correct! The answer is {answer}.",
+      "tryAgain": "Not quite! The answer is {answer}.",
+      "explainMore": "{b} - {a} = {answer}",
+      "explainFewer": "{a} - {diff} = {answer}",
+      "perfect": "Perfect! You understand more and fewer!",
+      "great": "Great job! You can compare well!",
+      "good": "Good work! Keep practicing comparisons!",
+      "keepPracticing": "Keep practicing! Comparing gets easier!"
+    },
+    "draw-to-solve": {
+      "title": "Draw to Solve",
+      "description": "Draw circles to help you solve!",
+      "drawHere": "Draw circles here to help you:",
+      "clickToAdd": "Click anywhere to add a circle",
+      "clickCircleToRemove": "Click a circle to remove it",
+      "emptyCanvas": "Click to add circles",
+      "tooManyCircles": "That's a lot of circles! Try counting or clearing some first.",
+      "clearDrawing": "Clear Drawing",
+      "yourAnswer": "Your answer:",
+      "submit": "Submit",
+      "pleaseEnter": "Please enter a number!",
+      "toyCars": "Sam has {a} toy cars. His friend gives him {b} more. How many toy cars does Sam have altogether?",
+      "birds": "There are {a} birds in a tree. {b} more birds land in the tree. How many birds are there now?",
+      "stickers": "Emma has {a} stickers. Mom gives her {b} more stickers. How many stickers does Emma have now?",
+      "cookies": "Jake has {a} cookies. He eats {b} cookies. How many cookies does Jake have left?",
+      "apples": "There are {a} apples in a basket. {b} apples are taken out. How many apples are left in the basket?",
+      "balloons": "Ben has {a} balloons. {b} balloons pop. How many balloons does Ben have now?",
+      "correct": "Correct! {a} {op} {b} = {answer}",
+      "tryAgain": "Not quite! The answer is {answer}. ({a} {op} {b} = {answer})",
+      "perfect": "Perfect! You can solve any word problem with drawing!",
+      "great": "Great job! Drawing helps you solve problems!",
+      "good": "Good work! Keep using drawings to help!",
+      "keepPracticing": "Keep practicing! Drawing makes problems easier!"
+    },
+    "match-equation-story": {
+      "title": "Match Equation to Story",
+      "description": "Which equation matches the story?",
+      "addToys": "I had {a} toys. I got {b} more toys.",
+      "addCookies": "Mom baked {a} cookies. Then she baked {b} more cookies.",
+      "addBirds": "{a} birds were in a tree. {b} more birds flew in.",
+      "addBooks": "Sam read {a} books last week and {b} books this week.",
+      "addFlowers": "There were {a} flowers. Then {b} more flowers bloomed.",
+      "subBalloons": "I had {a} balloons. {b} balloons popped.",
+      "subApples": "There were {a} apples in the basket. Tom ate {b} apples.",
+      "subCrayons": "Emma had {a} crayons. She gave {b} crayons to her friend.",
+      "subStars": "{a} stars were shining. Then {b} stars disappeared.",
+      "subFish": "{a} fish were swimming. {b} fish swam away.",
+      "correct": "Perfect! {equation} matches the story!",
+      "tryAgain": "Not quite! The correct equation is {equation}.",
+      "perfect": "Perfect! You can match any equation to its story!",
+      "great": "Great job! You understand how equations represent stories!",
+      "good": "Good work! Keep practicing!",
+      "keepPracticing": "Keep practicing! Matching equations gets easier!"
+    },
+    "create-story": {
+      "title": "Create a Story",
+      "description": "What story could this equation tell?",
+      "correct": "📖 Perfect! That story matches the equation!",
+      "tryAgain": "Not quite! The correct story is highlighted in green.",
+      "perfect": "Perfect! You understand what equations mean!",
+      "great": "Great job! You can interpret equations as stories!",
+      "good": "Good work! Keep practicing!",
+      "keepPracticing": "Keep practicing! Understanding equations gets easier!",
+      "addToys": "I had {a} toys. I got {b} more toys.",
+      "addCookies": "Mom baked {a} cookies. Then she baked {b} more cookies.",
+      "addBirds": "{a} birds were in a tree. {b} more birds flew in.",
+      "addBooks": "Sam read {a} books last week and {b} books this week.",
+      "addFlowers": "There were {a} flowers. Then {b} more flowers bloomed.",
+      "addPresents": "Anna got {a} presents on her birthday and {b} more from her grandma.",
+      "subBalloons": "I had {a} balloons. {b} balloons popped.",
+      "subApples": "There were {a} apples in the basket. Tom ate {b} apples.",
+      "subCrayons": "Emma had {a} crayons. She gave {b} crayons to her friend.",
+      "subStars": "{a} stars were shining. Then {b} stars disappeared.",
+      "subFish": "{a} fish were swimming. {b} fish swam away.",
+      "subCupcakes": "The bakery made {a} cupcakes. They sold {b} cupcakes."
+    },
+    "order-by-length": {
+      "title": "Order by Length",
+      "description": "Put objects in order from shortest to longest!",
+      "instruction": "Drag the objects to arrange them from shortest to longest!",
+      "arrangeAll": "Please arrange all objects in the drop zones!",
+      "correct": "📏 Perfect! You ordered them from shortest to longest!",
+      "wrong": "Not quite! Look carefully at the lengths and try again.",
+      "checkButton": "Check My Answer",
+      "statsPerfect": "Perfect! You can compare lengths like a pro!",
+      "statsGreat": "Great job! You understand length comparison!",
+      "statsGood": "Good work! Keep practicing!",
+      "statsKeepGoing": "Keep practicing! Comparing lengths gets easier!"
+    },
+    "measure-with-cubes": {
+      "title": "Measure with Cubes",
+      "description": "How many cubes long is it?",
+      "instruction": "Count the cubes to find the length!",
+      "correct": "🧊 Correct! The object is {n} cubes long!",
+      "wrong": "Not quite! The correct length is {n} cubes.",
+      "statsPerfect": "Perfect! You're a measurement expert!",
+      "statsGreat": "Great job! You can measure length accurately!",
+      "statsGood": "Good work! Keep practicing measuring!",
+      "statsKeepGoing": "Keep practicing! Measuring gets easier!",
+      "objects": {
+        "crayon": "Crayon",
+        "pencil": "Pencil",
+        "stick": "Stick",
+        "carrot": "Carrot",
+        "brush": "Brush",
+        "spoon": "Spoon",
+        "ruler": "Ruler",
+        "candy": "Candy"
+      }
+    },
+    "time-hour": {
+      "title": "What Time Is It? (Hour)",
+      "description": "Tell time to the hour!",
+      "instruction": "What time does the clock show?",
+      "correct": "⏰ Correct! It's {time}!",
+      "wrong": "Not quite! It's {time}.",
+      "statsPerfect": "Perfect! You can tell time to the hour!",
+      "statsGreat": "Great job! You're learning to tell time!",
+      "statsGood": "Good work! Keep practicing telling time!",
+      "statsKeepGoing": "Keep practicing! Telling time gets easier!"
+    },
+    "time-half-hour": {
+      "title": "What Time Is It? (Half Hour)",
+      "description": "Tell time to the half hour!",
+      "instruction": "What time does the clock show?",
+      "correct": "⏰ Correct! It's {time}!",
+      "wrong": "Not quite! It's {time}.",
+      "statsPerfect": "Perfect! You can tell time to the half hour!",
+      "statsGreat": "Great job! You're learning to tell time!",
+      "statsGood": "Good work! Keep practicing telling time!",
+      "statsKeepGoing": "Keep practicing! Telling time gets easier!"
+    },
+    "read-bar-graph": {
+      "title": "Read the Bar Graph",
+      "description": "Answer questions about the graph!",
+      "correct": "📊 Correct! Great reading!",
+      "wrong": "Not quite! Look at the graph carefully.",
+      "statsPerfect": "Perfect! You can read bar graphs like a pro!",
+      "statsGreat": "Great job! You understand bar graphs!",
+      "statsGood": "Good work! Keep practicing!",
+      "statsKeepGoing": "Keep practicing! Reading graphs gets easier!",
+      "graphs": {
+        "fruits": {
+          "title": "Favorite Fruits",
+          "apple": "Apple",
+          "banana": "Banana",
+          "orange": "Orange",
+          "q1": "How many children like bananas?",
+          "q2": "Which fruit is most popular?",
+          "q3": "How many more children like bananas than oranges?"
+        },
+        "pets": {
+          "title": "Favorite Pets",
+          "dog": "Dog",
+          "cat": "Cat",
+          "fish": "Fish",
+          "q1": "How many children like dogs?",
+          "q2": "Which pet is least popular?",
+          "q3": "How many more children like dogs than cats?"
+        },
+        "colors": {
+          "title": "Favorite Colors",
+          "red": "Red",
+          "blue": "Blue",
+          "green": "Green",
+          "q1": "How many children like blue?",
+          "q2": "Which color is most popular?",
+          "q3": "How many more children like blue than green?"
+        }
+      }
+    },
+    "name-shapes": {
+      "title": "Name That Shape!",
+      "description": "What shape is this?",
+      "shapes": {
+        "circle": "Circle",
+        "square": "Square",
+        "rectangle": "Rectangle",
+        "triangle": "Triangle",
+        "hexagon": "Hexagon",
+        "trapezoid": "Trapezoid"
+      },
+      "correct": "✅ Correct! That's the right shape!",
+      "wrong": "Not quite! That's a {shape}.",
+      "squareInfo": "💡 Did you know? A square is a special rectangle!",
+      "statsPerfect": "Perfect! You know all your shapes! 🏆",
+      "statsGreat": "Excellent shape knowledge! 🌟",
+      "statsGood": "Good job identifying shapes! 👍",
+      "statsKeepGoing": "Keep practicing - you're learning! 💪"
+    },
+    "shape-attributes": {
+      "title": "Shape Attributes",
+      "description": "Count the sides and corners!",
+      "shapes": {
+        "triangle": "triangle",
+        "square": "square",
+        "rectangle": "rectangle",
+        "pentagon": "pentagon",
+        "hexagon": "hexagon"
+      },
+      "howManySides": "How many sides does this {shape} have?",
+      "howManyCorners": "How many corners does this {shape} have?",
+      "correct": "✅ That's right! Great counting!",
+      "wrong": "Not quite! The answer is {answer}.",
+      "statsPerfect": "Perfect! You know your shape attributes! 🏆",
+      "statsGreat": "Excellent work counting sides and corners! 🌟",
+      "statsGood": "Good job learning about shapes! 👍",
+      "statsKeepGoing": "Keep practicing - you're learning! 💪"
+    },
+    "halves-fourths": {
+      "title": "Halves and Fourths",
+      "description": "Divide shapes into equal parts!",
+      "isEqualHalves": "Is this shape divided into equal halves?",
+      "isEqualFourths": "Is this shape divided into equal fourths?",
+      "howManyHalves": "How many halves are in this shape?",
+      "howManyFourths": "How many fourths are in this shape?",
+      "yes": "Yes ✓",
+      "no": "No ✗",
+      "correct": "🍕 Correct! Well done!",
+      "wrong": "Not quite! Look carefully at the parts.",
+      "statsPerfect": "Perfect! You understand halves and fourths! 🏆",
+      "statsGreat": "Great job! You're learning about fractions! 🌟",
+      "statsGood": "Good work! Keep practicing! 👍",
+      "statsKeepGoing": "Keep practicing - fractions get easier! 💪"
+    }
+  },
+  "learnMore": {
+    "visitResource": "Visit resource",
+    "numberblocks-count-20": {
+      "title": "Numberblocks - Learn to Count to 20",
+      "description": "Join the Numberblocks as they count all the way to 20!"
+    },
+    "khan-academy-grade1": {
+      "title": "Khan Academy - 1st Grade Math",
+      "description": "Extra practice and parent-friendly explanations for Grade 1 skills."
+    },
+    "place-value-song": {
+      "title": "Place Value Song - Tens and Ones",
+      "description": "A catchy song about tens and ones place value"
+    },
+    "greater-than-less-than-song": {
+      "title": "Greater Than Less Than Song",
+      "description": "Learn the > and < symbols with a fun song!"
+    },
+    "count-to-100-numberblocks": {
+      "title": "Count to 100 Song | Numberblocks",
+      "description": "Count all the way to 100 with Numberblocks!"
+    },
+    "addition-song": {
+      "title": "The Addition Song | Math Songs",
+      "description": "Learn to add with a catchy tune!"
+    },
+    "numberblocks-addition": {
+      "title": "Numberblocks - Adding Numbers Together",
+      "description": "Watch how Numberblocks combine and grow!"
+    },
+    "make-ten-strategy": {
+      "title": "Make a Ten to Add | Math Strategy",
+      "description": "Learn the 'make a ten' strategy for easy adding"
+    },
+    "number-line-adding": {
+      "title": "How to Use a Number Line to Add",
+      "description": "Jump along the number line to find sums!"
+    },
+    "subtraction-song": {
+      "title": "The Subtraction Song | Take It Away!",
+      "description": "Learn to subtract with a fun song!"
+    },
+    "numberblocks-subtraction": {
+      "title": "Numberblocks - Taking Away",
+      "description": "See how numbers get smaller when you take away!"
+    },
+    "fact-families": {
+      "title": "Fact Families | Addition and Subtraction",
+      "description": "Learn how addition and subtraction are related!"
+    },
+    "counting-back-strategy": {
+      "title": "Subtraction: Counting Back",
+      "description": "Learn to count back to subtract!"
+    },
+    "word-problems-song": {
+      "title": "Math Word Problems for Kids",
+      "description": "Learn how to solve word problems step by step!"
+    },
+    "equal-sign-meaning": {
+      "title": "What Does the Equal Sign Mean?",
+      "description": "The equal sign means 'the same as'!"
+    },
+    "comparison-word-problems": {
+      "title": "Comparing with More and Fewer",
+      "description": "Learn to solve problems with 'more' and 'fewer'"
+    },
+    "drawing-math-pictures": {
+      "title": "Draw Pictures to Solve Math Problems",
+      "description": "Use drawings to help solve word problems!"
+    },
+    "measuring-length": {
+      "title": "Measuring with Non-Standard Units",
+      "description": "Learn to measure using cubes, paper clips, and more!"
+    },
+    "telling-time": {
+      "title": "Telling Time to the Hour and Half Hour",
+      "description": "Learn to read a clock!"
+    },
+    "reading-bar-graphs": {
+      "title": "How to Read a Bar Graph for Kids",
+      "description": "Learn what bar graphs can tell us!"
+    },
+    "khan-academy-geometry": {
+      "title": "Khan Academy - 1st Grade Math (Geometry & Shapes)",
+      "description": "Extra practice naming shapes, attributes, and equal parts."
+    },
+    "halves-fourths-fractions": {
+      "title": "Fractions: Halves and Fourths",
+      "description": "Learn about equal parts!"
     }
   }
 }

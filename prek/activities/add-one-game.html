@@ -382,79 +382,67 @@
   <script src="../../js/animations.js"></script>
   <script src="../../js/i18n.js"></script>
   <script src="../../js/navigation.js"></script>
+  <script src="activity-base.js"></script>
   <script>
     /**
-     * Add One Game Activity
+     * Add One Game Activity - extends ActivityBase
      * Children learn addition by adding one block to a tower and counting
      */
-    const AddOneGame = {
-      // Activity state
-      round: 1,
-      maxRounds: 8,
-      correctCount: 0,
-      wrongCount: 0,
-      hasAdded: false,
-      hasAnswered: false,
-      isComplete: false,
-      autoAdvanceDelay: 1500,
+    class AddOneGame extends ActivityBase {
+      constructor() {
+        super({
+          maxRounds: 8,
+          autoAdvanceDelay: 1500,
+          activityName: 'add-one-game'
+        });
 
-      // Current round state
-      startNumber: 0,
-      targetNumber: 0,
+        // Activity-specific state
+        this.hasAdded = false;
+        this.hasAnswered = false;
+        this.startNumber = 0;
+        this.targetNumber = 0;
 
-      // Block colors
-      blockColors: [
-        { bg: 'linear-gradient(to bottom, #ef4444, #dc2626)', emoji: '' },
-        { bg: 'linear-gradient(to bottom, #f97316, #ea580c)', emoji: '' },
-        { bg: 'linear-gradient(to bottom, #eab308, #ca8a04)', emoji: '' },
-        { bg: 'linear-gradient(to bottom, #22c55e, #16a34a)', emoji: '' },
-        { bg: 'linear-gradient(to bottom, #3b82f6, #2563eb)', emoji: '' },
-        { bg: 'linear-gradient(to bottom, #8b5cf6, #7c3aed)', emoji: '' },
-        { bg: 'linear-gradient(to bottom, #ec4899, #db2777)', emoji: '' }
-      ],
+        // Block colors
+        this.blockColors = [
+          { bg: 'linear-gradient(to bottom, #ef4444, #dc2626)', emoji: '' },
+          { bg: 'linear-gradient(to bottom, #f97316, #ea580c)', emoji: '' },
+          { bg: 'linear-gradient(to bottom, #eab308, #ca8a04)', emoji: '' },
+          { bg: 'linear-gradient(to bottom, #22c55e, #16a34a)', emoji: '' },
+          { bg: 'linear-gradient(to bottom, #3b82f6, #2563eb)', emoji: '' },
+          { bg: 'linear-gradient(to bottom, #8b5cf6, #7c3aed)', emoji: '' },
+          { bg: 'linear-gradient(to bottom, #ec4899, #db2777)', emoji: '' }
+        ];
 
-      // DOM elements
-      startDisplay: null,
-      startNumberEl: null,
-      towerContainer: null,
-      btnAdd: null,
-      question: null,
-      numberChoices: null,
-      feedback: null,
-      progress: null,
-      instruction: null,
-      statsOverlay: null,
-      statsCorrect: null,
-      statsWrong: null,
-      statsMessage: null,
-      statsIcon: null,
-      btnPlayAgain: null,
+        // Activity-specific DOM elements
+        this.startDisplay = null;
+        this.startNumberEl = null;
+        this.towerContainer = null;
+        this.btnAdd = null;
+        this.question = null;
+        this.numberChoices = null;
+        this.instruction = null;
+      }
 
       /**
        * Initialize the activity
        */
       init() {
-        // Get DOM elements
+        // Initialize common elements from base class
+        this.initCommonElements();
+
+        // Get activity-specific DOM elements
         this.startDisplay = document.getElementById('start-display');
         this.startNumberEl = document.getElementById('start-number');
         this.towerContainer = document.getElementById('tower-container');
         this.btnAdd = document.getElementById('btn-add');
         this.question = document.getElementById('question');
         this.numberChoices = document.getElementById('number-choices');
-        this.feedback = document.getElementById('feedback');
-        this.progress = document.getElementById('progress');
         this.instruction = document.getElementById('instruction');
-        this.statsOverlay = document.getElementById('stats-overlay');
-        this.statsCorrect = document.getElementById('stats-correct');
-        this.statsWrong = document.getElementById('stats-wrong');
-        this.statsMessage = document.getElementById('stats-message');
-        this.statsIcon = document.getElementById('stats-icon');
-        this.btnPlayAgain = document.getElementById('btn-play-again');
 
         // Set up event listeners
-        this.btnAdd.addEventListener('click', () => this.addOneBlock());
-        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
-        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+        if (this.btnAdd) {
+          this.btnAdd.addEventListener('click', () => this.addOneBlock());
+        }
 
         // Create number choices
         this.createNumberChoices();
@@ -462,12 +450,14 @@
         // Start first round
         this.startRound();
         this.renderProgress();
-      },
+      }
 
       /**
        * Create number choice buttons
        */
       createNumberChoices() {
+        if (!this.numberChoices) return;
+        
         this.numberChoices.innerHTML = '';
         for (let i = 1; i <= 6; i++) {
           const btn = document.createElement('button');
@@ -477,10 +467,10 @@
           btn.addEventListener('click', () => this.selectAnswer(i));
           this.numberChoices.appendChild(btn);
         }
-      },
+      }
 
       /**
-       * Start a new round
+       * Start a new round (required by ActivityBase)
        */
       startRound() {
         // Reset state
@@ -489,7 +479,7 @@
         this.isComplete = false;
 
         // Generate start number (1-4)
-        this.startNumber = randomInt(1, 4);
+        this.startNumber = this.randomInt(1, 4);
         this.targetNumber = this.startNumber + 1;
 
         // Update UI
@@ -498,7 +488,7 @@
         this.btnAdd.disabled = false;
         this.question.style.display = 'none';
         this.numberChoices.style.display = 'none';
-        this.feedback.classList.remove('show');
+        this.hideFeedback();
 
         // Reset number buttons
         const buttons = this.numberChoices.querySelectorAll('.number-choice');
@@ -510,7 +500,7 @@
         // Render tower
         this.renderTower(this.startNumber);
         this.renderProgress();
-      },
+      }
 
       /**
        * Render tower blocks
@@ -532,7 +522,7 @@
           block.style.animationDelay = `${i * 0.1}s`;
           this.towerContainer.appendChild(block);
         }
-      },
+      }
 
       /**
        * Add one block to tower
@@ -556,7 +546,7 @@
           this.question.style.display = 'block';
           this.numberChoices.style.display = 'flex';
         }, 500);
-      },
+      }
 
       /**
        * Handle answer selection
@@ -576,11 +566,7 @@
         if (number === this.targetNumber) {
           // Correct!
           selectedBtn.classList.add('correct');
-          this.feedback.textContent = `🎉 Yes! ${this.startNumber} + 1 = ${this.targetNumber}!`;
-          this.feedback.classList.remove('error');
-          this.feedback.classList.add('show');
-          this.isComplete = true;
-          this.correctCount++;
+          this.recordCorrect(`🎉 Yes! ${this.startNumber} + 1 = ${this.targetNumber}!`);
 
           // Celebrate
           if (typeof celebrate === 'function') {
@@ -590,9 +576,7 @@
           // Incorrect
           selectedBtn.classList.add('incorrect');
           correctBtn.classList.add('correct');
-          this.feedback.textContent = `${this.startNumber} plus 1 equals ${this.targetNumber}.`;
-          this.feedback.classList.add('show', 'error');
-          this.wrongCount++;
+          this.recordWrong(`${this.startNumber} plus 1 equals ${this.targetNumber}.`);
         }
 
         this.renderProgress();
@@ -605,70 +589,25 @@
             this.showStats();
           }
         }, this.autoAdvanceDelay);
-      },
-
-      /**
-       * Show completion stats
-       */
-      showStats() {
-        this.statsCorrect.textContent = this.correctCount;
-        this.statsWrong.textContent = this.wrongCount;
-        
-        const percent = this.correctCount / this.maxRounds;
-        if (percent >= 0.8) {
-          this.statsIcon.textContent = '🌟';
-          this.statsMessage.textContent = 'Amazing! You\'re an addition star!';
-        } else if (percent >= 0.6) {
-          this.statsIcon.textContent = '🎉';
-          this.statsMessage.textContent = 'Great job building towers!';
-        } else {
-          this.statsIcon.textContent = '👍';
-          this.statsMessage.textContent = 'Good effort! Try again!';
-        }
-        
-        this.statsOverlay.classList.add('show');
-      },
-
-      /**
-       * Restart the entire activity
-       */
-      restartActivity() {
-        this.round = 1;
-        this.correctCount = 0;
-        this.wrongCount = 0;
-        this.statsOverlay.classList.remove('show');
-        this.startRound();
-      },
-
-      /**
-       * Go to next round
-       */
-      nextRound() {
-        this.round++;
-        this.startRound();
-      },
-
-      /**
-       * Render progress indicator
-       */
-      renderProgress() {
-        let html = '';
-        for (let i = 1; i <= this.maxRounds; i++) {
-          let className = 'progress-dot';
-          if (i < this.round || (i === this.round && this.isComplete)) {
-            className += ' completed';
-          } else if (i === this.round) {
-            className += ' current';
-          }
-          html += `<div class="${className}"></div>`;
-        }
-        this.progress.innerHTML = html;
       }
-    };
+
+      /**
+       * Override base class stats message
+       */
+      getStatsMessage(level) {
+        const messages = {
+          excellent: 'Amazing! You\'re an addition star!',
+          good: 'Great job building towers!',
+          tryAgain: 'Good effort! Try again!'
+        };
+        return messages[level];
+      }
+    }
 
     // Initialize when DOM is ready
     document.addEventListener('DOMContentLoaded', () => {
-      AddOneGame.init();
+      const activity = new AddOneGame();
+      activity.init();
     });
   </script>
 </body>

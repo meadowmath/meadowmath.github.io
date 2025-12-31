@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Missing Number - Grade 1 Math Activity - Meadow Math">
+  <title>Missing Number - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🔍</span>
+            <span data-i18n="section.activities.missing-number-sequence.title">Missing Number</span>
+          </h1>
+          <p class="activity-instruction" data-i18n="section.activities.missing-number-sequence.description">Find the number that's hiding!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Instruction -->
+          <div class="question-text" id="instruction">
+            <span data-i18n="section.activities.missing-number-sequence.instruction">What number is missing?</span>
+          </div>
+
+          <!-- Pattern Hint -->
+          <div class="pattern-hint" id="pattern-hint">
+            <span class="hint-label" data-i18n="section.activities.missing-number-sequence.pattern">Pattern:</span>
+            <span class="hint-text" data-i18n="section.activities.missing-number-sequence.patternHint">+1</span>
+          </div>
+
+          <!-- Sequence Display -->
+          <div class="sequence-container" id="sequence-container">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Choice Buttons for multiple-choice -->
+          <div class="choice-container" id="choice-container">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <button class="btn-activity btn-secondary" id="btn-reset" data-i18n="buttons.reset">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value correct" id="stat-correct">0</div>
+              <div class="stat-label" data-i18n="stats.correct">Correct</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value incorrect" id="stat-incorrect">0</div>
+              <div class="stat-label" data-i18n="stats.incorrect">Incorrect</div>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Missing Number Sequence Activity
+    const MissingNumberSequence = {
+      // Game state
+      currentQuestion: 0,
+      totalQuestions: 10,
+      correctCount: 0,
+      incorrectCount: 0,
+      patternStep: 1,
+      currentSequence: [],
+      missingIndices: [],
+      missingNumbers: [],
+      currentBlankIndex: 0,
+      userAnswers: [],
+      autoAdvanceDelay: 1500,
+      isAnswered: false,
+
+      // DOM elements
+      sequenceContainer: null,
+      choiceContainer: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      patternHintText: null,
+      btnReset: null,
+      statsOverlay: null,
+      statCorrect: null,
+      statIncorrect: null,
+      statsMessage: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.sequenceContainer = document.getElementById('sequence-container');
+        this.choiceContainer = document.getElementById('choice-container');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.patternHintText = document.querySelector('#pattern-hint .hint-text');
+        this.btnReset = document.getElementById('btn-reset');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statCorrect = document.getElementById('stat-correct');
+        this.statIncorrect = document.getElementById('stat-incorrect');
+        this.statsMessage = document.getElementById('stats-message');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnReset.addEventListener('click', () => this.resetCurrentQuestion());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => {
+          if (e.target === this.statsOverlay) this.restartActivity();
+        });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Start first question
+        this.startQuestion();
+        this.renderProgress();
+      },
+
+      /**
+       * Random integer helper
+       */
+      randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      },
+
+      /**
+       * Update translations for dynamic content
+       */
+      updateTranslations() {
+        // Re-apply translations if needed
+      },
+
+      /**
+       * Shuffle array helper
+       */
+      shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      },
+
+      /**
+       * Generate a sequence with missing numbers
+       */
+      generateSequence() {
+        // Progressive difficulty
+        let startMin, endMax, sequenceLength, numBlanks;
+
+        if (this.currentQuestion < 3) {
+          // Easy: smaller numbers, sequences of 5 numbers, 1 blank
+          startMin = 1;
+          endMax = 25;
+          sequenceLength = 5;
+          numBlanks = 1;
+        } else if (this.currentQuestion < 6) {
+          // Medium: 10-30-ish, sequences of 5 numbers, 1-2 blanks
+          startMin = 10;
+          endMax = 30;
+          sequenceLength = 5;
+          numBlanks = this.randomInt(1, 2);
+        } else {
+          // Hard: 20-50, sequences of 6 numbers, 2 blanks
+          startMin = 20;
+          endMax = 50;
+          sequenceLength = 6;
+          numBlanks = 2;
+        }
+
+        // Pattern step is random per question, in [1, 5]
+        this.patternStep = this.randomInt(1, 5);
+
+        // Choose start so the last term stays within endMax
+        const maxStart = Math.max(startMin, endMax - this.patternStep * (sequenceLength - 1));
+
+        // Generate sequence
+        const start = this.randomInt(startMin, maxStart);
+        this.currentSequence = [];
+        for (let i = 0; i < sequenceLength; i++) {
+          this.currentSequence.push(start + i * this.patternStep);
+        }
+
+        // Determine positions of missing numbers (not first or last)
+        const possibleIndices = [];
+        for (let i = 1; i < sequenceLength - 1; i++) {
+          possibleIndices.push(i);
+        }
+        this.shuffleArray(possibleIndices);
+        this.missingIndices = possibleIndices.slice(0, numBlanks).sort((a, b) => a - b);
+        
+        this.missingNumbers = this.missingIndices.map(idx => this.currentSequence[idx]);
+        this.userAnswers = new Array(sequenceLength).fill(null);
+        this.currentBlankIndex = 0;
+        this.isAnswered = false;
+      },
+
+      /**
+       * Start a new question
+       */
+      startQuestion() {
+        this.generateSequence();
+        if (this.patternHintText) {
+          this.patternHintText.textContent = `+${this.patternStep}`;
+        }
+        this.renderSequence();
+        this.renderChoices();
+        this.feedback.classList.remove('show', 'error');
+        this.renderProgress();
+      },
+
+      /**
+       * Render the sequence with blanks
+       */
+      renderSequence() {
+        this.sequenceContainer.innerHTML = '';
+
+        this.currentSequence.forEach((num, index) => {
+          const isMissing = this.missingIndices.includes(index);
+
+          const item = document.createElement('div');
+          item.className = 'sequence-item';
+          item.dataset.index = index;
+
+          if (isMissing) {
+            item.classList.add('blank');
+            // Check if this blank is already filled
+            if (this.userAnswers[index] !== null) {
+              item.textContent = this.userAnswers[index];
+              item.classList.add('filled');
+            } else {
+              item.textContent = '?';
+              item.classList.add('empty');
+            }
+            // Highlight the current blank to fill
+            const blankOrderIndex = this.missingIndices.indexOf(index);
+            if (blankOrderIndex === this.currentBlankIndex && !this.isAnswered) {
+              item.classList.add('current');
+            }
+          } else {
+            item.classList.add('number');
+            item.textContent = num;
+          }
+
+          this.sequenceContainer.appendChild(item);
+
+          // Add arrow between items (except after the last one)
+          if (index < this.currentSequence.length - 1) {
+            const arrow = document.createElement('div');
+            arrow.className = 'sequence-arrow';
+            arrow.innerHTML = '→';
+            this.sequenceContainer.appendChild(arrow);
+          }
+        });
+      },
+
+      /**
+       * Render choice buttons for the current blank
+       */
+      renderChoices() {
+        this.choiceContainer.innerHTML = '';
+
+        if (this.isAnswered || this.currentBlankIndex >= this.missingIndices.length) {
+          return;
+        }
+
+        // Get the correct answer for the current blank
+        const blankIndex = this.missingIndices[this.currentBlankIndex];
+        const correctAnswer = this.currentSequence[blankIndex];
+
+        // Generate choices: correct answer plus 3 distractors
+        const choices = [correctAnswer];
+        
+        // Add distractors (nearby numbers)
+        const distractors = [];
+        for (let offset of [-2, -1, 1, 2, -3, 3]) {
+          const distractor = correctAnswer + offset;
+          if (distractor > 0 && !choices.includes(distractor)) {
+            distractors.push(distractor);
+          }
+        }
+        
+        // Pick 3 random distractors
+        this.shuffleArray(distractors);
+        choices.push(...distractors.slice(0, 3));
+        
+        // Shuffle choices
+        this.shuffleArray(choices);
+
+        // Create choice buttons
+        choices.forEach(choice => {
+          const btn = document.createElement('button');
+          btn.className = 'choice-btn';
+          btn.textContent = choice;
+          btn.dataset.value = choice;
+          btn.addEventListener('click', () => this.selectChoice(choice));
+          this.choiceContainer.appendChild(btn);
+        });
+      },
+
+      /**
+       * Handle choice selection
+       */
+      selectChoice(value) {
+        if (this.isAnswered) return;
+
+        const blankIndex = this.missingIndices[this.currentBlankIndex];
+
+        // Store the user's answer
+        this.userAnswers[blankIndex] = value;
+
+        // Update the sequence display
+        this.renderSequence();
+
+        // Move to next blank or check answers
+        this.currentBlankIndex++;
+
+        if (this.currentBlankIndex >= this.missingIndices.length) {
+          // All blanks filled, check answers
+          this.checkAnswers();
+        } else {
+          // More blanks to fill, render new choices
+          this.renderSequence();
+          this.renderChoices();
+        }
+      },
+
+      /**
+       * Check answers
+       */
+      checkAnswers() {
+        if (this.isAnswered) return;
+        this.isAnswered = true;
+
+        let allCorrect = true;
+        const items = this.sequenceContainer.querySelectorAll('.sequence-item.blank');
+
+        items.forEach(item => {
+          const index = parseInt(item.dataset.index);
+          const correctValue = this.currentSequence[index];
+          const userValue = this.userAnswers[index];
+
+          if (userValue === correctValue) {
+            item.classList.add('correct');
+          } else {
+            item.classList.add('incorrect');
+            allCorrect = false;
+            // Show correct value
+            item.textContent = correctValue;
+          }
+        });
+
+        // Hide choice buttons
+        this.choiceContainer.innerHTML = '';
+
+        // Show feedback
+        if (allCorrect) {
+          this.correctCount++;
+          this.feedback.textContent = i18n.t('feedback.correct') + ' ' + i18n.t('section.activities.missing-number-sequence.wellDone');
+          this.feedback.classList.remove('error');
+        } else {
+          this.incorrectCount++;
+          const correctNums = this.missingNumbers.join(', ');
+          this.feedback.textContent = i18n.t('feedback.tryAgain') + ' ' + i18n.t('section.activities.missing-number-sequence.correctIs').replace('{n}', correctNums);
+          this.feedback.classList.add('error');
+        }
+        this.feedback.classList.add('show');
+
+        // Auto-advance
+        setTimeout(() => {
+          if (this.currentQuestion < this.totalQuestions - 1) {
+            this.nextQuestion();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Go to next question
+       */
+      nextQuestion() {
+        this.currentQuestion++;
+        this.startQuestion();
+      },
+
+      /**
+       * Reset current question
+       */
+      resetCurrentQuestion() {
+        this.startQuestion();
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statCorrect.textContent = this.correctCount;
+        this.statIncorrect.textContent = this.incorrectCount;
+
+        // Set message based on performance
+        const percentage = (this.correctCount / this.totalQuestions) * 100;
+        if (percentage >= 80) {
+          this.statsMessage.textContent = i18n.t('stats.amazing');
+        } else if (percentage >= 50) {
+          this.statsMessage.textContent = i18n.t('stats.great');
+        } else {
+          this.statsMessage.textContent = i18n.t('stats.goodEffort');
+        }
+
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the activity
+       */
+      restartActivity() {
+        this.currentQuestion = 0;
+        this.correctCount = 0;
+        this.incorrectCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startQuestion();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 0; i < this.totalQuestions; i++) {
+          let className = 'progress-dot';
+          if (i < this.currentQuestion) {
+            className += ' completed';
+          } else if (i === this.currentQuestion) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      MissingNumberSequence.init();
+    });
+  </script>
+  <style>
+    /* Missing Number Sequence specific styles */
+
+    .question-text {
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      margin-bottom: var(--space-4);
+      text-align: center;
+    }
+
+    /* Pattern Hint - shows "+1" to help children understand */
+    .pattern-hint {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+
+    .hint-label {
+      font-family: var(--font-secondary);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-neutral-600);
+    }
+
+    .hint-text {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-1) var(--space-3);
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      border: 2px solid #10b981;
+      border-radius: var(--radius-full);
+      font-family: var(--font-secondary);
+      font-size: var(--text-base);
+      font-weight: var(--weight-bold);
+      color: #047857;
+    }
+
+    /* Sequence Container */
+    .sequence-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      margin: var(--space-6) 0;
+      flex-wrap: wrap;
+      padding: var(--space-4);
+    }
+
+    /* Arrows between sequence items */
+    .sequence-arrow {
+      font-size: var(--text-xl);
+      color: var(--color-neutral-400);
+      flex-shrink: 0;
+    }
+
+    .sequence-item {
+      min-width: 80px;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-lg);
+      font-family: var(--font-secondary);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      transition: all 0.3s ease;
+    }
+
+    .sequence-item.number {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      border: 3px solid var(--color-primary-light);
+      color: var(--color-primary);
+      box-shadow: 0 4px 0 var(--color-primary-light);
+    }
+
+    .sequence-item.blank {
+      /* Selecting state: all blanks share the same highlight color (filled or not) */
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      border: 3px dashed var(--color-primary-light);
+      box-shadow: 0 4px 0 var(--color-primary-light);
+      position: relative;
+      color: var(--color-primary);
+    }
+
+    .sequence-item.blank.current {
+      border-color: var(--color-primary);
+      animation: pulseStrong 0.85s ease-in-out infinite;
+      box-shadow: 0 6px 0 var(--color-primary-light), 0 0 0 6px rgba(59, 130, 246, 0.18);
+    }
+
+    .sequence-item.blank.filled {
+      /* Keep same selecting color; only make text more readable */
+      color: var(--color-neutral-900);
+      border-style: dashed;
+    }
+
+    .sequence-item.blank.empty {
+      opacity: 0.75;
+    }
+
+    .sequence-item.blank.correct {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      border-color: #16a34a;
+      border-style: solid;
+      animation: pop 0.4s ease;
+    }
+
+    .sequence-item.blank.incorrect {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+      border-color: #d97706;
+      border-style: solid;
+      animation: shake 0.5s ease;
+    }
+
+    /* Choice Container */
+    .choice-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      margin: var(--space-4) 0;
+      padding: var(--space-2);
+    }
+
+    .choice-btn {
+      min-width: 80px;
+      min-height: 60px;
+      padding: var(--space-3) var(--space-4);
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border: 3px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .choice-btn:hover {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .choice-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    @keyframes pulseStrong {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+      20%, 40%, 60%, 80% { transform: translateX(3px); }
+    }
+
+    /* Activity area needs padding for feedback */
+    .activity-area {
+      padding-bottom: calc(var(--space-8) + 60px);
+    }
+
+    /* Feedback at bottom */
+    .feedback-message {
+      position: absolute;
+      bottom: var(--space-4);
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      max-width: 90%;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .sequence-container {
+        gap: var(--space-1);
+      }
+
+      /* Keep touch targets at 60px minimum per accessibility requirements */
+      .sequence-item {
+        min-width: 64px;
+        min-height: 64px;
+      }
+
+      .sequence-item.number,
+      .sequence-item.blank {
+        font-size: var(--text-2xl);
+      }
+
+      .sequence-arrow {
+        font-size: var(--text-base);
+      }
+
+      .hint-label {
+        font-size: var(--text-xs);
+      }
+
+      .hint-text {
+        font-size: var(--text-sm);
+        padding: var(--space-1) var(--space-2);
+      }
+
+      .choice-container {
+        gap: var(--space-2);
+      }
+
+      .choice-btn {
+        min-width: 70px;
+        min-height: 50px;
+        font-size: var(--text-xl);
+        padding: var(--space-2) var(--space-3);
+      }
+
+      .feedback-message {
+        font-size: var(--text-sm);
+        padding: var(--space-2) var(--space-3);
+      }
+    }
+
+    /* Very small screens - maintain 60px touch targets for children's accessibility */
+    @media (max-width: 400px) {
+      .sequence-container {
+        gap: 2px;
+      }
+
+      /* Keep 60px minimum for child-friendly touch targets */
+      .sequence-item {
+        min-width: 60px;
+        min-height: 60px;
+      }
+
+      .sequence-item.number,
+      .sequence-item.blank {
+        font-size: var(--text-lg);
+      }
+
+      .sequence-arrow {
+        font-size: var(--text-sm);
+      }
+
+      .choice-btn {
+        min-width: 60px;
+        font-size: var(--text-lg);
+      }
+    }
+  </style>
+</body>
+</html>

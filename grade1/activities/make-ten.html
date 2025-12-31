@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Make Ten - Grade 1 Math Activity - Meadow Math">
+  <title>Make Ten - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🔟</span>
+            <span data-i18n="section.activities.make-ten.title">Make Ten</span>
+          </h1>
+          <p class="activity-instruction" data-i18n="section.activities.make-ten.description">Find pairs of numbers that make 10!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Instruction -->
+          <div class="question-text" id="instruction">
+            <span data-i18n="section.activities.make-ten.instruction">Pick two numbers that add up to 10!</span>
+          </div>
+
+          <!-- Equation Display -->
+          <div class="equation-display" id="equation" aria-live="polite"></div>
+
+          <!-- Choice Buttons -->
+          <div class="choice-container" id="choice-container">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <button class="btn-activity btn-secondary" id="btn-reset" data-i18n="buttons.reset">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon">🎉</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value correct" id="stat-correct">0</div>
+              <div class="stat-label" data-i18n="stats.correct">Correct</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value incorrect" id="stat-incorrect">0</div>
+              <div class="stat-label" data-i18n="stats.incorrect">Incorrect</div>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">You found all the pairs that make 10!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Make Ten Activity
+    const MakeTen = {
+      // Game state
+      currentQuestion: 0,
+      totalQuestions: 10,
+      correctCount: 0,
+      incorrectCount: 0,
+      currentAddend: 0,
+      currentMissing: 0,
+      isAnswered: false,
+      autoAdvanceDelay: 1500,
+
+      // DOM elements
+      progress: null,
+      instruction: null,
+      equation: null,
+      choiceContainer: null,
+      feedback: null,
+      btnReset: null,
+      statsOverlay: null,
+      statsMessage: null,
+      statCorrect: null,
+      statIncorrect: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.equation = document.getElementById('equation');
+        this.choiceContainer = document.getElementById('choice-container');
+        this.feedback = document.getElementById('feedback');
+        this.btnReset = document.getElementById('btn-reset');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statCorrect = document.getElementById('stat-correct');
+        this.statIncorrect = document.getElementById('stat-incorrect');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnReset.addEventListener('click', () => this.resetCurrentRound());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => {
+          if (e.target === this.statsOverlay) this.restartActivity();
+        });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Start first question
+        this.startQuestion();
+        this.renderProgress();
+      },
+
+      /**
+       * Update translations for dynamic content
+       */
+      updateTranslations() {
+        // Dynamic updates can be added here if needed
+      },
+      /**
+       * Generate a new question: a + ? = 10
+       */
+      startQuestion() {
+        this.isAnswered = false;
+
+        // Pick an addend 1..9 so the missing number is also 1..9
+        this.currentAddend = this.randomInt(1, 9);
+        this.currentMissing = 10 - this.currentAddend;
+
+        this.renderEquation(null);
+        this.renderChoices();
+        this.hideFeedback();
+        this.renderProgress();
+      },
+
+      /**
+       * Random integer helper
+       */
+      randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      },
+
+      /**
+       * Shuffle array helper
+       */
+      shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      },
+
+      /**
+       * Render equation, optionally filling the missing value
+       */
+      renderEquation(selectedValue = null) {
+        const missingText = selectedValue === null ? '?' : String(selectedValue);
+        this.equation.innerHTML = `
+          <span class="eq-num">${this.currentAddend}</span>
+          <span class="eq-op">+</span>
+          <span class="eq-missing">${missingText}</span>
+          <span class="eq-op">=</span>
+          <span class="eq-target">10</span>
+        `;
+      },
+
+      /**
+       * Render multiple choice buttons (one click answer)
+       */
+      renderChoices() {
+        this.choiceContainer.innerHTML = '';
+
+        if (this.isAnswered) return;
+
+        const correctAnswer = this.currentMissing;
+        const choices = [correctAnswer];
+
+        // Generate 3 distractors close to the correct answer
+        const distractors = [];
+        for (let offset of [-3, -2, -1, 1, 2, 3, 4, -4]) {
+          const candidate = correctAnswer + offset;
+          if (candidate >= 1 && candidate <= 9 && !choices.includes(candidate)) {
+            distractors.push(candidate);
+          }
+        }
+
+        // Fallback: fill with random numbers 1..9
+        while (distractors.length < 3) {
+          const candidate = this.randomInt(1, 9);
+          if (candidate !== correctAnswer && !distractors.includes(candidate)) {
+            distractors.push(candidate);
+          }
+        }
+
+        this.shuffleArray(distractors);
+        choices.push(...distractors.slice(0, 3));
+        this.shuffleArray(choices);
+
+        choices.forEach(choice => {
+          const btn = document.createElement('button');
+          btn.className = 'choice-btn';
+          btn.textContent = choice;
+          btn.dataset.value = choice;
+          btn.addEventListener('click', () => this.selectChoice(choice));
+          this.choiceContainer.appendChild(btn);
+        });
+      },
+
+      /**
+       * Handle a single choice selection
+       */
+      selectChoice(value) {
+        if (this.isAnswered) return;
+        this.isAnswered = true;
+
+        this.renderEquation(value);
+        this.disableChoices();
+
+        const sum = this.currentAddend + value;
+        const correct = value === this.currentMissing;
+
+        if (correct) {
+          this.correctCount++;
+          const msg = i18n.t('section.activities.make-ten.correct')
+            .replace('{a}', this.currentAddend)
+            .replace('{b}', value);
+          this.showFeedback('✓ ' + msg, false);
+        } else {
+          this.incorrectCount++;
+          const msg = i18n.t('section.activities.make-ten.tryAgain')
+            .replace('{sum}', sum);
+          this.showFeedback(msg, true);
+        }
+
+        setTimeout(() => {
+          if (this.currentQuestion < this.totalQuestions - 1) {
+            this.nextQuestion();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Disable choice buttons
+       */
+      disableChoices() {
+        const buttons = this.choiceContainer.querySelectorAll('button');
+        buttons.forEach(btn => btn.disabled = true);
+      },
+
+      /**
+       * Show feedback
+       */
+      showFeedback(message, isError) {
+        this.feedback.textContent = message;
+        this.feedback.classList.add('show');
+        if (isError) {
+          this.feedback.classList.add('error');
+        } else {
+          this.feedback.classList.remove('error');
+        }
+      },
+
+      /**
+       * Hide feedback
+       */
+      hideFeedback() {
+        this.feedback.classList.remove('show', 'error');
+      },
+
+      /**
+       * Render progress indicator (dots)
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 0; i < this.totalQuestions; i++) {
+          let className = 'progress-dot';
+          if (i < this.currentQuestion) {
+            className += ' completed';
+          } else if (i === this.currentQuestion) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      },
+
+      /**
+       * Go to next question
+       */
+      nextQuestion() {
+        this.currentQuestion++;
+        this.startQuestion();
+      },
+
+      /**
+       * Reset current question
+       */
+      resetCurrentQuestion() {
+        this.startQuestion();
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statCorrect.textContent = this.correctCount;
+        this.statIncorrect.textContent = this.incorrectCount;
+
+        const msg = i18n.t('section.activities.make-ten.complete')
+          .replace('{correct}', this.correctCount)
+          .replace('{incorrect}', this.incorrectCount);
+        this.statsMessage.textContent = msg;
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the activity
+       */
+      restartActivity() {
+        this.statsOverlay.classList.remove('show');
+        this.currentQuestion = 0;
+        this.correctCount = 0;
+        this.incorrectCount = 0;
+        this.startQuestion();
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      MakeTen.init();
+    });
+  </script>
+  <style>
+    /* Make Ten specific styles */
+
+    .question-text {
+      font-family: var(--font-secondary);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--color-neutral-600);
+      margin-bottom: var(--space-4);
+      text-align: center;
+    }
+
+    /* Equation Display */
+    .equation-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      margin: var(--space-4) 0;
+      border-radius: var(--radius-xl);
+      border: 3px solid var(--color-primary-light);
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      font-family: var(--font-secondary);
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-800);
+      min-width: min(520px, 100%);
+    }
+
+    .equation-display .eq-op {
+      color: var(--color-neutral-500);
+    }
+
+    .equation-display .eq-missing {
+      padding: 0 var(--space-2);
+      border-bottom: 4px solid var(--color-neutral-400);
+      min-width: 2.2ch;
+      text-align: center;
+      color: var(--color-primary);
+    }
+
+    .equation-display .eq-target {
+      color: var(--color-primary);
+    }
+
+    /* Choice Container (mirrors other activities) */
+    .choice-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      margin: var(--space-4) 0;
+      padding: var(--space-2);
+    }
+
+    .choice-btn {
+      min-width: 80px;
+      min-height: 60px;
+      padding: var(--space-3) var(--space-4);
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border: 3px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .choice-btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .choice-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    /* Activity area needs padding for feedback */
+    .activity-area {
+      padding-bottom: calc(var(--space-8) + 60px);
+    }
+
+    /* Feedback at bottom */
+    .feedback-message {
+      position: absolute;
+      bottom: var(--space-4);
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      max-width: 90%;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .numbers-container {
+        max-width: 280px;
+        gap: var(--space-2);
+      }
+
+      .number-btn {
+        min-width: 60px;
+        font-size: var(--text-2xl);
+      }
+
+      .selected-pair {
+        font-size: var(--text-2xl);
+        padding: var(--space-3);
+        gap: var(--space-2);
+      }
+
+      .ten-frame {
+        gap: var(--space-1);
+        padding: var(--space-3);
+      }
+
+      .ten-frame-equation {
+        font-size: var(--text-xl);
+      }
+
+      .ten-frame-equation .ten {
+        font-size: var(--text-2xl);
+      }
+
+      .feedback-message {
+        font-size: var(--text-sm);
+        padding: var(--space-2) var(--space-3);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .number-btn {
+        min-width: 50px;
+        font-size: var(--text-xl);
+      }
+
+      .selected-pair {
+        font-size: var(--text-xl);
+      }
+    }
+  </style>
+</body>
+</html>

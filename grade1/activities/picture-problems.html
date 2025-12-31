@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Picture Problems - Grade 1 Math Activity - Meadow Math">
+  <title>Picture Problems - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="../../prek/activities/activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🖼️</span>
+            <span data-i18n="section.activities.picture-problems.title">Picture Problems</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.picture-problems.description">Look at the picture and solve!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Story Scene -->
+          <div class="story-scene" id="scene">
+            <div class="scene-illustration" id="illustration">
+              <!-- Visual objects will be rendered here -->
+            </div>
+            <div class="scene-text" id="story-text">
+              <!-- Story text will be rendered here -->
+            </div>
+          </div>
+
+          <!-- Equation Display -->
+          <div class="equation-display" id="equation">
+            <!-- Equation will be dynamically generated -->
+          </div>
+
+          <!-- Answer Choices -->
+          <div class="choice-buttons" id="choices">
+            <!-- Choice buttons will be dynamically generated -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Picture Problems specific styles */
+    .story-scene {
+      margin: var(--space-6) auto var(--space-8);
+      max-width: 600px;
+    }
+
+    .scene-illustration {
+      background: white;
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-6);
+      min-height: 200px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-4);
+      box-shadow: 0 4px 0 var(--color-neutral-200);
+    }
+
+    .scene-object {
+      font-size: 48px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      animation: popIn 0.3s ease;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      70% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .scene-object.group-1 {
+      margin-right: var(--space-8);
+    }
+
+    .scene-object.removed {
+      opacity: 0.4;
+      text-decoration: line-through;
+      text-decoration-thickness: 4px;
+      text-decoration-color: #ef4444;
+      filter: grayscale(0.8) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    }
+
+    .scene-divider {
+      font-size: 40px;
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-400);
+      margin: 0 var(--space-4);
+    }
+
+    .scene-text {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      text-align: center;
+      color: var(--color-neutral-900);
+      line-height: 1.8;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+      border-radius: var(--radius-lg);
+      border: 3px solid #7dd3fc;
+      box-shadow: 0 2px 8px rgba(125, 211, 252, 0.3);
+    }
+
+    .equation-display {
+      font-family: var(--font-secondary);
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      text-align: center;
+      color: var(--color-neutral-800);
+      margin: var(--space-6) 0;
+      padding: var(--space-6) var(--space-8);
+      background: linear-gradient(to bottom, #ffffff, #fafafa);
+      border: 4px solid var(--color-neutral-300);
+      border-radius: var(--radius-2xl);
+      box-shadow: 0 4px 0 var(--color-neutral-300), 0 6px 20px rgba(0, 0, 0, 0.05);
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+    }
+
+    .equation-number {
+      color: var(--color-primary);
+    }
+
+    .equation-operator {
+      color: var(--color-neutral-600);
+    }
+
+    .equation-equals {
+      font-size: var(--text-5xl);
+      color: var(--color-accent);
+    }
+
+    .equation-question {
+      color: var(--color-accent);
+      font-size: var(--text-5xl);
+    }
+
+    .choice-buttons {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .choice-btn {
+      min-width: 120px;
+      height: 100px;
+      font-family: var(--font-secondary);
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom, #fff, #f5f5f5);
+      border: 5px solid var(--color-neutral-300);
+      border-radius: var(--radius-2xl);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 6px 0 var(--color-neutral-300), 0 10px 20px rgba(0, 0, 0, 0.08);
+      color: var(--color-neutral-800);
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 0 var(--color-neutral-400), 0 14px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .choice-btn:active:not(:disabled) {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 var(--color-neutral-300), 0 4px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .choice-btn:focus {
+      outline: 4px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .choice-btn:disabled {
+      cursor: default;
+      opacity: 0.8;
+    }
+
+    .choice-btn.correct {
+      background: linear-gradient(to bottom, #6ee7b7, #34d399);
+      border-color: #059669;
+      color: white;
+      animation: celebrate 0.6s ease;
+    }
+
+    .choice-btn.incorrect {
+      animation: shake 0.5s ease;
+    }
+
+    @media (max-width: 767px) {
+      .scene-illustration {
+        padding: var(--space-6);
+        min-height: 150px;
+        gap: var(--space-3);
+      }
+
+      .scene-object {
+        font-size: 36px;
+      }
+
+      .scene-divider {
+        font-size: 32px;
+      }
+
+      .scene-text {
+        font-size: var(--text-base);
+        line-height: 1.6;
+        padding: var(--space-4);
+      }
+
+      .equation-display {
+        font-size: var(--text-3xl);
+        padding: var(--space-4);
+        gap: var(--space-3);
+      }
+
+      .choice-btn {
+        min-width: 100px;
+        height: 80px;
+        font-size: var(--text-3xl);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Picture Problems Activity
+    const PictureProblems = {
+      // Game state
+      currentProblem: null,
+      round: 1,
+      maxRounds: 8,
+      correctCount: 0,
+      wrongCount: 0,
+      hasAnswered: false,
+      autoAdvanceDelay: 1500,
+
+      // Problem types with story scenarios
+      problemTypes: [
+        // Addition - Joining
+        {
+          type: 'add-join',
+          objects: ['🐦', '🐦', '🐦', '🐦', '🐦'],
+          storyTemplate: '{a} birds on a branch. {b} more birds fly in. How many birds now?',
+          storyTemplateKey: 'section.activities.picture-problems.addJoin',
+          operation: '+',
+          visual: 'groups'
+        },
+        {
+          type: 'add-join',
+          objects: ['🍎', '🍎', '🍎', '🍎', '🍎'],
+          storyTemplate: '{a} apples in the basket. Add {b} more apples. How many apples total?',
+          storyTemplateKey: 'section.activities.picture-problems.addApples',
+          operation: '+',
+          visual: 'groups'
+        },
+        {
+          type: 'add-join',
+          objects: ['🦋', '🦋', '🦋', '🦋', '🦋'],
+          storyTemplate: '{a} butterflies in the garden. {b} more butterflies come. How many butterflies altogether?',
+          storyTemplateKey: 'section.activities.picture-problems.addButterflies',
+          operation: '+',
+          visual: 'groups'
+        },
+        {
+          type: 'add-join',
+          objects: ['🌸', '🌸', '🌸', '🌸', '🌸'],
+          storyTemplate: '{a} flowers bloom. Then {b} more flowers bloom. How many flowers now?',
+          storyTemplateKey: 'section.activities.picture-problems.addFlowers',
+          operation: '+',
+          visual: 'groups'
+        },
+        // Subtraction - Taking Away
+        {
+          type: 'sub-takeaway',
+          objects: ['🎈', '🎈', '🎈', '🎈', '🎈'],
+          storyTemplate: '{a} balloons. {b} balloons float away. How many balloons left?',
+          storyTemplateKey: 'section.activities.picture-problems.subBalloons',
+          operation: '-',
+          visual: 'remove'
+        },
+        {
+          type: 'sub-takeaway',
+          objects: ['🍪', '🍪', '🍪', '🍪', '🍪'],
+          storyTemplate: '{a} cookies on the plate. Eat {b} cookies. How many cookies remain?',
+          storyTemplateKey: 'section.activities.picture-problems.subCookies',
+          operation: '-',
+          visual: 'remove'
+        },
+        {
+          type: 'sub-takeaway',
+          objects: ['⭐', '⭐', '⭐', '⭐', '⭐'],
+          storyTemplate: '{a} stars in the sky. {b} stars disappear. How many stars are left?',
+          storyTemplateKey: 'section.activities.picture-problems.subStars',
+          operation: '-',
+          visual: 'remove'
+        },
+        {
+          type: 'sub-takeaway',
+          objects: ['🐠', '🐠', '🐠', '🐠', '🐠'],
+          storyTemplate: '{a} fish in the pond. {b} fish swim away. How many fish left?',
+          storyTemplateKey: 'section.activities.picture-problems.subFish',
+          operation: '-',
+          visual: 'remove'
+        }
+      ],
+
+      // DOM elements
+      illustration: null,
+      storyText: null,
+      equation: null,
+      choices: null,
+      feedback: null,
+      progress: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.illustration = document.getElementById('illustration');
+        this.storyText = document.getElementById('story-text');
+        this.equation = document.getElementById('equation');
+        this.choices = document.getElementById('choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Start first round
+        this.generateProblem();
+        this.renderProgress();
+      },
+
+      /**
+       * Generate a random picture problem
+       */
+      generateProblem() {
+        this.hasAnswered = false;
+        this.feedback.classList.remove('show');
+
+        // Select random problem type
+        const problemType = this.problemTypes[randomInt(0, this.problemTypes.length - 1)];
+
+        // Generate numbers based on operation
+        let a, b, answer;
+        if (problemType.operation === '+') {
+          a = randomInt(3, 9);
+          b = randomInt(2, Math.min(6, 20 - a));
+          answer = a + b;
+        } else {
+          a = randomInt(5, 15);
+          b = randomInt(2, Math.min(5, a - 1));
+          answer = a - b;
+        }
+
+        // Generate story text with translation support
+        let storyText;
+        if (typeof i18n !== 'undefined') {
+          const translated = i18n.t(problemType.storyTemplateKey);
+          // Check if translation was found (not equal to the key)
+          if (translated && translated !== problemType.storyTemplateKey) {
+            storyText = translated.replace('{a}', a).replace('{b}', b);
+          } else {
+            storyText = problemType.storyTemplate.replace('{a}', a).replace('{b}', b);
+          }
+        } else {
+          storyText = problemType.storyTemplate.replace('{a}', a).replace('{b}', b);
+        }
+
+        this.currentProblem = {
+          type: problemType.type,
+          objects: problemType.objects,
+          a: a,
+          b: b,
+          answer: answer,
+          operation: problemType.operation,
+          visual: problemType.visual,
+          storyText: storyText
+        };
+
+        this.displayProblem();
+        this.generateChoices();
+      },
+
+      /**
+       * Display the visual scene and story
+       */
+      displayProblem() {
+        const p = this.currentProblem;
+
+        // Clear previous content
+        this.illustration.innerHTML = '';
+
+        // Render visual objects
+        if (p.visual === 'groups') {
+          // Show two groups (addition)
+          for (let i = 0; i < p.a; i++) {
+            const obj = document.createElement('span');
+            obj.className = 'scene-object group-1';
+            obj.textContent = p.objects[0];
+            obj.style.animationDelay = `${i * 0.05}s`;
+            this.illustration.appendChild(obj);
+          }
+
+          // Divider
+          const divider = document.createElement('span');
+          divider.className = 'scene-divider';
+          divider.textContent = '+';
+          this.illustration.appendChild(divider);
+
+          for (let i = 0; i < p.b; i++) {
+            const obj = document.createElement('span');
+            obj.className = 'scene-object group-2';
+            obj.textContent = p.objects[0];
+            obj.style.animationDelay = `${(p.a + i) * 0.05}s`;
+            this.illustration.appendChild(obj);
+          }
+        } else if (p.visual === 'remove') {
+          // Show all objects, some crossed out (subtraction)
+          for (let i = 0; i < p.a; i++) {
+            const obj = document.createElement('span');
+            obj.className = 'scene-object';
+            obj.textContent = p.objects[0];
+            obj.style.animationDelay = `${i * 0.05}s`;
+
+            // Mark some as removed
+            if (i >= (p.a - p.b)) {
+              obj.classList.add('removed');
+            }
+
+            this.illustration.appendChild(obj);
+          }
+        }
+
+        // Display story text
+        this.storyText.textContent = p.storyText;
+
+        // Display equation
+        this.equation.innerHTML = `
+          <span class="equation-number">${p.a}</span>
+          <span class="equation-operator">${p.operation}</span>
+          <span class="equation-number">${p.b}</span>
+          <span class="equation-equals">=</span>
+          <span class="equation-question">?</span>
+        `;
+      },
+
+      /**
+       * Generate answer choices
+       */
+      generateChoices() {
+        const p = this.currentProblem;
+        const correctAnswer = p.answer;
+
+        // Generate 3 wrong answers
+        const wrongAnswers = [];
+        const range = 5;
+
+        while (wrongAnswers.length < 3) {
+          let wrong = correctAnswer + randomInt(-range, range);
+          if (wrong !== correctAnswer && wrong > 0 && wrong <= 20 && !wrongAnswers.includes(wrong)) {
+            wrongAnswers.push(wrong);
+          }
+        }
+
+        // Combine and shuffle
+        const allChoices = [correctAnswer, ...wrongAnswers];
+        const shuffled = shuffle(allChoices);
+
+        // Render choices
+        this.choices.innerHTML = '';
+        shuffled.forEach(num => {
+          const btn = document.createElement('button');
+          btn.className = 'choice-btn';
+          btn.textContent = num;
+          btn.dataset.answer = num;
+          btn.addEventListener('click', () => this.selectAnswer(num));
+          this.choices.appendChild(btn);
+        });
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(userAnswer) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        const buttons = this.choices.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => btn.disabled = true);
+
+        const selectedBtn = this.choices.querySelector(`[data-answer="${userAnswer}"]`);
+        const correctBtn = this.choices.querySelector(`[data-answer="${this.currentProblem.answer}"]`);
+
+        // Check answer
+        if (userAnswer === this.currentProblem.answer) {
+          // Correct!
+          selectedBtn.classList.add('correct');
+
+          let correctMsg = 'Yes! {a} {op} {b} = {answer}';
+          if (typeof i18n !== 'undefined') {
+            const translated = i18n.t('section.activities.picture-problems.correct');
+            if (translated && translated !== 'section.activities.picture-problems.correct') {
+              correctMsg = translated;
+            }
+          }
+          this.feedback.textContent = `🎉 ${correctMsg
+            .replace('{a}', this.currentProblem.a)
+            .replace('{op}', this.currentProblem.operation)
+            .replace('{b}', this.currentProblem.b)
+            .replace('{answer}', this.currentProblem.answer)}`;
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.equation);
+          }
+        } else {
+          // Incorrect
+          selectedBtn.classList.add('incorrect');
+          correctBtn.classList.add('correct');
+
+          let wrongMsg = 'Not quite! The answer is {answer}.';
+          if (typeof i18n !== 'undefined') {
+            const translated = i18n.t('section.activities.picture-problems.tryAgain');
+            if (translated && translated !== 'section.activities.picture-problems.tryAgain') {
+              wrongMsg = translated;
+            }
+          }
+          this.feedback.textContent = wrongMsg.replace('{answer}', this.currentProblem.answer);
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+
+        // Set message based on performance
+        const percent = this.correctCount / this.maxRounds;
+
+        const getTranslation = (key, fallback) => {
+          if (typeof i18n !== 'undefined') {
+            const translated = i18n.t(key);
+            if (translated && translated !== key) {
+              return translated;
+            }
+          }
+          return fallback;
+        };
+
+        if (percent === 1) {
+          this.statsIcon.textContent = '🏆';
+          this.statsMessage.textContent = getTranslation(
+            'section.activities.picture-problems.perfect',
+            'Perfect! You can solve any picture problem!'
+          );
+        } else if (percent >= 0.75) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = getTranslation(
+            'section.activities.picture-problems.great',
+            'Great job! You understand picture problems!'
+          );
+        } else if (percent >= 0.5) {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = getTranslation(
+            'section.activities.picture-problems.good',
+            'Good work! Keep practicing!'
+          );
+        } else {
+          this.statsIcon.textContent = '💪';
+          this.statsMessage.textContent = getTranslation(
+            'section.activities.picture-problems.keepPracticing',
+            'Keep practicing! Picture problems get easier!'
+          );
+        }
+
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.generateProblem();
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.generateProblem();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      PictureProblems.init();
+    });
+  </script>
+</body>
+</html>

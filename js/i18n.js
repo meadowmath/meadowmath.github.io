@@ -43,6 +43,9 @@ const i18n = {
   
   // Flag to track if running from file:// protocol
   isFileProtocol: window.location.protocol === 'file:',
+
+  // Promise that resolves when init() finishes
+  _initPromise: null,
   
   /**
    * Get the base path for language files
@@ -107,6 +110,14 @@ const i18n = {
     
     // Update HTML lang attribute
     document.documentElement.lang = this.currentLang;
+  },
+
+  /**
+   * Returns a promise that resolves when the initial i18n.init() completes.
+   * Useful for activities that need translations before rendering dynamic text.
+   */
+  ready() {
+    return this._initPromise || Promise.resolve();
   },
 
   /**
@@ -215,6 +226,45 @@ const i18n = {
     }
     
     return typeof value === 'string' ? value : key;
+  },
+
+  /**
+   * Get a raw value by key (returns objects, arrays, or strings)
+   * Use this for complex data structures like Learn More content
+   */
+  getRaw(key) {
+    const keys = key.split('.');
+    
+    // Try current language first
+    let value = this.translations[this.currentLang];
+    let found = true;
+    
+    for (const k of keys) {
+      if (value && typeof value === 'object' && k in value) {
+        value = value[k];
+      } else {
+        found = false;
+        break;
+      }
+    }
+    
+    if (found && value !== undefined) {
+      return value;
+    }
+    
+    // Try fallback language
+    value = this.translations[this.fallbackLang];
+    if (!value) return null;
+    
+    for (const k of keys) {
+      if (value && typeof value === 'object' && k in value) {
+        value = value[k];
+      } else {
+        return null;
+      }
+    }
+    
+    return value !== undefined ? value : null;
   },
 
   /**
@@ -367,7 +417,7 @@ const i18n = {
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  i18n.init();
+  i18n._initPromise = i18n.init();
 });
 
 // Export for use in other modules

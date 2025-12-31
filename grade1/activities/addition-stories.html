@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Story Addition - Grade 1 Math Activity - Meadow Math">
+  <title>Story Addition - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">📖</span>
+            <span data-i18n="section.activities.addition-stories.title">Story Addition</span>
+          </h1>
+          <p class="activity-instruction" data-i18n="section.activities.addition-stories.description">Read the story and add!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress Indicator -->
+          <div class="progress-indicator">
+            <span data-i18n="activity.question">Question</span>
+            <span class="progress-text"><span id="current-round">1</span> / <span id="total-rounds">6</span></span>
+          </div>
+
+          <!-- Story Container -->
+          <div class="story-container">
+            <div class="story-visual" id="story-visual">
+              <!-- Visual support will be rendered here -->
+            </div>
+            <div class="story-text" id="story-text">
+              <!-- Story text will be rendered here -->
+            </div>
+          </div>
+
+          <!-- Answer Choices -->
+          <div class="choices-container" id="choices-container">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <button class="btn-activity btn-secondary" id="btn-reset" data-i18n="buttons.reset">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon">🎉</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value correct" id="stat-correct">0</div>
+              <div class="stat-label" data-i18n="stats.correct">Correct</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value incorrect" id="stat-incorrect">0</div>
+              <div class="stat-label" data-i18n="stats.incorrect">Incorrect</div>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job solving addition stories!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Addition Stories Activity
+    const AdditionStories = {
+      // Game state
+      totalRounds: 6,
+      currentRound: 0,
+      correctCount: 0,
+      incorrectCount: 0,
+      currentStory: null,
+      isAnswered: false,
+      autoAdvanceDelay: 1500,
+
+      // Story templates - text keys reference i18n, visuals are universal
+      storyTemplates: [
+        { key: "crayons", visual: "🖍️" },
+        { key: "birds", visual: "🐦" },
+        { key: "toyCars", visual: "🚗" },
+        { key: "apples", visual: "🍎" },
+        { key: "books", visual: "📚" },
+        { key: "flowers", visual: "🌸" },
+        { key: "stickers", visual: "⭐" },
+        { key: "cookies", visual: "🍪" }
+      ],
+
+      // Fallback English texts (used when i18n not loaded)
+      fallbackTexts: {
+        crayons: "Sam has {a} crayons. Mom gives him {b} more. How many crayons does Sam have now?",
+        birds: "Emma sees {a} birds in a tree. Then {b} more birds land. How many birds are there in total?",
+        toyCars: "Jake has {a} toy cars. His friend gives him {b} more. How many toy cars does Jake have altogether?",
+        apples: "There are {a} apples in a basket. Dad adds {b} more apples. How many apples are in the basket now?",
+        books: "Lily reads {a} books on Monday. She reads {b} books on Tuesday. How many books did Lily read in all?",
+        flowers: "There are {a} flowers in the garden. Mom plants {b} more. How many flowers are there now?",
+        stickers: "Ben has {a} stickers. His sister gives him {b} more stickers. How many stickers does Ben have now?",
+        cookies: "There are {a} cookies on a plate. Dad bakes {b} more cookies. How many cookies are there in total?"
+      },
+
+      // DOM elements
+      currentRoundEl: null,
+      totalRoundsEl: null,
+      storyVisual: null,
+      storyText: null,
+      choicesContainer: null,
+      feedback: null,
+      btnReset: null,
+      statsOverlay: null,
+      statsMessage: null,
+      statCorrect: null,
+      statIncorrect: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.currentRoundEl = document.getElementById('current-round');
+        this.totalRoundsEl = document.getElementById('total-rounds');
+        this.storyVisual = document.getElementById('story-visual');
+        this.storyText = document.getElementById('story-text');
+        this.choicesContainer = document.getElementById('choices-container');
+        this.feedback = document.getElementById('feedback');
+        this.btnReset = document.getElementById('btn-reset');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statCorrect = document.getElementById('stat-correct');
+        this.statIncorrect = document.getElementById('stat-incorrect');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnReset.addEventListener('click', () => this.resetActivity());
+        this.btnPlayAgain.addEventListener('click', () => this.resetActivity());
+        this.statsOverlay.addEventListener('click', (e) => {
+          if (e.target === this.statsOverlay) this.resetActivity();
+        });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Set total rounds
+        this.totalRoundsEl.textContent = this.totalRounds;
+
+        // Start first round
+        this.nextRound();
+      },
+
+      /**
+       * Update translations for dynamic content
+       */
+      updateTranslations() {
+        // Update stats message if visible
+        if (this.statsOverlay.classList.contains('show')) {
+          this.updateStatsMessage();
+        }
+        // Re-render current story with new language
+        if (this.currentStory && !this.isAnswered) {
+          // Re-generate story text with new language
+          this.currentStory.text = this.getStoryText(
+            this.currentStory.template.key,
+            this.currentStory.a,
+            this.currentStory.b
+          );
+          this.renderStory(this.currentStory);
+        }
+      },
+
+      /**
+       * Get story text with i18n support
+       */
+      getStoryText(key, a, b) {
+        const i18nKey = `section.activities.addition-stories.stories.${key}`;
+        let text = i18n.t(i18nKey);
+
+        // Fallback to English if i18n key not found
+        if (!text || text === i18nKey) {
+          text = this.fallbackTexts[key];
+        }
+
+        return text.replace('{a}', a).replace('{b}', b);
+      },
+
+      /**
+       * Generate a story problem
+       */
+      generateStory() {
+        // Pick a random template
+        const template = this.storyTemplates[randomInt(0, this.storyTemplates.length - 1)];
+
+        // Generate two numbers that sum to 20 or less
+        const a = randomInt(2, 10);
+        const b = randomInt(2, Math.min(10, 20 - a));
+        const answer = a + b;
+
+        return {
+          template,
+          a,
+          b,
+          answer,
+          text: this.getStoryText(template.key, a, b)
+        };
+      },
+
+      /**
+       * Render story visual and text
+       */
+      renderStory(story) {
+        // Render visual representation
+        this.storyVisual.innerHTML = '';
+
+        // Create visual groups showing the addition
+        const group1 = document.createElement('div');
+        group1.className = 'visual-group';
+        for (let i = 0; i < story.a; i++) {
+          const icon = document.createElement('span');
+          icon.className = 'visual-icon';
+          icon.textContent = story.template.visual;
+          group1.appendChild(icon);
+        }
+
+        const plusSign = document.createElement('div');
+        plusSign.className = 'visual-operator';
+        plusSign.textContent = '+';
+
+        const group2 = document.createElement('div');
+        group2.className = 'visual-group';
+        for (let i = 0; i < story.b; i++) {
+          const icon = document.createElement('span');
+          icon.className = 'visual-icon';
+          icon.textContent = story.template.visual;
+          group2.appendChild(icon);
+        }
+
+        this.storyVisual.appendChild(group1);
+        this.storyVisual.appendChild(plusSign);
+        this.storyVisual.appendChild(group2);
+
+        // Render story text
+        this.storyText.textContent = story.text;
+      },
+
+      /**
+       * Generate answer choices
+       */
+      generateChoices(correctAnswer) {
+        const choices = new Set([correctAnswer]);
+
+        // Generate 3 wrong answers
+        while (choices.size < 4) {
+          let wrong = correctAnswer + randomInt(-4, 4);
+          // Ensure wrong answer is positive and different
+          if (wrong > 0 && wrong <= 30 && wrong !== correctAnswer) {
+            choices.add(wrong);
+          }
+        }
+
+        return shuffle(Array.from(choices));
+      },
+
+      /**
+       * Start next round
+       */
+      nextRound() {
+        this.currentRound++;
+
+        if (this.currentRound > this.totalRounds) {
+          this.showStats();
+          return;
+        }
+
+        this.isAnswered = false;
+        this.currentRoundEl.textContent = this.currentRound;
+
+        // Generate story
+        this.currentStory = this.generateStory();
+        this.renderStory(this.currentStory);
+
+        // Generate and display choices
+        const choices = this.generateChoices(this.currentStory.answer);
+        this.renderChoices(choices);
+
+        // Hide feedback
+        this.feedback.classList.remove('show', 'error');
+      },
+
+      /**
+       * Render answer choice buttons
+       */
+      renderChoices(choices) {
+        this.choicesContainer.innerHTML = '';
+
+        choices.forEach(choice => {
+          const button = document.createElement('button');
+          button.className = 'choice-btn';
+          button.textContent = choice;
+          button.setAttribute('aria-label', `Answer: ${choice}`);
+          button.addEventListener('click', () => this.selectAnswer(choice, button));
+          this.choicesContainer.appendChild(button);
+        });
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(answer, button) {
+        if (this.isAnswered) return;
+
+        this.isAnswered = true;
+
+        // Disable all buttons
+        const allButtons = this.choicesContainer.querySelectorAll('.choice-btn');
+        allButtons.forEach(btn => btn.disabled = true);
+
+        const correct = answer === this.currentStory.answer;
+
+        if (correct) {
+          this.correctCount++;
+          button.classList.add('correct');
+
+          const correctMsg = i18n.t('section.activities.addition-stories.correct') || 'Correct! {a} + {b} = {sum}';
+          const msg = correctMsg
+            .replace('{a}', this.currentStory.a)
+            .replace('{b}', this.currentStory.b)
+            .replace('{sum}', this.currentStory.answer);
+          this.feedback.textContent = '✓ ' + msg;
+          this.feedback.classList.remove('error');
+        } else {
+          this.incorrectCount++;
+          button.classList.add('incorrect');
+
+          // Highlight correct answer
+          allButtons.forEach(btn => {
+            if (parseInt(btn.textContent) === this.currentStory.answer) {
+              btn.classList.add('correct');
+            }
+          });
+
+          const wrongMsg = i18n.t('section.activities.addition-stories.wrong') || 'Not quite! {a} + {b} = {sum}';
+          const msg = wrongMsg
+            .replace('{a}', this.currentStory.a)
+            .replace('{b}', this.currentStory.b)
+            .replace('{sum}', this.currentStory.answer);
+          this.feedback.textContent = msg;
+          this.feedback.classList.add('error');
+        }
+
+        this.feedback.classList.add('show');
+
+        // Auto-advance to next round
+        setTimeout(() => {
+          this.nextRound();
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statCorrect.textContent = this.correctCount;
+        this.statIncorrect.textContent = this.incorrectCount;
+        this.updateStatsMessage();
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Update stats message
+       */
+      updateStatsMessage() {
+        const percentage = Math.round((this.correctCount / this.totalRounds) * 100);
+        let msg;
+
+        if (percentage === 100) {
+          msg = i18n.t('section.activities.addition-stories.perfect') || 'Perfect! You\'re amazing at solving addition stories!';
+        } else if (percentage >= 80) {
+          msg = i18n.t('section.activities.addition-stories.great') || 'Great job! You\'re really good at word problems!';
+        } else if (percentage >= 60) {
+          msg = i18n.t('section.activities.addition-stories.good') || 'Good work! Keep practicing addition stories!';
+        } else {
+          msg = i18n.t('section.activities.addition-stories.keepPracticing') || 'Keep practicing! Word problems get easier!';
+        }
+
+        this.statsMessage.textContent = msg;
+      },
+
+      /**
+       * Reset the activity
+       */
+      resetActivity() {
+        this.currentRound = 0;
+        this.correctCount = 0;
+        this.incorrectCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.nextRound();
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      AdditionStories.init();
+    });
+  </script>
+  <style>
+    /* Addition Stories specific styles */
+
+    .progress-indicator {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-3) var(--space-4);
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border: 2px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-6);
+      font-family: var(--font-secondary);
+      font-weight: var(--weight-semibold);
+      color: var(--color-primary);
+    }
+
+    .progress-text {
+      font-size: var(--text-sm);
+      color: var(--color-neutral-600);
+    }
+
+    /* Story Container */
+    .story-container {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 3px solid #fbbf24;
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
+    }
+
+    /* Story Visual */
+    .story-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      padding: var(--space-4);
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-lg);
+      flex-wrap: wrap;
+    }
+
+    .visual-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-2);
+      background: rgba(255, 255, 255, 0.8);
+      border: 2px solid #f59e0b;
+      border-radius: var(--radius-md);
+    }
+
+    .visual-icon {
+      font-size: var(--text-3xl);
+      line-height: 1;
+    }
+
+    .visual-operator {
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      color: #92400e;
+      padding: 0 var(--space-2);
+    }
+
+    /* Story Text */
+    .story-text {
+      font-family: var(--font-secondary);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      color: #78350f;
+      font-weight: var(--weight-semibold);
+      text-align: center;
+      padding: var(--space-4);
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius-lg);
+    }
+
+    /* Choices Container */
+    .choices-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin: var(--space-6) auto;
+      max-width: 400px;
+    }
+
+    .choice-btn {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      border: 3px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      font-family: var(--font-secondary);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 var(--color-primary-light);
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 var(--color-primary-light);
+      background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+    }
+
+    .choice-btn:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: 0 2px 0 var(--color-primary-light);
+    }
+
+    .choice-btn:disabled {
+      cursor: not-allowed;
+    }
+
+    .choice-btn.correct {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      border-color: #6ee7b7;
+      color: #059669;
+      animation: pop 0.4s ease;
+    }
+
+    .choice-btn.incorrect {
+      background: linear-gradient(135deg, #fecaca, #fca5a5);
+      border-color: #f87171;
+      color: #dc2626;
+      animation: shake 0.5s ease;
+    }
+
+    /* Animations */
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    /* Activity area needs padding for feedback */
+    .activity-area {
+      padding-bottom: calc(var(--space-8) + 60px);
+    }
+
+    /* Feedback at bottom */
+    .feedback-message {
+      position: absolute;
+      bottom: var(--space-4);
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      max-width: 90%;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .story-container {
+        padding: var(--space-4);
+      }
+
+      .story-visual {
+        gap: var(--space-2);
+        padding: var(--space-3);
+        margin-bottom: var(--space-4);
+      }
+
+      .visual-icon {
+        font-size: var(--text-xl);
+      }
+
+      .visual-operator {
+        font-size: var(--text-2xl);
+        padding: 0 var(--space-1);
+      }
+
+      .story-text {
+        font-size: var(--text-base);
+        padding: var(--space-3);
+      }
+
+      .choices-container {
+        gap: var(--space-3);
+        max-width: 320px;
+      }
+
+      .choice-btn {
+        min-height: 70px;
+        font-size: var(--text-2xl);
+      }
+
+      .feedback-message {
+        font-size: var(--text-sm);
+        padding: var(--space-2) var(--space-3);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .visual-group {
+        gap: var(--space-1);
+      }
+
+      .visual-icon {
+        font-size: var(--text-lg);
+      }
+
+      .visual-operator {
+        font-size: var(--text-xl);
+      }
+
+      .story-text {
+        font-size: var(--text-sm);
+      }
+
+      .choices-container {
+        gap: var(--space-2);
+      }
+
+      .choice-btn {
+        min-height: 60px;
+        font-size: var(--text-xl);
+      }
+    }
+  </style>
+</body>
+</html>

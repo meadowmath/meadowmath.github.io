@@ -1,0 +1,538 @@
+{
+  "region": "grade1",
+  "title": "Grade 1 Activities",
+  "description": "First steps in counting, adding, and patterns",
+  "levels": [
+    {
+      "id": "level-1",
+      "number": 1,
+      "title": "Numbers to 120 & Place Value",
+      "icon": "🟢",
+      "goal": "Understand numbers to 120, recognize place value, and compare two-digit numbers.",
+      "skills": [
+        "Count to 120 starting from any number",
+        "Read and write numerals 0-120",
+        "Understand tens and ones place value",
+        "Compare two-digit numbers using >, <, ="
+      ],
+      "activities": [
+        {
+          "id": "count-to-twenty",
+          "title": "Count to Twenty",
+          "description": "Tap the stars to count from 1 to 20!",
+          "icon": "🔢",
+          "path": "activities/count-to-twenty.html",
+          "type": "interactive"
+        },
+        {
+          "id": "number-order",
+          "title": "Number Order",
+          "description": "Put the numbers in the right order!",
+          "icon": "📊",
+          "path": "activities/number-order.html",
+          "type": "interactive"
+        },
+        {
+          "id": "tens-ones-blocks",
+          "title": "Tens and Ones Blocks",
+          "description": "How many tens? How many ones?",
+          "icon": "🧱",
+          "path": "activities/tens-ones-blocks.html",
+          "type": "interactive"
+        },
+        {
+          "id": "number-match",
+          "title": "Number Match",
+          "description": "Match the number to the right amount!",
+          "icon": "🎯",
+          "path": "activities/number-match.html",
+          "type": "interactive"
+        },
+        {
+          "id": "greater-or-less",
+          "title": "Greater or Less",
+          "description": "Which number is greater? Which is less?",
+          "icon": "🤔",
+          "path": "activities/greater-or-less.html",
+          "type": "interactive"
+        },
+        {
+          "id": "count-by-tens",
+          "title": "Count by Tens",
+          "description": "Skip count by 10s to reach the goal!",
+          "icon": "🔟",
+          "path": "activities/count-by-tens.html",
+          "type": "interactive"
+        },
+        {
+          "id": "missing-number-sequence",
+          "title": "Missing Number",
+          "description": "Find the number that's hiding!",
+          "icon": "🔍",
+          "path": "activities/missing-number-sequence.html",
+          "type": "interactive"
+        },
+        {
+          "id": "hundred-chart",
+          "title": "120 Chart Hunt",
+          "description": "Find numbers on the 120 chart!",
+          "icon": "📋",
+          "path": "activities/hundred-chart.html",
+          "type": "interactive"
+        }
+      ],
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "g1-l1-big-idea",
+            "icon": "💡",
+            "title": "Big idea"
+          },
+          {
+            "id": "g1-l1-notice",
+            "icon": "👀",
+            "title": "What to notice"
+          },
+          {
+            "id": "g1-l1-home",
+            "icon": "🏡",
+            "title": "Try at home"
+          },
+          {
+            "id": "g1-l1-videos",
+            "icon": "📺",
+            "title": "Optional videos"
+          }
+        ]
+      }
+    },
+    {
+      "id": "level-2",
+      "number": 2,
+      "title": "Addition Within 20",
+      "icon": "🟡",
+      "goal": "Develop fluency with addition facts to 20 using multiple strategies.",
+      "skills": [
+        "Add within 20 fluently",
+        "Use strategies: counting on, making 10, doubles",
+        "Understand addition as putting together",
+        "Add three numbers"
+      ],
+      "activities": [
+        {
+          "id": "add-with-pictures",
+          "title": "Add with Pictures",
+          "description": "Count the objects to find the sum!",
+          "icon": "🍎",
+          "path": "activities/add-with-pictures.html",
+          "type": "interactive"
+        },
+        {
+          "id": "number-line-addition",
+          "title": "Number Line Jump",
+          "description": "Jump along the number line to add!",
+          "icon": "➡️",
+          "path": "activities/number-line-addition.html",
+          "type": "interactive"
+        },
+        {
+          "id": "make-ten",
+          "title": "Make Ten",
+          "description": "Find pairs of numbers that make 10!",
+          "icon": "🔟",
+          "path": "activities/make-ten.html",
+          "type": "interactive"
+        },
+        {
+          "id": "addition-facts",
+          "title": "Addition Facts Flash",
+          "description": "Quick! What's the sum?",
+          "icon": "⚡",
+          "path": "activities/addition-facts.html",
+          "type": "interactive"
+        },
+        {
+          "id": "doubles-addition",
+          "title": "Doubles Fun",
+          "description": "Double the fun! Add the same number twice!",
+          "icon": "👯",
+          "path": "activities/doubles-addition.html",
+          "type": "interactive"
+        },
+        {
+          "id": "dice-addition",
+          "title": "Dice Addition",
+          "description": "Roll two dice and add the dots!",
+          "icon": "🎲",
+          "path": "activities/dice-addition.html",
+          "type": "interactive"
+        },
+        {
+          "id": "add-three-numbers",
+          "title": "Add Three Numbers",
+          "description": "Add three numbers together!",
+          "icon": "➕",
+          "path": "activities/add-three-numbers.html",
+          "type": "interactive"
+        },
+        {
+          "id": "addition-stories",
+          "title": "Story Addition",
+          "description": "Read the story and add!",
+          "icon": "📖",
+          "path": "activities/addition-stories.html",
+          "type": "interactive"
+        }
+      ],
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "g1-l2-big-idea",
+            "icon": "💡",
+            "title": "Big idea"
+          },
+          {
+            "id": "g1-l2-notice",
+            "icon": "👀",
+            "title": "What to notice"
+          },
+          {
+            "id": "g1-l2-home",
+            "icon": "🏡",
+            "title": "Try at home"
+          },
+          {
+            "id": "g1-l2-videos",
+            "icon": "📺",
+            "title": "Optional videos"
+          }
+        ]
+      }
+    },
+    {
+      "id": "level-3",
+      "number": 3,
+      "title": "Subtraction Within 20",
+      "icon": "🔵",
+      "goal": "Develop fluency with subtraction facts to 20 and understand the relationship between addition and subtraction.",
+      "skills": [
+        "Subtract within 20 fluently",
+        "Use strategies: counting back, using related facts",
+        "Understand subtraction as taking away or comparing",
+        "See addition-subtraction relationship"
+      ],
+      "activities": [
+        {
+          "id": "take-away-visual",
+          "title": "Take Away Objects",
+          "description": "Watch some objects disappear!",
+          "icon": "➖",
+          "path": "activities/take-away-visual.html",
+          "type": "interactive"
+        },
+        {
+          "id": "subtraction-facts",
+          "title": "Subtraction Facts Flash",
+          "description": "Quick! What's left?",
+          "icon": "⚡",
+          "path": "activities/subtraction-facts.html",
+          "type": "interactive"
+        },
+        {
+          "id": "number-line-subtraction",
+          "title": "Number Line Count Back",
+          "description": "Hop backwards on the number line!",
+          "icon": "⬅️",
+          "path": "activities/number-line-subtraction.html",
+          "type": "interactive"
+        },
+        {
+          "id": "related-facts",
+          "title": "Related Facts",
+          "description": "Addition and subtraction are friends!",
+          "icon": "🔗",
+          "path": "activities/related-facts.html",
+          "type": "interactive"
+        },
+        {
+          "id": "missing-part",
+          "title": "Missing Part",
+          "description": "Find the missing number!",
+          "icon": "🧩",
+          "path": "activities/missing-part.html",
+          "type": "interactive"
+        },
+        {
+          "id": "subtract-from-ten",
+          "title": "Subtract from Ten",
+          "description": "Take away from 10!",
+          "icon": "🔟",
+          "path": "activities/subtract-from-ten.html",
+          "type": "interactive"
+        },
+        {
+          "id": "how-many-more",
+          "title": "How Many More?",
+          "description": "Compare and find the difference!",
+          "icon": "📏",
+          "path": "activities/how-many-more.html",
+          "type": "interactive"
+        },
+        {
+          "id": "think-addition",
+          "title": "Think Addition",
+          "description": "Use addition to help you subtract!",
+          "icon": "🔄",
+          "path": "activities/think-addition.html",
+          "type": "interactive"
+        },
+        {
+          "id": "subtraction-stories",
+          "title": "Story Subtraction",
+          "description": "Read the story and subtract!",
+          "icon": "📖",
+          "path": "activities/subtraction-stories.html",
+          "type": "interactive"
+        }
+      ],
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "g1-l3-big-idea",
+            "icon": "💡",
+            "title": "Big idea"
+          },
+          {
+            "id": "g1-l3-notice",
+            "icon": "👀",
+            "title": "What to notice"
+          },
+          {
+            "id": "g1-l3-home",
+            "icon": "🏡",
+            "title": "Try at home"
+          },
+          {
+            "id": "g1-l3-videos",
+            "icon": "📺",
+            "title": "Optional videos"
+          }
+        ]
+      }
+    },
+    {
+      "id": "level-4",
+      "number": 4,
+      "title": "Word Problems & Equal Sign",
+      "icon": "🟣",
+      "goal": "Solve word problems involving addition and subtraction, and understand the meaning of the equal sign.",
+      "skills": [
+        "Solve addition word problems within 20",
+        "Solve subtraction word problems within 20",
+        "Understand = means 'same as'",
+        "Determine unknown numbers in equations"
+      ],
+      "activities": [
+        {
+          "id": "equal-sign",
+          "title": "Equal Sign Explorer",
+          "description": "The equal sign means 'the same as'!",
+          "icon": "⚖️",
+          "path": "activities/equal-sign.html",
+          "type": "interactive"
+        },
+        {
+          "id": "balance-equation",
+          "title": "Balance the Equation",
+          "description": "Make both sides equal!",
+          "icon": "⚖️",
+          "path": "activities/balance-equation.html",
+          "type": "interactive"
+        },
+        {
+          "id": "picture-problems",
+          "title": "Picture Problems",
+          "description": "Look at the picture and solve!",
+          "icon": "🖼️",
+          "path": "activities/picture-problems.html",
+          "type": "interactive"
+        },
+        {
+          "id": "word-problem-mix",
+          "title": "Word Problem Mix",
+          "description": "Read, think, and solve!",
+          "icon": "📝",
+          "path": "activities/word-problem-mix.html",
+          "type": "interactive"
+        },
+        {
+          "id": "more-fewer-problems",
+          "title": "More and Fewer Problems",
+          "description": "Who has more? How many more?",
+          "icon": "📊",
+          "path": "activities/more-fewer-problems.html",
+          "type": "interactive"
+        },
+        {
+          "id": "draw-to-solve",
+          "title": "Draw to Solve",
+          "description": "Draw circles to help you solve!",
+          "icon": "✏️",
+          "path": "activities/draw-to-solve.html",
+          "type": "interactive"
+        },
+        {
+          "id": "match-equation-story",
+          "title": "Match Equation to Story",
+          "description": "Which equation matches the story?",
+          "icon": "🔗",
+          "path": "activities/match-equation-story.html",
+          "type": "interactive"
+        },
+        {
+          "id": "create-story",
+          "title": "Create a Story",
+          "description": "What story could this equation tell?",
+          "icon": "📖",
+          "path": "activities/create-story.html",
+          "type": "interactive"
+        }
+      ],
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "g1-l4-big-idea",
+            "icon": "💡",
+            "title": "Big idea"
+          },
+          {
+            "id": "g1-l4-notice",
+            "icon": "👀",
+            "title": "What to notice"
+          },
+          {
+            "id": "g1-l4-home",
+            "icon": "🏡",
+            "title": "Try at home"
+          },
+          {
+            "id": "g1-l4-videos",
+            "icon": "📺",
+            "title": "Optional videos"
+          }
+        ]
+      }
+    },
+    {
+      "id": "level-5",
+      "number": 5,
+      "title": "Measurement, Time & Shapes",
+      "icon": "🟠",
+      "goal": "Measure length, tell time, read data, and identify shapes and their attributes.",
+      "skills": [
+        "Order objects by length",
+        "Measure using non-standard units",
+        "Tell time to hour and half-hour",
+        "Read and interpret bar graphs",
+        "Identify 2D and 3D shapes",
+        "Describe shapes by attributes",
+        "Partition shapes into halves and fourths"
+      ],
+      "activities": [
+        {
+          "id": "order-by-length",
+          "title": "Order by Length",
+          "description": "Put objects in order from shortest to longest!",
+          "icon": "📏",
+          "path": "activities/order-by-length.html",
+          "type": "interactive"
+        },
+        {
+          "id": "measure-with-cubes",
+          "title": "Measure with Cubes",
+          "description": "How many cubes long is it?",
+          "icon": "🧊",
+          "path": "activities/measure-with-cubes.html",
+          "type": "interactive"
+        },
+        {
+          "id": "time-hour",
+          "title": "What Time Is It? (Hour)",
+          "description": "Tell time to the hour!",
+          "icon": "⏰",
+          "path": "activities/time-hour.html",
+          "type": "interactive"
+        },
+        {
+          "id": "time-half-hour",
+          "title": "What Time Is It? (Half Hour)",
+          "description": "Tell time to the half hour!",
+          "icon": "⏰",
+          "path": "activities/time-half-hour.html",
+          "type": "interactive"
+        },
+        {
+          "id": "read-bar-graph",
+          "title": "Read the Bar Graph",
+          "description": "Answer questions about the graph!",
+          "icon": "📊",
+          "path": "activities/read-bar-graph.html",
+          "type": "interactive"
+        },
+        {
+          "id": "name-shapes",
+          "title": "Name That Shape!",
+          "description": "What shape is this?",
+          "icon": "🔷",
+          "path": "activities/name-shapes.html",
+          "type": "interactive"
+        },
+        {
+          "id": "shape-attributes",
+          "title": "Shape Attributes",
+          "description": "Count the sides and corners!",
+          "icon": "📐",
+          "path": "activities/shape-attributes.html",
+          "type": "interactive"
+        },
+        {
+          "id": "halves-fourths",
+          "title": "Halves and Fourths",
+          "description": "Divide shapes into equal parts!",
+          "icon": "🍕",
+          "path": "activities/halves-fourths.html",
+          "type": "interactive"
+        }
+      ],
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "g1-l5-big-idea",
+            "icon": "💡",
+            "title": "Big idea"
+          },
+          {
+            "id": "g1-l5-notice",
+            "icon": "👀",
+            "title": "What to notice"
+          },
+          {
+            "id": "g1-l5-home",
+            "icon": "🏡",
+            "title": "Try at home"
+          },
+          {
+            "id": "g1-l5-videos",
+            "icon": "📺",
+            "title": "Optional videos"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read the Bar Graph - Grade 1 Math Activity - Meadow Math">
+  <title>Read the Bar Graph - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="../../prek/activities/activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">📊</span>
+            <span data-i18n="section.activities.read-bar-graph.title">Read the Bar Graph</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.read-bar-graph.description">Answer questions about the graph!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Graph Title -->
+          <div class="graph-title" id="graph-title"></div>
+
+          <!-- Bar Graph Container -->
+          <div class="bar-graph-container">
+            <div class="bar-graph" id="bar-graph">
+              <!-- Y-axis labels -->
+              <div class="y-axis" id="y-axis"></div>
+
+              <!-- Bars container -->
+              <div class="bars-container" id="bars-container"></div>
+            </div>
+          </div>
+
+          <!-- Question -->
+          <div class="question-text" id="question-text"></div>
+
+          <!-- Answer Choices -->
+          <div class="answer-choices" id="answer-choices">
+            <!-- Choices will be dynamically generated here -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Bar Graph specific styles */
+    .graph-title {
+      text-align: center;
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-800);
+      margin-bottom: var(--space-6);
+      padding: var(--space-4);
+      background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+      border-radius: var(--radius-lg);
+      border: 3px solid #0ea5e9;
+    }
+
+    .bar-graph-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: var(--space-8);
+      padding: var(--space-6);
+      background: white;
+      border-radius: var(--radius-xl);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .bar-graph {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      gap: var(--space-2);
+      min-height: 350px;
+      padding-left: 60px;
+      padding-bottom: 40px;
+    }
+
+    .y-axis {
+      position: absolute;
+      left: 0;
+      bottom: 40px;
+      height: 350px;
+      width: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-right: var(--space-2);
+    }
+
+    .y-label {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--color-neutral-600);
+      user-select: none;
+    }
+
+    .bars-container {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--space-6);
+      height: 350px;
+      position: relative;
+    }
+
+    .bars-container::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -60px;
+      right: 0;
+      height: 3px;
+      background: var(--color-neutral-400);
+    }
+
+    .bar-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .bar {
+      width: 100px;
+      min-width: 100px;
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      position: relative;
+      transition: all 0.5s ease;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+
+    .bar:nth-child(3n + 1) .bar {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+    }
+
+    .bar:nth-child(3n + 2) .bar {
+      background: linear-gradient(135deg, #10b981, #059669);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    }
+
+    .bar:nth-child(3n + 3) .bar {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+    }
+
+    .bar-value {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-800);
+    }
+
+    .bar-label {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--color-neutral-700);
+      text-align: center;
+      margin-top: var(--space-2);
+      user-select: none;
+    }
+
+    .question-text {
+      text-align: center;
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      color: var(--color-neutral-700);
+      margin-bottom: var(--space-6);
+      padding: var(--space-4);
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border-radius: var(--radius-lg);
+      border: 3px solid #f59e0b;
+    }
+
+    .answer-choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      justify-content: center;
+      max-width: 700px;
+      margin: 0 auto var(--space-6);
+    }
+
+    .choice-btn {
+      min-width: 200px;
+      min-height: 120px;
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      padding: var(--space-5) var(--space-6);
+      background: white;
+      border: 4px solid var(--color-primary);
+      border-radius: var(--radius-xl);
+      color: var(--color-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 rgba(59, 130, 246, 0.3), 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 rgba(59, 130, 246, 0.3), 0 8px 16px rgba(0, 0, 0, 0.15);
+      background: var(--color-primary-light);
+    }
+
+    .choice-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 0 rgba(59, 130, 246, 0.3), 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .choice-btn.selected {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary-dark);
+    }
+
+    .choice-btn.correct {
+      background: var(--color-success);
+      border-color: var(--color-success-dark);
+      color: white;
+    }
+
+    .choice-btn.incorrect {
+      background: var(--color-error);
+      border-color: var(--color-error-dark);
+      color: white;
+      animation: wiggle 0.5s ease;
+    }
+
+    .choice-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
+    }
+
+    @media (max-width: 767px) {
+      .bar-graph-container {
+        padding: var(--space-4);
+      }
+
+      .bar-graph {
+        min-height: 280px;
+        padding-left: 50px;
+        padding-bottom: 30px;
+      }
+
+      .y-axis {
+        bottom: 30px;
+        height: 280px;
+        width: 40px;
+      }
+
+      .y-label {
+        font-size: var(--text-base);
+      }
+
+      .bars-container {
+        height: 280px;
+        gap: var(--space-4);
+      }
+
+      .bars-container::before {
+        left: -50px;
+      }
+
+      .bar {
+        width: 70px;
+        min-width: 70px;
+      }
+
+      .bar-value {
+        font-size: var(--text-lg);
+        top: -25px;
+      }
+
+      .bar-label {
+        font-size: var(--text-base);
+      }
+
+      .choice-btn {
+        min-width: 160px;
+        min-height: 100px;
+        font-size: var(--text-xl);
+        padding: var(--space-4) var(--space-5);
+      }
+
+      .graph-title,
+      .question-text {
+        font-size: var(--text-lg);
+        padding: var(--space-3);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Read the Bar Graph Activity
+    const ReadBarGraph = {
+      // Game state
+      currentRound: 1,
+      maxRounds: 9, // 3 graphs × 3 questions each
+      correctCount: 0,
+      wrongCount: 0,
+      currentGraphIndex: 0,
+      currentQuestionIndex: 0,
+      autoAdvanceDelay: 1500,
+      graphs: [],
+      currentQuestion: null,
+
+      // DOM elements
+      graphTitle: null,
+      barGraph: null,
+      yAxis: null,
+      barsContainer: null,
+      questionText: null,
+      answerChoices: null,
+      feedback: null,
+      progress: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.graphTitle = document.getElementById('graph-title');
+        this.barGraph = document.getElementById('bar-graph');
+        this.yAxis = document.getElementById('y-axis');
+        this.barsContainer = document.getElementById('bars-container');
+        this.questionText = document.getElementById('question-text');
+        this.answerChoices = document.getElementById('answer-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => {
+          if (e.target === this.statsOverlay) this.restartActivity();
+        });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Initialize graphs
+        this.initializeGraphs();
+
+        // Start first round
+        this.generateRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Initialize graph data
+       */
+      initializeGraphs() {
+        this.graphs = [
+          // Graph 1: Favorite Fruits
+          {
+            title: i18n.t('section.activities.read-bar-graph.graphs.fruits.title'),
+            categories: [
+              { label: i18n.t('section.activities.read-bar-graph.graphs.fruits.apple'), value: 5, translationKey: 'apple' },
+              { label: i18n.t('section.activities.read-bar-graph.graphs.fruits.banana'), value: 8, translationKey: 'banana' },
+              { label: i18n.t('section.activities.read-bar-graph.graphs.fruits.orange'), value: 3, translationKey: 'orange' }
+            ],
+            questions: [
+              {
+                type: 'count',
+                item: 'banana',
+                text: i18n.t('section.activities.read-bar-graph.graphs.fruits.q1'),
+                answer: 8,
+                choices: [6, 7, 8, 9]
+              },
+              {
+                type: 'most',
+                text: i18n.t('section.activities.read-bar-graph.graphs.fruits.q2'),
+                answer: 'banana',
+                choices: ['apple', 'banana', 'orange']
+              },
+              {
+                type: 'difference',
+                text: i18n.t('section.activities.read-bar-graph.graphs.fruits.q3'),
+                answer: 5,
+                choices: [3, 4, 5, 6]
+              }
+            ]
+          },
+          // Graph 2: Favorite Pets
+          {
+            title: i18n.t('section.activities.read-bar-graph.graphs.pets.title'),
+            categories: [
+              { label: i18n.t('section.activities.read-bar-graph.graphs.pets.dog'), value: 7, translationKey: 'dog' },
+              { label: i18n.t('section.activities.read-bar-graph.graphs.pets.cat'), value: 4, translationKey: 'cat' },
+              { label: i18n.t('section.activities.read-bar-graph.graphs.pets.fish'), value: 6, translationKey: 'fish' }
+            ],
+            questions: [
+              {
+                type: 'count',
+                item: 'dog',
+                text: i18n.t('section.activities.read-bar-graph.graphs.pets.q1'),
+                answer: 7,
+                choices: [5, 6, 7, 8]
+              },
+              {
+                type: 'least',
+                text: i18n.t('section.activities.read-bar-graph.graphs.pets.q2'),
+                answer: 'cat',
+                choices: ['dog', 'cat', 'fish']
+              },
+              {
+                type: 'difference',
+                text: i18n.t('section.activities.read-bar-graph.graphs.pets.q3'),
+                answer: 3,
+                choices: [2, 3, 4, 5]
+              }
+            ]
+          },
+          // Graph 3: Favorite Colors
+          {
+            title: i18n.t('section.activities.read-bar-graph.graphs.colors.title'),
+            categories: [
+              { label: i18n.t('section.activities.read-bar-graph.graphs.colors.red'), value: 6, translationKey: 'red' },
+              { label: i18n.t('section.activities.read-bar-graph.graphs.colors.blue'), value: 9, translationKey: 'blue' },
+              { label: i18n.t('section.activities.read-bar-graph.graphs.colors.green'), value: 5, translationKey: 'green' }
+            ],
+            questions: [
+              {
+                type: 'count',
+                item: 'blue',
+                text: i18n.t('section.activities.read-bar-graph.graphs.colors.q1'),
+                answer: 9,
+                choices: [7, 8, 9, 10]
+              },
+              {
+                type: 'most',
+                text: i18n.t('section.activities.read-bar-graph.graphs.colors.q2'),
+                answer: 'blue',
+                choices: ['red', 'blue', 'green']
+              },
+              {
+                type: 'difference',
+                text: i18n.t('section.activities.read-bar-graph.graphs.colors.q3'),
+                answer: 4,
+                choices: [2, 3, 4, 5]
+              }
+            ]
+          }
+        ];
+      },
+
+      /**
+       * Update translations when language changes
+       */
+      updateTranslations() {
+        // Re-initialize graphs with new translations
+        this.initializeGraphs();
+
+        // Re-render current state
+        this.renderGraph();
+        this.renderQuestion();
+
+        // Update feedback message if it's currently showing
+        if (this.feedback.classList.contains('show')) {
+          const isError = this.feedback.classList.contains('error');
+          if (isError) {
+            this.feedback.textContent = i18n.t('section.activities.read-bar-graph.wrong');
+          } else {
+            this.feedback.textContent = i18n.t('section.activities.read-bar-graph.correct');
+          }
+        }
+      },
+
+      /**
+       * Generate a new round (question)
+       */
+      generateRound() {
+        this.feedback.classList.remove('show');
+
+        // Determine which graph and question to show
+        this.currentGraphIndex = Math.floor((this.currentRound - 1) / 3);
+        this.currentQuestionIndex = (this.currentRound - 1) % 3;
+
+        const graph = this.graphs[this.currentGraphIndex];
+        this.currentQuestion = graph.questions[this.currentQuestionIndex];
+
+        // Only render the graph if it's a new graph (first question)
+        if (this.currentQuestionIndex === 0) {
+          this.renderGraph();
+        }
+
+        this.renderQuestion();
+      },
+
+      /**
+       * Render the bar graph
+       */
+      renderGraph() {
+        const graph = this.graphs[this.currentGraphIndex];
+
+        // Set title
+        this.graphTitle.textContent = graph.title;
+
+        // Find max value for scaling
+        const maxValue = Math.max(...graph.categories.map(c => c.value));
+        const scale = 350 / (maxValue + 2); // Add padding at top
+
+        // Render Y-axis labels (0 to maxValue + 2)
+        const yAxisMax = maxValue + 2;
+        let yAxisHTML = '';
+        for (let i = yAxisMax; i >= 0; i -= 2) {
+          yAxisHTML += `<div class="y-label">${i}</div>`;
+        }
+        this.yAxis.innerHTML = yAxisHTML;
+
+        // Render bars with animation
+        let barsHTML = '';
+        graph.categories.forEach((cat, index) => {
+          const height = cat.value * scale;
+          barsHTML += `
+            <div class="bar-item">
+              <div class="bar" style="height: ${height}px;">
+                <div class="bar-value">${cat.value}</div>
+              </div>
+              <div class="bar-label">${cat.label}</div>
+            </div>
+          `;
+        });
+        this.barsContainer.innerHTML = barsHTML;
+      },
+
+      /**
+       * Render the current question
+       */
+      renderQuestion() {
+        const question = this.currentQuestion;
+
+        // Set question text
+        this.questionText.textContent = question.text;
+
+        // Render answer choices
+        const shuffledChoices = shuffle([...question.choices]);
+
+        let html = '';
+        shuffledChoices.forEach(choice => {
+          let displayText = choice;
+
+          // If choice is a category name, translate it
+          if (typeof choice === 'string') {
+            const graph = this.graphs[this.currentGraphIndex];
+            const category = graph.categories.find(c => c.translationKey === choice);
+            if (category) {
+              displayText = category.label;
+            }
+          }
+
+          html += `<button class="choice-btn" data-answer="${choice}">${displayText}</button>`;
+        });
+
+        this.answerChoices.innerHTML = html;
+
+        // Add click and keyboard handlers
+        const buttons = this.answerChoices.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => this.checkAnswer(btn.dataset.answer));
+          btn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.checkAnswer(btn.dataset.answer);
+            }
+          });
+        });
+      },
+
+      /**
+       * Check the selected answer
+       */
+      checkAnswer(selectedAnswer) {
+        // Disable all buttons
+        const buttons = this.answerChoices.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => btn.disabled = true);
+
+        // Convert selectedAnswer to appropriate type
+        let answer = selectedAnswer;
+        if (this.currentQuestion.type !== 'most' && this.currentQuestion.type !== 'least') {
+          answer = parseInt(selectedAnswer);
+        }
+
+        const isCorrect = answer === this.currentQuestion.answer;
+
+        // Highlight selected button
+        buttons.forEach(btn => {
+          const btnValue = this.currentQuestion.type === 'most' || this.currentQuestion.type === 'least'
+            ? btn.dataset.answer
+            : parseInt(btn.dataset.answer);
+
+          if (btnValue === answer) {
+            if (isCorrect) {
+              btn.classList.add('correct');
+            } else {
+              btn.classList.add('incorrect');
+            }
+          }
+          // Show correct answer if wrong
+          if (!isCorrect && btnValue === this.currentQuestion.answer) {
+            btn.classList.add('correct');
+          }
+        });
+
+        if (isCorrect) {
+          // Correct!
+          this.feedback.textContent = i18n.t('section.activities.read-bar-graph.correct');
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.barGraph);
+          }
+        } else {
+          // Incorrect
+          this.feedback.textContent = i18n.t('section.activities.read-bar-graph.wrong');
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.currentRound < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+
+        const percent = this.correctCount / this.maxRounds;
+
+        if (percent === 1) {
+          this.statsIcon.textContent = '🏆';
+          this.statsMessage.textContent = i18n.t('section.activities.read-bar-graph.statsPerfect');
+        } else if (percent >= 0.75) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = i18n.t('section.activities.read-bar-graph.statsGreat');
+        } else if (percent >= 0.5) {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = i18n.t('section.activities.read-bar-graph.statsGood');
+        } else {
+          this.statsIcon.textContent = '💪';
+          this.statsMessage.textContent = i18n.t('section.activities.read-bar-graph.statsKeepGoing');
+        }
+
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.currentRound = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.generateRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.currentRound++;
+        this.generateRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.currentRound) {
+            className += ' completed';
+          } else if (i === this.currentRound) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      ReadBarGraph.init();
+    });
+  </script>
+</body>
+</html>

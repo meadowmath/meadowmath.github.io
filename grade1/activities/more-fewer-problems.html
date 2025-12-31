@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="More and Fewer Problems - Grade 1 Math Activity - Meadow Math">
+  <title>More and Fewer Problems - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="../../prek/activities/activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">📊</span>
+            <span data-i18n="section.activities.more-fewer-problems.title">More and Fewer Problems</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.more-fewer-problems.description">Who has more? How many more?</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Problem Card -->
+          <div class="problem-card" id="problem-card">
+            <!-- Visual comparison area -->
+            <div class="visual-comparison" id="visual">
+              <!-- Two groups for visual comparison -->
+              <div class="comparison-group" id="group-a">
+                <div class="group-label" id="label-a"></div>
+                <div class="group-objects" id="objects-a"></div>
+              </div>
+              <div class="comparison-group" id="group-b">
+                <div class="group-label" id="label-b"></div>
+                <div class="group-objects" id="objects-b"></div>
+              </div>
+            </div>
+
+            <!-- Story text -->
+            <div class="story-text" id="story">
+              <!-- Problem text -->
+            </div>
+          </div>
+
+          <!-- Answer Choices -->
+          <div class="choice-buttons" id="choices">
+            <!-- Choice buttons will be dynamically generated -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* More and Fewer Problems specific styles */
+    .problem-card {
+      background: white;
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      margin: var(--space-6) auto var(--space-8);
+      max-width: 700px;
+      box-shadow: 0 4px 0 var(--color-neutral-200);
+    }
+
+    .visual-comparison {
+      display: flex;
+      gap: var(--space-6);
+      justify-content: center;
+      align-items: flex-start;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border-radius: var(--radius-xl);
+      margin-bottom: var(--space-6);
+      border: 3px solid #fbbf24;
+      min-height: 200px;
+    }
+
+    .comparison-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      align-items: center;
+    }
+
+    .group-label {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-800);
+      padding: var(--space-2) var(--space-4);
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--color-neutral-300);
+      box-shadow: 0 2px 0 var(--color-neutral-300);
+    }
+
+    .group-objects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: flex-start;
+      gap: var(--space-2);
+      padding: var(--space-4);
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--color-neutral-200);
+      min-width: 200px;
+      min-height: 140px;
+    }
+
+    .visual-object {
+      font-size: 40px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      animation: popIn 0.3s ease;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      70% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .story-text {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      text-align: center;
+      color: var(--color-neutral-900);
+      line-height: 1.8;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+      border-radius: var(--radius-lg);
+      border: 3px solid #7dd3fc;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .choice-buttons {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .choice-btn {
+      min-width: 160px;
+      height: 120px;
+      padding: var(--space-4);
+      font-family: var(--font-secondary);
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom, #fff, #f5f5f5);
+      border: 5px solid var(--color-neutral-300);
+      border-radius: var(--radius-2xl);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 6px 0 var(--color-neutral-300), 0 10px 20px rgba(0, 0, 0, 0.08);
+      color: var(--color-neutral-800);
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 10px 0 var(--color-neutral-400), 0 14px 24px rgba(0, 0, 0, 0.12);
+      background: linear-gradient(to bottom, #fff, #e5e5e5);
+    }
+
+    .choice-btn:active:not(:disabled) {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 var(--color-neutral-300), 0 4px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .choice-btn:focus {
+      outline: 4px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .choice-btn:disabled {
+      cursor: default;
+      opacity: 0.8;
+    }
+
+    .choice-btn.correct {
+      background: linear-gradient(to bottom, #6ee7b7, #34d399);
+      border-color: #059669;
+      color: white;
+      animation: celebrate 0.6s ease;
+    }
+
+    .choice-btn.incorrect {
+      animation: shake 0.5s ease;
+    }
+
+    @media (max-width: 767px) {
+      .problem-card {
+        padding: var(--space-6);
+      }
+
+      .visual-comparison {
+        padding: var(--space-4);
+        gap: var(--space-3);
+        min-height: auto;
+      }
+
+      .comparison-group {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .group-objects {
+        min-width: 0;
+        min-height: 120px;
+        padding: var(--space-3);
+      }
+
+      .visual-object {
+        font-size: 28px;
+      }
+
+      .group-label {
+        font-size: var(--text-base);
+        padding: var(--space-1) var(--space-3);
+      }
+
+      .story-text {
+        font-size: var(--text-base);
+        line-height: 1.6;
+        padding: var(--space-4);
+        min-height: 80px;
+      }
+
+      .choice-btn {
+        min-width: 130px;
+        height: 100px;
+        font-size: var(--text-3xl);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // More and Fewer Problems Activity
+    const MoreFewerProblems = {
+      // Game state
+      currentProblem: null,
+      round: 1,
+      maxRounds: 8,
+      correctCount: 0,
+      wrongCount: 0,
+      hasAnswered: false,
+      autoAdvanceDelay: 1500,
+
+      // Comparison problem scenarios
+      problemScenarios: [
+        // "How many more?" problems
+        {
+          type: 'more',
+          person1: 'Anna',
+          person2: 'Ben',
+          objects: '🍎',
+          questionTemplate: '{person1} has {a} apples. {person2} has {b} apples. How many more apples does {person2} have?',
+          questionKey: 'section.activities.more-fewer-problems.howManyMoreApples',
+        },
+        {
+          type: 'more',
+          person1: 'Sam',
+          person2: 'Mia',
+          objects: '📚',
+          questionTemplate: '{person1} has {a} books. {person2} has {b} books. How many more books does {person2} have?',
+          questionKey: 'section.activities.more-fewer-problems.howManyMoreBooks',
+        },
+        {
+          type: 'more',
+          person1: 'Tom',
+          person2: 'Emma',
+          objects: '⭐',
+          questionTemplate: '{person1} has {a} stars. {person2} has {b} stars. How many more stars does {person2} have?',
+          questionKey: 'section.activities.more-fewer-problems.howManyMoreStars',
+        },
+        {
+          type: 'more',
+          person1: 'Jack',
+          person2: 'Lily',
+          objects: '🎈',
+          questionTemplate: '{person1} has {a} balloons. {person2} has {b} balloons. How many more balloons does {person2} have?',
+          questionKey: 'section.activities.more-fewer-problems.howManyMoreBalloons',
+        },
+        // "Fewer" problems (finding the result)
+        {
+          type: 'fewer',
+          person1: 'Sara',
+          person2: 'Tom',
+          objects: '📘',
+          questionTemplate: '{person1} has {a} books. {person2} has {diff} fewer books. How many books does {person2} have?',
+          questionKey: 'section.activities.more-fewer-problems.fewerBooks',
+        },
+        {
+          type: 'fewer',
+          person1: 'Max',
+          person2: 'Zoe',
+          objects: '🖍️',
+          questionTemplate: '{person1} has {a} crayons. {person2} has {diff} fewer crayons. How many crayons does {person2} have?',
+          questionKey: 'section.activities.more-fewer-problems.fewerCrayons',
+        },
+        {
+          type: 'fewer',
+          person1: 'Ava',
+          person2: 'Leo',
+          objects: '🍪',
+          questionTemplate: '{person1} has {a} cookies. {person2} has {diff} fewer cookies. How many cookies does {person2} have?',
+          questionKey: 'section.activities.more-fewer-problems.fewerCookies',
+        },
+        {
+          type: 'fewer',
+          person1: 'Noah',
+          person2: 'Ella',
+          objects: '🌸',
+          questionTemplate: '{person1} has {a} flowers. {person2} has {diff} fewer flowers. How many flowers does {person2} have?',
+          questionKey: 'section.activities.more-fewer-problems.fewerFlowers',
+        }
+      ],
+
+      // DOM elements
+      labelA: null,
+      objectsA: null,
+      labelB: null,
+      objectsB: null,
+      story: null,
+      choices: null,
+      feedback: null,
+      progress: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.labelA = document.getElementById('label-a');
+        this.objectsA = document.getElementById('objects-a');
+        this.labelB = document.getElementById('label-b');
+        this.objectsB = document.getElementById('objects-b');
+        this.story = document.getElementById('story');
+        this.choices = document.getElementById('choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Keyboard accessibility: ESC to close stats
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && this.statsOverlay.classList.contains('show')) {
+            this.restartActivity();
+          }
+        });
+
+        // Start first round
+        this.generateProblem();
+        this.renderProgress();
+      },
+
+      /**
+       * Generate a random comparison problem
+       */
+      generateProblem() {
+        this.hasAnswered = false;
+        this.feedback.classList.remove('show');
+
+        // Select random scenario
+        const scenario = this.problemScenarios[randomInt(0, this.problemScenarios.length - 1)];
+
+        let a, b, answer;
+
+        if (scenario.type === 'more') {
+          // "How many more?" type: person2 has more than person1
+          a = randomInt(4, 12);      // person1 has fewer
+          b = a + randomInt(2, 8);   // person2 has more
+          if (b > 20) b = 20;        // cap at 20
+          answer = b - a;            // difference (how many more)
+        } else {
+          // "Fewer" type: person2 has fewer than person1
+          a = randomInt(8, 18);      // person1 has more
+          const diff = randomInt(2, Math.min(6, a - 2)); // difference
+          b = a - diff;              // person2 has fewer
+          answer = b;                // answer is person2's count
+        }
+
+        // Generate story text with translation support
+        let storyText;
+        if (typeof i18n !== 'undefined') {
+          const translated = i18n.t(scenario.questionKey);
+          // Check if translation was found
+          if (translated && translated !== scenario.questionKey) {
+            storyText = translated
+              .replace(/{person1}/g, scenario.person1)
+              .replace(/{person2}/g, scenario.person2)
+              .replace(/{a}/g, a)
+              .replace(/{b}/g, b)
+              .replace(/{diff}/g, scenario.type === 'fewer' ? (a - b) : (b - a));
+          } else {
+            storyText = scenario.questionTemplate
+              .replace(/{person1}/g, scenario.person1)
+              .replace(/{person2}/g, scenario.person2)
+              .replace(/{a}/g, a)
+              .replace(/{b}/g, b)
+              .replace(/{diff}/g, scenario.type === 'fewer' ? (a - b) : (b - a));
+          }
+        } else {
+          storyText = scenario.questionTemplate
+            .replace(/{person1}/g, scenario.person1)
+            .replace(/{person2}/g, scenario.person2)
+            .replace(/{a}/g, a)
+            .replace(/{b}/g, b)
+            .replace(/{diff}/g, scenario.type === 'fewer' ? (a - b) : (b - a));
+        }
+
+        this.currentProblem = {
+          type: scenario.type,
+          person1: scenario.person1,
+          person2: scenario.person2,
+          objects: scenario.objects,
+          a: a,
+          b: b,
+          answer: answer,
+          storyText: storyText
+        };
+
+        this.displayProblem();
+        this.generateChoices();
+      },
+
+      /**
+       * Display the visual comparison and story
+       */
+      displayProblem() {
+        const p = this.currentProblem;
+
+        // Set labels
+        this.labelA.textContent = p.person1;
+        this.labelB.textContent = p.person2;
+
+        // Clear previous objects
+        this.objectsA.innerHTML = '';
+        this.objectsB.innerHTML = '';
+
+        // Render objects for person1
+        for (let i = 0; i < p.a; i++) {
+          const obj = document.createElement('span');
+          obj.className = 'visual-object';
+          obj.textContent = p.objects;
+          obj.style.animationDelay = `${i * 0.05}s`;
+          this.objectsA.appendChild(obj);
+        }
+
+        // Render objects for person2
+        for (let i = 0; i < p.b; i++) {
+          const obj = document.createElement('span');
+          obj.className = 'visual-object';
+          obj.textContent = p.objects;
+          obj.style.animationDelay = `${(p.a + i) * 0.05}s`;
+          this.objectsB.appendChild(obj);
+        }
+
+        // Display story text
+        this.story.textContent = p.storyText;
+      },
+
+      /**
+       * Generate answer choices
+       */
+      generateChoices() {
+        const p = this.currentProblem;
+        const correctAnswer = p.answer;
+
+        // Generate 3 wrong answers
+        const wrongAnswers = [];
+        const range = 7; // Slightly larger range for variety
+
+        let attempts = 0;
+        const maxAttempts = 50; // Prevent infinite loop
+
+        while (wrongAnswers.length < 3 && attempts < maxAttempts) {
+          attempts++;
+          let wrong = correctAnswer + randomInt(-range, range);
+
+          // Ensure wrong answer is valid and distinct
+          if (wrong !== correctAnswer &&
+              wrong >= 0 &&
+              wrong <= 20 &&
+              !wrongAnswers.includes(wrong)) {
+            wrongAnswers.push(wrong);
+          }
+        }
+
+        // Fallback: if we couldn't generate 3 wrong answers, add nearby numbers
+        while (wrongAnswers.length < 3) {
+          for (let offset of [1, -1, 2, -2, 3, -3, 4, -4]) {
+            const wrong = correctAnswer + offset;
+            if (wrong !== correctAnswer &&
+                wrong >= 0 &&
+                wrong <= 20 &&
+                !wrongAnswers.includes(wrong)) {
+              wrongAnswers.push(wrong);
+              if (wrongAnswers.length >= 3) break;
+            }
+          }
+        }
+
+        // Combine and shuffle
+        const allChoices = [correctAnswer, ...wrongAnswers];
+        const shuffled = shuffle(allChoices);
+
+        // Render choices
+        this.choices.innerHTML = '';
+        shuffled.forEach(num => {
+          const btn = document.createElement('button');
+          btn.className = 'choice-btn';
+          btn.textContent = num;
+          btn.dataset.answer = num;
+          btn.addEventListener('click', () => this.selectAnswer(num));
+          this.choices.appendChild(btn);
+        });
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(userAnswer) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        const buttons = this.choices.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => btn.disabled = true);
+
+        const selectedBtn = this.choices.querySelector(`[data-answer="${userAnswer}"]`);
+        const correctBtn = this.choices.querySelector(`[data-answer="${this.currentProblem.answer}"]`);
+
+        // Check answer
+        if (userAnswer === this.currentProblem.answer) {
+          // Correct!
+          selectedBtn.classList.add('correct');
+
+          let correctMsg = 'Correct! The answer is {answer}.';
+          if (typeof i18n !== 'undefined') {
+            const translated = i18n.t('section.activities.more-fewer-problems.correct');
+            if (translated && translated !== 'section.activities.more-fewer-problems.correct') {
+              correctMsg = translated;
+            }
+          }
+
+          // Add explanation based on type
+          let explanation = '';
+          if (this.currentProblem.type === 'more') {
+            explanation = ' (' + (typeof i18n !== 'undefined' && i18n.t('section.activities.more-fewer-problems.explainMore') !== 'section.activities.more-fewer-problems.explainMore'
+              ? i18n.t('section.activities.more-fewer-problems.explainMore')
+              : '{b} - {a} = {answer}')
+              .replace('{a}', this.currentProblem.a)
+              .replace('{b}', this.currentProblem.b)
+              .replace('{answer}', this.currentProblem.answer) + ')';
+          } else {
+            explanation = ' (' + (typeof i18n !== 'undefined' && i18n.t('section.activities.more-fewer-problems.explainFewer') !== 'section.activities.more-fewer-problems.explainFewer'
+              ? i18n.t('section.activities.more-fewer-problems.explainFewer')
+              : '{a} - {diff} = {answer}')
+              .replace('{a}', this.currentProblem.a)
+              .replace('{diff}', this.currentProblem.a - this.currentProblem.b)
+              .replace('{answer}', this.currentProblem.answer) + ')';
+          }
+
+          this.feedback.textContent = correctMsg.replace('{answer}', this.currentProblem.answer) + explanation;
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.story);
+          }
+        } else {
+          // Incorrect
+          selectedBtn.classList.add('incorrect');
+          correctBtn.classList.add('correct');
+
+          let wrongMsg = 'Not quite! The answer is {answer}.';
+          if (typeof i18n !== 'undefined') {
+            const translated = i18n.t('section.activities.more-fewer-problems.tryAgain');
+            if (translated && translated !== 'section.activities.more-fewer-problems.tryAgain') {
+              wrongMsg = translated;
+            }
+          }
+          this.feedback.textContent = wrongMsg.replace('{answer}', this.currentProblem.answer);
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+
+        // Set message based on performance
+        const percent = this.correctCount / this.maxRounds;
+
+        const getTranslation = (key, fallback) => {
+          if (typeof i18n !== 'undefined') {
+            const translated = i18n.t(key);
+            if (translated && translated !== key) {
+              return translated;
+            }
+          }
+          return fallback;
+        };
+
+        if (percent === 1) {
+          this.statsIcon.textContent = '🏆';
+          this.statsMessage.textContent = getTranslation(
+            'section.activities.more-fewer-problems.perfect',
+            'Perfect! You understand more and fewer!'
+          );
+        } else if (percent >= 0.75) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = getTranslation(
+            'section.activities.more-fewer-problems.great',
+            'Great job! You can compare well!'
+          );
+        } else if (percent >= 0.5) {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = getTranslation(
+            'section.activities.more-fewer-problems.good',
+            'Good work! Keep practicing comparisons!'
+          );
+        } else {
+          this.statsIcon.textContent = '💪';
+          this.statsMessage.textContent = getTranslation(
+            'section.activities.more-fewer-problems.keepPracticing',
+            'Keep practicing! Comparing gets easier!'
+          );
+        }
+
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.generateProblem();
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.generateProblem();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      MoreFewerProblems.init();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Missing Part - Grade 1 Math Activity - Meadow Math">
+  <title>Missing Part - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🧩</span>
+            <span data-i18n="section.activities.missing-part.title">Missing Part</span>
+          </h1>
+          <p class="activity-instruction" data-i18n="section.activities.missing-part.description">Find the missing number!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress Indicator -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Visual Support Area -->
+          <div class="visual-support" id="visual-support">
+            <!-- Will show blocks/objects representing the problem -->
+          </div>
+
+          <!-- Question Display -->
+          <div class="question-display" id="question-display">
+            <span class="equation-part" id="num1">5</span>
+            <span class="equation-operator">+</span>
+            <span class="equation-part unknown">?</span>
+            <span class="equation-operator">=</span>
+            <span class="equation-part" id="total">8</span>
+          </div>
+
+          <p class="hint-text" id="hint-text" data-i18n="section.activities.missing-part.hint">What number makes this true?</p>
+
+          <!-- Answer Choices -->
+          <div class="choices-container" id="choices-container">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <button class="btn-activity btn-secondary" id="btn-reset" data-i18n="buttons.reset">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon">🎉</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value correct" id="stat-correct">0</div>
+              <div class="stat-label" data-i18n="stats.correct">Correct</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value incorrect" id="stat-incorrect">0</div>
+              <div class="stat-label" data-i18n="stats.incorrect">Incorrect</div>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job finding the missing parts!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Missing Part Activity
+    const MissingPart = {
+      // Game state
+      totalRounds: 10,
+      currentRound: 0,
+      correctCount: 0,
+      incorrectCount: 0,
+      currentAnswer: 0,
+      currentNum1: 0,
+      currentTotal: 0,
+      isAnswered: false,
+      autoAdvanceDelay: 1500,
+
+      // DOM elements
+      progress: null,
+      num1El: null,
+      totalEl: null,
+      visualSupport: null,
+      hintText: null,
+      choicesContainer: null,
+      feedback: null,
+      btnReset: null,
+      statsOverlay: null,
+      statsMessage: null,
+      statCorrect: null,
+      statIncorrect: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.progress = document.getElementById('progress');
+        this.num1El = document.getElementById('num1');
+        this.totalEl = document.getElementById('total');
+        this.visualSupport = document.getElementById('visual-support');
+        this.hintText = document.getElementById('hint-text');
+        this.choicesContainer = document.getElementById('choices-container');
+        this.feedback = document.getElementById('feedback');
+        this.btnReset = document.getElementById('btn-reset');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statCorrect = document.getElementById('stat-correct');
+        this.statIncorrect = document.getElementById('stat-incorrect');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnReset.addEventListener('click', () => this.resetActivity());
+        this.btnPlayAgain.addEventListener('click', () => this.resetActivity());
+        this.statsOverlay.addEventListener('click', (e) => {
+          if (e.target === this.statsOverlay) this.resetActivity();
+        });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Start first round
+        this.nextRound();
+      },
+
+      /**
+       * Update translations for dynamic content
+       */
+      updateTranslations() {
+        // Update stats message if visible
+        if (this.statsOverlay.classList.contains('show')) {
+          this.updateStatsMessage();
+        }
+      },
+
+      /**
+       * Render progress dots
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.totalRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.currentRound) {
+            className += ' completed';
+          } else if (i === this.currentRound) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      },
+
+      /**
+       * Generate a new question
+       */
+      generateQuestion() {
+        // Generate missing addend problem: num1 + ? = total
+        // Keep total within 20, make sure there's a meaningful missing part
+        this.currentTotal = randomInt(5, 20);
+        this.currentNum1 = randomInt(1, this.currentTotal - 1);
+        this.currentAnswer = this.currentTotal - this.currentNum1;
+
+        return {
+          num1: this.currentNum1,
+          total: this.currentTotal,
+          answer: this.currentAnswer
+        };
+      },
+
+      /**
+       * Render visual support
+       */
+      renderVisualSupport(num1, total, answer) {
+        this.visualSupport.innerHTML = '';
+
+        // Create a row showing the problem visually
+        const visualRow = document.createElement('div');
+        visualRow.className = 'visual-row';
+
+        // Show num1 filled blocks
+        for (let i = 0; i < num1; i++) {
+          const block = document.createElement('div');
+          block.className = 'visual-block filled';
+          visualRow.appendChild(block);
+        }
+
+        // Show unknown blocks (empty)
+        for (let i = 0; i < answer; i++) {
+          const block = document.createElement('div');
+          block.className = 'visual-block unknown';
+          block.textContent = '?';
+          visualRow.appendChild(block);
+        }
+
+        this.visualSupport.appendChild(visualRow);
+
+        // Add label
+        const label = document.createElement('p');
+        label.className = 'visual-label';
+        label.innerHTML = `<span data-i18n="section.activities.missing-part.visualHint">${num1} blocks + ? more blocks = ${total} total</span>`;
+        // Manually translate after creating
+        label.innerHTML = i18n.t('section.activities.missing-part.visualHint')
+          .replace('{num1}', num1)
+          .replace('{total}', total);
+        this.visualSupport.appendChild(label);
+      },
+
+      /**
+       * Generate answer choices
+       */
+      generateChoices(correctAnswer, total) {
+        const choices = new Set([correctAnswer]);
+        const maxChoice = Math.min(total - 1, 20); // Cap at 20 for reasonable choices
+
+        // Strategy 1: Add off-by-one answers (common mistake)
+        if (correctAnswer > 1 && !choices.has(correctAnswer - 1)) {
+          choices.add(correctAnswer - 1);
+        }
+        if (correctAnswer < maxChoice && !choices.has(correctAnswer + 1)) {
+          choices.add(correctAnswer + 1);
+        }
+
+        // Strategy 2: Add off-by-two (another common mistake)
+        if (choices.size < 4 && correctAnswer > 2 && !choices.has(correctAnswer - 2)) {
+          choices.add(correctAnswer - 2);
+        }
+        if (choices.size < 4 && correctAnswer + 2 <= maxChoice && !choices.has(correctAnswer + 2)) {
+          choices.add(correctAnswer + 2);
+        }
+
+        // Strategy 3: Add the first number (common confusion)
+        if (choices.size < 4 && this.currentNum1 !== correctAnswer && this.currentNum1 > 0 && this.currentNum1 < total) {
+          choices.add(this.currentNum1);
+        }
+
+        // Strategy 4: Fill remaining slots with random valid choices
+        const attempts = 50;
+        let count = 0;
+        while (choices.size < 4 && count < attempts) {
+          count++;
+          const wrong = randomInt(1, maxChoice);
+          if (wrong !== correctAnswer && wrong < total) {
+            choices.add(wrong);
+          }
+        }
+
+        // Final fallback: ensure we have exactly 4 choices
+        if (choices.size < 4) {
+          for (let i = 1; i < total && choices.size < 4; i++) {
+            if (!choices.has(i)) {
+              choices.add(i);
+            }
+          }
+        }
+
+        return shuffle(Array.from(choices));
+      },
+
+      /**
+       * Start next round
+       */
+      nextRound() {
+        this.currentRound++;
+
+        if (this.currentRound > this.totalRounds) {
+          // Delay showing stats to match feedback timing
+          setTimeout(() => {
+            this.showStats();
+          }, this.autoAdvanceDelay);
+          return;
+        }
+
+        this.isAnswered = false;
+        this.renderProgress();
+
+        // Generate question
+        const { num1, total, answer } = this.generateQuestion();
+        this.num1El.textContent = num1;
+        this.totalEl.textContent = total;
+
+        // Render visual support
+        this.renderVisualSupport(num1, total, answer);
+
+        // Generate and display choices
+        const choices = this.generateChoices(answer, total);
+        this.renderChoices(choices);
+
+        // Hide feedback
+        this.feedback.classList.remove('show', 'error');
+      },
+
+      /**
+       * Render answer choice buttons
+       */
+      renderChoices(choices) {
+        this.choicesContainer.innerHTML = '';
+
+        choices.forEach(choice => {
+          const button = document.createElement('button');
+          button.className = 'choice-btn';
+          button.textContent = choice;
+          button.setAttribute('aria-label', `Answer: ${choice}`);
+          button.addEventListener('click', () => this.selectAnswer(choice, button));
+          this.choicesContainer.appendChild(button);
+        });
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(answer, button) {
+        if (this.isAnswered) return;
+
+        this.isAnswered = true;
+
+        // Disable all buttons
+        const allButtons = this.choicesContainer.querySelectorAll('.choice-btn');
+        allButtons.forEach(btn => btn.disabled = true);
+
+        const correct = answer === this.currentAnswer;
+
+        if (correct) {
+          this.correctCount++;
+          button.classList.add('correct');
+
+          // Reveal the missing blocks
+          const unknownBlocks = this.visualSupport.querySelectorAll('.visual-block.unknown');
+          unknownBlocks.forEach(block => {
+            block.classList.remove('unknown');
+            block.classList.add('filled', 'revealed');
+            block.textContent = '';
+          });
+
+          const msg = i18n.t('section.activities.missing-part.correct')
+            .replace('{num1}', this.currentNum1)
+            .replace('{answer}', this.currentAnswer)
+            .replace('{total}', this.currentTotal);
+          this.feedback.textContent = '✓ ' + msg;
+          this.feedback.classList.remove('error');
+        } else {
+          this.incorrectCount++;
+          button.classList.add('incorrect');
+
+          // Highlight correct answer
+          allButtons.forEach(btn => {
+            if (parseInt(btn.textContent) === this.currentAnswer) {
+              btn.classList.add('correct');
+            }
+          });
+
+          const msg = i18n.t('section.activities.missing-part.wrong')
+            .replace('{num1}', this.currentNum1)
+            .replace('{answer}', this.currentAnswer)
+            .replace('{total}', this.currentTotal);
+          this.feedback.textContent = '✗ ' + msg;
+          this.feedback.classList.add('error');
+        }
+
+        this.feedback.classList.add('show');
+
+        // Auto-advance to next round
+        setTimeout(() => {
+          this.nextRound();
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statCorrect.textContent = this.correctCount;
+        this.statIncorrect.textContent = this.incorrectCount;
+        this.updateStatsMessage();
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Update stats message
+       */
+      updateStatsMessage() {
+        const percentage = Math.round((this.correctCount / this.totalRounds) * 100);
+        let msg;
+
+        if (percentage === 100) {
+          msg = i18n.t('section.activities.missing-part.perfect');
+        } else if (percentage >= 80) {
+          msg = i18n.t('section.activities.missing-part.great');
+        } else if (percentage >= 60) {
+          msg = i18n.t('section.activities.missing-part.good');
+        } else {
+          msg = i18n.t('section.activities.missing-part.keepPracticing');
+        }
+
+        this.statsMessage.textContent = msg;
+      },
+
+      /**
+       * Reset the activity
+       */
+      resetActivity() {
+        this.currentRound = 0;
+        this.correctCount = 0;
+        this.incorrectCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.nextRound();
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      MissingPart.init();
+    });
+  </script>
+  <style>
+    /* Missing Part specific styles */
+
+    .progress-indicator {
+      display: flex;
+      gap: var(--space-2);
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-6);
+    }
+
+    .progress-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .progress-dot.completed {
+      background-color: var(--color-success);
+    }
+
+    .progress-dot.current {
+      background-color: var(--color-primary);
+      transform: scale(1.2);
+    }
+
+    /* Visual Support */
+    .visual-support {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      margin: var(--space-4) auto;
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 3px solid #fbbf24;
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+    }
+
+    .visual-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      justify-content: center;
+    }
+
+    .visual-block {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-secondary);
+      font-weight: var(--weight-bold);
+      font-size: var(--text-lg);
+      transition: all 0.3s ease;
+    }
+
+    .visual-block.filled {
+      background: linear-gradient(135deg, #34d399, #10b981);
+      border: 2px solid #059669;
+      box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+    }
+
+    .visual-block.unknown {
+      background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+      border: 2px dashed #818cf8;
+      color: #4f46e5;
+    }
+
+    .visual-block.revealed {
+      animation: revealBlock 0.5s ease;
+    }
+
+    @keyframes revealBlock {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .visual-label {
+      font-family: var(--font-secondary);
+      font-size: var(--text-sm);
+      color: #92400e;
+      text-align: center;
+      margin: 0;
+    }
+
+    /* Question Display */
+    .question-display {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-6);
+      margin: var(--space-4) auto;
+      background: linear-gradient(135deg, #ddd6fe, #c4b5fd);
+      border: 4px solid #a78bfa;
+      border-radius: var(--radius-xl);
+      box-shadow: 0 8px 0 #8b5cf6, 0 12px 24px rgba(167, 139, 250, 0.2);
+      max-width: 500px;
+      font-family: var(--font-secondary);
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      color: #5b21b6;
+    }
+
+    .equation-part {
+      min-width: 60px;
+      text-align: center;
+    }
+
+    .equation-part.unknown {
+      color: #7c3aed;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    .equation-operator {
+      color: #6b21a8;
+      font-size: var(--text-3xl);
+    }
+
+    .hint-text {
+      text-align: center;
+      font-family: var(--font-secondary);
+      font-size: var(--text-base);
+      color: var(--color-neutral-600);
+      margin: var(--space-2) 0 var(--space-4);
+    }
+
+    /* Choices Container */
+    .choices-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin: var(--space-6) auto;
+      max-width: 450px;
+    }
+
+    .choice-btn {
+      min-height: 90px;
+      min-width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4) var(--space-6);
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      border: 3px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      font-family: var(--font-secondary);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 var(--color-primary-light);
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 var(--color-primary-light);
+      background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+    }
+
+    .choice-btn:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: 0 2px 0 var(--color-primary-light);
+    }
+
+    .choice-btn:disabled {
+      cursor: not-allowed;
+    }
+
+    .choice-btn.correct {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      border-color: #6ee7b7;
+      color: #059669;
+      animation: pop 0.4s ease;
+    }
+
+    .choice-btn.incorrect {
+      background: linear-gradient(135deg, #fecaca, #fca5a5);
+      border-color: #f87171;
+      color: #dc2626;
+      animation: shake 0.5s ease;
+    }
+
+    /* Animations */
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    /* Activity area needs padding for feedback */
+    .activity-area {
+      padding-bottom: calc(var(--space-8) + 60px);
+    }
+
+    /* Feedback at bottom */
+    .feedback-message {
+      position: absolute;
+      bottom: var(--space-4);
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      max-width: 90%;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .visual-block {
+        width: 38px;
+        height: 38px;
+        font-size: var(--text-base);
+      }
+
+      .question-display {
+        font-size: var(--text-3xl);
+        gap: var(--space-3);
+        padding: var(--space-4);
+      }
+
+      .equation-operator {
+        font-size: var(--text-2xl);
+      }
+
+      .equation-part {
+        min-width: 50px;
+      }
+
+      .choices-container {
+        gap: var(--space-3);
+        max-width: 350px;
+      }
+
+      .choice-btn {
+        min-height: 75px;
+        min-width: 100px;
+        font-size: var(--text-2xl);
+      }
+
+      .hint-text {
+        font-size: var(--text-sm);
+      }
+
+      .feedback-message {
+        font-size: var(--text-sm);
+        padding: var(--space-2) var(--space-3);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .visual-block {
+        width: 32px;
+        height: 32px;
+        font-size: var(--text-sm);
+      }
+
+      .question-display {
+        font-size: var(--text-2xl);
+        gap: var(--space-2);
+        padding: var(--space-3);
+      }
+
+      .equation-part {
+        min-width: 40px;
+      }
+
+      .choices-container {
+        gap: var(--space-2);
+      }
+
+      .choice-btn {
+        min-height: 65px;
+        min-width: 90px;
+        font-size: var(--text-xl);
+      }
+    }
+  </style>
+</body>
+</html>

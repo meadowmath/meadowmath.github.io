@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Equal Sign Explorer - Grade 1 Math Activity - Meadow Math">
+  <title>Equal Sign Explorer - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="../../prek/activities/activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">⚖️</span>
+            <span data-i18n="section.activities.equal-sign.title">Equal Sign Explorer</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.equal-sign.description">The equal sign means "the same as"!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Balance Scale Visualization -->
+          <div class="balance-scale" id="balance-scale">
+            <div class="scale-beam">
+              <div class="scale-pan left-pan" id="left-pan">
+                <span class="pan-value" id="left-value"></span>
+              </div>
+              <div class="scale-fulcrum">⚖️</div>
+              <div class="scale-pan right-pan" id="right-pan">
+                <span class="pan-value" id="right-value"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Equation Display -->
+          <div class="equation-display" id="equation">
+            <!-- Equation will be dynamically generated -->
+          </div>
+
+          <!-- Question -->
+          <div class="question-text" id="question">
+            <span data-i18n="section.activities.equal-sign.question">Is this equation true?</span>
+          </div>
+
+          <!-- True/False Choices -->
+          <div class="choice-buttons" id="choices">
+            <button class="choice-btn true-btn" data-answer="true">
+              <span class="choice-icon">✓</span>
+              <span class="choice-label" data-i18n="section.activities.equal-sign.true">True</span>
+            </button>
+            <button class="choice-btn false-btn" data-answer="false">
+              <span class="choice-icon">✗</span>
+              <span class="choice-label" data-i18n="section.activities.equal-sign.false">False</span>
+            </button>
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Equal Sign Explorer specific styles */
+    .balance-scale {
+      margin: var(--space-6) auto var(--space-8);
+      max-width: 500px;
+    }
+
+    .scale-beam {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: var(--space-4);
+      position: relative;
+    }
+
+    .scale-fulcrum {
+      font-size: 48px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .scale-pan {
+      width: 120px;
+      height: 100px;
+      background: linear-gradient(to bottom, #fff, #f5f5f5);
+      border: 4px solid var(--color-neutral-300);
+      border-radius: var(--radius-xl) var(--radius-xl) 50% 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 0 var(--color-neutral-300), 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .scale-pan::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 16px;
+      background: var(--color-neutral-400);
+    }
+
+    .pan-value {
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+    }
+
+    /* Balance animations */
+    .scale-pan.balanced {
+      transform: translateY(0);
+    }
+
+    .scale-pan.heavier {
+      transform: translateY(20px);
+    }
+
+    .scale-pan.lighter {
+      transform: translateY(-20px);
+    }
+
+    .equation-display {
+      font-family: var(--font-secondary);
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      text-align: center;
+      color: var(--color-neutral-800);
+      margin: var(--space-6) 0;
+      padding: var(--space-6) var(--space-8);
+      background: white;
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-2xl);
+      box-shadow: 0 4px 0 var(--color-neutral-200);
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+    }
+
+    .equation-number {
+      color: var(--color-primary);
+    }
+
+    .equation-operator {
+      color: var(--color-neutral-600);
+    }
+
+    .equation-equals {
+      font-size: var(--text-5xl);
+      color: var(--color-accent);
+    }
+
+    .question-text {
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      text-align: center;
+      color: var(--color-neutral-800);
+      margin-bottom: var(--space-8);
+      padding: var(--space-4);
+      background: var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 2px 0 var(--color-neutral-200);
+    }
+
+    .choice-buttons {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .choice-btn {
+      min-width: 180px;
+      height: 110px;
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      background: linear-gradient(to bottom, #fff, #f5f5f5);
+      border: 5px solid var(--color-neutral-300);
+      border-radius: var(--radius-2xl);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 6px 0 var(--color-neutral-300), 0 10px 20px rgba(0, 0, 0, 0.08);
+      color: var(--color-neutral-800);
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 0 var(--color-neutral-400), 0 14px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .choice-btn:active:not(:disabled) {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 var(--color-neutral-300), 0 4px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .choice-btn:focus {
+      outline: 4px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .choice-btn:disabled {
+      cursor: default;
+      opacity: 0.8;
+    }
+
+    .choice-icon {
+      font-size: 40px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+    }
+
+    .choice-label {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+    }
+
+    .true-btn {
+      border-color: #10b981;
+    }
+
+    .true-btn:hover:not(:disabled) {
+      border-color: #059669;
+      background: linear-gradient(to bottom, #d1fae5, #a7f3d0);
+    }
+
+    .true-btn.correct {
+      background: linear-gradient(to bottom, #6ee7b7, #34d399);
+      border-color: #059669;
+      color: white;
+      animation: celebrate 0.6s ease;
+    }
+
+    .false-btn {
+      border-color: #ef4444;
+    }
+
+    .false-btn:hover:not(:disabled) {
+      border-color: #dc2626;
+      background: linear-gradient(to bottom, #fee2e2, #fecaca);
+    }
+
+    .false-btn.correct {
+      background: linear-gradient(to bottom, #f87171, #ef4444);
+      border-color: #dc2626;
+      color: white;
+      animation: celebrate 0.6s ease;
+    }
+
+    .choice-btn.incorrect {
+      animation: shake 0.5s ease;
+    }
+
+    @media (max-width: 767px) {
+      .question-text {
+        font-size: var(--text-xl);
+        margin-bottom: var(--space-6);
+      }
+
+      .equation-display {
+        font-size: var(--text-3xl);
+        padding: var(--space-4);
+        gap: var(--space-3);
+      }
+
+      .scale-pan {
+        width: 90px;
+        height: 80px;
+      }
+
+      .pan-value {
+        font-size: var(--text-xl);
+      }
+
+      .scale-fulcrum {
+        font-size: 36px;
+      }
+
+      .choice-btn {
+        min-width: 140px;
+        height: 90px;
+      }
+
+      .choice-icon {
+        font-size: 32px;
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Equal Sign Explorer Activity
+    const EqualSignExplorer = {
+      // Game state
+      currentEquation: null,
+      isCorrect: false,
+      round: 1,
+      maxRounds: 10,
+      correctCount: 0,
+      wrongCount: 0,
+      hasAnswered: false,
+      autoAdvanceDelay: 1500,
+
+      // DOM elements
+      equation: null,
+      leftPan: null,
+      rightPan: null,
+      leftValue: null,
+      rightValue: null,
+      choices: null,
+      feedback: null,
+      progress: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.equation = document.getElementById('equation');
+        this.leftPan = document.getElementById('left-pan');
+        this.rightPan = document.getElementById('right-pan');
+        this.leftValue = document.getElementById('left-value');
+        this.rightValue = document.getElementById('right-value');
+        this.choices = document.getElementById('choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        const choiceButtons = this.choices.querySelectorAll('.choice-btn');
+        choiceButtons.forEach(btn => {
+          btn.addEventListener('click', () => this.selectAnswer(btn.dataset.answer === 'true'));
+        });
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Start first round
+        this.generateEquation();
+        this.renderProgress();
+      },
+
+      /**
+       * Generate a random equation (true or false)
+       */
+      generateEquation() {
+        this.hasAnswered = false;
+        this.feedback.classList.remove('show');
+
+        // Reset button states
+        const buttons = this.choices.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => {
+          btn.classList.remove('correct', 'incorrect');
+          btn.disabled = false;
+        });
+
+        // Randomly decide if equation should be true or false
+        const shouldBeTrue = Math.random() < 0.5;
+
+        // Generate equation parameters
+        const formats = [
+          'standard',    // a + b = c or a - b = c
+          'reversed'     // c = a + b or c = a - b
+        ];
+        const format = formats[randomInt(0, formats.length - 1)];
+        const operation = Math.random() < 0.5 ? '+' : '-';
+
+        let leftSide, rightSide;
+
+        if (operation === '+') {
+          const a = randomInt(1, 10);
+          const b = randomInt(1, 10);
+          const correctSum = a + b;
+
+          if (format === 'standard') {
+            leftSide = `${a} + ${b}`;
+            rightSide = shouldBeTrue ? correctSum : (correctSum + randomInt(1, 3) * (Math.random() < 0.5 ? 1 : -1));
+          } else {
+            leftSide = shouldBeTrue ? correctSum : (correctSum + randomInt(1, 3) * (Math.random() < 0.5 ? 1 : -1));
+            rightSide = `${a} + ${b}`;
+          }
+
+          this.currentEquation = {
+            leftSide,
+            rightSide,
+            leftValue: format === 'standard' ? (a + b) : (shouldBeTrue ? correctSum : leftSide),
+            rightValue: format === 'standard' ? (shouldBeTrue ? correctSum : rightSide) : (a + b),
+            isCorrect: shouldBeTrue
+          };
+        } else {
+          const a = randomInt(5, 20);
+          const b = randomInt(1, a);
+          const correctDiff = a - b;
+
+          if (format === 'standard') {
+            leftSide = `${a} − ${b}`;
+            rightSide = shouldBeTrue ? correctDiff : (correctDiff + randomInt(1, 3) * (Math.random() < 0.5 ? 1 : -1));
+          } else {
+            leftSide = shouldBeTrue ? correctDiff : (correctDiff + randomInt(1, 3) * (Math.random() < 0.5 ? 1 : -1));
+            rightSide = `${a} − ${b}`;
+          }
+
+          this.currentEquation = {
+            leftSide,
+            rightSide,
+            leftValue: format === 'standard' ? (a - b) : (shouldBeTrue ? correctDiff : leftSide),
+            rightValue: format === 'standard' ? (shouldBeTrue ? correctDiff : rightSide) : (a - b),
+            isCorrect: shouldBeTrue
+          };
+        }
+
+        // Ensure rightSide is positive for display
+        if (typeof this.currentEquation.rightSide === 'number' && this.currentEquation.rightSide < 0) {
+          this.currentEquation.rightSide = Math.abs(this.currentEquation.rightSide);
+          this.currentEquation.rightValue = this.currentEquation.rightSide;
+          this.currentEquation.isCorrect = false;
+        }
+
+        this.displayEquation();
+        this.updateBalance();
+      },
+
+      /**
+       * Display the equation
+       */
+      displayEquation() {
+        const eq = this.currentEquation;
+        this.equation.innerHTML = `
+          <span class="equation-number">${eq.leftSide}</span>
+          <span class="equation-equals">=</span>
+          <span class="equation-number">${eq.rightSide}</span>
+        `;
+
+        // Update balance scale
+        this.leftValue.textContent = typeof eq.leftValue === 'number' ? eq.leftValue : '?';
+        this.rightValue.textContent = typeof eq.rightValue === 'number' ? eq.rightValue : '?';
+      },
+
+      /**
+       * Update balance scale animation
+       */
+      updateBalance() {
+        this.leftPan.classList.remove('balanced', 'heavier', 'lighter');
+        this.rightPan.classList.remove('balanced', 'heavier', 'lighter');
+
+        // Add classes after a brief delay for animation effect
+        setTimeout(() => {
+          const leftVal = this.currentEquation.leftValue;
+          const rightVal = this.currentEquation.rightValue;
+
+          if (leftVal === rightVal) {
+            this.leftPan.classList.add('balanced');
+            this.rightPan.classList.add('balanced');
+          } else if (leftVal > rightVal) {
+            this.leftPan.classList.add('heavier');
+            this.rightPan.classList.add('lighter');
+          } else {
+            this.leftPan.classList.add('lighter');
+            this.rightPan.classList.add('heavier');
+          }
+        }, 100);
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(userAnswerTrue) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        const buttons = this.choices.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => btn.disabled = true);
+
+        const trueBtn = this.choices.querySelector('[data-answer="true"]');
+        const falseBtn = this.choices.querySelector('[data-answer="false"]');
+        const selectedBtn = userAnswerTrue ? trueBtn : falseBtn;
+        const correctBtn = this.currentEquation.isCorrect ? trueBtn : falseBtn;
+
+        // Check answer
+        if (userAnswerTrue === this.currentEquation.isCorrect) {
+          // Correct!
+          selectedBtn.classList.add('correct');
+
+          // Choose the right feedback message based on what the correct answer was
+          const correctMsg = this.currentEquation.isCorrect
+            ? (i18n.t('section.activities.equal-sign.correct') || 'Yes! Both sides are equal!')
+            : (i18n.t('section.activities.equal-sign.correctFalse') || 'Correct! Both sides are NOT equal!');
+          this.feedback.textContent = `🎉 ${correctMsg}`;
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.equation);
+          }
+        } else {
+          // Incorrect
+          selectedBtn.classList.add('incorrect');
+          correctBtn.classList.add('correct');
+
+          // Choose the right feedback message based on what the correct answer should have been
+          const wrongMsg = this.currentEquation.isCorrect
+            ? (i18n.t('section.activities.equal-sign.wrong') || 'Not quite! Both sides ARE equal.')
+            : (i18n.t('section.activities.equal-sign.wrongFalse') || 'Not quite! Both sides are NOT equal.');
+          this.feedback.textContent = wrongMsg;
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+
+        // Set message based on performance
+        const percent = this.correctCount / this.maxRounds;
+        if (percent === 1) {
+          this.statsIcon.textContent = '🏆';
+          this.statsMessage.textContent = i18n.t('section.activities.equal-sign.perfect') || 'Perfect! You understand the equal sign completely!';
+        } else if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = i18n.t('section.activities.equal-sign.great') || 'Great job! You really understand what = means!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = i18n.t('section.activities.equal-sign.good') || 'Good work! Keep practicing!';
+        } else {
+          this.statsIcon.textContent = '💪';
+          this.statsMessage.textContent = i18n.t('section.activities.equal-sign.keepPracticing') || 'Keep practicing! Understanding = gets easier!';
+        }
+
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.generateEquation();
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.generateEquation();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      EqualSignExplorer.init();
+    });
+  </script>
+</body>
+</html>

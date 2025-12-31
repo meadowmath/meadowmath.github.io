@@ -95,7 +95,10 @@
     "blocks": "blocks",
     "fingers": "fingers",
     "snacks": "snacks",
-    "completedRounds": "You completed all the rounds!"
+    "stars": "stars",
+    "completedRounds": "You completed all the rounds!",
+    "numbers": "Numbers",
+    "groups": "Groups"
   },
   "stats": {
     "title": "Activity Complete!",
@@ -107,7 +110,8 @@
     "amazing": "Amazing! You're a superstar!",
     "great": "Great job! Keep practicing!",
     "goodEffort": "Good effort! Try again to improve!",
-    "wellDone": "Well Done!"
+    "wellDone": "Well Done!",
+    "completedAllRounds": "You completed all {rounds} rounds! Great job!"
   },
   "fruits": {
     "apple": "apple",

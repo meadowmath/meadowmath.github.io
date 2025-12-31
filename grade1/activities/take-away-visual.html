@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Take Away Objects - Grade 1 Math Activity - Meadow Math">
+  <title>Take Away Objects - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">➖</span>
+            <span data-i18n="section.activities.take-away-visual.title">Take Away Objects</span>
+          </h1>
+          <p class="activity-instruction" data-i18n="section.activities.take-away-visual.description">Watch some objects disappear!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress Indicator -->
+          <div class="progress-indicator">
+            <span data-i18n="activity.question">Question</span>
+            <span class="progress-text"><span id="current-round">1</span> / <span id="total-rounds">8</span></span>
+          </div>
+
+          <!-- Banner Button (Start) -->
+          <div class="banner-button" id="banner-button" role="button" tabindex="0" aria-label="Start animation">
+            <span data-i18n="section.activities.take-away-visual.clickToStart">🎈 Click here to watch objects disappear!</span>
+          </div>
+
+          <!-- Equation Display -->
+          <div class="equation-display" id="equation">
+            <span class="equation-number" id="minuend">0</span>
+            <span class="equation-operator">−</span>
+            <span class="equation-number" id="subtrahend">0</span>
+            <span class="equation-operator">=</span>
+            <span class="equation-number">?</span>
+          </div>
+
+          <!-- Objects Container -->
+          <div class="objects-container" id="objects-container">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Answer Choices (hidden until animation completes) -->
+          <div class="choices-container hidden" id="choices-container">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <button class="btn-activity btn-secondary" id="btn-reset" data-i18n="buttons.reset">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon">🎉</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value correct" id="stat-correct">0</div>
+              <div class="stat-label" data-i18n="stats.correct">Correct</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value incorrect" id="stat-incorrect">0</div>
+              <div class="stat-label" data-i18n="stats.incorrect">Incorrect</div>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job with subtraction!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Take Away Visual Activity
+    const TakeAwayVisual = {
+      // Game state
+      totalRounds: 8,
+      currentRound: 0,
+      correctCount: 0,
+      incorrectCount: 0,
+      minuend: 0,
+      subtrahend: 0,
+      correctAnswer: 0,
+      isAnswered: false,
+      autoAdvanceDelay: 1500,
+      isAnimating: false,
+
+      // Object types for visual variety
+      objectTypes: [
+        { emoji: '🎈', name: 'balloons' },
+        { emoji: '🦋', name: 'butterflies' },
+        { emoji: '⭐', name: 'stars' },
+        { emoji: '🌺', name: 'flowers' },
+        { emoji: '🍎', name: 'apples' },
+        { emoji: '🐦', name: 'birds' },
+        { emoji: '🧁', name: 'cupcakes' },
+        { emoji: '🎁', name: 'gifts' }
+      ],
+
+      // DOM elements
+      currentRoundEl: null,
+      totalRoundsEl: null,
+      bannerButton: null,
+      equation: null,
+      minuendDisplay: null,
+      subtrahendDisplay: null,
+      objectsContainer: null,
+      choicesContainer: null,
+      feedback: null,
+      btnReset: null,
+      statsOverlay: null,
+      statsMessage: null,
+      statCorrect: null,
+      statIncorrect: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.currentRoundEl = document.getElementById('current-round');
+        this.totalRoundsEl = document.getElementById('total-rounds');
+        this.bannerButton = document.getElementById('banner-button');
+        this.equation = document.getElementById('equation');
+        this.minuendDisplay = document.getElementById('minuend');
+        this.subtrahendDisplay = document.getElementById('subtrahend');
+        this.objectsContainer = document.getElementById('objects-container');
+        this.choicesContainer = document.getElementById('choices-container');
+        this.feedback = document.getElementById('feedback');
+        this.btnReset = document.getElementById('btn-reset');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statCorrect = document.getElementById('stat-correct');
+        this.statIncorrect = document.getElementById('stat-incorrect');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.bannerButton.addEventListener('click', () => this.startAnimation());
+        // Add keyboard support for banner button
+        this.bannerButton.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.startAnimation();
+          }
+        });
+        this.btnReset.addEventListener('click', () => this.resetActivity());
+        this.btnPlayAgain.addEventListener('click', () => this.resetActivity());
+        this.statsOverlay.addEventListener('click', (e) => {
+          if (e.target === this.statsOverlay) this.resetActivity();
+        });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Set total rounds
+        this.totalRoundsEl.textContent = this.totalRounds;
+
+        // Start first round
+        this.nextRound();
+      },
+
+      /**
+       * Update translations for dynamic content
+       */
+      updateTranslations() {
+        // Update stats message if visible
+        if (this.statsOverlay.classList.contains('show')) {
+          this.updateStatsMessage();
+        }
+      },
+
+      /**
+       * Generate a new subtraction problem
+       */
+      generateProblem() {
+        // Progressive difficulty
+        let maxMinuend;
+
+        if (this.currentRound < 4) {
+          // Easy: differences within 10 (e.g., 8 - 3, 7 - 2)
+          maxMinuend = 10;
+        } else {
+          // Hard: differences within 20 (e.g., 15 - 7, 18 - 9)
+          maxMinuend = 20;
+        }
+
+        // Generate minuend
+        this.minuend = randomInt(5, maxMinuend);
+
+        // Generate subtrahend (ensure result is positive and meaningful)
+        // Minimum subtrahend of 2 makes the activity more engaging (avoid trivial 8 - 1 = 7)
+        const minSubtrahend = Math.min(2, Math.floor(this.minuend / 2));
+        const maxSubtrahend = Math.min(this.minuend - 1, maxMinuend - 2);
+        this.subtrahend = randomInt(minSubtrahend, maxSubtrahend);
+
+        this.correctAnswer = this.minuend - this.subtrahend;
+        this.isAnswered = false;
+        this.isAnimating = false;
+      },
+
+      /**
+       * Start next round
+       */
+      nextRound() {
+        this.currentRound++;
+
+        if (this.currentRound > this.totalRounds) {
+          this.showStats();
+          return;
+        }
+
+        this.currentRoundEl.textContent = this.currentRound;
+
+        // Generate problem
+        this.generateProblem();
+
+        // Update equation display
+        this.minuendDisplay.textContent = this.minuend;
+        this.subtrahendDisplay.textContent = this.subtrahend;
+
+        // Show banner button
+        this.bannerButton.classList.remove('hidden');
+        this.choicesContainer.classList.add('hidden');
+        this.equation.classList.remove('hidden');
+
+        // Render objects
+        this.renderObjects();
+
+        // Hide feedback
+        this.feedback.classList.remove('show', 'error');
+      },
+
+      /**
+       * Render objects before subtraction
+       */
+      renderObjects() {
+        this.objectsContainer.innerHTML = '';
+
+        // Pick random object type for this round
+        const objectType = this.objectTypes[randomInt(0, this.objectTypes.length - 1)];
+
+        // Create all objects
+        for (let i = 0; i < this.minuend; i++) {
+          const obj = document.createElement('div');
+          obj.className = 'object-item';
+          obj.textContent = objectType.emoji;
+          obj.style.animationDelay = `${i * 0.05}s`;
+          obj.dataset.index = i;
+          this.objectsContainer.appendChild(obj);
+        }
+      },
+
+      /**
+       * Start take-away animation
+       */
+      startAnimation() {
+        if (this.isAnimating) return;
+        this.isAnimating = true;
+
+        // Hide banner button
+        this.bannerButton.classList.add('hidden');
+
+        // Get all objects
+        const allObjects = Array.from(this.objectsContainer.querySelectorAll('.object-item'));
+
+        // Shuffle to randomly select which objects disappear
+        const shuffled = shuffle(allObjects);
+
+        // Take away the first 'subtrahend' objects
+        const objectsToRemove = shuffled.slice(0, this.subtrahend);
+
+        // Animate objects disappearing one by one
+        // Use faster timing for more objects to keep engagement
+        const delayPerObject = this.subtrahend > 5 ? 200 : 300;
+
+        objectsToRemove.forEach((obj, index) => {
+          setTimeout(() => {
+            obj.classList.add('disappear');
+          }, index * delayPerObject);
+        });
+
+        // After animation completes, show choices
+        setTimeout(() => {
+          this.renderChoices();
+          this.choicesContainer.classList.remove('hidden');
+        }, objectsToRemove.length * delayPerObject + 500);
+      },
+
+      /**
+       * Generate answer choices
+       */
+      generateChoices() {
+        const choices = new Set([this.correctAnswer]);
+
+        // Generate 3 wrong answers
+        while (choices.size < 4) {
+          let wrong = this.correctAnswer + randomInt(-3, 3);
+          // Ensure wrong answer is non-negative, within range, different, and not too confusing
+          if (wrong >= 0 && wrong <= 20 && wrong !== this.correctAnswer) {
+            // Avoid generating 0 if the correct answer is also very small (might be confusing)
+            if (wrong === 0 && this.correctAnswer <= 2) {
+              continue;
+            }
+            choices.add(wrong);
+          }
+        }
+
+        return shuffle(Array.from(choices));
+      },
+
+      /**
+       * Render answer choice buttons
+       */
+      renderChoices() {
+        this.choicesContainer.innerHTML = '';
+
+        const choices = this.generateChoices();
+
+        choices.forEach(choice => {
+          const button = document.createElement('button');
+          button.className = 'choice-btn';
+          button.textContent = choice;
+          button.setAttribute('aria-label', `Answer: ${choice}`);
+          button.addEventListener('click', () => this.selectAnswer(choice, button));
+          this.choicesContainer.appendChild(button);
+        });
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(answer, button) {
+        if (this.isAnswered) return;
+
+        this.isAnswered = true;
+
+        // Disable all buttons
+        const allButtons = this.choicesContainer.querySelectorAll('.choice-btn');
+        allButtons.forEach(btn => btn.disabled = true);
+
+        const correct = answer === this.correctAnswer;
+
+        if (correct) {
+          this.correctCount++;
+          button.classList.add('correct');
+
+          const correctMsg = i18n.t('section.activities.take-away-visual.correct') || 'Correct! {minuend} − {subtrahend} = {answer}';
+          const msg = correctMsg
+            .replace('{minuend}', this.minuend)
+            .replace('{subtrahend}', this.subtrahend)
+            .replace('{answer}', this.correctAnswer);
+          // Use checkmark emoji instead of special character for better screen reader support
+          this.feedback.textContent = '✅ ' + msg;
+          this.feedback.classList.remove('error');
+        } else {
+          this.incorrectCount++;
+          button.classList.add('incorrect');
+
+          // Highlight correct answer
+          allButtons.forEach(btn => {
+            if (parseInt(btn.textContent) === this.correctAnswer) {
+              btn.classList.add('correct');
+            }
+          });
+
+          const wrongMsg = i18n.t('section.activities.take-away-visual.wrong') || 'Not quite! {minuend} − {subtrahend} = {answer}';
+          const msg = wrongMsg
+            .replace('{minuend}', this.minuend)
+            .replace('{subtrahend}', this.subtrahend)
+            .replace('{answer}', this.correctAnswer);
+          this.feedback.textContent = msg;
+          this.feedback.classList.add('error');
+        }
+
+        this.feedback.classList.add('show');
+
+        // Auto-advance to next round
+        setTimeout(() => {
+          this.nextRound();
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statCorrect.textContent = this.correctCount;
+        this.statIncorrect.textContent = this.incorrectCount;
+        this.updateStatsMessage();
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Update stats message
+       */
+      updateStatsMessage() {
+        const percentage = Math.round((this.correctCount / this.totalRounds) * 100);
+        let msg;
+
+        if (percentage === 100) {
+          msg = i18n.t('section.activities.take-away-visual.perfect') || 'Perfect! You\'re a subtraction star!';
+        } else if (percentage >= 80) {
+          msg = i18n.t('section.activities.take-away-visual.great') || 'Great job! You\'re really good at subtraction!';
+        } else if (percentage >= 60) {
+          msg = i18n.t('section.activities.take-away-visual.good') || 'Good work! Keep practicing subtraction!';
+        } else {
+          msg = i18n.t('section.activities.take-away-visual.keepPracticing') || 'Keep practicing! Subtraction gets easier!';
+        }
+
+        this.statsMessage.textContent = msg;
+      },
+
+      /**
+       * Reset the activity
+       */
+      resetActivity() {
+        this.currentRound = 0;
+        this.correctCount = 0;
+        this.incorrectCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.nextRound();
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      TakeAwayVisual.init();
+    });
+  </script>
+  <style>
+    /* Take Away Visual specific styles */
+
+    .progress-indicator {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-3) var(--space-4);
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border: 2px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-6);
+      font-family: var(--font-secondary);
+      font-weight: var(--weight-semibold);
+      color: var(--color-primary);
+    }
+
+    .progress-text {
+      font-size: var(--text-sm);
+      color: var(--color-neutral-600);
+    }
+
+    /* Banner Button (Start/Roll action) */
+    .banner-button {
+      padding: var(--space-4) var(--space-6);
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+      text-align: center;
+      font-family: var(--font-secondary);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 3px solid #1d4ed8;
+      box-shadow: 0 4px 0 #1d4ed8;
+      margin-bottom: var(--space-6);
+    }
+
+    .banner-button:hover {
+      transform: scale(1.02);
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    }
+
+    .banner-button:active {
+      transform: scale(0.98);
+    }
+
+    .banner-button:focus {
+      outline: 3px solid #fbbf24;
+      outline-offset: 2px;
+    }
+
+    .banner-button.hidden {
+      display: none;
+    }
+
+    /* Equation Display */
+    .equation-display {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      padding: var(--space-4);
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 3px solid #fbbf24;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 0 #f59e0b;
+    }
+
+    .equation-display.hidden {
+      display: none;
+    }
+
+    .equation-number,
+    .equation-operator {
+      font-family: var(--font-secondary);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: #92400e;
+    }
+
+    /* Objects Container */
+    .objects-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-6);
+      margin: var(--space-6) 0;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      border: 3px solid var(--color-primary-light);
+      border-radius: var(--radius-xl);
+      min-height: 200px;
+      box-shadow: 0 4px 0 var(--color-primary-light);
+    }
+
+    .object-item {
+      font-size: var(--text-4xl);
+      animation: fadeInScale 0.4s ease backwards;
+      transition: all 0.5s ease;
+    }
+
+    .object-item.disappear {
+      animation: floatAway 0.8s ease forwards;
+    }
+
+    /* Choices Container */
+    .choices-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
+      margin: var(--space-6) auto;
+      max-width: 500px;
+    }
+
+    .choices-container.hidden {
+      display: none;
+    }
+
+    .choice-btn {
+      aspect-ratio: 1;
+      min-width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      border: 3px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 var(--color-primary-light);
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 var(--color-primary-light);
+      background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+    }
+
+    .choice-btn:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: 0 2px 0 var(--color-primary-light);
+    }
+
+    .choice-btn:disabled {
+      cursor: not-allowed;
+    }
+
+    .choice-btn.correct {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      border-color: #6ee7b7;
+      color: #059669;
+      animation: pop 0.4s ease;
+    }
+
+    .choice-btn.incorrect {
+      background: linear-gradient(135deg, #fecaca, #fca5a5);
+      border-color: #f87171;
+      color: #dc2626;
+      animation: shake 0.5s ease;
+    }
+
+    /* Animations */
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes floatAway {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-20px) scale(1.1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-60px) scale(0.5);
+      }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    /* Activity area needs padding for feedback */
+    .activity-area {
+      padding-bottom: calc(var(--space-8) + 60px);
+    }
+
+    /* Feedback at bottom */
+    .feedback-message {
+      position: absolute;
+      bottom: var(--space-4);
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      max-width: 90%;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .banner-button {
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--text-base);
+      }
+
+      .equation-number,
+      .equation-operator {
+        font-size: var(--text-2xl);
+      }
+
+      .objects-container {
+        padding: var(--space-4);
+        gap: var(--space-2);
+        min-height: 150px;
+      }
+
+      .object-item {
+        font-size: var(--text-3xl);
+      }
+
+      .choices-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2);
+      }
+
+      .choice-btn {
+        min-width: 60px;
+        font-size: var(--text-xl);
+      }
+
+      .feedback-message {
+        font-size: var(--text-sm);
+        padding: var(--space-2) var(--space-3);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .equation-display {
+        padding: var(--space-2);
+        gap: var(--space-2);
+      }
+
+      .equation-number,
+      .equation-operator {
+        font-size: var(--text-xl);
+      }
+
+      .objects-container {
+        padding: var(--space-3);
+        min-height: 120px;
+      }
+
+      .object-item {
+        font-size: var(--text-2xl);
+      }
+
+      .choice-btn {
+        font-size: var(--text-lg);
+      }
+    }
+  </style>
+</body>
+</html>

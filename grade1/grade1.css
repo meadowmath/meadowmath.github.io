@@ -1,4 +1,4 @@
-/* Pre-K Specific Styles - Meadow Math */
+/* Grade 1 Specific Styles - Meadow Math */
 
 /* ========== PAGE HEADER ========== */
 
@@ -8,11 +8,10 @@
   gap: var(--space-4);
   margin-bottom: var(--space-8);
   padding: var(--space-3) var(--space-5);
-  /* background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); */
   border-radius: var(--radius-2xl);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   border: 2px solid rgba(255, 255, 255, 0.8);
-  border-left: 4px solid #4ade80;
+  border-left: 4px solid #3b82f6;
 }
 
 .page-icon {
@@ -21,10 +20,10 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: linear-gradient(to bottom, #4ade80, #22c55e);
+  background: linear-gradient(to bottom, #60a5fa, #3b82f6);
   border-radius: var(--radius-xl);
   font-size: 1.4rem;
-  box-shadow: 0 3px 0 #16a34a, 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 0 #2563eb, 0 4px 8px rgba(0, 0, 0, 0.15);
   border: 2px solid white;
   flex-shrink: 0;
 }
@@ -47,7 +46,6 @@
 
 .page-description {
   font-size: var(--text-m);
-  /* color: var(--color-neutral-500); */
   line-height: var(--leading-normal);
   margin: 0;
 }
@@ -57,7 +55,6 @@
 .levels-container {
   display: flex;
   flex-direction: column;
-  /* gap: var(--space-0); */
 }
 
 /* ========== LEVEL SECTION ========== */
@@ -84,6 +81,10 @@
 
 .level-section.level-4 {
   border-top: 4px solid #c084fc;
+}
+
+.level-section.level-5 {
+  border-top: 4px solid #14b8a6;
 }
 
 /* ========== LEVEL HEADER ========== */
@@ -135,6 +136,12 @@
   background: linear-gradient(to bottom, #c084fc, #a855f7);
   box-shadow: 0 3px 0 #9333ea, 0 4px 8px rgba(0, 0, 0, 0.15);
   text-shadow: 1px 1px 0 #9333ea;
+}
+
+.level-badge.level-5 {
+  background: linear-gradient(to bottom, #2dd4bf, #14b8a6);
+  box-shadow: 0 3px 0 #0d9488, 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-shadow: 1px 1px 0 #0d9488;
 }
 
 .level-title {
@@ -277,7 +284,7 @@
 
 .activity-title {
   font-family: var(--font-secondary);
-  font-size: var(--text-base);
+  font-size: var(--text-lg);
   font-weight: var(--weight-bold);
   color: var(--color-neutral-900);
   margin-bottom: var(--space-2);
@@ -302,145 +309,82 @@
   gap: var(--space-5);
 }
 
-.learn-more-text {
-  line-height: var(--leading-relaxed);
-  color: var(--color-neutral-800);
-}
-
-.learn-more-intro {
-  font-size: var(--text-base);
-  margin-bottom: var(--space-4);
-  color: var(--color-neutral-700);
-}
-
-.learn-more-resources {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.learn-more-resources li {
-  font-size: var(--text-base);
-  margin-bottom: var(--space-3);
-  padding-left: var(--space-6);
-  position: relative;
-  line-height: var(--leading-relaxed);
-}
-
-.learn-more-resources li::before {
-  content: "▸";
-  position: absolute;
-  left: 0;
-  color: var(--color-primary);
-  font-size: 1.2em;
-}
-
-/* YouTube search links - bold with hover effect */
-.youtube-search-link {
-  font-weight: var(--weight-bold);
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 1px;
-}
-
-.youtube-search-link:hover {
-  color: var(--color-primary-dark);
-  border-bottom-color: var(--color-primary-dark);
-}
-
-.youtube-search-link:active {
-  transform: scale(0.98);
-}
-
-/* Legacy styles for resource cards (kept for other grades) */
+/* Legacy .learn-more-grid kept for backwards compatibility */
 .learn-more-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--space-4);
 }
 
-.resource-card {
-  background: white;
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 2px solid transparent;
-  text-decoration: none;
-  display: block;
+/* Content formatting for learn-more-card-content */
+.learn-more-card-content p {
+  margin: 0 0 var(--space-3) 0;
 }
 
-/* Text-only resource cards (Pre-K) */
-.resource-card-text {
-  cursor: default;
+.learn-more-card-content p:last-child {
+  margin-bottom: 0;
 }
 
-.resource-card-text:hover {
-  transform: none;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-color: transparent;
-}
-
-/* Linked resource cards (other grades) */
-.resource-card:not(.resource-card-text):hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.08), 0 10px 24px rgba(0, 0, 0, 0.1);
-  border-color: var(--color-secondary);
-}
-
-.resource-card:not(.resource-card-text):active {
-  transform: translateY(1px) scale(0.99);
-}
-
-.resource-header {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  margin-bottom: var(--space-3);
-}
-
-.resource-icon {
-  font-size: 32px;
-  flex-shrink: 0;
-}
-
-.resource-title {
-  font-family: var(--font-secondary);
-  font-size: var(--text-lg);
-  font-weight: var(--weight-bold);
+.learn-more-card-content strong {
   color: var(--color-neutral-900);
-  line-height: var(--leading-snug);
-}
-
-.resource-description {
-  font-size: var(--text-base);
-  color: var(--color-neutral-600);
-  line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-3);
-}
-
-.resource-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--text-base);
   font-weight: var(--weight-semibold);
+}
+
+.learn-more-card-content code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono, 'SF Mono', 'Monaco', 'Consolas', monospace);
+  font-size: 0.9em;
+}
+
+/* Learn More bullet lists */
+.learn-more-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-2) 0;
+}
+
+.learn-more-list li {
+  position: relative;
+  padding-left: var(--space-5);
+  margin-bottom: var(--space-2);
+  line-height: var(--leading-relaxed);
+}
+
+.learn-more-list li::before {
+  content: "•";
+  position: absolute;
+  left: var(--space-1);
   color: var(--color-primary);
-  transition: color 0.2s ease;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1.4;
 }
 
-.resource-link:hover {
+.learn-more-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Game sections styling */
+.learn-more-list li strong:first-child {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--color-neutral-800);
+}
+
+/* YouTube links in cards */
+.resource-description a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--weight-semibold);
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.resource-description a:hover {
   color: var(--color-primary-dark);
-}
-
-.resource-link-arrow {
-  transition: transform 0.2s ease;
-}
-
-.resource-card:hover .resource-link-arrow {
-  transform: translateX(4px);
+  border-bottom-color: var(--color-primary-dark);
 }
 
 /* ========== LOADING STATE ========== */
@@ -551,8 +495,26 @@
     font-size: var(--text-sm);
   }
 
+  .learn-more-cards {
+    grid-template-columns: 1fr;
+  }
+
   .learn-more-grid {
     grid-template-columns: 1fr;
+  }
+
+  .resource-card {
+    padding: var(--space-4);
+  }
+
+  .resource-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+  }
+
+  .resource-title {
+    font-size: var(--text-base);
   }
 }
 
@@ -561,6 +523,10 @@
 @media (min-width: 768px) and (max-width: 1023px) {
   .activities-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .learn-more-cards {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .learn-more-grid {

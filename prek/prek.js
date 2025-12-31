@@ -41,12 +41,18 @@ const PreKPage = {
    */
   waitForI18n() {
     return new Promise((resolve) => {
-      if (window.i18n && window.i18n.translations[window.i18n.currentLang]) {
+      const isReady = () => {
+        return window.i18n && 
+               window.i18n.translations[window.i18n.currentLang] &&
+               window.i18n.translations[window.i18n.currentLang].section;
+      };
+      
+      if (isReady()) {
         resolve();
       } else {
-        // Poll for i18n readiness
+        // Poll for i18n readiness (including section data)
         const checkInterval = setInterval(() => {
-          if (window.i18n && window.i18n.translations[window.i18n.currentLang]) {
+          if (isReady()) {
             clearInterval(checkInterval);
             resolve();
           }
@@ -207,9 +213,7 @@ const PreKPage = {
             id="panel-learn-more-${levelNumber}"
             aria-labelledby="tab-learn-more-${levelNumber}"
           >
-            <div class="learn-more-grid">
-              ${level.learnMore.map(resource => this.renderResourceCard(resource)).join('')}
-            </div>
+            ${this.renderLearnMoreContent(level)}
           </div>
         </div>
       </section>
@@ -234,26 +238,165 @@ const PreKPage = {
   },
   
   /**
-   * Render a resource card (Learn More) - Pre-K: text only, no links
+   * Render Learn More content as field guide cards
    */
-  renderResourceCard(resource) {
-    // Create a simple ID from the title for i18n lookup
-    const resourceId = this.generateResourceId(resource.title);
+  renderLearnMoreContent(level) {
+    if (!level.learnMore) {
+      return '<p>No learning resources available for this level.</p>';
+    }
     
-    // Get translated title and description
-    const title = this.getTranslation('learnMore', resourceId, 'title') || resource.title;
-    const description = this.getTranslation('learnMore', resourceId, 'description') || resource.description;
+    // Get the level key for translations (level-1 → level1)
+    const levelKey = level.id.replace('-', '');
+    const levelNum = level.id.replace('level-', '');
     
-    // Pre-K: Render as text-only card (no link)
-    return `
-      <div class="resource-card resource-card-text">
-        <div class="resource-header">
-          <span class="resource-icon">${resource.icon}</span>
-          <h3 class="resource-title">${this.escapeHtml(title)}</h3>
+    // Card definitions with their translation keys
+    const cardDefs = [
+      { id: 'big-idea', icon: '💡', titleKey: 'bigIdea', contentKey: 'bigIdea' },
+      { id: 'what-to-notice', icon: '👀', titleKey: 'whatToNotice', contentKey: 'whatToNotice' },
+      { id: 'try-at-home', icon: '🏡', titleKey: 'tryAtHome', contentKey: 'tryAtHome' },
+      { id: 'optional-videos', icon: '📺', titleKey: 'optionalVideos', contentKey: 'optionalVideos' }
+    ];
+    
+    const cardsHtml = cardDefs.map(card => {
+      // Get translated title
+      const titleI18nKey = `section.learnMoreCards.${card.titleKey}.title`;
+      const title = window.i18n?.t(titleI18nKey) || this.getDefaultCardTitle(card.id);
+      
+      // Get translated content for this level (use getRaw for object data)
+      const contentI18nKey = `section.levels.${levelKey}.learnMore.${card.contentKey}`;
+      const content = window.i18n?.getRaw?.(contentI18nKey);
+      
+      if (!content) {
+        return ''; // Skip if no content
+      }
+      
+      // Special rendering for optional-videos card
+      if (card.id === 'optional-videos') {
+        return this.renderOptionalVideosCard(card, title, content);
+      }
+      
+      // Determine card type class based on card id
+      let cardTypeClass = '';
+      if (card.id.includes('big-idea')) cardTypeClass = 'learn-more-card-big-idea';
+      else if (card.id.includes('notice')) cardTypeClass = 'learn-more-card-notice';
+      else if (card.id.includes('home')) cardTypeClass = 'learn-more-card-home';
+      
+      // Regular card rendering
+      return `
+        <div class="learn-more-card ${cardTypeClass}" data-card="${card.id}">
+          <div class="learn-more-card-header">
+            <span class="learn-more-card-icon">${card.icon}</span>
+            <h3 class="learn-more-card-title">${this.escapeHtml(title)}</h3>
+          </div>
+          <div class="learn-more-card-content">
+            ${this.renderCardContent(card.id, content)}
+          </div>
         </div>
-        <p class="resource-description">${this.escapeHtml(description)}</p>
+      `;
+    }).filter(html => html).join('');
+    
+    return `
+      <div class="learn-more-cards">
+        ${cardsHtml}
       </div>
     `;
+  },
+  
+  /**
+   * Render card content based on card type
+   */
+  renderCardContent(cardId, content) {
+    if (cardId === 'what-to-notice' && content.bullets) {
+      // Render as bullet list
+      const bulletsHtml = content.bullets.map(bullet => 
+        `<li>${this.escapeHtml(bullet)}</li>`
+      ).join('');
+      return `<ul class="learn-more-bullets">${bulletsHtml}</ul>`;
+    }
+    
+    if (cardId === 'try-at-home' && content.games) {
+      // Render games with bold titles and descriptions (simple format)
+      return content.games.map(game => `
+        <div class="try-at-home-item">
+          <strong>${this.escapeHtml(game.name)}</strong>
+          <p>${this.escapeHtml(game.description)}</p>
+        </div>
+      `).join('');
+    }
+    
+    // Default: render as paragraph(s)
+    if (typeof content === 'string') {
+      return `<p>${this.escapeHtml(content)}</p>`;
+    }
+    
+    if (content.text) {
+      return `<p>${this.escapeHtml(content.text)}</p>`;
+    }
+    
+    return '';
+  },
+  
+  /**
+   * Render the optional videos card with YouTube search links
+   */
+  renderOptionalVideosCard(card, title, content) {
+    if (!content.searches || content.searches.length === 0) {
+      return '';
+    }
+    
+    // Get translated intro text
+    const introKey = 'section.learnMoreCards.optionalVideos.intro';
+    const intro = window.i18n?.t(introKey) || 'Search YouTube for:';
+    
+    const linksHtml = content.searches.map(query => {
+      const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query).replace(/%20/g, '+')}`;
+      return `<li><a href="${searchUrl}" target="_blank" rel="noopener noreferrer" class="youtube-search-link">${this.escapeHtml(query)}</a></li>`;
+    }).join('');
+    
+    return `
+      <div class="learn-more-card learn-more-card-videos" data-card="${card.id}">
+        <div class="learn-more-card-header">
+          <span class="learn-more-card-icon">${card.icon}</span>
+          <h3 class="learn-more-card-title">${this.escapeHtml(title)}</h3>
+        </div>
+        <div class="learn-more-card-content">
+          <p class="videos-intro">${this.escapeHtml(intro)}</p>
+          <ul class="youtube-search-list">
+            ${linksHtml}
+          </ul>
+        </div>
+      </div>
+    `;
+  },
+  
+  /**
+   * Get default card title if translation not found
+   */
+  getDefaultCardTitle(cardId) {
+    const defaults = {
+      'big-idea': 'Big Idea',
+      'what-to-notice': 'What to Notice',
+      'try-at-home': 'Try at Home',
+      'optional-videos': 'Optional Videos'
+    };
+    return defaults[cardId] || cardId;
+  },
+  
+  /**
+   * Convert YouTube search queries to clickable links (DEPRECATED - kept for compatibility)
+   * Pattern: 'query text' → <a href="https://www.youtube.com/results?search_query=query+text">query text</a>
+   */
+  addYouTubeLinks(text) {
+    // Match patterns like 'Numberblocks ...' within the text
+    const pattern = /'([^']+)'/g;
+    
+    return text.replace(pattern, (match, query) => {
+      // Convert query to URL-safe format
+      const searchQuery = encodeURIComponent(query);
+      const youtubeUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
+      
+      return `<a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" class="youtube-search-link">${this.escapeHtml(query)}</a>`;
+    });
   },
   
   /**

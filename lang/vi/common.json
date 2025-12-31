@@ -95,7 +95,10 @@
     "blocks": "khối",
     "fingers": "ngón tay",
     "snacks": "đồ ăn",
-    "completedRounds": "Bạn đã hoàn thành tất cả các lượt!"
+    "stars": "ngôi sao",
+    "completedRounds": "Bạn đã hoàn thành tất cả các lượt!",
+    "numbers": "Số",
+    "groups": "Nhóm"
   },
   "stats": {
     "title": "Hoàn thành!",
@@ -107,7 +110,8 @@
     "amazing": "Tuyệt vời! Bạn là ngôi sao!",
     "great": "Giỏi lắm! Tiếp tục luyện tập nhé!",
     "goodEffort": "Cố gắng tốt! Thử lại để tiến bộ hơn!",
-    "wellDone": "Làm tốt lắm!"
+    "wellDone": "Làm tốt lắm!",
+    "completedAllRounds": "Bạn đã hoàn thành tất cả {rounds} lượt! Giỏi lắm!"
   },
   "fruits": {
     "apple": "táo",

@@ -81,29 +81,31 @@
           "type": "interactive"
         }
       ],
-      "learnMore": [
-        {
-          "title": "Numberblocks Ep 1–5: One to Five",
-          "description": "Meet the Numberblocks and learn numbers 1-5",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=sYJyUH04pOQ",
-          "icon": "📺"
-        },
-        {
-          "title": "Numberblocks Ep 20: Ten",
-          "description": "A big number! See how Ten is made",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=6TE1G5-VsC8",
-          "icon": "📺"
-        },
-        {
-          "title": "Numberblocks Ep 35: Zero",
-          "description": "Meet Zero and learn about 'nothing'",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=glSh7mDKbQM",
-          "icon": "📺"
-        }
-      ]
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "big-idea",
+            "icon": "💡",
+            "title": "Big Idea"
+          },
+          {
+            "id": "what-to-notice",
+            "icon": "👀",
+            "title": "What to Notice"
+          },
+          {
+            "id": "try-at-home",
+            "icon": "🏡",
+            "title": "Try at Home"
+          },
+          {
+            "id": "optional-videos",
+            "icon": "📺",
+            "title": "Optional Videos"
+          }
+        ]
+      }
     },
     {
       "id": "level-2",
@@ -182,29 +184,31 @@
           "type": "interactive"
         }
       ],
-      "learnMore": [
-        {
-          "title": "Numberblocks Ep 10: How to Count",
-          "description": "Learn the secret of counting",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=w5sHLZLkSh4",
-          "icon": "📺"
-        },
-        {
-          "title": "Numberblocks Ep 11: Stampolines",
-          "description": "Jump and count with stampolines",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=oSJYN7t6g9Q",
-          "icon": "📺"
-        },
-        {
-          "title": "Numberblocks Ep 94: What's My Number?",
-          "description": "Guess the number game with Numberblocks",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=9sB7C3M4G3w",
-          "icon": "📺"
-        }
-      ]
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "big-idea",
+            "icon": "💡",
+            "title": "Big Idea"
+          },
+          {
+            "id": "what-to-notice",
+            "icon": "👀",
+            "title": "What to Notice"
+          },
+          {
+            "id": "try-at-home",
+            "icon": "🏡",
+            "title": "Try at Home"
+          },
+          {
+            "id": "optional-videos",
+            "icon": "📺",
+            "title": "Optional Videos"
+          }
+        ]
+      }
     },
     {
       "id": "level-3",
@@ -283,29 +287,31 @@
           "type": "interactive"
         }
       ],
-      "learnMore": [
-        {
-          "title": "Numberblocks Ep 12: The Whole of Me ⭐",
-          "description": "The MOST important episode about parts and wholes!",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=2NhJhvLPrNc",
-          "icon": "⭐"
-        },
-        {
-          "title": "Numberblocks Ep 15: Hide and Seek",
-          "description": "Numbers hide and show their parts",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=M9xVxqrKVlU",
-          "icon": "📺"
-        },
-        {
-          "title": "Numberblocks Ep 34: Fruit Salad",
-          "description": "Mix different parts to make a whole",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=KqQ3_qyRjYE",
-          "icon": "📺"
-        }
-      ]
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "big-idea",
+            "icon": "💡",
+            "title": "Big Idea"
+          },
+          {
+            "id": "what-to-notice",
+            "icon": "👀",
+            "title": "What to Notice"
+          },
+          {
+            "id": "try-at-home",
+            "icon": "🏡",
+            "title": "Try at Home"
+          },
+          {
+            "id": "optional-videos",
+            "icon": "📺",
+            "title": "Optional Videos"
+          }
+        ]
+      }
     },
     {
       "id": "level-4",
@@ -384,29 +390,31 @@
           "type": "interactive"
         }
       ],
-      "learnMore": [
-        {
-          "title": "Numberblocks Ep 2: Another One",
-          "description": "What happens when you add one more?",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=3kl16yMvGF0",
-          "icon": "📺"
-        },
-        {
-          "title": "Numberblocks Ep 14: Holes",
-          "description": "Learn about taking away",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=WJMh_F3Gk70",
-          "icon": "📺"
-        },
-        {
-          "title": "Numberblocks Ep 32: Blockzilla",
-          "description": "A big adventure with adding and taking away",
-          "type": "video",
-          "url": "https://www.youtube.com/watch?v=VLKX5nW7qFw",
-          "icon": "📺"
-        }
-      ]
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "big-idea",
+            "icon": "💡",
+            "title": "Big Idea"
+          },
+          {
+            "id": "what-to-notice",
+            "icon": "👀",
+            "title": "What to Notice"
+          },
+          {
+            "id": "try-at-home",
+            "icon": "🏡",
+            "title": "Try at Home"
+          },
+          {
+            "id": "optional-videos",
+            "icon": "📺",
+            "title": "Optional Videos"
+          }
+        ]
+      }
     }
   ]
 }

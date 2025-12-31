@@ -5,22 +5,169 @@
     "activities": "Activities",
     "learnMore": "Learn More"
   },
+  "learnMoreCards": {
+    "bigIdea": {
+      "title": "Big Idea"
+    },
+    "whatToNotice": {
+      "title": "What to Notice"
+    },
+    "tryAtHome": {
+      "title": "Try at Home"
+    },
+    "optionalVideos": {
+      "title": "Optional Videos",
+      "intro": "Search YouTube for:"
+    }
+  },
   "levels": {
     "level1": {
       "title": "Number Awareness & Counting",
-      "goal": "Children understand that numbers have names and represent 'how many.'"
+      "goal": "Children understand that numbers have names and represent 'how many.'",
+      "learnMore": {
+        "bigIdea": {
+          "text": "This level is about learning that numbers have names and mean \"how many.\" Counting is a touch-and-say skill: touch each thing once, say one number once, then stop and notice the total."
+        },
+        "whatToNotice": {
+          "bullets": [
+            "Your child touches items one-by-one (no skipping, no double counting).",
+            "After counting, they can answer \"How many?\" without recounting.",
+            "They recognize a few numerals (0–5) in daily life (signs, books, buttons).",
+            "They understand zero as \"none\" (an empty basket is still a real amount)."
+          ]
+        },
+        "tryAtHome": {
+          "games": [
+            {
+              "name": "Game A (core idea): \"Touch & Count\"",
+              "description": "Put 5–10 small objects in a row (buttons, grapes, blocks). Have your child touch each one while counting out loud. At the end ask: \"How many are there?\" Then mix them and count again."
+            },
+            {
+              "name": "Game B (everyday version): \"Number Hunt Walk\"",
+              "description": "Pick one target number (like 3). Walk around the home and find it in books, clocks, remote controls, or labels. Each time you find it, count 3 steps or 3 claps together."
+            }
+          ]
+        },
+        "optionalVideos": {
+          "searches": [
+            "Numberblocks One to Five",
+            "Numberblocks Zero",
+            "Numberblocks Ten",
+            "counting objects one to one correspondence for preschool"
+          ]
+        }
+      }
     },
     "level2": {
       "title": "Subitizing & Quantity",
-      "goal": "Children can see 'how many' without counting one-by-one."
+      "goal": "Children can see 'how many' without counting one-by-one.",
+      "learnMore": {
+        "bigIdea": {
+          "text": "Subitizing means seeing \"how many\" at a glance (especially 1–3), without counting. This grows from patterns (dice dots, dot cards, egg cartons) and quick, playful peeks."
+        },
+        "whatToNotice": {
+          "bullets": [
+            "Your child can say \"2!\" or \"3!\" quickly when they see a small group.",
+            "They can match a dot pattern to a number word (like dice faces).",
+            "They understand the quantity stays the same when items move around.",
+            "They use math words naturally: more, same, fewer."
+          ]
+        },
+        "tryAtHome": {
+          "games": [
+            {
+              "name": "Game A (core idea): \"Quick Peek\"",
+              "description": "Show 1–3 objects for 1 second (cover with a cup or your hand). Ask: \"How many did you see?\" Reveal and count together to check."
+            },
+            {
+              "name": "Game B (second representation): \"Same Number, New Shape\"",
+              "description": "Place 3 coins in a line. Ask \"How many?\" Then rearrange into a triangle. Ask \"How many now?\" Let your child prove it by counting (same number, different layout)."
+            }
+          ]
+        },
+        "optionalVideos": {
+          "searches": [
+            "Numberblocks What's My Number",
+            "Numberblocks Stampolines",
+            "subitizing for preschool dot patterns",
+            "dice dot patterns for kids"
+          ]
+        }
+      }
     },
     "level3": {
       "title": "Number Relationships",
-      "goal": "Children see that numbers are made of smaller parts."
+      "goal": "Children see that numbers are made of smaller parts.",
+      "learnMore": {
+        "bigIdea": {
+          "text": "Numbers are made of smaller parts. In Pre-K, we do not need formal addition—just playful \"splits\" like 3 can be 2 and 1, or 1 and 2. This part–whole feeling becomes the foundation for later arithmetic."
+        },
+        "whatToNotice": {
+          "bullets": [
+            "Your child can split a small group into two piles in more than one way.",
+            "They can show a number on two hands (like 4 as 2 and 2, or 3 and 1).",
+            "They can reason about a hidden part (\"Some are under the cup…\").",
+            "They begin using language like \"parts\" and \"all together.\""
+          ]
+        },
+        "tryAtHome": {
+          "games": [
+            {
+              "name": "Game A (core idea): \"Hide & Find\"",
+              "description": "Put 5 small objects on the table. Cover some with a cup. Show what is left and ask: \"How many are hiding?\" Reveal and count to check."
+            },
+            {
+              "name": "Game B (second representation): \"Two-Hand Splits\"",
+              "description": "Call a number 1–5. Your child shows it using two hands in any way (for 5: 5+0, 4+1, 3+2…). Switch roles and copy each other's splits."
+            }
+          ]
+        },
+        "optionalVideos": {
+          "searches": [
+            "Numberblocks The Whole of Me",
+            "Numberblocks Hide and Seek",
+            "Numberblocks Fruit Salad",
+            "part part whole for preschool"
+          ]
+        }
+      }
     },
     "level4": {
       "title": "Comparing & Change",
-      "goal": "Children understand more, less, same, add one, take one."
+      "goal": "Children understand more, less, same, add one, take one.",
+      "learnMore": {
+        "bigIdea": {
+          "text": "This level builds the feeling of more / fewer / same, and how a set changes when you add one or take one. The goal is confident math language and noticing change, not speed."
+        },
+        "whatToNotice": {
+          "bullets": [
+            "Your child can tell which group has more (sometimes without counting).",
+            "If groups are close, they compare by matching in pairs (\"one for you, one for me\").",
+            "They understand \"one more\" and \"one less\" as a small change.",
+            "They can make two groups the same by adding or removing items."
+          ]
+        },
+        "tryAtHome": {
+          "games": [
+            {
+              "name": "Game A (core idea): \"One More / One Less Tower\"",
+              "description": "Build a small tower (3–6 blocks). Ask: \"What is one more?\" Add one block and count. Then: \"What is one less?\" Remove one block and count."
+            },
+            {
+              "name": "Game B (everyday version): \"Make It Fair\"",
+              "description": "Put snacks in two bowls (one has more). Ask your child to make them the same by moving one snack at a time. Count both bowls to celebrate when they match."
+            }
+          ]
+        },
+        "optionalVideos": {
+          "searches": [
+            "Numberblocks Another One",
+            "Numberblocks Holes",
+            "Numberblocks Blockzilla",
+            "more and fewer for preschool"
+          ]
+        }
+      }
     }
   },
   "activities": {
@@ -333,56 +480,6 @@
       "correctMore": "🎉 Right! We have FEWER toys now!",
       "correctFewer": "🎉 Right! We have MORE toys now!",
       "correctSame": "🎉 Right! We have the SAME number!"
-    }
-  },
-  "learnMore": {
-    "numberblocks-1-5": {
-      "title": "Numberblocks Ep 1–5: One to Five",
-      "description": "Meet the Numberblocks and learn numbers 1-5"
-    },
-    "numberblocks-ten": {
-      "title": "Numberblocks Ep 20: Ten",
-      "description": "A big number! See how Ten is made"
-    },
-    "numberblocks-zero": {
-      "title": "Numberblocks Ep 35: Zero",
-      "description": "Meet Zero and learn about 'nothing'"
-    },
-    "numberblocks-how-to-count": {
-      "title": "Numberblocks Ep 10: How to Count",
-      "description": "Learn the secret of counting"
-    },
-    "numberblocks-stampolines": {
-      "title": "Numberblocks Ep 11: Stampolines",
-      "description": "Jump and count with stampolines"
-    },
-    "numberblocks-whats-my-number": {
-      "title": "Numberblocks Ep 94: What's My Number?",
-      "description": "Guess the number game with Numberblocks"
-    },
-    "numberblocks-whole-of-me": {
-      "title": "Numberblocks Ep 12: The Whole of Me ⭐",
-      "description": "The MOST important episode about parts and wholes!"
-    },
-    "numberblocks-hide-seek": {
-      "title": "Numberblocks Ep 15: Hide and Seek",
-      "description": "Numbers hide and show their parts"
-    },
-    "numberblocks-fruit-salad": {
-      "title": "Numberblocks Ep 34: Fruit Salad",
-      "description": "Mix different parts to make a whole"
-    },
-    "numberblocks-another-one": {
-      "title": "Numberblocks Ep 2: Another One",
-      "description": "What happens when you add one more?"
-    },
-    "numberblocks-holes": {
-      "title": "Numberblocks Ep 14: Holes",
-      "description": "Learn about taking away"
-    },
-    "numberblocks-blockzilla": {
-      "title": "Numberblocks Ep 32: Blockzilla",
-      "description": "A big adventure with adding and taking away"
     }
   }
 }

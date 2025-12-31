@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="120 Chart Hunt - Grade 1 Math Activity - Meadow Math">
+  <title>120 Chart Hunt - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">📋</span>
+            <span data-i18n="section.activities.hundred-chart.title">120 Chart Hunt</span>
+          </h1>
+          <p class="activity-instruction" data-i18n="section.activities.hundred-chart.description">Find numbers on the 120 chart!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Instruction -->
+          <div class="question-text" id="instruction">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- 120 Chart Grid -->
+          <div class="chart-container">
+            <div class="chart-grid" id="chart-grid">
+              <!-- Will be populated by JS -->
+            </div>
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <button class="btn-activity btn-secondary" id="btn-reset" data-i18n="buttons.reset">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value correct" id="stat-correct">0</div>
+              <div class="stat-label" data-i18n="stats.correct">Correct</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value incorrect" id="stat-incorrect">0</div>
+              <div class="stat-label" data-i18n="stats.incorrect">Incorrect</div>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // 120 Chart Hunt Activity
+    const HundredChartActivity = {
+      // Game state
+      currentQuestion: 0,
+      totalQuestions: 8,
+      correctCount: 0,
+      incorrectCount: 0,
+      currentTargets: [],
+      foundTargets: [],
+      currentChallengeType: null,
+      autoAdvanceDelay: 1500,
+      isAnswered: false,
+
+      // DOM elements
+      chartGrid: null,
+      feedback: null,
+      progress: null,
+      instruction: null,
+      btnReset: null,
+      statsOverlay: null,
+      statCorrect: null,
+      statIncorrect: null,
+      statsMessage: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.chartGrid = document.getElementById('chart-grid');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.instruction = document.getElementById('instruction');
+        this.btnReset = document.getElementById('btn-reset');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statCorrect = document.getElementById('stat-correct');
+        this.statIncorrect = document.getElementById('stat-incorrect');
+        this.statsMessage = document.getElementById('stats-message');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnReset.addEventListener('click', () => this.resetCurrentQuestion());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => {
+          if (e.target === this.statsOverlay) this.restartActivity();
+        });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Initialize chart
+        this.renderChart();
+
+        // Start first question
+        this.startQuestion();
+        this.renderProgress();
+      },
+
+      /**
+       * Random integer helper
+       */
+      randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      },
+
+      /**
+       * Shuffle array in place
+       */
+      shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      },
+
+      /**
+       * Update translations for dynamic content
+       */
+      updateTranslations() {
+        this.updateInstructionText();
+      },
+
+      /**
+       * Generate challenge for current question
+       */
+      generateChallenge() {
+        // Mix of different challenge types
+        const challengeTypes = [
+          'find-one',        // Find the number 47
+          'find-one',        // Find the number 89 (repeat for more variety)
+          'find-tens',       // Find all numbers with 4 tens
+          'find-ones',       // Find all numbers with 3 ones
+          'find-range',      // Find all numbers between 30 and 40
+          'find-pattern',    // Find all numbers in the 60s
+          'find-multiple',   // Find numbers: 25, 68, 102
+          'find-column'      // Find all numbers in the same column as 5
+        ];
+
+        this.currentChallengeType = challengeTypes[this.currentQuestion % challengeTypes.length];
+        this.currentTargets = [];
+        this.foundTargets = [];
+        this.isAnswered = false;
+
+        switch (this.currentChallengeType) {
+          case 'find-one':
+            // Find a single number
+            const target = this.randomInt(1, 120);
+            this.currentTargets = [target];
+            break;
+
+          case 'find-tens':
+            // Find all numbers with specific tens digit (e.g., all numbers with 4 tens: 40-49)
+            const tensDigit = this.randomInt(1, 11); // 1-11 for tens (10-110)
+            for (let i = tensDigit * 10; i < tensDigit * 10 + 10 && i <= 120; i++) {
+              this.currentTargets.push(i);
+            }
+            break;
+
+          case 'find-ones':
+            // Find all numbers with specific ones digit (e.g., all numbers ending in 3: 3, 13, 23, ..., 113)
+            const onesDigit = this.randomInt(0, 9);
+            for (let i = onesDigit; i <= 120; i += 10) {
+              if (i > 0) {
+                this.currentTargets.push(i);
+              }
+            }
+            break;
+
+          case 'find-range':
+            // Find all numbers in a range (e.g., 30-40)
+            const rangeStart = this.randomInt(1, 10) * 10;
+            const rangeEnd = rangeStart + 10;
+            for (let i = rangeStart; i <= rangeEnd && i <= 120; i++) {
+              this.currentTargets.push(i);
+            }
+            break;
+
+          case 'find-pattern':
+            // Find all numbers in a specific decade (e.g., all numbers in the 60s: 60-69)
+            const decade = this.randomInt(1, 11) * 10;
+            for (let i = decade; i < decade + 10 && i <= 120; i++) {
+              this.currentTargets.push(i);
+            }
+            break;
+
+          case 'find-multiple':
+            // Find 3 specific numbers
+            const nums = [];
+            for (let i = 0; i < 3; i++) {
+              let num;
+              do {
+                num = this.randomInt(1, 120);
+              } while (nums.includes(num));
+              nums.push(num);
+            }
+            this.currentTargets = nums.sort((a, b) => a - b);
+            break;
+
+          case 'find-column':
+            // Find all numbers in the same column (same ones digit)
+            const colNum = this.randomInt(1, 10);
+            const colDigit = colNum % 10;
+            for (let i = colDigit === 0 ? 10 : colDigit; i <= 120; i += 10) {
+              this.currentTargets.push(i);
+            }
+            break;
+        }
+      },
+
+      /**
+       * Render the 120 chart
+       */
+      renderChart() {
+        this.chartGrid.innerHTML = '';
+
+        for (let i = 1; i <= 120; i++) {
+          const cell = document.createElement('button');
+          cell.className = 'chart-cell';
+          cell.textContent = i;
+          cell.dataset.number = i;
+          cell.setAttribute('aria-label', `Number ${i}`);
+
+          cell.addEventListener('click', () => this.handleCellClick(i, cell));
+
+          this.chartGrid.appendChild(cell);
+        }
+      },
+
+      /**
+       * Start a new question
+       */
+      startQuestion() {
+        this.generateChallenge();
+        this.updateInstructionText();
+        this.resetChartState();
+        this.feedback.classList.remove('show', 'error');
+        this.renderProgress();
+      },
+
+      /**
+       * Update instruction text based on challenge type
+       */
+      updateInstructionText() {
+        let text = '';
+
+        switch (this.currentChallengeType) {
+          case 'find-one':
+            text = i18n.t('section.activities.hundred-chart.findNumber').replace('{n}', this.currentTargets[0]);
+            break;
+          case 'find-tens':
+            const tensVal = Math.floor(this.currentTargets[0] / 10);
+            text = i18n.t('section.activities.hundred-chart.findTens').replace('{n}', tensVal);
+            break;
+          case 'find-ones':
+            const onesVal = this.currentTargets[0] % 10;
+            text = i18n.t('section.activities.hundred-chart.findOnes').replace('{n}', onesVal);
+            break;
+          case 'find-range':
+            text = i18n.t('section.activities.hundred-chart.findRange')
+              .replace('{start}', this.currentTargets[0])
+              .replace('{end}', this.currentTargets[this.currentTargets.length - 1]);
+            break;
+          case 'find-pattern':
+            const decadeStart = this.currentTargets[0];
+            text = i18n.t('section.activities.hundred-chart.findPattern').replace('{n}', decadeStart);
+            break;
+          case 'find-multiple':
+            text = i18n.t('section.activities.hundred-chart.findMultiple')
+              .replace('{nums}', this.currentTargets.join(', '));
+            break;
+          case 'find-column':
+            const colNum = this.currentTargets[0];
+            text = i18n.t('section.activities.hundred-chart.findColumn').replace('{n}', colNum);
+            break;
+        }
+
+        this.instruction.textContent = text;
+      },
+
+      /**
+       * Reset chart state for new question
+       */
+      resetChartState() {
+        const cells = this.chartGrid.querySelectorAll('.chart-cell');
+        cells.forEach(cell => {
+          cell.classList.remove('selected', 'correct', 'incorrect', 'disabled');
+          cell.disabled = false;
+        });
+      },
+
+      /**
+       * Handle cell click
+       */
+      handleCellClick(number, cellElement) {
+        if (this.isAnswered || cellElement.classList.contains('selected')) return;
+
+        cellElement.classList.add('selected');
+        const isCorrect = this.currentTargets.includes(number);
+
+        if (isCorrect) {
+          this.foundTargets.push(number);
+          cellElement.classList.add('correct');
+
+          // Check if all targets found
+          if (this.foundTargets.length === this.currentTargets.length) {
+            this.handleCorrectCompletion();
+          }
+        } else {
+          cellElement.classList.add('incorrect');
+          setTimeout(() => {
+            cellElement.classList.remove('selected', 'incorrect');
+          }, 600);
+        }
+      },
+
+      /**
+       * Handle correct completion
+       */
+      handleCorrectCompletion() {
+        this.isAnswered = true;
+        this.correctCount++;
+
+        // Disable all cells
+        const cells = this.chartGrid.querySelectorAll('.chart-cell');
+        cells.forEach(cell => {
+          cell.disabled = true;
+          cell.classList.add('disabled');
+        });
+
+        // Show feedback
+        this.feedback.textContent = i18n.t('feedback.correct') + ' ' + i18n.t('section.activities.hundred-chart.wellDone');
+        this.feedback.classList.remove('error');
+        this.feedback.classList.add('show');
+
+        // Auto-advance
+        setTimeout(() => {
+          if (this.currentQuestion < this.totalQuestions - 1) {
+            this.nextQuestion();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Go to next question
+       */
+      nextQuestion() {
+        this.currentQuestion++;
+        this.startQuestion();
+      },
+
+      /**
+       * Reset current question
+       */
+      resetCurrentQuestion() {
+        this.startQuestion();
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statCorrect.textContent = this.correctCount;
+        this.statIncorrect.textContent = this.incorrectCount;
+
+        // Set message based on performance
+        const percentage = (this.correctCount / this.totalQuestions) * 100;
+        if (percentage >= 80) {
+          this.statsMessage.textContent = i18n.t('stats.amazing');
+        } else if (percentage >= 50) {
+          this.statsMessage.textContent = i18n.t('stats.great');
+        } else {
+          this.statsMessage.textContent = i18n.t('stats.goodEffort');
+        }
+
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the activity
+       */
+      restartActivity() {
+        this.currentQuestion = 0;
+        this.correctCount = 0;
+        this.incorrectCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startQuestion();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 0; i < this.totalQuestions; i++) {
+          let className = 'progress-dot';
+          if (i < this.currentQuestion) {
+            className += ' completed';
+          } else if (i === this.currentQuestion) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready and i18n is loaded
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Wait for i18n to be initialized
+      if (!i18n.translations[i18n.currentLang]) {
+        await i18n.init();
+      }
+      HundredChartActivity.init();
+    });
+  </script>
+  <style>
+    /* 120 Chart Hunt specific styles */
+
+    .question-text {
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      margin-bottom: var(--space-6);
+      text-align: center;
+      padding: 0 var(--space-4);
+    }
+
+    /* Chart Container */
+    .chart-container {
+      display: flex;
+      justify-content: center;
+      margin: var(--space-6) 0;
+      padding: var(--space-4);
+      overflow-x: auto;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 4px;
+      max-width: 600px;
+      width: 100%;
+      background: var(--color-neutral-100);
+      padding: var(--space-3);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .chart-cell {
+      aspect-ratio: 1;
+      min-width: 40px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--color-neutral-300);
+      border-radius: var(--radius-md);
+      background: white;
+      font-family: var(--font-secondary);
+      font-size: var(--text-base);
+      font-weight: var(--weight-semibold);
+      color: var(--color-neutral-700);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .chart-cell:hover:not(.disabled):not(.selected) {
+      background: var(--color-primary-light);
+      border-color: var(--color-primary);
+      transform: scale(1.05);
+    }
+
+    .chart-cell:active:not(.disabled) {
+      transform: scale(0.95);
+    }
+
+    .chart-cell.selected {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      border-color: var(--color-primary);
+      font-weight: var(--weight-bold);
+    }
+
+    .chart-cell.correct {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-color: #15803d;
+      color: white;
+      animation: pop 0.4s ease;
+    }
+
+    .chart-cell.incorrect {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      border-color: #b45309;
+      color: white;
+      animation: shake 0.5s ease;
+    }
+
+    .chart-cell.disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    /* Animations */
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+      20%, 40%, 60%, 80% { transform: translateX(3px); }
+    }
+
+    /* Activity area needs padding for feedback */
+    .activity-area {
+      padding-bottom: calc(var(--space-8) + 60px);
+    }
+
+    /* Feedback at bottom */
+    .feedback-message {
+      position: absolute;
+      bottom: var(--space-4);
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      max-width: 90%;
+      z-index: 10;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .chart-grid {
+        gap: 3px;
+        padding: var(--space-2);
+        max-width: 100%;
+      }
+
+      .chart-cell {
+        min-width: 32px;
+        min-height: 32px;
+        font-size: var(--text-sm);
+      }
+
+      .question-text {
+        font-size: var(--text-lg);
+      }
+
+      .feedback-message {
+        font-size: var(--text-sm);
+        padding: var(--space-2) var(--space-3);
+      }
+    }
+
+    /* Very small screens */
+    @media (max-width: 400px) {
+      .chart-grid {
+        gap: 2px;
+        padding: var(--space-1);
+      }
+
+      .chart-cell {
+        min-width: 28px;
+        min-height: 28px;
+        font-size: var(--text-xs);
+        border-width: 1px;
+      }
+
+      .question-text {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-4);
+      }
+    }
+
+    /* Ensure chart is scrollable on very small screens */
+    @media (max-width: 360px) {
+      .chart-container {
+        padding: var(--space-2);
+      }
+
+      .chart-grid {
+        min-width: 300px;
+      }
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Balance the Equation - Grade 1 Math Activity - Meadow Math">
+  <title>Balance the Equation - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="../../prek/activities/activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">⚖️</span>
+            <span data-i18n="section.activities.balance-equation.title">Balance the Equation</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.balance-equation.description">Make both sides equal!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Balance Scale Visualization -->
+          <div class="balance-scale" id="balance-scale">
+            <div class="scale-beam">
+              <div class="scale-pan left-pan" id="left-pan">
+                <span class="pan-value" id="left-value"></span>
+              </div>
+              <div class="scale-fulcrum">⚖️</div>
+              <div class="scale-pan right-pan" id="right-pan">
+                <span class="pan-value" id="right-value"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Equation Display -->
+          <div class="equation-display" id="equation">
+            <!-- Equation will be dynamically generated -->
+          </div>
+
+          <!-- Number Input -->
+          <div class="number-input-container">
+            <label for="answer-input" class="input-label" id="input-label">
+              <span data-i18n="section.activities.balance-equation.enterNumber">Enter the missing number:</span>
+            </label>
+            <input
+              type="number"
+              id="answer-input"
+              class="number-input"
+              min="0"
+              max="20"
+              inputmode="numeric"
+              aria-label="Your answer"
+            />
+            <button class="btn-activity btn-primary" id="btn-check" data-i18n="buttons.check">Check</button>
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Balance Equation specific styles */
+    .balance-scale {
+      margin: var(--space-6) auto var(--space-8);
+      max-width: 500px;
+    }
+
+    .scale-beam {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: var(--space-4);
+      position: relative;
+    }
+
+    .scale-fulcrum {
+      font-size: 48px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .scale-pan {
+      width: 120px;
+      height: 100px;
+      background: linear-gradient(to bottom, #fff, #f5f5f5);
+      border: 4px solid var(--color-neutral-300);
+      border-radius: var(--radius-xl) var(--radius-xl) 50% 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 0 var(--color-neutral-300), 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .scale-pan::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 16px;
+      background: var(--color-neutral-400);
+    }
+
+    .pan-value {
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+    }
+
+    /* Balance animations */
+    .scale-pan.balanced {
+      transform: translateY(0);
+      animation: balanceGlow 1s ease-in-out;
+    }
+
+    @keyframes balanceGlow {
+      0% { box-shadow: 0 4px 0 var(--color-neutral-300), 0 8px 20px rgba(0, 0, 0, 0.1); }
+      50% { box-shadow: 0 4px 0 var(--color-accent), 0 8px 30px rgba(251, 191, 36, 0.5); }
+      100% { box-shadow: 0 4px 0 var(--color-neutral-300), 0 8px 20px rgba(0, 0, 0, 0.1); }
+    }
+
+    .scale-pan.heavier {
+      transform: translateY(20px);
+    }
+
+    .scale-pan.lighter {
+      transform: translateY(-20px);
+    }
+
+    .equation-display {
+      font-family: var(--font-secondary);
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      text-align: center;
+      color: var(--color-neutral-800);
+      margin: var(--space-6) 0;
+      padding: var(--space-6) var(--space-8);
+      background: white;
+      border: 4px solid var(--color-neutral-200);
+      border-radius: var(--radius-2xl);
+      box-shadow: 0 4px 0 var(--color-neutral-200);
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+    }
+
+    .equation-number {
+      color: var(--color-primary);
+    }
+
+    .equation-operator {
+      color: var(--color-neutral-600);
+    }
+
+    .equation-equals {
+      font-size: var(--text-5xl);
+      color: var(--color-accent);
+    }
+
+    .equation-unknown {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 4px dashed var(--color-accent);
+      border-radius: var(--radius-xl);
+      color: var(--color-accent);
+      font-size: var(--text-4xl);
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(251, 191, 36, 0.5);
+      }
+    }
+
+    .number-input-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      margin: var(--space-8) auto;
+      max-width: 400px;
+    }
+
+    .input-label {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-800);
+      text-align: center;
+    }
+
+    .number-input {
+      width: 150px;
+      height: 80px;
+      font-family: var(--font-secondary);
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      text-align: center;
+      color: var(--color-primary);
+      background: white;
+      border: 5px solid var(--color-neutral-300);
+      border-radius: var(--radius-2xl);
+      box-shadow: 0 6px 0 var(--color-neutral-300), 0 10px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s ease;
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+    }
+
+    .number-input::-webkit-inner-spin-button,
+    .number-input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .number-input:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 6px 0 var(--color-accent), 0 10px 24px rgba(251, 191, 36, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .number-input:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-check {
+      min-width: 180px;
+      height: 70px;
+      font-size: var(--text-xl);
+    }
+
+    @media (max-width: 767px) {
+      .equation-display {
+        font-size: var(--text-3xl);
+        padding: var(--space-4);
+        gap: var(--space-3);
+      }
+
+      .equation-unknown {
+        width: 60px;
+        height: 60px;
+        font-size: var(--text-3xl);
+      }
+
+      .scale-pan {
+        width: 90px;
+        height: 80px;
+      }
+
+      .pan-value {
+        font-size: var(--text-xl);
+      }
+
+      .scale-fulcrum {
+        font-size: 36px;
+      }
+
+      .number-input {
+        width: 120px;
+        height: 70px;
+        font-size: var(--text-3xl);
+      }
+
+      .btn-check {
+        min-width: 150px;
+        height: 60px;
+        font-size: var(--text-lg);
+      }
+
+      .input-label {
+        font-size: var(--text-lg);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Balance the Equation Activity
+    const BalanceEquation = {
+      // Game state
+      currentEquation: null,
+      correctAnswer: 0,
+      round: 1,
+      maxRounds: 10,
+      correctCount: 0,
+      wrongCount: 0,
+      hasAnswered: false,
+      autoAdvanceDelay: 1500,
+
+      // DOM elements
+      equation: null,
+      leftPan: null,
+      rightPan: null,
+      leftValue: null,
+      rightValue: null,
+      answerInput: null,
+      btnCheck: null,
+      feedback: null,
+      progress: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.equation = document.getElementById('equation');
+        this.leftPan = document.getElementById('left-pan');
+        this.rightPan = document.getElementById('right-pan');
+        this.leftValue = document.getElementById('left-value');
+        this.rightValue = document.getElementById('right-value');
+        this.answerInput = document.getElementById('answer-input');
+        this.btnCheck = document.getElementById('btn-check');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnCheck.addEventListener('click', () => this.checkAnswer());
+        this.answerInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') this.checkAnswer();
+        });
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Start first round
+        this.generateEquation();
+        this.renderProgress();
+      },
+
+      /**
+       * Generate a random equation with unknown
+       */
+      generateEquation() {
+        this.hasAnswered = false;
+        this.feedback.classList.remove('show');
+        this.answerInput.value = '';
+        this.answerInput.disabled = false;
+        this.btnCheck.disabled = false;
+        this.answerInput.focus();
+
+        // Equation formats:
+        // 1. a + ? = c  (e.g., 5 + ? = 9)
+        // 2. ? + b = c  (e.g., ? + 3 = 8)
+        // 3. a - ? = c  (e.g., 10 - ? = 7)
+        // 4. ? - b = c  (e.g., ? - 4 = 5)
+        // 5. ? = a + b  (e.g., ? = 3 + 5)
+        // 6. c = ? + b  (e.g., 8 = ? + 3)
+        // 7. c = a + ?  (e.g., 8 = 5 + ?)
+
+        const formats = [
+          'a+?=c',  // 5 + ? = 9
+          '?+b=c',  // ? + 3 = 8
+          'a-?=c',  // 10 - ? = 7
+          '?-b=c',  // ? - 4 = 5
+          '?=a+b',  // ? = 3 + 5
+          'c=?+b',  // 8 = ? + 3
+          'c=a+?'   // 8 = 5 + ?
+        ];
+        const format = formats[randomInt(0, formats.length - 1)];
+
+        let leftSide, rightSide, leftVal, rightVal, answer;
+
+        switch(format) {
+          case 'a+?=c':
+            {
+              const a = randomInt(1, 10);
+              const answer_val = randomInt(1, 10);
+              const c = a + answer_val;
+              leftSide = `${a} + <span class="equation-unknown">?</span>`;
+              rightSide = c;
+              leftVal = '?';
+              rightVal = c;
+              answer = answer_val;
+            }
+            break;
+          case '?+b=c':
+            {
+              const b = randomInt(1, 10);
+              const answer_val = randomInt(1, 10);
+              const c = answer_val + b;
+              leftSide = `<span class="equation-unknown">?</span> + ${b}`;
+              rightSide = c;
+              leftVal = '?';
+              rightVal = c;
+              answer = answer_val;
+            }
+            break;
+          case 'a-?=c':
+            {
+              const a = randomInt(5, 20);
+              const c = randomInt(1, a - 1);
+              const answer_val = a - c;
+              leftSide = `${a} − <span class="equation-unknown">?</span>`;
+              rightSide = c;
+              leftVal = '?';
+              rightVal = c;
+              answer = answer_val;
+            }
+            break;
+          case '?-b=c':
+            {
+              const b = randomInt(1, 10);
+              const c = randomInt(1, 10);
+              const answer_val = b + c;
+              leftSide = `<span class="equation-unknown">?</span> − ${b}`;
+              rightSide = c;
+              leftVal = '?';
+              rightVal = c;
+              answer = answer_val;
+            }
+            break;
+          case '?=a+b':
+            {
+              const a = randomInt(1, 10);
+              const b = randomInt(1, 10);
+              const answer_val = a + b;
+              leftSide = `<span class="equation-unknown">?</span>`;
+              rightSide = `${a} + ${b}`;
+              leftVal = '?';
+              rightVal = answer_val;
+              answer = answer_val;
+            }
+            break;
+          case 'c=?+b':
+            {
+              const b = randomInt(1, 10);
+              const answer_val = randomInt(1, 10);
+              const c = answer_val + b;
+              leftSide = c;
+              rightSide = `<span class="equation-unknown">?</span> + ${b}`;
+              leftVal = c;
+              rightVal = '?';
+              answer = answer_val;
+            }
+            break;
+          case 'c=a+?':
+            {
+              const a = randomInt(1, 10);
+              const answer_val = randomInt(1, 10);
+              const c = a + answer_val;
+              leftSide = c;
+              rightSide = `${a} + <span class="equation-unknown">?</span>`;
+              leftVal = c;
+              rightVal = '?';
+              answer = answer_val;
+            }
+            break;
+        }
+
+        this.currentEquation = { leftSide, rightSide, leftVal, rightVal };
+        this.correctAnswer = answer;
+
+        this.displayEquation();
+        this.updateBalance();
+      },
+
+      /**
+       * Display the equation
+       */
+      displayEquation() {
+        const eq = this.currentEquation;
+        this.equation.innerHTML = `
+          <span class="equation-number">${eq.leftSide}</span>
+          <span class="equation-equals">=</span>
+          <span class="equation-number">${eq.rightSide}</span>
+        `;
+
+        // Update balance scale (showing ? on the unknown side)
+        this.leftValue.textContent = eq.leftVal;
+        this.rightValue.textContent = eq.rightVal;
+      },
+
+      /**
+       * Update balance scale animation (initially unbalanced with ?)
+       */
+      updateBalance() {
+        this.leftPan.classList.remove('balanced', 'heavier', 'lighter');
+        this.rightPan.classList.remove('balanced', 'heavier', 'lighter');
+
+        // Initially show as unbalanced (we don't know the ? yet)
+        // Just make them slightly tilted
+        setTimeout(() => {
+          const leftVal = this.currentEquation.leftVal;
+          const rightVal = this.currentEquation.rightVal;
+
+          // If one side has ?, show as lighter (unknown weight)
+          if (leftVal === '?') {
+            this.leftPan.classList.add('lighter');
+            this.rightPan.classList.add('heavier');
+          } else if (rightVal === '?') {
+            this.leftPan.classList.add('heavier');
+            this.rightPan.classList.add('lighter');
+          } else {
+            // Both sides known - check balance
+            if (leftVal === rightVal) {
+              this.leftPan.classList.add('balanced');
+              this.rightPan.classList.add('balanced');
+            } else if (leftVal > rightVal) {
+              this.leftPan.classList.add('heavier');
+              this.rightPan.classList.add('lighter');
+            } else {
+              this.leftPan.classList.add('lighter');
+              this.rightPan.classList.add('heavier');
+            }
+          }
+        }, 100);
+      },
+
+      /**
+       * Show balanced scale with answer filled in
+       */
+      showBalanced() {
+        // Update the equation display to show the answer
+        const eq = this.currentEquation;
+        const leftDisplay = typeof eq.leftSide === 'number' ? eq.leftSide : eq.leftSide.replace('<span class="equation-unknown">?</span>', `<span class="equation-number">${this.correctAnswer}</span>`);
+        const rightDisplay = typeof eq.rightSide === 'number' ? eq.rightSide : eq.rightSide.replace('<span class="equation-unknown">?</span>', `<span class="equation-number">${this.correctAnswer}</span>`);
+
+        this.equation.innerHTML = `
+          <span class="equation-number">${leftDisplay}</span>
+          <span class="equation-equals">=</span>
+          <span class="equation-number">${rightDisplay}</span>
+        `;
+
+        // Update scale values (resolve ?)
+        const leftValNum = eq.leftVal === '?' ? this.correctAnswer : eq.leftVal;
+        const rightValNum = eq.rightVal === '?' ? this.correctAnswer : eq.rightVal;
+
+        this.leftValue.textContent = leftValNum;
+        this.rightValue.textContent = rightValNum;
+
+        // Animate to balanced
+        this.leftPan.classList.remove('balanced', 'heavier', 'lighter');
+        this.rightPan.classList.remove('balanced', 'heavier', 'lighter');
+
+        setTimeout(() => {
+          this.leftPan.classList.add('balanced');
+          this.rightPan.classList.add('balanced');
+        }, 100);
+      },
+
+      /**
+       * Check the user's answer
+       */
+      checkAnswer() {
+        if (this.hasAnswered) return;
+
+        const userAnswer = parseInt(this.answerInput.value);
+
+        // Validate input
+        if (isNaN(userAnswer) || this.answerInput.value === '') {
+          this.feedback.textContent = i18n.t('section.activities.balance-equation.pleaseEnter') || 'Please enter a number!';
+          this.feedback.classList.add('show', 'error');
+          setTimeout(() => {
+            this.feedback.classList.remove('show', 'error');
+          }, 1500);
+          return;
+        }
+
+        this.hasAnswered = true;
+        this.answerInput.disabled = true;
+        this.btnCheck.disabled = true;
+
+        // Check answer
+        if (userAnswer === this.correctAnswer) {
+          // Correct!
+          this.showBalanced();
+
+          const correctMsg = i18n.t('section.activities.balance-equation.correct')?.replace('{n}', this.correctAnswer)
+            || `Perfect! The missing number is ${this.correctAnswer}!`;
+          this.feedback.textContent = `🎉 ${correctMsg}`;
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.equation);
+          }
+        } else {
+          // Incorrect
+          const wrongMsg = i18n.t('section.activities.balance-equation.wrong')?.replace('{n}', this.correctAnswer)
+            || `Not quite! The correct answer is ${this.correctAnswer}.`;
+          this.feedback.textContent = wrongMsg;
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+
+          // Show correct answer after a moment (let them read the feedback first)
+          setTimeout(() => {
+            this.showBalanced();
+          }, 1000);
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+
+        // Set message based on performance
+        const percent = this.correctCount / this.maxRounds;
+        if (percent === 1) {
+          this.statsIcon.textContent = '🏆';
+          this.statsMessage.textContent = i18n.t('section.activities.balance-equation.perfect') || 'Perfect! You can balance any equation!';
+        } else if (percent >= 0.8) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = i18n.t('section.activities.balance-equation.great') || 'Great job! You understand how to balance equations!';
+        } else if (percent >= 0.6) {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = i18n.t('section.activities.balance-equation.good') || 'Good work! Keep practicing!';
+        } else {
+          this.statsIcon.textContent = '💪';
+          this.statsMessage.textContent = i18n.t('section.activities.balance-equation.keepPracticing') || 'Keep practicing! Balancing equations gets easier!';
+        }
+
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.generateEquation();
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.generateEquation();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      BalanceEquation.init();
+    });
+  </script>
+</body>
+</html>

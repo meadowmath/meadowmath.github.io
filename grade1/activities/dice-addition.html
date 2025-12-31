@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dice Addition - Grade 1 Math Activity - Meadow Math">
+  <title>Dice Addition - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🎲</span>
+            <span data-i18n="section.activities.dice-addition.title">Dice Addition</span>
+          </h1>
+          <p class="activity-instruction" data-i18n="section.activities.dice-addition.description">Roll two dice and add the dots!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress Indicator -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Start Banner Button -->
+          <div class="start-banner" id="start-banner">
+            <button class="start-banner-btn" id="btn-roll">
+              <span class="banner-emoji" aria-hidden="true">🎲</span>
+              <span class="banner-text" data-i18n="section.activities.dice-addition.clickToRoll">Click here to roll the dice!</span>
+            </button>
+          </div>
+
+          <!-- Dice Display -->
+          <div class="dice-container" id="dice-container" style="display: none;">
+            <div class="dice" id="dice1" data-value="1">
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+            </div>
+            <div class="plus-sign">+</div>
+            <div class="dice" id="dice2" data-value="1">
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+              <div class="dice-dot"></div>
+            </div>
+          </div>
+
+          <!-- Question Display -->
+          <div class="question-display" id="question-display" style="display: none;">
+            <span class="question-text" data-i18n="section.activities.dice-addition.whatIsSum">What is the sum?</span>
+          </div>
+
+          <!-- Answer Choices -->
+          <div class="choices-container" id="choices-container" style="display: none;">
+            <!-- Will be populated by JS -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <button class="btn-activity btn-secondary" id="btn-reset" data-i18n="buttons.reset">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon">🎉</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value correct" id="stat-correct">0</div>
+              <div class="stat-label" data-i18n="stats.correct">Correct</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value incorrect" id="stat-incorrect">0</div>
+              <div class="stat-label" data-i18n="stats.incorrect">Incorrect</div>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job adding dice!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Dice Addition Activity
+    const DiceAddition = {
+      // Game state
+      totalRounds: 10,
+      currentRound: 0,
+      correctCount: 0,
+      incorrectCount: 0,
+      dice1Value: 0,
+      dice2Value: 0,
+      currentAnswer: 0,
+      isAnswered: false,
+      hasRolled: false,
+      autoAdvanceDelay: 1500,
+
+      // DOM elements
+      progress: null,
+      startBanner: null,
+      btnRoll: null,
+      diceContainer: null,
+      dice1: null,
+      dice2: null,
+      questionDisplay: null,
+      choicesContainer: null,
+      feedback: null,
+      btnReset: null,
+      statsOverlay: null,
+      statsMessage: null,
+      statCorrect: null,
+      statIncorrect: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.progress = document.getElementById('progress');
+        this.startBanner = document.getElementById('start-banner');
+        this.btnRoll = document.getElementById('btn-roll');
+        this.diceContainer = document.getElementById('dice-container');
+        this.dice1 = document.getElementById('dice1');
+        this.dice2 = document.getElementById('dice2');
+        this.questionDisplay = document.getElementById('question-display');
+        this.choicesContainer = document.getElementById('choices-container');
+        this.feedback = document.getElementById('feedback');
+        this.btnReset = document.getElementById('btn-reset');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statCorrect = document.getElementById('stat-correct');
+        this.statIncorrect = document.getElementById('stat-incorrect');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnRoll.addEventListener('click', () => this.rollDice());
+        this.btnReset.addEventListener('click', () => this.resetActivity());
+        this.btnPlayAgain.addEventListener('click', () => this.resetActivity());
+        this.statsOverlay.addEventListener('click', (e) => {
+          if (e.target === this.statsOverlay) this.resetActivity();
+        });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Start first round
+        this.nextRound();
+      },
+
+      /**
+       * Render progress dots
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 0; i < this.totalRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.currentRound - 1) {
+            className += ' completed';
+          } else if (i === this.currentRound - 1) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      },
+
+      /**
+       * Update translations for dynamic content
+       */
+      updateTranslations() {
+        // Update stats message if visible
+        if (this.statsOverlay.classList.contains('show')) {
+          this.updateStatsMessage();
+        }
+      },
+
+      /**
+       * Set dice value (using data-value attribute)
+       */
+      setDiceValue(diceElement, value) {
+        diceElement.setAttribute('data-value', value);
+      },
+
+      /**
+       * Roll the dice animation
+       */
+      rollDice() {
+        if (this.hasRolled) return;
+
+        this.hasRolled = true;
+        this.startBanner.style.display = 'none';
+        this.diceContainer.style.display = 'flex';
+
+        // Generate random dice values
+        this.dice1Value = randomInt(1, 6);
+        this.dice2Value = randomInt(1, 6);
+        this.currentAnswer = this.dice1Value + this.dice2Value;
+
+        // Add rolling animation
+        this.dice1.classList.add('rolling');
+        this.dice2.classList.add('rolling');
+
+        // Show final values after animation
+        setTimeout(() => {
+          this.setDiceValue(this.dice1, this.dice1Value);
+          this.setDiceValue(this.dice2, this.dice2Value);
+          this.dice1.classList.remove('rolling');
+          this.dice2.classList.remove('rolling');
+
+          // Show question and choices
+          setTimeout(() => {
+            this.questionDisplay.style.display = 'block';
+            this.choicesContainer.style.display = 'grid';
+            const choices = this.generateChoices(this.currentAnswer);
+            this.renderChoices(choices);
+          }, 300);
+        }, 1000);
+      },
+
+      /**
+       * Generate answer choices
+       */
+      generateChoices(correctAnswer) {
+        const choices = new Set([correctAnswer]);
+
+        // Generate 3 wrong answers
+        while (choices.size < 4) {
+          let wrong = correctAnswer + randomInt(-3, 3);
+          // Ensure wrong answer is in valid range (2-12 for two dice)
+          if (wrong >= 2 && wrong <= 12 && wrong !== correctAnswer) {
+            choices.add(wrong);
+          }
+        }
+
+        return shuffle(Array.from(choices));
+      },
+
+      /**
+       * Start next round
+       */
+      nextRound() {
+        this.currentRound++;
+
+        if (this.currentRound > this.totalRounds) {
+          this.showStats();
+          return;
+        }
+
+        this.isAnswered = false;
+        this.hasRolled = false;
+        this.renderProgress();
+
+        // Reset display
+        this.startBanner.style.display = 'flex';
+        this.diceContainer.style.display = 'none';
+        this.questionDisplay.style.display = 'none';
+        this.choicesContainer.style.display = 'none';
+        this.choicesContainer.innerHTML = '';
+
+        // Hide feedback
+        this.feedback.classList.remove('show', 'error');
+      },
+
+      /**
+       * Render answer choice buttons
+       */
+      renderChoices(choices) {
+        this.choicesContainer.innerHTML = '';
+
+        choices.forEach(choice => {
+          const button = document.createElement('button');
+          button.className = 'choice-btn';
+          button.textContent = choice;
+          button.setAttribute('aria-label', `Answer: ${choice}`);
+          button.addEventListener('click', () => this.selectAnswer(choice, button));
+          this.choicesContainer.appendChild(button);
+        });
+      },
+
+      /**
+       * Handle answer selection
+       */
+      selectAnswer(answer, button) {
+        if (this.isAnswered) return;
+
+        this.isAnswered = true;
+
+        // Disable all buttons
+        const allButtons = this.choicesContainer.querySelectorAll('.choice-btn');
+        allButtons.forEach(btn => btn.disabled = true);
+
+        const correct = answer === this.currentAnswer;
+
+        if (correct) {
+          this.correctCount++;
+          button.classList.add('correct');
+
+          const correctMsg = i18n.t('section.activities.dice-addition.correct') || '✓ Correct! {a} + {b} = {sum}';
+          const msg = correctMsg
+            .replace('{a}', this.dice1Value)
+            .replace('{b}', this.dice2Value)
+            .replace('{sum}', this.currentAnswer);
+          this.feedback.textContent = msg;
+          this.feedback.classList.remove('error');
+        } else {
+          this.incorrectCount++;
+          button.classList.add('incorrect');
+
+          // Highlight correct answer
+          allButtons.forEach(btn => {
+            if (parseInt(btn.textContent) === this.currentAnswer) {
+              btn.classList.add('correct');
+            }
+          });
+
+          const wrongMsg = i18n.t('section.activities.dice-addition.wrong') || 'Not quite! {a} + {b} = {sum}';
+          const msg = wrongMsg
+            .replace('{a}', this.dice1Value)
+            .replace('{b}', this.dice2Value)
+            .replace('{sum}', this.currentAnswer);
+          this.feedback.textContent = msg;
+          this.feedback.classList.add('error');
+        }
+
+        this.feedback.classList.add('show');
+
+        // Auto-advance to next round
+        setTimeout(() => {
+          this.nextRound();
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statCorrect.textContent = this.correctCount;
+        this.statIncorrect.textContent = this.incorrectCount;
+        this.updateStatsMessage();
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Update stats message
+       */
+      updateStatsMessage() {
+        const percentage = Math.round((this.correctCount / this.totalRounds) * 100);
+        let msg;
+
+        if (percentage === 100) {
+          msg = i18n.t('section.activities.dice-addition.perfect') || 'Perfect! You\'re amazing at adding dice!';
+        } else if (percentage >= 80) {
+          msg = i18n.t('section.activities.dice-addition.great') || 'Great job! You\'re really good at dice addition!';
+        } else if (percentage >= 60) {
+          msg = i18n.t('section.activities.dice-addition.good') || 'Good work! Keep practicing dice addition!';
+        } else {
+          msg = i18n.t('section.activities.dice-addition.keepPracticing') || 'Keep practicing! Dice addition gets easier!';
+        }
+
+        this.statsMessage.textContent = msg;
+      },
+
+      /**
+       * Reset the activity
+       */
+      resetActivity() {
+        this.currentRound = 0;
+        this.correctCount = 0;
+        this.incorrectCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.nextRound();
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      DiceAddition.init();
+    });
+  </script>
+  <style>
+    /* Dice Addition specific styles */
+
+    .progress-indicator {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+
+    .progress-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-neutral-300);
+      transition: all 0.3s ease;
+    }
+
+    .progress-dot.current {
+      background: var(--color-primary);
+      transform: scale(1.2);
+    }
+
+    .progress-dot.completed {
+      background: var(--color-success);
+    }
+
+    /* Start Banner Button */
+    .start-banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-6);
+      margin: var(--space-6) auto;
+    }
+
+    .start-banner-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-5) var(--space-8);
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border: none;
+      border-radius: var(--radius-xl);
+      color: white;
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 0 #1e40af, 0 8px 24px rgba(59, 130, 246, 0.4);
+    }
+
+    .start-banner-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 0 #1e40af, 0 10px 28px rgba(59, 130, 246, 0.5);
+    }
+
+    .start-banner-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 #1e40af, 0 4px 16px rgba(59, 130, 246, 0.4);
+    }
+
+    .banner-emoji {
+      font-size: var(--text-4xl);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .banner-text {
+      line-height: 1.2;
+    }
+
+    /* Dice Container */
+    .dice-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-8);
+      padding: var(--space-6);
+      margin: var(--space-6) auto;
+    }
+
+    .dice {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #ffffff, #f3f4f6);
+      border: 4px solid var(--color-neutral-600);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 8px 0 var(--color-neutral-600), 0 12px 24px rgba(0, 0, 0, 0.2);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 4px;
+      padding: 12px;
+    }
+
+    .dice-dot {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--color-neutral-900);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    /* Dice patterns based on data-value attribute */
+    .dice[data-value="1"] .dice-dot:nth-child(5) { opacity: 1; }
+    .dice[data-value="2"] .dice-dot:nth-child(1),
+    .dice[data-value="2"] .dice-dot:nth-child(9) { opacity: 1; }
+    .dice[data-value="3"] .dice-dot:nth-child(1),
+    .dice[data-value="3"] .dice-dot:nth-child(5),
+    .dice[data-value="3"] .dice-dot:nth-child(9) { opacity: 1; }
+    .dice[data-value="4"] .dice-dot:nth-child(1),
+    .dice[data-value="4"] .dice-dot:nth-child(3),
+    .dice[data-value="4"] .dice-dot:nth-child(7),
+    .dice[data-value="4"] .dice-dot:nth-child(9) { opacity: 1; }
+    .dice[data-value="5"] .dice-dot:nth-child(1),
+    .dice[data-value="5"] .dice-dot:nth-child(3),
+    .dice[data-value="5"] .dice-dot:nth-child(5),
+    .dice[data-value="5"] .dice-dot:nth-child(7),
+    .dice[data-value="5"] .dice-dot:nth-child(9) { opacity: 1; }
+    .dice[data-value="6"] .dice-dot:nth-child(1),
+    .dice[data-value="6"] .dice-dot:nth-child(3),
+    .dice[data-value="6"] .dice-dot:nth-child(4),
+    .dice[data-value="6"] .dice-dot:nth-child(6),
+    .dice[data-value="6"] .dice-dot:nth-child(7),
+    .dice[data-value="6"] .dice-dot:nth-child(9) { opacity: 1; }
+
+    /* Rolling animation */
+    .dice.rolling {
+      animation: roll 1s ease-out;
+    }
+
+    @keyframes roll {
+      0% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(90deg) scale(0.9); }
+      50% { transform: rotate(180deg) scale(1.1); }
+      75% { transform: rotate(270deg) scale(0.9); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .plus-sign {
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+    }
+
+    /* Question Display */
+    .question-display {
+      text-align: center;
+      padding: var(--space-4);
+      margin: var(--space-6) auto;
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 3px solid #fbbf24;
+      border-radius: var(--radius-lg);
+      max-width: 400px;
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: #78350f;
+    }
+
+    /* Choices Container */
+    .choices-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin: var(--space-6) auto;
+      max-width: 400px;
+    }
+
+    .choice-btn {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      border: 3px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      font-family: var(--font-secondary);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 var(--color-primary-light);
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 var(--color-primary-light);
+      background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+    }
+
+    .choice-btn:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: 0 2px 0 var(--color-primary-light);
+    }
+
+    .choice-btn:disabled {
+      cursor: not-allowed;
+    }
+
+    .choice-btn.correct {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      border-color: #6ee7b7;
+      color: #059669;
+      animation: pop 0.4s ease;
+    }
+
+    .choice-btn.incorrect {
+      background: linear-gradient(135deg, #fecaca, #fca5a5);
+      border-color: #f87171;
+      color: #dc2626;
+      animation: shake 0.5s ease;
+    }
+
+    /* Animations */
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    /* Activity area needs padding for feedback */
+    .activity-area {
+      padding-bottom: calc(var(--space-8) + 60px);
+    }
+
+    /* Feedback at bottom */
+    .feedback-message {
+      position: absolute;
+      bottom: var(--space-4);
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      max-width: 90%;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .start-banner-btn {
+        font-size: var(--text-xl);
+        padding: var(--space-4) var(--space-6);
+      }
+
+      .banner-emoji {
+        font-size: var(--text-3xl);
+      }
+
+      .dice-container {
+        gap: var(--space-6);
+        padding: var(--space-4);
+      }
+
+      .dice {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+      }
+
+      .plus-sign {
+        font-size: var(--text-3xl);
+      }
+
+      .question-display {
+        font-size: var(--text-lg);
+        padding: var(--space-3);
+      }
+
+      .choices-container {
+        gap: var(--space-3);
+        max-width: 320px;
+      }
+
+      .choice-btn {
+        min-height: 70px;
+        font-size: var(--text-2xl);
+      }
+
+      .feedback-message {
+        font-size: var(--text-sm);
+        padding: var(--space-2) var(--space-3);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .start-banner-btn {
+        font-size: var(--text-lg);
+        padding: var(--space-3) var(--space-5);
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+
+      .dice-container {
+        gap: var(--space-4);
+        flex-direction: column;
+      }
+
+      .dice {
+        width: 90px;
+        height: 90px;
+        padding: 8px;
+      }
+
+      .plus-sign {
+        font-size: var(--text-2xl);
+        transform: rotate(0deg);
+      }
+
+      .choices-container {
+        gap: var(--space-2);
+      }
+
+      .choice-btn {
+        min-height: 60px;
+        font-size: var(--text-xl);
+      }
+    }
+  </style>
+</body>
+</html>

@@ -3,46 +3,775 @@
   "description": "Bước đầu đếm số, cộng và tìm quy luật",
   "levels": {
     "level1": {
-      "title": "Cấp 1",
-      "description": "Số đến 20"
+      "title": "Số đến 120 & Giá trị vị trí",
+      "goal": "Hiểu số đến 120, nhận biết giá trị vị trí và so sánh số có hai chữ số.",
+      "learnMore": {
+        "g1-l1-big-idea": {
+          "title": "Ý tưởng lớn",
+          "content": "Số cho biết \"bao nhiêu,\" và chúng cũng có cấu trúc. Ở Lớp 1, trẻ học rằng **số có hai chữ số là chục và đơn vị** (ví dụ 47 = 4 chục và 7 đơn vị). Điều này giúp việc đếm đến 120, so sánh và tìm quy luật dễ dàng hơn."
+        },
+        "g1-l1-notice": {
+          "title": "Những điều cần chú ý",
+          "content": "* Đếm tiến từ bất kỳ số nào (không chỉ từ 1).\n* Có thể nói một số như \"__ chục và __ đơn vị.\"\n* So sánh bằng cách xem chục trước (82 > 79 vì 8 chục > 7 chục).\n* Đếm nhảy 10 và nhận biết quy luật (10, 20, 30…).\n* Nhận thấy quy luật trên bảng 120 (chữ số hàng đơn vị giống nhau theo cột)."
+        },
+        "g1-l1-home": {
+          "title": "Thử ở nhà",
+          "content": "* **Trò chơi A (đồ vật, ý tưởng cốt lõi): \"Bó chục\"**\n  Lấy 30–60 vật nhỏ (đậu/tiền xu/ống hút). Bó thành từng chục 10 (dùng cốc hoặc dây thun). Hỏi:\n  \"Có bao nhiêu **chục**? Bao nhiêu **đơn vị**? Đó là số mấy?\"\n* **Trò chơi B (biểu diễn thứ hai): \"Nhảy +10 / +1\"**\n  Vẽ trục số 0–120. Chọn điểm bắt đầu (ví dụ 34). Lần lượt gọi \"+10\" hoặc \"+1\" và nhảy quân cờ. Hỏi: \"Chúng ta đến đâu? Điều gì đã thay đổi?\""
+        },
+        "g1-l1-videos": {
+          "title": "Video tùy chọn",
+          "content": "**Tìm kiếm trên YouTube:**\n* <a href='https://www.youtube.com/results?search_query=tens+and+ones+base+ten+blocks+for+kids' target='_blank' rel='noopener noreferrer'>tens and ones base ten blocks for kids</a>\n* <a href='https://www.youtube.com/results?search_query=120+chart+patterns+for+kids' target='_blank' rel='noopener noreferrer'>120 chart patterns for kids</a>\n* <a href='https://www.youtube.com/results?search_query=counting+to+120+starting+from+any+number' target='_blank' rel='noopener noreferrer'>counting to 120 starting from any number</a>\n* <a href='https://www.youtube.com/results?search_query=greater+than+less+than+for+kids' target='_blank' rel='noopener noreferrer'>greater than less than for kids</a>"
+        }
+      }
     },
     "level2": {
-      "title": "Cấp 2",
-      "description": "Phép cộng trong phạm vi 20"
+      "title": "Phép cộng trong phạm vi 20",
+      "goal": "Phát triển kỹ năng thành thạo phép cộng đến 20 sử dụng nhiều chiến lược.",
+      "learnMore": {
+        "g1-l2-big-idea": {
+          "title": "Ý tưởng lớn",
+          "content": "Phép cộng có nghĩa là \"gộp lại\" hoặc \"tất cả bao nhiêu.\" Mục tiêu không chỉ là đáp án—mà là xây dựng một vài chiến lược thân thiện (đếm tiếp, tạo mười, nhân đôi) để các tổng đến 20 trở nên tự nhiên."
+        },
+        "g1-l2-notice": {
+          "title": "Những điều cần chú ý",
+          "content": "* Bắt đầu đếm từ số lớn hơn (đếm tiếp).\n* Sử dụng **tạo mười** (8 + 5 → 10 + 3).\n* Nhận biết phép nhân đôi nhanh chóng (6 + 6, 7 + 7).\n* Có thể thể hiện suy nghĩ bằng đồ vật, vẽ nhanh hoặc trục số.\n* Bài toán có lời văn: có thể giải thích \"tất cả / tổng cộng\" nghĩa là gì."
+        },
+        "g1-l2-home": {
+          "title": "Thử ở nhà",
+          "content": "* **Trò chơi A (ý tưởng cốt lõi): \"Tạo 10 trước\"**\n  Vẽ khung 10 ô (2 hàng 5 cột). Hiển thị 7 chấm, sau đó thêm 5 chấm. Hỏi:\n  \"Cần bao nhiêu để đầy 10? Còn lại bao nhiêu? Vậy 7 + 5 = 10 + __.\"\n* **Trò chơi B (biểu diễn thứ hai): \"Nhảy trên trục số\"**\n  Vẽ 0–20. Với 8 + 6: bắt đầu ở 8, nhảy +6. Sau đó thử hai lần nhảy (+2, +4) và nhận thấy tổng giống nhau."
+        },
+        "g1-l2-videos": {
+          "title": "Video tùy chọn",
+          "content": "**Tìm kiếm trên YouTube:**\n* <a href='https://www.youtube.com/results?search_query=make+ten+strategy+for+kids' target='_blank' rel='noopener noreferrer'>make ten strategy for kids</a>\n* <a href='https://www.youtube.com/results?search_query=number+line+addition+grade+1' target='_blank' rel='noopener noreferrer'>number line addition grade 1</a>\n* <a href='https://www.youtube.com/results?search_query=doubles+facts+addition+for+kids' target='_blank' rel='noopener noreferrer'>doubles facts addition for kids</a>\n* <a href='https://www.youtube.com/results?search_query=addition+within+20+strategies+for+kids' target='_blank' rel='noopener noreferrer'>addition within 20 strategies for kids</a>"
+        }
+      }
     },
     "level3": {
-      "title": "Cấp 3",
-      "description": "Phép trừ cơ bản"
+      "title": "Phép trừ trong phạm vi 20",
+      "goal": "Phát triển kỹ năng thành thạo phép trừ đến 20 và hiểu mối quan hệ giữa phép cộng và phép trừ.",
+      "learnMore": {
+        "g1-l3-big-idea": {
+          "title": "Ý tưởng lớn",
+          "content": "Phép trừ có thể nghĩa là \"lấy đi\" **hoặc** \"tìm hiệu số.\" Nó cũng kết nối với phép cộng: nếu 8 + 5 = 13, thì 13 − 8 = 5. Những kết nối này xây dựng sự tự tin và khả năng hiểu số."
+        },
+        "g1-l3-notice": {
+          "title": "Những điều cần chú ý",
+          "content": "* Có thể thực hiện bằng đồ vật (bắt đầu, lấy đi, còn lại gì).\n* Có thể nhảy lùi trên trục số.\n* Hiểu \"còn thêm bao nhiêu?\" là so sánh/hiệu số.\n* Dùng phép cộng để kiểm tra phép trừ (kết quả + phần = tổng).\n* Thoải mái với bài toán \"phần còn thiếu\" (5 + __ = 8)."
+        },
+        "g1-l3-home": {
+          "title": "Thử ở nhà",
+          "content": "* **Trò chơi A (ý tưởng cốt lõi): \"Lấy đi đồ ăn nhẹ\"**\n  Đặt 12 đồ ăn nhẹ vào đĩa. Lấy đi 4. Hỏi \"Còn lại bao nhiêu?\" Đổi vai.\n* **Trò chơi B (biểu diễn thứ hai): \"So sánh theo cặp\"**\n  Làm hai đống (9 và 6). Xếp thành từng cặp. Đếm phần còn lại. Nói:\n  \"9 nhiều hơn 6 là __.\""
+        },
+        "g1-l3-videos": {
+          "title": "Video tùy chọn",
+          "content": "**Tìm kiếm trên YouTube:**\n* <a href='https://www.youtube.com/results?search_query=subtraction+within+20+using+number+line' target='_blank' rel='noopener noreferrer'>subtraction within 20 using a number line</a>\n* <a href='https://www.youtube.com/results?search_query=fact+families+addition+and+subtraction+for+kids' target='_blank' rel='noopener noreferrer'>fact families addition and subtraction for kids</a>\n* <a href='https://www.youtube.com/results?search_query=how+many+more+subtraction+for+kids' target='_blank' rel='noopener noreferrer'>how many more subtraction for kids</a>\n* <a href='https://www.youtube.com/results?search_query=think+addition+to+solve+subtraction+for+kids' target='_blank' rel='noopener noreferrer'>think addition to solve subtraction for kids</a>"
+        }
+      }
     },
     "level4": {
-      "title": "Cấp 4",
-      "description": "Giá trị vị trí"
+      "title": "Bài toán có lời văn & Dấu bằng",
+      "goal": "Giải bài toán có lời văn về phép cộng và phép trừ, và hiểu ý nghĩa của dấu bằng.",
+      "learnMore": {
+        "g1-l4-big-idea": {
+          "title": "Ý tưởng lớn",
+          "content": "Bài toán có lời văn mang toán học vào cuộc sống. Dấu bằng có nghĩa là **\"giống nhau,\"** không phải \"đáp án đến tiếp theo.\" Trẻ học cách biểu diễn câu chuyện bằng hình vẽ và phương trình, đôi khi với một số bí ẩn."
+        },
+        "g1-l4-notice": {
+          "title": "Những điều cần chú ý",
+          "content": "* Kể lại câu chuyện: chuyện gì xảy ra trước, gì thay đổi, hỏi gì.\n* Vẽ hình đơn giản trước khi tính (vòng tròn/ô/gạch).\n* Hiểu phương trình như □ + 3 = 9 hoặc 10 = 6 + 4.\n* Chọn + hoặc − dựa trên tình huống (không chỉ tìm từ khóa)."
+        },
+        "g1-l4-home": {
+          "title": "Thử ở nhà",
+          "content": "* **Trò chơi A (ý tưởng cốt lõi): \"Vẽ câu chuyện\"**\n  Nói: \"Mình có 6 nhãn dán. Mẹ cho thêm 3 nhãn.\"\n  Con vẽ 6 vòng tròn, rồi 3 vòng tròn, rồi viết: `6 + 3 = __`.\n* **Trò chơi B (biểu diễn thứ hai / hằng ngày): \"Cân bằng phương trình\"**\n  Đặt tổng 5 đồng xu, hiện 2 đồng, giấu phần còn lại dưới cốc:\n  \"2 + □ = 5. Có bao nhiêu đang giấu?\""
+        },
+        "g1-l4-videos": {
+          "title": "Video tùy chọn",
+          "content": "**Tìm kiếm trên YouTube:**\n* <a href='https://www.youtube.com/results?search_query=equal+sign+means+the+same+as+for+kids' target='_blank' rel='noopener noreferrer'>equal sign means the same as for kids</a>\n* <a href='https://www.youtube.com/results?search_query=grade+1+word+problems+draw+a+picture' target='_blank' rel='noopener noreferrer'>grade 1 word problems draw a picture</a>\n* <a href='https://www.youtube.com/results?search_query=missing+number+equations+for+kids' target='_blank' rel='noopener noreferrer'>missing number equations for kids</a>\n* <a href='https://www.youtube.com/results?search_query=more+and+fewer+comparison+word+problems+for+kids' target='_blank' rel='noopener noreferrer'>more and fewer comparison word problems for kids</a>"
+        }
+      }
     },
     "level5": {
-      "title": "Cấp 5",
-      "description": "Bài toán có lời văn"
+      "title": "Đo lường, Thời gian & Hình học",
+      "goal": "Đo chiều dài, xem giờ, đọc biểu đồ, và nhận biết hình và đặc điểm của chúng.",
+      "learnMore": {
+        "g1-l5-big-idea": {
+          "title": "Ý tưởng lớn",
+          "content": "Cấp độ này là \"toán bạn có thể chạm vào.\" Trẻ so sánh và đo chiều dài, xem giờ, đọc biểu đồ đơn giản và mô tả hình. Những kỹ năng này phát triển tốt nhất qua thực hành nhỏ hằng ngày trong cuộc sống thực."
+        },
+        "g1-l5-notice": {
+          "title": "Những điều cần chú ý",
+          "content": "* Đo bằng cách căn chỉnh đầu và đếm đơn vị **không khoảng cách/chồng lên**.\n* Với giờ, kiểm tra kim giờ trước, rồi kim phút.\n* Đọc biểu đồ: có thể trả lời \"nhiều nhất/ít nhất/nhiều hơn bao nhiêu.\"\n* Gọi tên hình và mô tả cạnh/góc.\n* Với nửa/tư, kiểm tra các phần thực sự bằng nhau."
+        },
+        "g1-l5-home": {
+          "title": "Thử ở nhà",
+          "content": "* **Trò chơi A (ý tưởng cốt lõi): \"Đo bằng kẹp giấy\"**\n  Đo 2–3 đồ vật (bút chì, thìa, sách) bằng kẹp giấy. Hỏi:\n  \"Dài bao nhiêu kẹp? Cái nào dài hơn?\"\n* **Trò chơi B (cuộc sống hằng ngày): \"Kiểm tra đồng hồ\"**\n  Hai lần hôm nay, hỏi: \"Mấy giờ rồi?\"\n  Lần đầu: chỉ giờ. Lần hai: giờ + rưỡi nếu có. Thêm: \"Một giờ nữa sẽ là mấy giờ?\""
+        },
+        "g1-l5-videos": {
+          "title": "Video tùy chọn",
+          "content": "**Tìm kiếm trên YouTube:**\n* <a href='https://www.youtube.com/results?search_query=measuring+with+nonstandard+units+for+kids' target='_blank' rel='noopener noreferrer'>measuring with nonstandard units for kids</a>\n* <a href='https://www.youtube.com/results?search_query=telling+time+to+the+hour+and+half+hour+for+kids' target='_blank' rel='noopener noreferrer'>telling time to the hour and half hour for kids</a>\n* <a href='https://www.youtube.com/results?search_query=how+to+read+a+bar+graph+for+kids' target='_blank' rel='noopener noreferrer'>how to read a bar graph for kids</a>\n* <a href='https://www.youtube.com/results?search_query=2d+shapes+sides+and+corners+for+kids' target='_blank' rel='noopener noreferrer'>2d shapes sides and corners for kids</a>\n* <a href='https://www.youtube.com/results?search_query=halves+and+fourths+equal+shares+for+kids' target='_blank' rel='noopener noreferrer'>halves and fourths equal shares for kids</a>"
+        }
+      }
     }
   },
   "activities": {
-    "additionFacts": {
-      "title": "Bảng cộng",
-      "description": "Luyện tập cộng số",
-      "instruction": "Tổng là bao nhiêu?"
+    "count-to-twenty": {
+      "title": "Đếm đến 20",
+      "description": "Chạm vào các ngôi sao để đếm từ 1 đến 20!"
     },
-    "subtractionFacts": {
-      "title": "Bảng trừ",
-      "description": "Luyện tập phép trừ",
-      "instruction": "Còn lại bao nhiêu?"
+    "number-order": {
+      "title": "Sắp xếp số",
+      "description": "Chọn dãy số theo đúng thứ tự!",
+      "instruction": "Chọn dãy số đi từ nhỏ đến lớn.",
+      "prompt": "Dãy nào được sắp xếp từ nhỏ đến lớn?",
+      "question": "Vòng {round} / {total}"
     },
-    "placeValueBlocks": {
-      "title": "Khối giá trị vị trí",
-      "description": "Học hàng chục và hàng đơn vị",
-      "instruction": "Có mấy chục? Có mấy đơn vị?"
+    "tens-ones-blocks": {
+      "title": "Khối hàng chục và đơn vị",
+      "description": "Có mấy chục? Có mấy đơn vị?",
+      "howMany": "Có mấy chục và mấy đơn vị?",
+      "tens": "Hàng chục",
+      "ones": "Hàng đơn vị",
+      "tensWord": "chục",
+      "onesWord": "đơn vị",
+      "and": "và"
     },
-    "numberPatterns": {
-      "title": "Quy luật số",
-      "description": "Tìm quy luật và tiếp tục",
-      "instruction": "Số tiếp theo là gì?"
+    "number-match": {
+      "title": "Ghép số",
+      "description": "Ghép số với số lượng đúng!",
+      "instruction": "Chạm vào một số, rồi chạm vào nhóm đồ vật phù hợp!",
+      "selectNumberFirst": "Hãy chọn một số trước!"
+    },
+    "greater-or-less": {
+      "title": "Lớn hơn hay Nhỏ hơn",
+      "description": "Số nào lớn hơn? Số nào nhỏ hơn?",
+      "instruction": "Chọn dấu đúng!",
+      "lessThan": "Nhỏ hơn",
+      "equalTo": "Bằng",
+      "greaterThan": "Lớn hơn",
+      "leftIsLess": "(bên trái nhỏ hơn)",
+      "leftIsGreater": "(bên trái lớn hơn)",
+      "areEqual": "(chúng bằng nhau)"
+    },
+    "count-by-tens": {
+      "title": "Đếm nhảy 10",
+      "description": "Đếm nhảy mỗi 10 để đạt mục tiêu!",
+      "instruction": "Điền các số còn thiếu!",
+      "wellDone": "Bạn đếm nhảy 10 hoàn hảo!",
+      "checkPattern": "Hãy xem quy luật - mỗi số tăng thêm 10!"
+    },
+    "missing-number-sequence": {
+      "title": "Số còn thiếu",
+      "description": "Tìm số đang ẩn!",
+      "instruction": "Số nào còn thiếu?",
+      "pattern": "Quy luật:",
+      "patternHint": "+1",
+      "wellDone": "Bạn đã tìm ra!",
+      "correctIs": "Số đúng là {n}."
+    },
+    "hundred-chart": {
+      "title": "Tìm số trên bảng 120",
+      "description": "Tìm số trên bảng 120!",
+      "findNumber": "Tìm số {n}!",
+      "findTens": "Tìm tất cả các số có {n} chục!",
+      "findOnes": "Tìm tất cả các số có {n} đơn vị!",
+      "findRange": "Tìm tất cả các số từ {start} đến {end}!",
+      "findPattern": "Tìm tất cả các số trong khoảng {n}!",
+      "findMultiple": "Tìm các số này: {nums}!",
+      "findColumn": "Tìm tất cả các số trong cùng cột với {n}!",
+      "wellDone": "Bạn đã tìm được hết rồi!"
+    },
+    "add-with-pictures": {
+      "title": "Cộng với hình ảnh",
+      "description": "Đếm các vật để tìm tổng!",
+      "instruction": "Đếm tất cả các vật!",
+      "howMany": "{a} + {b} = ?",
+      "countAll": "Đếm tất cả để tìm tổng!",
+      "correct": "Đúng rồi! {a} + {b} = {sum}",
+      "tryAgain": "Chưa đúng! Đếm lại: {a} + {b} = {sum}"
+    },
+    "number-line-addition": {
+      "title": "Nhảy trên trục số",
+      "description": "Nhảy trên trục số để cộng!",
+      "instruction": "Xem chú ếch nhảy và tìm câu trả lời!",
+      "watchJump": "Xem chú ếch nhảy!",
+      "correct": "Đúng rồi! {a} + {b} = {sum}",
+      "tryAgain": "Chưa đúng! {a} + {b} = {sum}"
+    },
+    "make-ten": {
+      "title": "Tạo số 10",
+      "description": "Tìm cặp số tạo thành 10!",
+      "instruction": "Chọn số còn thiếu để được 10!",
+      "findPair": "Tìm số cộng với {n} để được 10!",
+      "practiceInstruction": "Tìm hai số bất kỳ tạo thành 10!",
+      "phaseLearn": "Giai đoạn học",
+      "phasePractice": "Giai đoạn luyện tập",
+      "pairsFound": "cặp đã tìm",
+      "correct": "Hoàn hảo! {a} + {b} = 10",
+      "tryAgain": "Chưa đúng! Tổng là {sum}, không phải 10!",
+      "complete": "Tuyệt vời! Bạn đã tìm được tất cả các cặp tạo thành 10! Đúng: {correct}, Sai: {incorrect}"
+    },
+    "addition-facts": {
+      "title": "Luyện phép cộng nhanh",
+      "description": "Nhanh lên! Tổng là bao nhiêu?",
+      "correct": "Nhanh thật! {a} + {b} = {sum}",
+      "wrong": "Chưa đúng! {a} + {b} = {sum}",
+      "perfect": "Hoàn hảo! Bạn làm đúng tất cả! 🎉",
+      "great": "Tuyệt vời! Bạn rất nhanh với phép cộng!",
+      "good": "Làm tốt lắm! Hãy tiếp tục luyện tập để nhanh hơn!",
+      "keepPracticing": "Hãy tiếp tục luyện tập! Bạn sẽ nhanh hơn với nhiều luyện tập!"
+    },
+    "doubles-addition": {
+      "title": "Cộng số đôi",
+      "description": "Gấp đôi thật vui! Cộng cùng một số hai lần!",
+      "question": "Gấp đôi của {n} là bao nhiêu?",
+      "correct": "✓ Đúng rồi! {n} + {n} = {answer}",
+      "wrong": "Chưa đúng! {n} + {n} = {answer}",
+      "perfect": "Hoàn hảo! Con biết hết tất cả các số đôi!",
+      "great": "Giỏi lắm! Con làm rất tốt với các số đôi!",
+      "good": "Làm tốt lắm! Tiếp tục luyện tập các số đôi nhé!",
+      "keepPracticing": "Tiếp tục luyện tập! Các số đôi sẽ dễ hơn với việc luyện tập!"
+    },
+    "dice-addition": {
+      "title": "Cộng với xúc xắc",
+      "description": "Lăn hai xúc xắc và cộng các chấm!",
+      "clickToRoll": "Nhấn vào đây để lăn xúc xắc!",
+      "whatIsSum": "Tổng là bao nhiêu?",
+      "correct": "✓ Đúng rồi! {a} + {b} = {sum}",
+      "wrong": "Chưa đúng! {a} + {b} = {sum}",
+      "perfect": "Hoàn hảo! Con thật giỏi cộng xúc xắc!",
+      "great": "Giỏi lắm! Con cộng xúc xắc rất tốt!",
+      "good": "Làm tốt lắm! Tiếp tục luyện tập cộng xúc xắc nhé!",
+      "keepPracticing": "Tiếp tục luyện tập! Cộng xúc xắc sẽ dễ hơn!"
+    },
+    "add-three-numbers": {
+      "title": "Cộng ba số",
+      "description": "Cộng ba số với nhau!",
+      "hint": "Tìm cặp số tạo thành 10!",
+      "correct": "Đúng rồi! {a} + {b} + {c} = {sum}",
+      "wrong": "Chưa đúng! {a} + {b} + {c} = {sum}",
+      "perfect": "Hoàn hảo! Con thật giỏi cộng ba số!",
+      "great": "Tuyệt vời! Con cộng ba số rất tốt!",
+      "good": "Làm tốt lắm! Hãy tiếp tục luyện tập cộng ba số!",
+      "keepPracticing": "Tiếp tục luyện tập nhé! Cộng ba số sẽ dễ hơn!"
+    },
+    "addition-stories": {
+      "title": "Câu chuyện phép cộng",
+      "description": "Đọc câu chuyện và cộng!",
+      "stories": {
+        "crayons": "Sam có {a} cây bút màu. Mẹ cho Sam thêm {b} cây nữa. Hỏi Sam có tất cả bao nhiêu cây bút màu?",
+        "birds": "Emma nhìn thấy {a} con chim trên cây. Sau đó có thêm {b} con chim bay đến. Hỏi có tất cả bao nhiêu con chim?",
+        "toyCars": "Jake có {a} chiếc ô tô đồ chơi. Bạn của Jake cho Jake thêm {b} chiếc nữa. Hỏi Jake có tất cả bao nhiêu chiếc ô tô đồ chơi?",
+        "apples": "Trong giỏ có {a} quả táo. Bố cho thêm {b} quả táo vào giỏ. Hỏi trong giỏ có tất cả bao nhiêu quả táo?",
+        "books": "Lily đọc {a} quyển sách vào thứ Hai. Lily đọc {b} quyển sách vào thứ Ba. Hỏi Lily đã đọc tất cả bao nhiêu quyển sách?",
+        "flowers": "Trong vườn có {a} bông hoa. Mẹ trồng thêm {b} bông hoa nữa. Hỏi trong vườn có tất cả bao nhiêu bông hoa?",
+        "stickers": "Ben có {a} miếng dán. Chị gái cho Ben thêm {b} miếng dán nữa. Hỏi Ben có tất cả bao nhiêu miếng dán?",
+        "cookies": "Trên đĩa có {a} chiếc bánh quy. Bố nướng thêm {b} chiếc nữa. Hỏi có tất cả bao nhiêu chiếc bánh quy?"
+      },
+      "correct": "Đúng rồi! {a} + {b} = {sum}",
+      "wrong": "Chưa đúng! {a} + {b} = {sum}",
+      "perfect": "Hoàn hảo! Con giải các bài toán có lời văn rất tuyệt vời!",
+      "great": "Giỏi lắm! Con làm bài toán có lời văn rất tốt!",
+      "good": "Làm tốt lắm! Hãy tiếp tục luyện tập bài toán có lời văn!",
+      "keepPracticing": "Tiếp tục luyện tập nhé! Bài toán có lời văn sẽ dễ hơn!"
+    },
+    "take-away-visual": {
+      "title": "Lấy đi vật",
+      "description": "Xem một số vật biến mất!",
+      "clickToStart": "🎈 Nhấn vào đây để xem các vật biến mất!",
+      "correct": "Đúng rồi! {minuend} − {subtrahend} = {answer}",
+      "wrong": "Chưa đúng! {minuend} − {subtrahend} = {answer}",
+      "perfect": "Hoàn hảo! Con là ngôi sao phép trừ!",
+      "great": "Giỏi lắm! Con làm phép trừ rất tốt!",
+      "good": "Làm tốt lắm! Hãy tiếp tục luyện phép trừ!",
+      "keepPracticing": "Tiếp tục luyện tập nhé! Phép trừ sẽ dễ hơn!"
+    },
+    "subtraction-facts": {
+      "title": "Luyện phép trừ nhanh",
+      "description": "Nhanh lên! Còn lại bao nhiêu?",
+      "correct": "Nhanh quá! {a} − {b} = {diff}",
+      "wrong": "Chưa đúng! {a} − {b} = {diff}",
+      "perfect": "Hoàn hảo! Bạn làm đúng tất cả! 🎉",
+      "great": "Xuất sắc! Bạn trừ rất nhanh!",
+      "good": "Tốt lắm! Cứ luyện tập để nhanh hơn nữa!",
+      "keepPracticing": "Cứ luyện tập! Bạn sẽ nhanh hơn với nhiều bài tập hơn!"
+    },
+    "number-line-subtraction": {
+      "title": "Đếm lùi trên trục số",
+      "description": "Nhảy lùi trên trục số!",
+      "instruction": "Xem con rùa nhảy lùi và tìm câu trả lời!",
+      "watchJump": "Xem Nhảy!",
+      "correct": "Đúng rồi! {a} − {b} = {diff}",
+      "tryAgain": "Chưa đúng! {a} − {b} = {diff}"
+    },
+    "related-facts": {
+      "title": "Phép tính liên quan",
+      "description": "Phép cộng và phép trừ là bạn!",
+      "givenFact": "Phép tính cho trước:",
+      "findRelated": "Tìm phép tính liên quan:",
+      "correct": "Chính xác! Đáp án là {answer}!",
+      "wrong": "Chưa đúng! Đáp án là {answer}.",
+      "perfect": "Hoàn hảo! Bạn hiểu rất rõ về nhóm phép tính! 🎉",
+      "great": "Tuyệt vời! Bạn thật sự hiểu mối liên hệ giữa phép cộng và phép trừ!",
+      "good": "Làm tốt lắm! Hãy tiếp tục luyện tập nhóm phép tính!",
+      "keepPracticing": "Tiếp tục luyện tập! Nhóm phép tính sẽ trở nên dễ hơn với nhiều luyện tập!"
+    },
+    "missing-part": {
+      "title": "Phần còn thiếu",
+      "description": "Tìm số còn thiếu!",
+      "hint": "Số nào làm cho điều này đúng?",
+      "visualHint": "{num1} khối + ? khối nữa = {total} tổng cộng",
+      "correct": "Đúng rồi! {num1} + {answer} = {total}",
+      "wrong": "Chưa đúng! {num1} + {answer} = {total}",
+      "perfect": "Hoàn hảo! Bạn tìm được tất cả các phần còn thiếu! 🎉",
+      "great": "Làm tốt lắm! Bạn rất giỏi tìm số còn thiếu!",
+      "good": "Làm tốt! Hãy luyện tập để giỏi hơn nữa!",
+      "keepPracticing": "Hãy tiếp tục luyện tập! Tìm phần còn thiếu sẽ dễ hơn!"
+    },
+    "subtract-from-ten": {
+      "title": "Trừ từ 10",
+      "description": "Lấy đi từ 10!",
+      "frameLabel": "Bắt đầu với 10, lấy đi {n}",
+      "correct": "🎯 Đúng rồi! 10 − {n} = {answer}",
+      "wrong": "Chưa đúng! 10 − {n} = {answer}",
+      "perfect": "🌟 Hoàn hảo! Bạn đã biết tất cả phép trừ từ 10!",
+      "great": "Xuất sắc! Bạn đang thành thạo trừ từ 10!",
+      "good": "Làm tốt! Hãy tiếp tục luyện những phép tính quan trọng này!",
+      "keepPracticing": "Hãy tiếp tục luyện tập! Những phép tính này sẽ trở nên tự động!"
+    },
+    "how-many-more": {
+      "title": "Hơn bao nhiêu?",
+      "description": "So sánh và tìm hiệu số!",
+      "howManyMore": "Nhóm A có nhiều hơn Nhóm B bao nhiêu {items}?",
+      "correct": "Chính xác! Nhóm A có nhiều hơn Nhóm B {difference}.",
+      "wrong": "Chưa đúng! Hiệu số là {difference}. ({groupA} - {groupB} = {difference})",
+      "perfect": "Hoàn hảo! Bạn là chuyên gia so sánh!",
+      "great": "Làm tốt lắm! Bạn hiểu về hiệu số!",
+      "good": "Làm tốt! Hãy tiếp tục luyện tập so sánh!",
+      "keepPracticing": "Hãy tiếp tục luyện tập! So sánh sẽ dễ dàng hơn!"
+    },
+    "think-addition": {
+      "title": "Nghĩ đến phép cộng",
+      "description": "Dùng phép cộng để giúp bạn trừ!",
+      "subtractionProblem": "Bài toán phép trừ:",
+      "thinkAddition": "Nghĩ:",
+      "correct": "Chính xác! {minuend} − {subtrahend} = {answer}",
+      "wrong": "Chưa đúng! {minuend} − {subtrahend} = {answer}",
+      "perfect": "Hoàn hảo! Bạn là chuyên gia phép trừ! 🎉",
+      "great": "Làm tốt lắm! Bạn hiểu rất rõ cách dùng phép cộng để trừ!",
+      "good": "Làm tốt! Hãy tiếp tục luyện tập chiến lược này!",
+      "keepPracticing": "Hãy tiếp tục luyện tập! Chiến lược này sẽ dễ dàng hơn!"
+    },
+    "subtraction-stories": {
+      "title": "Câu chuyện phép trừ",
+      "description": "Đọc câu chuyện và trừ!",
+      "stories": {
+        "stickers": "Emma có {a} nhãn dán. Bạn ấy tặng {b} nhãn cho bạn. Emma còn lại bao nhiêu nhãn dán?",
+        "balloons": "Jake có {a} quả bóng bay. {b} quả bóng bay bay mất. Jake còn lại bao nhiêu quả bóng bay?",
+        "cookies": "Có {a} cái bánh trên đĩa. Mẹ ăn {b} cái bánh. Còn lại bao nhiêu cái bánh?",
+        "apples": "Sam hái được {a} quả táo. Bạn ấy tặng {b} quả táo cho cô giáo. Sam còn lại bao nhiêu quả táo?",
+        "toyCars": "Ben có {a} xe đồ chơi. Bạn ấy cho em trai {b} chiếc xe. Ben còn lại bao nhiêu xe đồ chơi?",
+        "flowers": "Có {a} bông hoa trong lọ. {b} bông hoa bị héo. Còn bao nhiêu bông hoa tươi?",
+        "pencils": "Lily có {a} cây bút chì. Bạn ấy làm mất {b} cây bút. Lily còn lại bao nhiêu cây bút chì?",
+        "cupcakes": "Bố nướng {a} cái bánh cupcake. Gia đình ăn {b} cái bánh. Còn lại bao nhiêu cái bánh?"
+      },
+      "correct": "Đúng rồi! {a} − {b} = {answer}",
+      "wrong": "Chưa đúng! {a} − {b} = {answer}",
+      "perfect": "Hoàn hảo! Con thật giỏi giải các bài toán trừ có lời văn!",
+      "great": "Làm rất tốt! Con thật giỏi các bài toán trừ có lời văn!",
+      "good": "Làm tốt lắm! Hãy tiếp tục luyện tập các bài toán trừ!",
+      "keepPracticing": "Hãy tiếp tục luyện tập! Các bài toán trừ sẽ dễ dàng hơn!"
+    },
+    "equal-sign": {
+      "title": "Khám phá dấu bằng",
+      "description": "Dấu bằng có nghĩa là 'bằng nhau'!",
+      "question": "Phương trình này đúng không?",
+      "true": "Đúng",
+      "false": "Sai",
+      "correct": "Đúng rồi! Hai bên bằng nhau!",
+      "correctFalse": "Chính xác! Hai bên KHÔNG bằng nhau!",
+      "wrong": "Chưa đúng! Hai bên bằng nhau mà.",
+      "wrongFalse": "Chưa đúng! Hai bên không bằng nhau.",
+      "perfect": "Hoàn hảo! Con hiểu dấu bằng hoàn toàn rồi! 🏆",
+      "great": "Làm rất tốt! Con thật sự hiểu dấu = có nghĩa là gì!",
+      "good": "Làm tốt lắm! Hãy tiếp tục luyện tập!",
+      "keepPracticing": "Hãy tiếp tục luyện tập! Hiểu dấu = sẽ dễ hơn!"
+    },
+    "balance-equation": {
+      "title": "Cân bằng phương trình",
+      "description": "Làm cho hai bên bằng nhau!",
+      "enterNumber": "Nhập số còn thiếu:",
+      "pleaseEnter": "Vui lòng nhập một số!",
+      "correct": "Hoàn hảo! Số còn thiếu là {n}!",
+      "wrong": "Chưa đúng! Đáp án đúng là {n}.",
+      "perfect": "Hoàn hảo! Con có thể cân bằng bất kỳ phương trình nào! 🏆",
+      "great": "Tuyệt lắm! Con hiểu cách cân bằng phương trình!",
+      "good": "Làm tốt lắm! Tiếp tục luyện tập nhé!",
+      "keepPracticing": "Tiếp tục luyện tập! Cân bằng phương trình sẽ dễ dàng hơn!"
+    },
+    "picture-problems": {
+      "title": "Bài toán hình ảnh",
+      "description": "Nhìn hình và giải!",
+      "addJoin": "{a} con chim trên cành. {b} con chim nữa bay đến. Có bao nhiêu con chim bây giờ?",
+      "addApples": "{a} quả táo trong giỏ. Thêm {b} quả táo nữa. Tổng cộng bao nhiêu quả táo?",
+      "addButterflies": "{a} con bướm trong vườn. {b} con bướm nữa đến. Tất cả có bao nhiêu con bướm?",
+      "addFlowers": "{a} bông hoa nở. Sau đó {b} bông hoa nữa nở. Bây giờ có bao nhiêu bông hoa?",
+      "subBalloons": "{a} quả bóng bay. {b} quả bóng bay bay đi. Còn lại bao nhiêu quả bóng?",
+      "subCookies": "{a} chiếc bánh quy trên đĩa. Ăn {b} chiếc bánh. Còn lại bao nhiêu chiếc bánh?",
+      "subStars": "{a} ngôi sao trên trời. {b} ngôi sao biến mất. Còn lại bao nhiêu ngôi sao?",
+      "subFish": "{a} con cá trong ao. {b} con cá bơi đi. Còn lại bao nhiêu con cá?",
+      "correct": "Đúng rồi! {a} {op} {b} = {answer}",
+      "tryAgain": "Chưa đúng! Đáp án là {answer}.",
+      "perfect": "Hoàn hảo! Bạn có thể giải mọi bài toán hình ảnh!",
+      "great": "Tuyệt vời! Bạn hiểu bài toán hình ảnh!",
+      "good": "Làm tốt lắm! Tiếp tục luyện tập!",
+      "keepPracticing": "Tiếp tục luyện tập! Bài toán hình ảnh sẽ dễ dàng hơn!"
+    },
+    "word-problem-mix": {
+      "title": "Hỗn hợp bài toán",
+      "description": "Đọc, suy nghĩ và giải!",
+      "addCookies": "Sam có {a} chiếc bánh quy. Mẹ cho Sam thêm {b} chiếc bánh quy nữa. Sam có tất cả bao nhiêu chiếc bánh quy?",
+      "addFlowers": "Có {a} bông hoa trong vườn. Thêm {b} bông hoa nở ra. Bây giờ có bao nhiêu bông hoa?",
+      "addBalloons": "Anna có {a} quả bóng bay. Bố mua cho Anna thêm {b} quả bóng bay nữa. Anna có bao nhiêu quả bóng bay?",
+      "addBooks": "Có {a} quyển sách màu xanh và {b} quyển sách màu đỏ trên kệ. Tổng cộng có bao nhiêu quyển sách?",
+      "addCaterpillars": "{a} con sâu bướm bò trên một chiếc lá. Thêm {b} con sâu bướm nữa tham gia. Bây giờ có bao nhiêu con sâu bướm?",
+      "subApples": "Tom có {a} quả táo. Tom ăn {b} quả táo. Còn lại bao nhiêu quả táo?",
+      "subBirds": "{a} con chim đậu trên hàng rào. {b} con chim bay đi. Còn lại bao nhiêu con chim?",
+      "subCrayons": "Emma có {a} bút chì màu. Emma cho bạn {b} bút chì màu. Emma còn lại bao nhiêu bút chì màu?",
+      "subStars": "Có {a} ngôi sao. {b} ngôi sao biến mất sau đám mây. Bạn có thể thấy bao nhiêu ngôi sao?",
+      "subStrawberries": "Ben hái {a} quả dâu. Ben chia sẻ {b} quả dâu cho bạn bè. Ben giữ lại bao nhiêu quả dâu?",
+      "correct": "Đúng rồi! {a} {op} {b} = {answer}",
+      "tryAgain": "Chưa đúng! Đáp án là {answer}.",
+      "perfect": "Hoàn hảo! Bạn có thể giải mọi bài toán!",
+      "great": "Làm tốt lắm! Bạn hiểu bài toán rồi!",
+      "good": "Làm tốt! Tiếp tục luyện tập!",
+      "keepPracticing": "Tiếp tục luyện tập! Bài toán sẽ dễ dàng hơn!"
+    },
+    "more-fewer-problems": {
+      "title": "Bài toán nhiều hơn và ít hơn",
+      "description": "Ai có nhiều hơn? Nhiều hơn bao nhiêu?",
+      "howManyMoreApples": "{person1} có {a} quả táo. {person2} có {b} quả táo. {person2} có nhiều hơn {person1} bao nhiêu quả táo?",
+      "howManyMoreBooks": "{person1} có {a} quyển sách. {person2} có {b} quyển sách. {person2} có nhiều hơn {person1} bao nhiêu quyển sách?",
+      "howManyMoreStars": "{person1} có {a} ngôi sao. {person2} có {b} ngôi sao. {person2} có nhiều hơn {person1} bao nhiêu ngôi sao?",
+      "howManyMoreBalloons": "{person1} có {a} quả bóng bay. {person2} có {b} quả bóng bay. {person2} có nhiều hơn {person1} bao nhiêu quả bóng bay?",
+      "fewerBooks": "{person1} có {a} quyển sách. {person2} có ít hơn {diff} quyển sách. {person2} có bao nhiêu quyển sách?",
+      "fewerCrayons": "{person1} có {a} bút chì màu. {person2} có ít hơn {diff} bút chì màu. {person2} có bao nhiêu bút chì màu?",
+      "fewerCookies": "{person1} có {a} chiếc bánh quy. {person2} có ít hơn {diff} chiếc bánh quy. {person2} có bao nhiêu chiếc bánh quy?",
+      "fewerFlowers": "{person1} có {a} bông hoa. {person2} có ít hơn {diff} bông hoa. {person2} có bao nhiêu bông hoa?",
+      "correct": "Đúng rồi! Đáp án là {answer}.",
+      "tryAgain": "Chưa đúng! Đáp án là {answer}.",
+      "explainMore": "{b} - {a} = {answer}",
+      "explainFewer": "{a} - {diff} = {answer}",
+      "perfect": "Hoàn hảo! Bạn hiểu nhiều hơn và ít hơn rồi!",
+      "great": "Làm tốt lắm! Bạn so sánh giỏi!",
+      "good": "Làm tốt! Tiếp tục luyện tập so sánh!",
+      "keepPracticing": "Tiếp tục luyện tập! So sánh sẽ dễ dàng hơn!"
+    },
+    "draw-to-solve": {
+      "title": "Vẽ để giải",
+      "description": "Vẽ hình tròn để giúp bạn giải!",
+      "drawHere": "Vẽ hình tròn ở đây để giúp bạn:",
+      "clickToAdd": "Click vào bất kỳ đâu để thêm hình tròn",
+      "clickCircleToRemove": "Click vào hình tròn để xóa",
+      "emptyCanvas": "Click để thêm hình tròn",
+      "tooManyCircles": "Nhiều hình tròn quá! Hãy đếm hoặc xóa bớt trước.",
+      "clearDrawing": "Xóa bản vẽ",
+      "yourAnswer": "Câu trả lời của bạn:",
+      "submit": "Nộp",
+      "pleaseEnter": "Vui lòng nhập một số!",
+      "toyCars": "Sam có {a} xe đồ chơi. Bạn anh ấy cho thêm {b} chiếc nữa. Sam có tất cả bao nhiêu xe đồ chơi?",
+      "birds": "Có {a} con chim trên cây. Có {b} con chim nữa đậu xuống. Bây giờ có bao nhiêu con chim?",
+      "stickers": "Emma có {a} sticker. Mẹ cho thêm {b} sticker nữa. Bây giờ Emma có bao nhiêu sticker?",
+      "cookies": "Jake có {a} bánh quy. Jake ăn {b} bánh. Jake còn lại bao nhiêu bánh quy?",
+      "apples": "Có {a} quả táo trong giỏ. Lấy ra {b} quả. Còn lại bao nhiêu quả táo trong giỏ?",
+      "balloons": "Ben có {a} quả bóng bay. {b} quả bóng bị vỡ. Bây giờ Ben còn bao nhiêu quả bóng bay?",
+      "correct": "Chính xác! {a} {op} {b} = {answer}",
+      "tryAgain": "Chưa đúng! Đáp án là {answer}. ({a} {op} {b} = {answer})",
+      "perfect": "Hoàn hảo! Bạn có thể giải bất kỳ bài toán nào bằng cách vẽ!",
+      "great": "Giỏi lắm! Vẽ hình giúp bạn giải bài toán!",
+      "good": "Làm tốt lắm! Tiếp tục dùng vẽ hình để giúp bạn!",
+      "keepPracticing": "Tiếp tục luyện tập! Vẽ hình giúp bài toán dễ hơn!"
+    },
+    "match-equation-story": {
+      "title": "Ghép phương trình với câu chuyện",
+      "description": "Phương trình nào khớp với câu chuyện?",
+      "addToys": "Mình có {a} đồ chơi. Mình nhận thêm {b} đồ chơi nữa.",
+      "addCookies": "Mẹ nướng {a} bánh quy. Sau đó mẹ nướng thêm {b} bánh quy nữa.",
+      "addBirds": "{a} con chim ở trên cây. Thêm {b} con chim bay đến.",
+      "addBooks": "Sam đọc {a} quyển sách tuần trước và {b} quyển sách tuần này.",
+      "addFlowers": "Có {a} bông hoa. Sau đó thêm {b} bông hoa nở ra.",
+      "subBalloons": "Mình có {a} quả bóng bay. {b} quả bóng bị vỡ.",
+      "subApples": "Có {a} quả táo trong giỏ. Tom ăn {b} quả táo.",
+      "subCrayons": "Emma có {a} bút chì màu. Emma cho bạn {b} bút chì màu.",
+      "subStars": "{a} ngôi sao đang sáng. Sau đó {b} ngôi sao biến mất.",
+      "subFish": "{a} con cá đang bơi. {b} con cá bơi đi.",
+      "correct": "Hoàn hảo! {equation} khớp với câu chuyện!",
+      "tryAgain": "Chưa đúng! Phương trình đúng là {equation}.",
+      "perfect": "Hoàn hảo! Bạn có thể ghép mọi phương trình với câu chuyện!",
+      "great": "Làm tốt lắm! Bạn hiểu cách phương trình biểu diễn câu chuyện!",
+      "good": "Làm tốt! Tiếp tục luyện tập!",
+      "keepPracticing": "Tiếp tục luyện tập! Ghép phương trình sẽ dễ hơn!"
+    },
+    "create-story": {
+      "title": "Tạo câu chuyện",
+      "description": "Phương trình này kể câu chuyện gì?",
+      "correct": "📖 Hoàn hảo! Câu chuyện đó khớp với phương trình!",
+      "tryAgain": "Chưa đúng! Câu chuyện đúng được tô xanh.",
+      "perfect": "Hoàn hảo! Em hiểu ý nghĩa của phương trình!",
+      "great": "Làm tốt lắm! Em có thể hiểu phương trình như câu chuyện!",
+      "good": "Làm tốt! Tiếp tục luyện tập!",
+      "keepPracticing": "Tiếp tục luyện tập! Hiểu phương trình sẽ dễ hơn!",
+      "addToys": "Em có {a} đồ chơi. Em được thêm {b} đồ chơi nữa.",
+      "addCookies": "Mẹ nướng {a} cái bánh. Rồi mẹ nướng thêm {b} cái nữa.",
+      "addBirds": "{a} con chim đang ở trên cây. {b} con chim bay đến.",
+      "addBooks": "Sam đọc {a} cuốn sách tuần trước và {b} cuốn tuần này.",
+      "addFlowers": "Có {a} bông hoa. Sau đó {b} bông hoa nở.",
+      "addPresents": "Anna nhận {a} món quà sinh nhật và {b} món từ bà.",
+      "subBalloons": "Em có {a} quả bóng. {b} quả bóng bị vỡ.",
+      "subApples": "Có {a} quả táo trong giỏ. Tom ăn {b} quả táo.",
+      "subCrayons": "Emma có {a} cây bút màu. Cô ấy cho bạn {b} cây.",
+      "subStars": "{a} ngôi sao đang sáng. Sau đó {b} ngôi sao biến mất.",
+      "subFish": "{a} con cá đang bơi. {b} con cá bơi đi.",
+      "subCupcakes": "Tiệm bánh làm {a} cái bánh. Họ bán {b} cái."
+    },
+    "order-by-length": {
+      "title": "Sắp xếp theo chiều dài",
+      "description": "Xếp vật từ ngắn nhất đến dài nhất!",
+      "instruction": "Kéo các vật thể để sắp xếp từ ngắn nhất đến dài nhất!",
+      "arrangeAll": "Vui lòng sắp xếp tất cả các vật vào ô!",
+      "correct": "📏 Hoàn hảo! Bạn đã sắp xếp từ ngắn nhất đến dài nhất!",
+      "wrong": "Chưa đúng! Hãy quan sát kỹ độ dài và thử lại.",
+      "checkButton": "Kiểm tra câu trả lời",
+      "statsPerfect": "Hoàn hảo! Bạn so sánh chiều dài như một chuyên gia!",
+      "statsGreat": "Tuyệt vời! Bạn hiểu cách so sánh chiều dài!",
+      "statsGood": "Làm tốt lắm! Tiếp tục luyện tập!",
+      "statsKeepGoing": "Tiếp tục luyện tập! So sánh chiều dài sẽ dễ dàng hơn!"
+    },
+    "measure-with-cubes": {
+      "title": "Đo bằng khối",
+      "description": "Dài bao nhiêu khối?",
+      "instruction": "Đếm số khối để tìm độ dài!",
+      "correct": "🧊 Đúng rồi! Vật dài {n} khối!",
+      "wrong": "Chưa đúng! Độ dài đúng là {n} khối.",
+      "statsPerfect": "Hoàn hảo! Bạn là chuyên gia đo lường!",
+      "statsGreat": "Tuyệt vời! Bạn đo độ dài rất chính xác!",
+      "statsGood": "Làm tốt lắm! Hãy tiếp tục luyện tập đo!",
+      "statsKeepGoing": "Tiếp tục luyện tập! Đo lường sẽ dễ hơn!",
+      "objects": {
+        "crayon": "Bút sáp",
+        "pencil": "Bút chì",
+        "stick": "Đũa",
+        "carrot": "Cà rốt",
+        "brush": "Cọ vẽ",
+        "spoon": "Thìa",
+        "ruler": "Thước kẻ",
+        "candy": "Kẹo"
+      }
+    },
+    "time-hour": {
+      "title": "Mấy giờ rồi? (Giờ đúng)",
+      "description": "Xem giờ đúng!",
+      "instruction": "Đồng hồ chỉ mấy giờ?",
+      "correct": "⏰ Đúng rồi! Bây giờ là {time}!",
+      "wrong": "Chưa đúng! Bây giờ là {time}.",
+      "statsPerfect": "Hoàn hảo! Bạn có thể xem giờ đúng!",
+      "statsGreat": "Tuyệt vời! Bạn đang học cách xem giờ!",
+      "statsGood": "Làm tốt lắm! Tiếp tục luyện xem giờ!",
+      "statsKeepGoing": "Tiếp tục luyện tập! Xem giờ sẽ dễ hơn!"
+    },
+    "time-half-hour": {
+      "title": "Mấy giờ rồi? (Rưỡi)",
+      "description": "Xem giờ rưỡi!",
+      "instruction": "Đồng hồ chỉ mấy giờ?",
+      "correct": "⏰ Đúng rồi! Bây giờ là {time}!",
+      "wrong": "Chưa đúng! Bây giờ là {time}.",
+      "statsPerfect": "Hoàn hảo! Bạn có thể xem giờ rưỡi!",
+      "statsGreat": "Tuyệt vời! Bạn đang học cách xem giờ!",
+      "statsGood": "Làm tốt lắm! Tiếp tục luyện xem giờ!",
+      "statsKeepGoing": "Tiếp tục luyện tập! Xem giờ sẽ dễ hơn!"
+    },
+    "read-bar-graph": {
+      "title": "Đọc biểu đồ cột",
+      "description": "Trả lời câu hỏi về biểu đồ!",
+      "correct": "📊 Đúng rồi! Đọc hay lắm!",
+      "wrong": "Chưa đúng! Hãy nhìn biểu đồ kỹ hơn.",
+      "statsPerfect": "Hoàn hảo! Bạn đọc biểu đồ cột như một chuyên gia!",
+      "statsGreat": "Tuyệt vời! Bạn hiểu biểu đồ cột!",
+      "statsGood": "Làm tốt lắm! Tiếp tục luyện tập!",
+      "statsKeepGoing": "Tiếp tục luyện tập! Đọc biểu đồ sẽ dễ hơn!",
+      "graphs": {
+        "fruits": {
+          "title": "Trái cây yêu thích",
+          "apple": "Táo",
+          "banana": "Chuối",
+          "orange": "Cam",
+          "q1": "Có bao nhiêu trẻ thích chuối?",
+          "q2": "Trái cây nào phổ biến nhất?",
+          "q3": "Có bao nhiêu trẻ thích chuối nhiều hơn cam?"
+        },
+        "pets": {
+          "title": "Vật nuôi yêu thích",
+          "dog": "Chó",
+          "cat": "Mèo",
+          "fish": "Cá",
+          "q1": "Có bao nhiêu trẻ thích chó?",
+          "q2": "Vật nuôi nào ít phổ biến nhất?",
+          "q3": "Có bao nhiêu trẻ thích chó nhiều hơn mèo?"
+        },
+        "colors": {
+          "title": "Màu sắc yêu thích",
+          "red": "Đỏ",
+          "blue": "Xanh dương",
+          "green": "Xanh lá",
+          "q1": "Có bao nhiêu trẻ thích màu xanh dương?",
+          "q2": "Màu nào phổ biến nhất?",
+          "q3": "Có bao nhiêu trẻ thích màu xanh dương nhiều hơn xanh lá?"
+        }
+      }
+    },
+    "name-shapes": {
+      "title": "Tên hình đó!",
+      "description": "Đây là hình gì?",
+      "shapes": {
+        "circle": "Hình tròn",
+        "square": "Hình vuông",
+        "rectangle": "Hình chữ nhật",
+        "triangle": "Hình tam giác",
+        "hexagon": "Hình lục giác",
+        "trapezoid": "Hình thang"
+      },
+      "correct": "✅ Đúng rồi! Đó là hình đúng!",
+      "wrong": "Chưa đúng! Đó là {shape}.",
+      "squareInfo": "💡 Bạn có biết không? Hình vuông là một hình chữ nhật đặc biệt!",
+      "statsPerfect": "Hoàn hảo! Bạn biết tất cả các hình! 🏆",
+      "statsGreat": "Tuyệt vời! Bạn biết các hình rất rõ! 🌟",
+      "statsGood": "Làm tốt lắm! 👍",
+      "statsKeepGoing": "Tiếp tục luyện tập - bạn đang học hỏi! 💪"
+    },
+    "shape-attributes": {
+      "title": "Đặc điểm hình",
+      "description": "Đếm số cạnh và góc!",
+      "shapes": {
+        "triangle": "hình tam giác",
+        "square": "hình vuông",
+        "rectangle": "hình chữ nhật",
+        "pentagon": "hình ngũ giác",
+        "hexagon": "hình lục giác"
+      },
+      "howManySides": "{shape} này có bao nhiêu cạnh?",
+      "howManyCorners": "{shape} này có bao nhiêu góc?",
+      "correct": "✅ Đúng rồi! Đếm tốt lắm!",
+      "wrong": "Chưa đúng! Đáp án là {answer}.",
+      "statsPerfect": "Hoàn hảo! Em biết hết các đặc điểm hình! 🏆",
+      "statsGreat": "Tuyệt vời! Em đếm cạnh và góc rất giỏi! 🌟",
+      "statsGood": "Làm tốt lắm! Em đang học về hình! 👍",
+      "statsKeepGoing": "Tiếp tục luyện tập - em đang học được nhiều! 💪"
+    },
+    "halves-fourths": {
+      "title": "Một nửa và một phần tư",
+      "description": "Chia hình thành các phần bằng nhau!",
+      "isEqualHalves": "Hình này có được chia thành hai nửa bằng nhau không?",
+      "isEqualFourths": "Hình này có được chia thành bốn phần tư bằng nhau không?",
+      "howManyHalves": "Hình này có bao nhiêu nửa?",
+      "howManyFourths": "Hình này có bao nhiêu phần tư?",
+      "yes": "Có ✓",
+      "no": "Không ✗",
+      "correct": "🍕 Đúng rồi! Làm tốt lắm!",
+      "wrong": "Chưa đúng! Hãy nhìn kỹ các phần.",
+      "statsPerfect": "Hoàn hảo! Em hiểu về một nửa và một phần tư! 🏆",
+      "statsGreat": "Tuyệt vời! Em đang học về phân số! 🌟",
+      "statsGood": "Làm tốt lắm! Tiếp tục luyện tập! 👍",
+      "statsKeepGoing": "Tiếp tục luyện tập - phân số sẽ dễ hơn! 💪"
+    }
+  },
+  "learnMore": {
+    "visitResource": "Xem tài liệu",
+    "numberblocks-count-20": {
+      "title": "Numberblocks - Học đếm đến 20",
+      "description": "Cùng Numberblocks đếm đến 20!"
+    },
+    "khan-academy-grade1": {
+      "title": "Khan Academy - Toán Lớp 1",
+      "description": "Luyện tập thêm và giải thích dễ hiểu cho kỹ năng Lớp 1."
+    },
+    "place-value-song": {
+      "title": "Bài hát Giá trị vị trí - Hàng chục và đơn vị",
+      "description": "Bài hát hay về giá trị vị trí hàng chục và đơn vị"
+    },
+    "greater-than-less-than-song": {
+      "title": "Bài hát Lớn hơn Nhỏ hơn",
+      "description": "Học ký hiệu > và < với bài hát vui!"
+    },
+    "count-to-100-numberblocks": {
+      "title": "Bài hát đếm đến 100 | Numberblocks",
+      "description": "Đếm đến 100 với Numberblocks!"
+    },
+    "addition-song": {
+      "title": "Bài hát phép cộng | Bài hát Toán",
+      "description": "Học cộng với giai điệu hay!"
+    },
+    "numberblocks-addition": {
+      "title": "Numberblocks - Cộng các số",
+      "description": "Xem Numberblocks kết hợp và lớn lên!"
+    },
+    "make-ten-strategy": {
+      "title": "Tạo số 10 để cộng | Chiến lược Toán",
+      "description": "Học chiến lược 'tạo số 10' để cộng dễ dàng"
+    },
+    "number-line-adding": {
+      "title": "Cách dùng trục số để cộng",
+      "description": "Nhảy trên trục số để tìm tổng!"
+    },
+    "subtraction-song": {
+      "title": "Bài hát phép trừ | Lấy đi!",
+      "description": "Học trừ với bài hát vui!"
+    },
+    "numberblocks-subtraction": {
+      "title": "Numberblocks - Lấy đi",
+      "description": "Xem số nhỏ đi khi lấy đi!"
+    },
+    "fact-families": {
+      "title": "Họ phép tính | Cộng và Trừ",
+      "description": "Học mối liên hệ giữa phép cộng và phép trừ!"
+    },
+    "counting-back-strategy": {
+      "title": "Phép trừ: Đếm lùi",
+      "description": "Học đếm lùi để trừ!"
+    },
+    "word-problems-song": {
+      "title": "Bài toán có lời văn cho trẻ em",
+      "description": "Học cách giải bài toán có lời văn từng bước!"
+    },
+    "equal-sign-meaning": {
+      "title": "Dấu bằng có nghĩa là gì?",
+      "description": "Dấu bằng có nghĩa là 'bằng nhau'!"
+    },
+    "comparison-word-problems": {
+      "title": "So sánh với nhiều hơn và ít hơn",
+      "description": "Học giải bài toán với 'nhiều hơn' và 'ít hơn'"
+    },
+    "drawing-math-pictures": {
+      "title": "Vẽ hình để giải bài toán",
+      "description": "Dùng hình vẽ để giúp giải bài toán!"
+    },
+    "measuring-length": {
+      "title": "Đo với đơn vị không chuẩn",
+      "description": "Học đo bằng khối, kẹp giấy và nhiều hơn nữa!"
+    },
+    "telling-time": {
+      "title": "Xem giờ đúng và rưỡi",
+      "description": "Học đọc đồng hồ!"
+    },
+    "reading-bar-graphs": {
+      "title": "Cách đọc biểu đồ cột cho trẻ",
+      "description": "Học những gì biểu đồ cột có thể cho chúng ta biết!"
+    },
+    "khan-academy-geometry": {
+      "title": "Khan Academy - Toán Lớp 1 (Hình học & Hình)",
+      "description": "Luyện tập thêm về đặt tên hình, đặc điểm và phần bằng nhau."
+    },
+    "halves-fourths-fractions": {
+      "title": "Phân số: Một nửa và một phần tư",
+      "description": "Học về các phần bằng nhau!"
     }
   }
 }

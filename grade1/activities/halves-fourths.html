@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Halves and Fourths - Grade 1 Math Activity - Meadow Math">
+  <title>Halves and Fourths - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="../../prek/activities/activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🍕</span>
+            <span data-i18n="section.activities.halves-fourths.title">Halves and Fourths</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.halves-fourths.description">Divide shapes into equal parts!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Question Display -->
+          <div class="question-display" id="question-display"></div>
+
+          <!-- Shape Display -->
+          <div class="shape-display-container">
+            <svg class="shape-display" id="shape-display" viewBox="0 0 400 400">
+              <!-- Shape will be rendered here -->
+            </svg>
+          </div>
+
+          <!-- Answer Choices -->
+          <div class="answer-choices" id="answer-choices">
+            <!-- Choices will be dynamically generated here -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Halves and Fourths specific styles */
+    .question-display {
+      text-align: center;
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      margin-bottom: var(--space-6);
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border-radius: var(--radius-xl);
+      border: 4px solid #f59e0b;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shape-display-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: var(--space-8);
+      padding: var(--space-8);
+      background: white;
+      border-radius: var(--radius-xl);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      min-height: 400px;
+    }
+
+    .shape-display {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    }
+
+    /* Partition lines */
+    .partition-line {
+      stroke: #1f2937;
+      stroke-width: 3;
+    }
+
+    .answer-choices {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      max-width: 700px;
+      margin: 0 auto var(--space-6);
+    }
+
+    .choice-btn {
+      min-height: 120px;
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      padding: var(--space-6) var(--space-8);
+      background: white;
+      border: 4px solid var(--color-primary);
+      border-radius: var(--radius-xl);
+      color: var(--color-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 rgba(59, 130, 246, 0.3), 0 6px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 rgba(59, 130, 246, 0.3), 0 8px 16px rgba(0, 0, 0, 0.15);
+      background: var(--color-primary-light);
+    }
+
+    .choice-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 0 rgba(59, 130, 246, 0.3), 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .choice-btn.correct {
+      background: var(--color-success);
+      border-color: var(--color-success-dark);
+      color: white;
+    }
+
+    .choice-btn.incorrect {
+      background: var(--color-error);
+      border-color: var(--color-error-dark);
+      color: white;
+      animation: wiggle 0.5s ease;
+    }
+
+    .choice-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
+    }
+
+    @media (max-width: 767px) {
+      .question-display {
+        font-size: var(--text-xl);
+        padding: var(--space-5);
+        min-height: 60px;
+      }
+
+      .shape-display-container {
+        padding: var(--space-4);
+        min-height: 320px;
+      }
+
+      .shape-display {
+        max-width: 300px;
+        height: 300px;
+      }
+
+      .answer-choices {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+      }
+
+      .choice-btn {
+        min-height: 100px;
+        font-size: var(--text-2xl);
+        padding: var(--space-5) var(--space-7);
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Halves and Fourths Activity
+    const HalvesFourths = {
+      // Game state
+      currentRound: 1,
+      maxRounds: 10,
+      correctCount: 0,
+      wrongCount: 0,
+      autoAdvanceDelay: 1500,
+      currentQuestion: null,
+
+      // DOM elements
+      questionDisplay: null,
+      shapeDisplay: null,
+      answerChoices: null,
+      feedback: null,
+      progress: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Question templates
+       */
+      questionTypes: [
+        // Halves questions
+        { type: 'isHalves', parts: 2, shapes: ['circle', 'rectangle', 'square'] },
+        { type: 'countHalves', parts: 2, shapes: ['circle', 'rectangle', 'square'] },
+
+        // Fourths questions
+        { type: 'isFourths', parts: 4, shapes: ['circle', 'rectangle', 'square'] },
+        { type: 'countFourths', parts: 4, shapes: ['circle', 'rectangle', 'square'] }
+      ],
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.questionDisplay = document.getElementById('question-display');
+        this.shapeDisplay = document.getElementById('shape-display');
+        this.answerChoices = document.getElementById('answer-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => {
+          if (e.target === this.statsOverlay) this.restartActivity();
+        });
+
+        // Listen for language changes
+        document.addEventListener('languageChanged', () => {
+          this.updateTranslations();
+        });
+
+        // Start first round
+        this.generateRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Update translations when language changes
+       */
+      updateTranslations() {
+        this.renderQuestion();
+        this.renderChoices();
+      },
+
+      /**
+       * Generate a new round
+       */
+      generateRound() {
+        this.feedback.classList.remove('show');
+
+        // Pick a random question type
+        const questionTemplate = this.questionTypes[randomInt(0, this.questionTypes.length - 1)];
+
+        // Pick a shape
+        const shapeType = questionTemplate.shapes[randomInt(0, questionTemplate.shapes.length - 1)];
+
+        // For "count" questions, always use correct partitions (easier for young learners)
+        // For "is" questions, mix correct and incorrect partitions
+        let isCorrectPartition;
+        if (questionTemplate.type === 'countHalves' || questionTemplate.type === 'countFourths') {
+          isCorrectPartition = true; // Always correct for counting questions
+        } else {
+          isCorrectPartition = Math.random() > 0.4; // 60% correct, 40% incorrect for "is" questions
+        }
+
+        this.currentQuestion = {
+          type: questionTemplate.type,
+          parts: questionTemplate.parts,
+          shapeType: shapeType,
+          isCorrectPartition: isCorrectPartition
+        };
+
+        this.renderQuestion();
+        this.renderShape();
+        this.renderChoices();
+      },
+
+      /**
+       * Render the question
+       */
+      renderQuestion() {
+        const q = this.currentQuestion;
+        const partName = q.parts === 2 ? 'halves' : 'fourths';
+
+        if (q.type === 'isHalves' || q.type === 'isFourths') {
+          this.questionDisplay.textContent = i18n.t(`section.activities.halves-fourths.isEqual${partName.charAt(0).toUpperCase() + partName.slice(1)}`);
+        } else if (q.type === 'countHalves' || q.type === 'countFourths') {
+          this.questionDisplay.textContent = i18n.t(`section.activities.halves-fourths.howMany${partName.charAt(0).toUpperCase() + partName.slice(1)}`);
+        }
+      },
+
+      /**
+       * Render the shape with partition
+       */
+      renderShape() {
+        const q = this.currentQuestion;
+        let html = '';
+
+        if (q.shapeType === 'circle') {
+          html = this.drawCircle(q.parts, q.isCorrectPartition);
+        } else if (q.shapeType === 'rectangle') {
+          html = this.drawRectangle(q.parts, q.isCorrectPartition);
+        } else if (q.shapeType === 'square') {
+          html = this.drawSquare(q.parts, q.isCorrectPartition);
+        }
+
+        this.shapeDisplay.innerHTML = html;
+      },
+
+      /**
+       * Draw circle with partitions
+       */
+      drawCircle(parts, isCorrect) {
+        const cx = 200, cy = 200, r = 140;
+        const colors = ['#ef4444', '#f59e0b', '#10b981', '#3b82f6'];
+
+        let html = '';
+
+        if (parts === 2) {
+          // Two halves
+          if (isCorrect) {
+            // Equal halves - vertical split
+            const path1 = `M ${cx},${cy - r} A ${r},${r} 0 0,1 ${cx},${cy + r} L ${cx},${cy} Z`;
+            const path2 = `M ${cx},${cy - r} A ${r},${r} 0 0,0 ${cx},${cy + r} L ${cx},${cy} Z`;
+            html += `<path d="${path1}" fill="${colors[0]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<path d="${path2}" fill="${colors[1]}" stroke="#1f2937" stroke-width="3"/>`;
+          } else {
+            // Unequal halves - offset vertical line (60/40 split)
+            const angle1 = -70 * Math.PI / 180; // Slightly off from vertical
+            const angle2 = 110 * Math.PI / 180; // Corresponding angle on other side
+
+            const x1 = cx + r * Math.cos(angle1);
+            const y1 = cy + r * Math.sin(angle1);
+            const x2 = cx + r * Math.cos(angle2);
+            const y2 = cy + r * Math.sin(angle2);
+
+            // Draw two unequal parts
+            const path1 = `M ${cx},${cy} L ${x1},${y1} A ${r},${r} 0 0,1 ${x2},${y2} Z`;
+            const path2 = `M ${cx},${cy} L ${x2},${y2} A ${r},${r} 0 1,1 ${x1},${y1} Z`;
+
+            html += `<path d="${path1}" fill="${colors[0]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<path d="${path2}" fill="${colors[1]}" stroke="#1f2937" stroke-width="3"/>`;
+          }
+        } else if (parts === 4) {
+          // Four fourths
+          if (isCorrect) {
+            // Equal fourths (cross partition)
+            for (let i = 0; i < 4; i++) {
+              const angle1 = (i * 90 - 90) * Math.PI / 180;
+              const angle2 = ((i + 1) * 90 - 90) * Math.PI / 180;
+
+              const x1 = cx + r * Math.cos(angle1);
+              const y1 = cy + r * Math.sin(angle1);
+              const x2 = cx + r * Math.cos(angle2);
+              const y2 = cy + r * Math.sin(angle2);
+
+              const path = `M ${cx},${cy} L ${x1},${y1} A ${r},${r} 0 0,1 ${x2},${y2} Z`;
+              html += `<path d="${path}" fill="${colors[i % colors.length]}" stroke="#1f2937" stroke-width="3"/>`;
+            }
+          } else {
+            // Unequal fourths (one larger than others)
+            const angles = [0, 120, 210, 300]; // Unequal angles
+            for (let i = 0; i < 4; i++) {
+              const angle1 = angles[i] * Math.PI / 180;
+              const angle2 = angles[(i + 1) % 4] * Math.PI / 180;
+
+              const x1 = cx + r * Math.cos(angle1);
+              const y1 = cy + r * Math.sin(angle1);
+              const x2 = cx + r * Math.cos(angle2);
+              const y2 = cy + r * Math.sin(angle2);
+
+              const largeArc = ((angles[(i + 1) % 4] - angles[i] + 360) % 360) > 180 ? 1 : 0;
+              const path = `M ${cx},${cy} L ${x1},${y1} A ${r},${r} 0 ${largeArc},1 ${x2},${y2} Z`;
+              html += `<path d="${path}" fill="${colors[i % colors.length]}" stroke="#1f2937" stroke-width="3"/>`;
+            }
+          }
+        }
+
+        return html;
+      },
+
+      /**
+       * Draw rectangle with partitions
+       */
+      drawRectangle(parts, isCorrect) {
+        const x = 60, y = 120, w = 280, h = 160;
+        const colors = ['#ef4444', '#f59e0b', '#10b981', '#3b82f6'];
+
+        let html = '';
+
+        if (parts === 2) {
+          // Two halves - vertical split
+          if (isCorrect) {
+            html += `<rect x="${x}" y="${y}" width="${w/2}" height="${h}" fill="${colors[0]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x + w/2}" y="${y}" width="${w/2}" height="${h}" fill="${colors[1]}" stroke="#1f2937" stroke-width="3"/>`;
+          } else {
+            // Unequal split
+            const splitPoint = w * 0.35; // Not at 50%
+            html += `<rect x="${x}" y="${y}" width="${splitPoint}" height="${h}" fill="${colors[0]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x + splitPoint}" y="${y}" width="${w - splitPoint}" height="${h}" fill="${colors[1]}" stroke="#1f2937" stroke-width="3"/>`;
+          }
+        } else if (parts === 4) {
+          // Four fourths - 2x2 grid
+          if (isCorrect) {
+            html += `<rect x="${x}" y="${y}" width="${w/2}" height="${h/2}" fill="${colors[0]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x + w/2}" y="${y}" width="${w/2}" height="${h/2}" fill="${colors[1]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x}" y="${y + h/2}" width="${w/2}" height="${h/2}" fill="${colors[2]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x + w/2}" y="${y + h/2}" width="${w/2}" height="${h/2}" fill="${colors[3]}" stroke="#1f2937" stroke-width="3"/>`;
+          } else {
+            // Unequal fourths (one part bigger)
+            const w1 = w * 0.6;
+            const w2 = w * 0.4;
+            html += `<rect x="${x}" y="${y}" width="${w1}" height="${h/2}" fill="${colors[0]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x + w1}" y="${y}" width="${w2}" height="${h/2}" fill="${colors[1]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x}" y="${y + h/2}" width="${w1}" height="${h/2}" fill="${colors[2]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x + w1}" y="${y + h/2}" width="${w2}" height="${h/2}" fill="${colors[3]}" stroke="#1f2937" stroke-width="3"/>`;
+          }
+        }
+
+        return html;
+      },
+
+      /**
+       * Draw square with partitions
+       */
+      drawSquare(parts, isCorrect) {
+        const x = 100, y = 100, size = 200;
+        const colors = ['#ef4444', '#f59e0b', '#10b981', '#3b82f6'];
+
+        let html = '';
+
+        if (parts === 2) {
+          // Two halves - horizontal split
+          if (isCorrect) {
+            html += `<rect x="${x}" y="${y}" width="${size}" height="${size/2}" fill="${colors[0]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x}" y="${y + size/2}" width="${size}" height="${size/2}" fill="${colors[1]}" stroke="#1f2937" stroke-width="3"/>`;
+          } else {
+            // Unequal split
+            const splitPoint = size * 0.4; // Not at 50%
+            html += `<rect x="${x}" y="${y}" width="${size}" height="${splitPoint}" fill="${colors[0]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x}" y="${y + splitPoint}" width="${size}" height="${size - splitPoint}" fill="${colors[1]}" stroke="#1f2937" stroke-width="3"/>`;
+          }
+        } else if (parts === 4) {
+          // Four fourths - 2x2 grid
+          if (isCorrect) {
+            html += `<rect x="${x}" y="${y}" width="${size/2}" height="${size/2}" fill="${colors[0]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x + size/2}" y="${y}" width="${size/2}" height="${size/2}" fill="${colors[1]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x}" y="${y + size/2}" width="${size/2}" height="${size/2}" fill="${colors[2]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x + size/2}" y="${y + size/2}" width="${size/2}" height="${size/2}" fill="${colors[3]}" stroke="#1f2937" stroke-width="3"/>`;
+          } else {
+            // Unequal fourths (diagonal split variant)
+            const s1 = size * 0.55;
+            const s2 = size * 0.45;
+            html += `<rect x="${x}" y="${y}" width="${s1}" height="${s1}" fill="${colors[0]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x + s1}" y="${y}" width="${s2}" height="${s1}" fill="${colors[1]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x}" y="${y + s1}" width="${s1}" height="${s2}" fill="${colors[2]}" stroke="#1f2937" stroke-width="3"/>`;
+            html += `<rect x="${x + s1}" y="${y + s1}" width="${s2}" height="${s2}" fill="${colors[3]}" stroke="#1f2937" stroke-width="3"/>`;
+          }
+        }
+
+        return html;
+      },
+
+      /**
+       * Render answer choices
+       */
+      renderChoices() {
+        const q = this.currentQuestion;
+        let html = '';
+        let correctAnswer = '';
+
+        if (q.type === 'isHalves' || q.type === 'isFourths') {
+          // Yes/No question
+          const yesText = i18n.t('section.activities.halves-fourths.yes');
+          const noText = i18n.t('section.activities.halves-fourths.no');
+
+          correctAnswer = q.isCorrectPartition ? 'yes' : 'no';
+
+          html += `<button class="choice-btn" data-answer="yes">${yesText}</button>`;
+          html += `<button class="choice-btn" data-answer="no">${noText}</button>`;
+        } else if (q.type === 'countHalves' || q.type === 'countFourths') {
+          // Count question - since we always use correct partitions for count questions,
+          // the answer is always the number of parts
+          correctAnswer = String(q.parts);
+
+          // Provide clear, reasonable choices around the correct answer
+          const choices = q.parts === 2 ? ['1', '2', '3', '4'] : ['2', '3', '4', '5'];
+
+          choices.forEach(num => {
+            html += `<button class="choice-btn" data-answer="${num}">${num}</button>`;
+          });
+        }
+
+        this.answerChoices.innerHTML = html;
+        this.currentQuestion.correctAnswer = correctAnswer;
+
+        // Add click and keyboard handlers
+        const buttons = this.answerChoices.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => this.checkAnswer(btn.dataset.answer));
+          btn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.checkAnswer(btn.dataset.answer);
+            }
+          });
+        });
+      },
+
+      /**
+       * Check the selected answer
+       */
+      checkAnswer(selectedAnswer) {
+        // Disable all buttons
+        const buttons = this.answerChoices.querySelectorAll('.choice-btn');
+        buttons.forEach(btn => btn.disabled = true);
+
+        const isCorrect = selectedAnswer === this.currentQuestion.correctAnswer;
+
+        // Highlight selected button
+        buttons.forEach(btn => {
+          if (btn.dataset.answer === selectedAnswer) {
+            btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+          }
+          // Show correct answer if wrong
+          if (!isCorrect && btn.dataset.answer === this.currentQuestion.correctAnswer) {
+            btn.classList.add('correct');
+          }
+        });
+
+        if (isCorrect) {
+          this.feedback.textContent = i18n.t('section.activities.halves-fourths.correct');
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.correctCount++;
+
+          // Celebrate animation
+          this.shapeDisplay.parentElement.classList.add('celebrate');
+          setTimeout(() => {
+            this.shapeDisplay.parentElement.classList.remove('celebrate');
+          }, 1000);
+        } else {
+          this.feedback.textContent = i18n.t('section.activities.halves-fourths.wrong');
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.currentRound < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+
+        const percent = this.correctCount / this.maxRounds;
+
+        if (percent === 1) {
+          this.statsIcon.textContent = '🏆';
+          this.statsMessage.textContent = i18n.t('section.activities.halves-fourths.statsPerfect');
+        } else if (percent >= 0.75) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = i18n.t('section.activities.halves-fourths.statsGreat');
+        } else if (percent >= 0.5) {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = i18n.t('section.activities.halves-fourths.statsGood');
+        } else {
+          this.statsIcon.textContent = '💪';
+          this.statsMessage.textContent = i18n.t('section.activities.halves-fourths.statsKeepGoing');
+        }
+
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.currentRound = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.generateRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.currentRound++;
+        this.generateRound();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.currentRound) {
+            className += ' completed';
+          } else if (i === this.currentRound) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready and i18n is loaded
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Wait for i18n to be initialized
+      if (!i18n.translations[i18n.currentLang]) {
+        await i18n.init();
+      }
+      HalvesFourths.init();
+    });
+  </script>
+</body>
+</html>

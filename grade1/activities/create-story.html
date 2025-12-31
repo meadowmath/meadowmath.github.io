@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a Story - Grade 1 Math Activity - Meadow Math">
+  <title>Create a Story - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="../../prek/activities/activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../../grade2/index.html" class="nav-item">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade1">Grade 1</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">📖</span>
+            <span data-i18n="section.activities.create-story.title">Create a Story</span>
+          </h1>
+          <p class="activity-instruction" id="instruction" data-i18n="section.activities.create-story.description">What story could this equation tell?</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Equation Card -->
+          <div class="equation-card" id="equation-card">
+            <div class="equation-display" id="equation-display">
+              <!-- Equation will be displayed here -->
+            </div>
+          </div>
+
+          <!-- Story Choices -->
+          <div class="story-choices" id="story-choices">
+            <!-- Story buttons will be dynamically generated -->
+          </div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value correct" id="stats-correct">0</span>
+              <span class="stat-label" data-i18n="stats.correct">Correct</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value incorrect" id="stats-wrong">0</span>
+              <span class="stat-label" data-i18n="stats.wrong">Wrong</span>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great job!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <style>
+    /* Create a Story specific styles */
+    .equation-card {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      border: 5px solid #3b82f6;
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      margin: var(--space-6) auto var(--space-8);
+      max-width: 500px;
+      box-shadow: 0 6px 0 #2563eb, 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .equation-display {
+      font-family: var(--font-secondary);
+      font-size: 64px;
+      font-weight: var(--weight-bold);
+      text-align: center;
+      color: var(--color-neutral-900);
+      padding: var(--space-6);
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 4px solid #60a5fa;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+    }
+
+    .equation-display .number {
+      color: var(--color-primary);
+    }
+
+    .equation-display .operator {
+      color: var(--color-neutral-600);
+    }
+
+    .equation-display .equals {
+      color: var(--color-accent);
+    }
+
+    .equation-display .result {
+      color: var(--color-neutral-800);
+    }
+
+    .story-choices {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .story-btn {
+      min-height: 110px;
+      padding: var(--space-6) var(--space-7);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      line-height: 1.6;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      background: linear-gradient(to bottom, #fff, #f9fafb);
+      border: 4px solid var(--color-neutral-300);
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 5px 0 var(--color-neutral-300), 0 8px 16px rgba(0, 0, 0, 0.08);
+      color: var(--color-neutral-800);
+      width: 100%;
+    }
+
+    .story-btn:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 0 var(--color-neutral-400), 0 12px 20px rgba(0, 0, 0, 0.12);
+      border-color: var(--color-neutral-400);
+    }
+
+    .story-btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--color-neutral-300), 0 4px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .story-btn:focus {
+      outline: 4px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    .story-btn:disabled {
+      cursor: default;
+      opacity: 0.8;
+    }
+
+    .story-btn.correct {
+      background: linear-gradient(to bottom, #6ee7b7, #34d399);
+      border-color: #059669;
+      color: white;
+      animation: celebrate 0.6s ease;
+    }
+
+    .story-btn.incorrect {
+      animation: shake 0.5s ease;
+    }
+
+    .story-emoji {
+      font-size: 52px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .story-text {
+      flex: 1;
+    }
+
+    @media (max-width: 767px) {
+      .equation-card {
+        padding: var(--space-6);
+        margin: var(--space-4) auto var(--space-6);
+      }
+
+      .equation-display {
+        font-size: 48px;
+        padding: var(--space-4);
+        min-height: 80px;
+        gap: var(--space-2);
+      }
+
+      .story-btn {
+        min-height: 90px;
+        padding: var(--space-5) var(--space-5);
+        font-size: var(--text-base);
+        gap: var(--space-3);
+      }
+
+      .story-emoji {
+        font-size: 40px;
+      }
+    }
+  </style>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Create a Story Activity
+    const CreateStory = {
+      // Game state
+      currentProblem: null,
+      round: 1,
+      maxRounds: 6,
+      correctCount: 0,
+      wrongCount: 0,
+      hasAnswered: false,
+      autoAdvanceDelay: 1500,
+
+      // Story templates for equations
+      storyTemplates: [
+        // Addition stories
+        {
+          operation: 'add',
+          stories: [
+            {
+              emoji: '🧸',
+              textTemplate: 'I had {a} toys. I got {b} more toys.',
+              textKey: 'section.activities.create-story.addToys'
+            },
+            {
+              emoji: '🍪',
+              textTemplate: 'Mom baked {a} cookies. Then she baked {b} more cookies.',
+              textKey: 'section.activities.create-story.addCookies'
+            },
+            {
+              emoji: '🐦',
+              textTemplate: '{a} birds were in a tree. {b} more birds flew in.',
+              textKey: 'section.activities.create-story.addBirds'
+            },
+            {
+              emoji: '📚',
+              textTemplate: 'Sam read {a} books last week and {b} books this week.',
+              textKey: 'section.activities.create-story.addBooks'
+            },
+            {
+              emoji: '🌸',
+              textTemplate: 'There were {a} flowers. Then {b} more flowers bloomed.',
+              textKey: 'section.activities.create-story.addFlowers'
+            },
+            {
+              emoji: '🎁',
+              textTemplate: 'Anna got {a} presents on her birthday and {b} more from her grandma.',
+              textKey: 'section.activities.create-story.addPresents'
+            }
+          ]
+        },
+        // Subtraction stories
+        {
+          operation: 'sub',
+          stories: [
+            {
+              emoji: '🎈',
+              textTemplate: 'I had {a} balloons. {b} balloons popped.',
+              textKey: 'section.activities.create-story.subBalloons'
+            },
+            {
+              emoji: '🍎',
+              textTemplate: 'There were {a} apples in the basket. Tom ate {b} apples.',
+              textKey: 'section.activities.create-story.subApples'
+            },
+            {
+              emoji: '🖍️',
+              textTemplate: 'Emma had {a} crayons. She gave {b} crayons to her friend.',
+              textKey: 'section.activities.create-story.subCrayons'
+            },
+            {
+              emoji: '⭐',
+              textTemplate: '{a} stars were shining. Then {b} stars disappeared.',
+              textKey: 'section.activities.create-story.subStars'
+            },
+            {
+              emoji: '🐠',
+              textTemplate: '{a} fish were swimming. {b} fish swam away.',
+              textKey: 'section.activities.create-story.subFish'
+            },
+            {
+              emoji: '🧁',
+              textTemplate: 'The bakery made {a} cupcakes. They sold {b} cupcakes.',
+              textKey: 'section.activities.create-story.subCupcakes'
+            }
+          ]
+        }
+      ],
+
+      // DOM elements
+      equationDisplay: null,
+      storyChoices: null,
+      feedback: null,
+      progress: null,
+      statsOverlay: null,
+      statsCorrect: null,
+      statsWrong: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      /**
+       * Initialize the activity
+       */
+      init() {
+        // Get DOM elements
+        this.equationDisplay = document.getElementById('equation-display');
+        this.storyChoices = document.getElementById('story-choices');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statsCorrect = document.getElementById('stats-correct');
+        this.statsWrong = document.getElementById('stats-wrong');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        // Set up event listeners
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => { if (e.target === this.statsOverlay) this.restartActivity(); });
+
+        // Start first round
+        this.generateProblem();
+        this.renderProgress();
+      },
+
+      /**
+       * Generate a random problem
+       */
+      generateProblem() {
+        this.hasAnswered = false;
+        this.feedback.classList.remove('show');
+
+        // Choose operation randomly
+        const operation = Math.random() < 0.5 ? 'add' : 'sub';
+
+        // Generate numbers
+        let a, b, answer;
+        if (operation === 'add') {
+          a = randomInt(3, 10);
+          b = randomInt(2, Math.min(8, 20 - a));
+          answer = a + b;
+        } else {
+          a = randomInt(6, 18);
+          b = randomInt(2, Math.min(6, a - 1));
+          answer = a - b;
+        }
+
+        // Build equation string
+        const operatorSymbol = operation === 'add' ? '+' : '-';
+        const equationString = `${a} ${operatorSymbol} ${b} = ${answer}`;
+
+        this.currentProblem = {
+          a: a,
+          b: b,
+          answer: answer,
+          operation: operation,
+          equation: equationString
+        };
+
+        this.displayEquation();
+        this.generateStoryChoices();
+      },
+
+      /**
+       * Display the equation
+       */
+      displayEquation() {
+        const p = this.currentProblem;
+        const operatorSymbol = p.operation === 'add' ? '+' : '−';
+
+        this.equationDisplay.innerHTML = `
+          <span class="number">${p.a}</span>
+          <span class="operator">${operatorSymbol}</span>
+          <span class="number">${p.b}</span>
+          <span class="equals">=</span>
+          <span class="result">${p.answer}</span>
+        `;
+      },
+
+      /**
+       * Generate story choices
+       */
+      generateStoryChoices() {
+        const p = this.currentProblem;
+
+        // Get all stories for the correct operation
+        const correctTemplate = this.storyTemplates.find(t => t.operation === p.operation);
+        const correctStories = correctTemplate.stories;
+
+        // Pick one correct story
+        const correctStory = correctStories[randomInt(0, correctStories.length - 1)];
+
+        // Get wrong operation stories
+        const wrongTemplate = this.storyTemplates.find(t => t.operation !== p.operation);
+        const wrongStories = wrongTemplate.stories;
+
+        // Pick 2 wrong stories
+        const shuffledWrong = shuffle(wrongStories);
+        const selectedWrong = shuffledWrong.slice(0, 2);
+
+        // Format stories with numbers
+        const formatStory = (story) => {
+          let text;
+          if (typeof i18n !== 'undefined') {
+            const translated = i18n.t(story.textKey);
+            if (translated && translated !== story.textKey) {
+              text = translated.replace('{a}', p.a).replace('{b}', p.b);
+            } else {
+              text = story.textTemplate.replace('{a}', p.a).replace('{b}', p.b);
+            }
+          } else {
+            text = story.textTemplate.replace('{a}', p.a).replace('{b}', p.b);
+          }
+
+          return {
+            emoji: story.emoji,
+            text: text,
+            isCorrect: story === correctStory
+          };
+        };
+
+        const correctChoice = formatStory(correctStory);
+        const wrongChoices = selectedWrong.map(s => formatStory(s));
+
+        // Combine and shuffle
+        const allChoices = [correctChoice, ...wrongChoices];
+        const shuffled = shuffle(allChoices);
+
+        // Render story buttons
+        this.storyChoices.innerHTML = '';
+        shuffled.forEach((choice, index) => {
+          const btn = document.createElement('button');
+          btn.className = 'story-btn';
+          btn.innerHTML = `
+            <div class="story-emoji">${choice.emoji}</div>
+            <div class="story-text">${choice.text}</div>
+          `;
+          btn.dataset.index = index;
+          btn.dataset.correct = choice.isCorrect;
+          btn.addEventListener('click', (e) => this.selectStory(choice.isCorrect, e.currentTarget));
+          this.storyChoices.appendChild(btn);
+        });
+      },
+
+      /**
+       * Helper: Get translated text with fallback
+       */
+      getTranslation(key, fallback) {
+        if (typeof i18n !== 'undefined') {
+          const translated = i18n.t(key);
+          if (translated && translated !== key) return translated;
+        }
+        return fallback;
+      },
+
+      /**
+       * Handle story selection
+       */
+      selectStory(isCorrect, clickedButton) {
+        if (this.hasAnswered) return;
+        this.hasAnswered = true;
+
+        // Get all buttons and disable them
+        const buttons = this.storyChoices.querySelectorAll('.story-btn');
+        buttons.forEach(btn => btn.disabled = true);
+
+        // Find the correct button
+        const correctBtn = Array.from(buttons).find(btn => btn.dataset.correct === 'true');
+
+        // Check answer
+        if (isCorrect) {
+          // Correct!
+          correctBtn.classList.add('correct');
+
+          this.feedback.textContent = this.getTranslation(
+            'section.activities.create-story.correct',
+            '📖 Perfect! That story matches the equation!'
+          );
+          this.feedback.classList.remove('error');
+          this.feedback.classList.add('show');
+          this.correctCount++;
+
+          // Celebrate
+          if (typeof celebrate === 'function') {
+            celebrate(this.equationDisplay);
+          }
+        } else {
+          // Incorrect - highlight correct answer and animate clicked button
+          correctBtn.classList.add('correct');
+
+          // Animate the incorrect button that was actually clicked
+          if (clickedButton) {
+            clickedButton.classList.add('incorrect');
+          }
+
+          this.feedback.textContent = this.getTranslation(
+            'section.activities.create-story.tryAgain',
+            'Not quite! The correct story is highlighted in green.'
+          );
+          this.feedback.classList.add('show', 'error');
+          this.wrongCount++;
+        }
+
+        this.renderProgress();
+
+        // Auto-advance after delay
+        setTimeout(() => {
+          if (this.round < this.maxRounds) {
+            this.nextRound();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      /**
+       * Show completion stats
+       */
+      showStats() {
+        this.statsCorrect.textContent = this.correctCount;
+        this.statsWrong.textContent = this.wrongCount;
+
+        // Set message based on performance
+        const percent = this.correctCount / this.maxRounds;
+
+        if (percent === 1) {
+          this.statsIcon.textContent = '🏆';
+          this.statsMessage.textContent = this.getTranslation(
+            'section.activities.create-story.perfect',
+            'Perfect! You understand what equations mean!'
+          );
+        } else if (percent >= 0.75) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = this.getTranslation(
+            'section.activities.create-story.great',
+            'Great job! You can interpret equations as stories!'
+          );
+        } else if (percent >= 0.5) {
+          this.statsIcon.textContent = '👍';
+          this.statsMessage.textContent = this.getTranslation(
+            'section.activities.create-story.good',
+            'Good work! Keep practicing!'
+          );
+        } else {
+          this.statsIcon.textContent = '💪';
+          this.statsMessage.textContent = this.getTranslation(
+            'section.activities.create-story.keepPracticing',
+            'Keep practicing! Understanding equations gets easier!'
+          );
+        }
+
+        this.statsOverlay.classList.add('show');
+      },
+
+      /**
+       * Restart the entire activity
+       */
+      restartActivity() {
+        this.round = 1;
+        this.correctCount = 0;
+        this.wrongCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.generateProblem();
+        this.renderProgress();
+      },
+
+      /**
+       * Go to next round
+       */
+      nextRound() {
+        this.round++;
+        this.generateProblem();
+        this.renderProgress();
+      },
+
+      /**
+       * Render progress indicator
+       */
+      renderProgress() {
+        let html = '';
+        for (let i = 1; i <= this.maxRounds; i++) {
+          let className = 'progress-dot';
+          if (i < this.round) {
+            className += ' completed';
+          } else if (i === this.round) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      CreateStory.init();
+    });
+  </script>
+</body>
+</html>

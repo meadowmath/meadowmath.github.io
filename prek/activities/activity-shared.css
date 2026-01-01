@@ -1,0 +1,11 @@
+/**
+ * Pre-K Shared Activity Utilities
+ * 
+ * This file imports the shared activity utilities from the central CSS folder.
+ * Add any Pre-K specific overrides below the import.
+ */
+
+@import url('../../css/activity-shared.css');
+
+/* ========== PRE-K SPECIFIC OVERRIDES ========== */
+/* Add Pre-K specific utility styles here if needed */

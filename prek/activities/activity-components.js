@@ -1,26 +1,21 @@
 /**
- * Grade 1 Activity Components
+ * Pre-K Activity Components
  * 
- * This file re-exports the shared ActivityComponents from the central JS folder.
- * Grade 1 activities can import from here for backward compatibility.
- * 
- * Note: For new activities, prefer importing directly from ../../js/activity-components.js
+ * This file provides Pre-K specific wrappers for the shared ActivityComponents.
+ * Pre-K activities can import from here for convenience.
  */
-
-// The shared ActivityComponents is loaded from ../../js/activity-components.js
-// This file exists for backward compatibility with existing Grade 1 activities
 
 /**
- * Grade1Components - Grade 1 specific wrapper with defaults
+ * PreKComponents - Pre-K specific wrapper with defaults
  */
-const Grade1Components = {
+const PreKComponents = {
   /**
-   * Get sidebar HTML with Grade 1 as active
+   * Get sidebar HTML with Pre-K as active
    */
   getSidebarHTML(basePath = '../../') {
     return window.ActivityComponents?.getSidebarHTML({
       basePath,
-      activeGrade: 'grade1'
+      activeGrade: 'prek'
     }) || '';
   },
 
@@ -39,13 +34,13 @@ const Grade1Components = {
   },
 
   /**
-   * Get activity header HTML with Grade 1 defaults
+   * Get activity header HTML with Pre-K defaults
    */
   getActivityHeaderHTML(config) {
     return window.ActivityComponents?.getActivityHeaderHTML({
       ...config,
       backPath: config.backPath || '../index.html',
-      backToKey: config.backToKey || 'nav.grade1'
+      backToKey: config.backToKey || 'nav.prek'
     }) || '';
   },
 
@@ -64,6 +59,6 @@ const Grade1Components = {
   }
 };
 
-window.Grade1Components = Grade1Components;
+window.PreKComponents = PreKComponents;
 
-console.log('Grade 1 ActivityComponents loaded via shared module');
+console.log('Pre-K ActivityComponents loaded via shared module');

@@ -1,0 +1,513 @@
+{
+  "region": "grade2",
+  "title": "Grade 2 Activities",
+  "description": "Building fluency with place value, operations, and measurement",
+  "levels": [
+    {
+      "id": "level-1",
+      "number": 1,
+      "title": "Numbers to 1000 & Place Value",
+      "icon": "🟢",
+      "goal": "Understand numbers to 1000, represent them in multiple ways, and compare and order numbers.",
+      "skills": [
+        "Count within 1000; skip count by 5s/10s/100s",
+        "Read and write numbers in standard, expanded, and word form",
+        "Understand that 10 ones = 1 ten; 10 tens = 1 hundred",
+        "Compare three-digit numbers using >, <, =",
+        "Locate numbers on a number line"
+      ],
+      "activities": [
+        {
+          "id": "count-to-1000",
+          "title": "Count to 1000 Trail",
+          "description": "Fill in missing numbers as you climb to 1000!",
+          "icon": "🧭",
+          "path": "activities/count-to-1000.html",
+          "type": "interactive"
+        },
+        {
+          "id": "skip-count-hop",
+          "title": "Skip Count Hop",
+          "description": "Hop by 5s, 10s, and 100s!",
+          "icon": "🦘",
+          "path": "activities/skip-count-hop.html",
+          "type": "interactive"
+        },
+        {
+          "id": "hundreds-tens-ones",
+          "title": "Hundreds Tens Ones Builder",
+          "description": "Build the number using hundreds, tens, and ones.",
+          "icon": "🧱",
+          "path": "activities/hundreds-tens-ones.html",
+          "type": "interactive"
+        },
+        {
+          "id": "expanded-form",
+          "title": "Expanded Form Match",
+          "description": "Match the number to its expanded form.",
+          "icon": "🧩",
+          "path": "activities/expanded-form.html",
+          "type": "interactive"
+        },
+        {
+          "id": "compare-three-digit",
+          "title": "Compare 3-Digit Numbers",
+          "description": "Pick >, <, or = to compare.",
+          "icon": "🐊",
+          "path": "activities/compare-three-digit.html",
+          "type": "interactive"
+        },
+        {
+          "id": "order-numbers-1000",
+          "title": "Order the Numbers",
+          "description": "Put numbers in order from least to greatest.",
+          "icon": "📚",
+          "path": "activities/order-numbers-1000.html",
+          "type": "interactive"
+        },
+        {
+          "id": "number-line-1000",
+          "title": "Number Line to 1000",
+          "description": "Find where the number belongs on the number line.",
+          "icon": "➡️",
+          "path": "activities/number-line-1000.html",
+          "type": "interactive"
+        },
+        {
+          "id": "rounding",
+          "title": "Round to the Nearest 10/100",
+          "description": "Round numbers to the nearest 10 or 100.",
+          "icon": "🎯",
+          "path": "activities/rounding.html",
+          "type": "interactive"
+        }
+      ],
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "g2-l1-big-idea",
+            "icon": "💡",
+            "title": "Big idea"
+          },
+          {
+            "id": "g2-l1-notice",
+            "icon": "👀",
+            "title": "What to notice"
+          },
+          {
+            "id": "g2-l1-home",
+            "icon": "🏡",
+            "title": "Try at home"
+          },
+          {
+            "id": "g2-l1-videos",
+            "icon": "📺",
+            "title": "Optional videos"
+          }
+        ]
+      }
+    },
+    {
+      "id": "level-2",
+      "number": 2,
+      "title": "Addition & Subtraction Within 100",
+      "icon": "🟡",
+      "goal": "Build fluency adding and subtracting within 100 using models, mental strategies, and regrouping.",
+      "skills": [
+        "Add within 100 using strategies (break apart, make tens, add tens then ones)",
+        "Subtract within 100 (counting up, break apart, related facts)",
+        "Understand regrouping conceptually (ten ones ↔ one ten)",
+        "Solve 1–2 step word problems"
+      ],
+      "activities": [
+        {
+          "id": "add-within-100",
+          "title": "Add Within 100",
+          "description": "Use blocks to add two-digit numbers.",
+          "icon": "➕",
+          "path": "activities/add-within-100.html",
+          "type": "interactive"
+        },
+        {
+          "id": "subtract-within-100",
+          "title": "Subtract Within 100",
+          "description": "Take away tens and ones to subtract.",
+          "icon": "➖",
+          "path": "activities/subtract-within-100.html",
+          "type": "interactive"
+        },
+        {
+          "id": "add-regrouping",
+          "title": "Regrouping Practice: Add",
+          "description": "Practice adding with regrouping.",
+          "icon": "🎒",
+          "path": "activities/add-regrouping.html",
+          "type": "interactive"
+        },
+        {
+          "id": "subtract-regrouping",
+          "title": "Regrouping Practice: Subtract",
+          "description": "Practice subtracting with regrouping.",
+          "icon": "🧩",
+          "path": "activities/subtract-regrouping.html",
+          "type": "interactive"
+        },
+        {
+          "id": "number-line-add-sub-100",
+          "title": "Add/Subtract on Number Line",
+          "description": "Jump by tens and ones on the number line.",
+          "icon": "🐸",
+          "path": "activities/number-line-add-sub-100.html",
+          "type": "interactive"
+        },
+        {
+          "id": "make-100",
+          "title": "Make 100 Pairs",
+          "description": "Find pairs of numbers that make 100.",
+          "icon": "💯",
+          "path": "activities/make-100.html",
+          "type": "interactive"
+        },
+        {
+          "id": "word-problems-100",
+          "title": "Word Problems: Add/Subtract",
+          "description": "Read a short story and solve!",
+          "icon": "📝",
+          "path": "activities/word-problems-100.html",
+          "type": "interactive"
+        },
+        {
+          "id": "estimate-then-solve",
+          "title": "Estimate then Solve",
+          "description": "Round to estimate, then solve the exact answer.",
+          "icon": "🔎",
+          "path": "activities/estimate-then-solve.html",
+          "type": "interactive"
+        }
+      ],
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "g2-l2-big-idea",
+            "icon": "💡",
+            "title": "Big idea"
+          },
+          {
+            "id": "g2-l2-notice",
+            "icon": "👀",
+            "title": "What to notice"
+          },
+          {
+            "id": "g2-l2-home",
+            "icon": "🏡",
+            "title": "Try at home"
+          },
+          {
+            "id": "g2-l2-videos",
+            "icon": "📺",
+            "title": "Optional videos"
+          }
+        ]
+      }
+    },
+    {
+      "id": "level-3",
+      "number": 3,
+      "title": "Even/Odd, Equal Groups & Arrays",
+      "icon": "🟠",
+      "goal": "Notice patterns (even/odd) and build intuition for equal groups and arrays as repeated addition.",
+      "skills": [
+        "Determine if a number is even or odd",
+        "Recognize even = pairs",
+        "Understand arrays as rows/columns",
+        "Use repeated addition to find totals in arrays"
+      ],
+      "activities": [
+        {
+          "id": "even-odd",
+          "title": "Even or Odd Pairs",
+          "description": "Make pairs to see if the number is even or odd.",
+          "icon": "🧦",
+          "path": "activities/even-odd.html",
+          "type": "interactive"
+        },
+        {
+          "id": "build-array",
+          "title": "Build an Array",
+          "description": "Build an array with rows and columns.",
+          "icon": "🟦",
+          "path": "activities/build-array.html",
+          "type": "interactive"
+        },
+        {
+          "id": "array-count",
+          "title": "How Many in the Array?",
+          "description": "Count faster using rows and columns.",
+          "icon": "🔢",
+          "path": "activities/array-count.html",
+          "type": "interactive"
+        },
+        {
+          "id": "equal-groups",
+          "title": "Equal Groups Story",
+          "description": "Add equal groups to find the total.",
+          "icon": "🧺",
+          "path": "activities/equal-groups.html",
+          "type": "interactive"
+        },
+        {
+          "id": "skip-count-patterns",
+          "title": "Skip Count Patterns",
+          "description": "Use patterns to skip count by 2s, 5s, and 10s.",
+          "icon": "🎵",
+          "path": "activities/skip-count-patterns.html",
+          "type": "interactive"
+        },
+        {
+          "id": "odd-even-number-line",
+          "title": "Odd/Even on Number Line",
+          "description": "Find even numbers on the number line.",
+          "icon": "📍",
+          "path": "activities/odd-even-number-line.html",
+          "type": "interactive"
+        }
+      ],
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "g2-l3-big-idea",
+            "icon": "💡",
+            "title": "Big idea"
+          },
+          {
+            "id": "g2-l3-notice",
+            "icon": "👀",
+            "title": "What to notice"
+          },
+          {
+            "id": "g2-l3-home",
+            "icon": "🏡",
+            "title": "Try at home"
+          },
+          {
+            "id": "g2-l3-videos",
+            "icon": "📺",
+            "title": "Optional videos"
+          }
+        ]
+      }
+    },
+    {
+      "id": "level-4",
+      "number": 4,
+      "title": "Measurement, Time, Money & Data",
+      "icon": "🔵",
+      "goal": "Measure length using standard units, tell time to 5 minutes, count coins, and read simple data displays.",
+      "skills": [
+        "Measure lengths with rulers (inches/cm)",
+        "Compare/add/subtract lengths",
+        "Tell and write time to nearest 5 minutes",
+        "Count coins (pennies, nickels, dimes, quarters)",
+        "Interpret picture/bar graphs and simple line plots"
+      ],
+      "activities": [
+        {
+          "id": "measure-ruler",
+          "title": "Measure with a Ruler",
+          "description": "Measure objects in inches or centimeters.",
+          "icon": "📏",
+          "path": "activities/measure-ruler.html",
+          "type": "interactive"
+        },
+        {
+          "id": "compare-lengths",
+          "title": "Compare Lengths",
+          "description": "Which is longer? How much longer?",
+          "icon": "🧵",
+          "path": "activities/compare-lengths.html",
+          "type": "interactive"
+        },
+        {
+          "id": "add-subtract-lengths",
+          "title": "Add/Subtract Lengths",
+          "description": "Add and subtract measured lengths.",
+          "icon": "🧮",
+          "path": "activities/add-subtract-lengths.html",
+          "type": "interactive"
+        },
+        {
+          "id": "time-five-min",
+          "title": "Time to 5 Minutes",
+          "description": "Read the clock to the nearest 5 minutes.",
+          "icon": "⏰",
+          "path": "activities/time-five-min.html",
+          "type": "interactive"
+        },
+        {
+          "id": "build-time",
+          "title": "Build the Time",
+          "description": "Set the clock hands to match the time.",
+          "icon": "🕒",
+          "path": "activities/build-time.html",
+          "type": "interactive"
+        },
+        {
+          "id": "count-coins",
+          "title": "Count the Coins",
+          "description": "Add coins to find the total.",
+          "icon": "💰",
+          "path": "activities/count-coins.html",
+          "type": "interactive"
+        },
+        {
+          "id": "bar-graph",
+          "title": "Bar Graph Questions",
+          "description": "Read the bar graph and answer questions.",
+          "icon": "📊",
+          "path": "activities/bar-graph.html",
+          "type": "interactive"
+        },
+        {
+          "id": "line-plot",
+          "title": "Line Plot Dot Game",
+          "description": "Make and read a simple line plot.",
+          "icon": "📍",
+          "path": "activities/line-plot.html",
+          "type": "interactive"
+        }
+      ],
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "g2-l4-big-idea",
+            "icon": "💡",
+            "title": "Big idea"
+          },
+          {
+            "id": "g2-l4-notice",
+            "icon": "👀",
+            "title": "What to notice"
+          },
+          {
+            "id": "g2-l4-home",
+            "icon": "🏡",
+            "title": "Try at home"
+          },
+          {
+            "id": "g2-l4-videos",
+            "icon": "📺",
+            "title": "Optional videos"
+          }
+        ]
+      }
+    },
+    {
+      "id": "level-5",
+      "number": 5,
+      "title": "Shapes, Attributes & Equal Shares",
+      "icon": "🟣",
+      "goal": "Identify and describe shapes and partition shapes into equal shares (halves/thirds/fourths).",
+      "skills": [
+        "Recognize and describe 2D/3D shapes",
+        "Count sides/vertices (2D) and faces/edges/vertices (3D)",
+        "Compose shapes from parts",
+        "Partition rectangles/circles into equal shares"
+      ],
+      "activities": [
+        {
+          "id": "shape-names-g2",
+          "title": "Name the Shapes",
+          "description": "Identify common 2D and 3D shapes.",
+          "icon": "🔺",
+          "path": "activities/shape-names-g2.html",
+          "type": "interactive"
+        },
+        {
+          "id": "shape-attributes-g2",
+          "title": "Sides and Vertices Counter",
+          "description": "Count sides and vertices.",
+          "icon": "✏️",
+          "path": "activities/shape-attributes-g2.html",
+          "type": "interactive"
+        },
+        {
+          "id": "3d-attributes",
+          "title": "Faces, Edges, Vertices",
+          "description": "Count faces, edges, and vertices on 3D shapes.",
+          "icon": "🧊",
+          "path": "activities/3d-attributes.html",
+          "type": "interactive"
+        },
+        {
+          "id": "compose-shapes",
+          "title": "Compose the Shape",
+          "description": "Put parts together to make a new shape.",
+          "icon": "🧩",
+          "path": "activities/compose-shapes.html",
+          "type": "interactive"
+        },
+        {
+          "id": "equal-shares",
+          "title": "Halves, Thirds, Fourths",
+          "description": "Split shapes into equal parts.",
+          "icon": "🍰",
+          "path": "activities/equal-shares.html",
+          "type": "interactive"
+        },
+        {
+          "id": "equal-or-not",
+          "title": "Which Parts Are Equal?",
+          "description": "Choose if the parts are equal.",
+          "icon": "⚖️",
+          "path": "activities/equal-or-not.html",
+          "type": "interactive"
+        },
+        {
+          "id": "fraction-of-shape",
+          "title": "Fraction of a Shape",
+          "description": "How much of the shape is shaded?",
+          "icon": "🎨",
+          "path": "activities/fraction-of-shape.html",
+          "type": "interactive"
+        },
+        {
+          "id": "sort-shapes",
+          "title": "Sort Shapes by Attribute",
+          "description": "Sort shapes by sides, corners, or type.",
+          "icon": "🧺",
+          "path": "activities/sort-shapes.html",
+          "type": "interactive"
+        }
+      ],
+      "learnMore": {
+        "type": "cards",
+        "cards": [
+          {
+            "id": "g2-l5-big-idea",
+            "icon": "💡",
+            "title": "Big idea"
+          },
+          {
+            "id": "g2-l5-notice",
+            "icon": "👀",
+            "title": "What to notice"
+          },
+          {
+            "id": "g2-l5-home",
+            "icon": "🏡",
+            "title": "Try at home"
+          },
+          {
+            "id": "g2-l5-videos",
+            "icon": "📺",
+            "title": "Optional videos"
+          }
+        ]
+      }
+    }
+  ]
+}

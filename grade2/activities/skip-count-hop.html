@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Skip Count Hop - Grade 2 Math Activity - Meadow Math">
+  <title>Skip Count Hop - Meadow Math</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/animations.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/navigation.css">
+  <link rel="stylesheet" href="activity.css">
+</head>
+<body>
+  <!-- Hamburger Menu (Mobile Only) -->
+  <button class="hamburger" aria-label="Toggle navigation menu">
+    <div class="hamburger-icon">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </button>
+
+  <!-- Sidebar Backdrop (Mobile Only) -->
+  <div class="sidebar-backdrop"></div>
+
+  <!-- Application Container -->
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <a href="../../index.html" class="sidebar-logo">
+        <span class="sidebar-logo-text" data-i18n="siteName">Meadow Math</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="../../index.html" class="nav-item">
+          <span class="nav-item-icon">🏠</span>
+          <span class="nav-item-text" data-i18n="nav.home">Home</span>
+        </a>
+        <a href="../../prek/index.html" class="nav-item">
+          <span class="nav-item-icon">🪺</span>
+          <span class="nav-item-text" data-i18n="nav.prek">Pre-K</span>
+        </a>
+        <a href="../../kindergarten/index.html" class="nav-item">
+          <span class="nav-item-icon">🌱</span>
+          <span class="nav-item-text" data-i18n="nav.kindergarten">Kinder</span>
+        </a>
+        <a href="../../grade1/index.html" class="nav-item">
+          <span class="nav-item-icon">📐</span>
+          <span class="nav-item-text" data-i18n="nav.grade1">Grade 1</span>
+        </a>
+        <a href="../index.html" class="nav-item active">
+          <span class="nav-item-icon">➕</span>
+          <span class="nav-item-text" data-i18n="nav.grade2">Grade 2</span>
+        </a>
+        <a href="../../grade3/index.html" class="nav-item">
+          <span class="nav-item-icon">➖</span>
+          <span class="nav-item-text" data-i18n="nav.grade3">Grade 3</span>
+        </a>
+        <a href="../../grade4/index.html" class="nav-item">
+          <span class="nav-item-icon">✖️</span>
+          <span class="nav-item-text" data-i18n="nav.grade4">Grade 4</span>
+        </a>
+        <a href="../../grade5/index.html" class="nav-item">
+          <span class="nav-item-icon">➗</span>
+          <span class="nav-item-text" data-i18n="nav.grade5">Grade 5</span>
+        </a>
+      </nav>
+
+      <div class="language-switcher">
+        <span class="language-label" data-i18n="language">Language</span>
+        <div class="language-buttons">
+          <button class="lang-btn active" data-lang="en" aria-label="English">🇺🇸</button>
+          <button class="lang-btn" data-lang="vi" aria-label="Tiếng Việt">🇻🇳</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="activity-wrapper">
+        <!-- Activity Header -->
+        <header class="activity-header">
+          <a href="../index.html" class="back-link"><span data-i18n="activity.backTo">← Back to</span> <span data-i18n="nav.grade2">Grade 2</span></a>
+          <h1 class="activity-title">
+            <span class="activity-title-icon">🦘</span>
+            <span data-i18n="section.activities.skip-count-hop.title">Skip Count Hop</span>
+          </h1>
+          <p class="activity-instruction" data-i18n="section.activities.skip-count-hop.description">Hop by 5s, 10s, and 100s to find the missing number!</p>
+        </header>
+
+        <!-- Activity Area -->
+        <div class="activity-area">
+          <!-- Progress -->
+          <div class="progress-indicator" id="progress"></div>
+
+          <!-- Instruction -->
+          <div class="question-text" id="instruction">
+            <span data-i18n="section.activities.skip-count-hop.instruction">Where does the frog land next?</span>
+          </div>
+
+          <!-- Skip Pattern Hint -->
+          <div class="pattern-hint" id="pattern-hint">
+            <span class="hint-label" data-i18n="section.activities.skip-count-hop.skip">Skip by:</span>
+            <span class="hint-text" id="hint-text">+5</span>
+          </div>
+
+          <!-- Lily Pads Display -->
+          <div class="lily-pad-container" id="lily-pad-container"></div>
+
+          <!-- Choice Buttons -->
+          <div class="choice-container" id="choice-container"></div>
+
+          <!-- Feedback Message -->
+          <div class="feedback-message" id="feedback"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="activity-actions">
+          <button class="btn-activity btn-secondary" id="btn-reset" data-i18n="buttons.reset">Try Again</button>
+        </div>
+      </div>
+
+      <!-- Stats Overlay -->
+      <div class="stats-overlay" id="stats-overlay">
+        <div class="stats-modal">
+          <div class="stats-icon" id="stats-icon">🌟</div>
+          <h2 class="stats-title" data-i18n="stats.title">Activity Complete!</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value correct" id="stat-correct">0</div>
+              <div class="stat-label" data-i18n="stats.correct">Correct</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value incorrect" id="stat-incorrect">0</div>
+              <div class="stat-label" data-i18n="stats.incorrect">Incorrect</div>
+            </div>
+          </div>
+          <p class="stats-message" id="stats-message">Great hopping!</p>
+          <div class="stats-actions">
+            <button class="btn-activity btn-primary" id="btn-play-again" data-i18n="buttons.playAgain">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="../../js/utils.js"></script>
+  <script src="../../js/storage.js"></script>
+  <script src="../../js/animations.js"></script>
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script>
+    // Skip Count Hop Activity - Grade 2
+    const SkipCountHop = {
+      currentQuestion: 0,
+      totalQuestions: 10,
+      correctCount: 0,
+      incorrectCount: 0,
+      skipBy: 5,
+      currentSequence: [],
+      missingIndex: 0,
+      autoAdvanceDelay: 1500,
+      isAnswered: false,
+
+      lilyPadContainer: null,
+      choiceContainer: null,
+      feedback: null,
+      progress: null,
+      hintText: null,
+      btnReset: null,
+      statsOverlay: null,
+      statCorrect: null,
+      statIncorrect: null,
+      statsMessage: null,
+      statsIcon: null,
+      btnPlayAgain: null,
+
+      init() {
+        this.lilyPadContainer = document.getElementById('lily-pad-container');
+        this.choiceContainer = document.getElementById('choice-container');
+        this.feedback = document.getElementById('feedback');
+        this.progress = document.getElementById('progress');
+        this.hintText = document.getElementById('hint-text');
+        this.btnReset = document.getElementById('btn-reset');
+        this.statsOverlay = document.getElementById('stats-overlay');
+        this.statCorrect = document.getElementById('stat-correct');
+        this.statIncorrect = document.getElementById('stat-incorrect');
+        this.statsMessage = document.getElementById('stats-message');
+        this.statsIcon = document.getElementById('stats-icon');
+        this.btnPlayAgain = document.getElementById('btn-play-again');
+
+        this.btnReset.addEventListener('click', () => this.resetCurrentQuestion());
+        this.btnPlayAgain.addEventListener('click', () => this.restartActivity());
+        this.statsOverlay.addEventListener('click', (e) => {
+          if (e.target === this.statsOverlay) this.restartActivity();
+        });
+
+        this.startQuestion();
+        this.renderProgress();
+      },
+
+      randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      },
+
+      shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      },
+
+      generateSequence() {
+        // Progressive difficulty - vary skip amounts
+        if (this.currentQuestion < 3) {
+          this.skipBy = 5;
+        } else if (this.currentQuestion < 6) {
+          this.skipBy = 10;
+        } else if (this.currentQuestion < 8) {
+          this.skipBy = 100;
+        } else {
+          // Mix it up
+          this.skipBy = [5, 10, 100][this.randomInt(0, 2)];
+        }
+
+        // Generate starting number based on skip amount
+        let start;
+        if (this.skipBy === 5) {
+          start = this.randomInt(1, 19) * 5; // 5, 10, 15... up to 95
+        } else if (this.skipBy === 10) {
+          start = this.randomInt(1, 9) * 10; // 10, 20, 30... up to 90
+        } else {
+          start = this.randomInt(1, 5) * 100; // 100, 200... up to 500
+        }
+
+        // Generate 5 lily pads
+        this.currentSequence = [];
+        for (let i = 0; i < 5; i++) {
+          this.currentSequence.push(start + i * this.skipBy);
+        }
+
+        // Pick which one is missing (not first or last)
+        this.missingIndex = this.randomInt(1, 3);
+        this.isAnswered = false;
+      },
+
+      startQuestion() {
+        this.generateSequence();
+        if (this.hintText) {
+          this.hintText.textContent = `+${this.skipBy}`;
+        }
+        this.renderLilyPads();
+        this.renderChoices();
+        this.feedback.classList.remove('show', 'error');
+        this.renderProgress();
+      },
+
+      renderLilyPads() {
+        this.lilyPadContainer.innerHTML = '';
+
+        this.currentSequence.forEach((num, index) => {
+          const pad = document.createElement('div');
+          pad.className = 'lily-pad';
+          pad.dataset.index = index;
+
+          if (index === this.missingIndex) {
+            pad.classList.add('missing');
+            pad.innerHTML = `
+              <div class="pad-icon">🪷</div>
+              <div class="pad-number">?</div>
+              <div class="frog">🐸</div>
+            `;
+          } else {
+            pad.innerHTML = `
+              <div class="pad-icon">🪷</div>
+              <div class="pad-number">${num}</div>
+            `;
+          }
+
+          this.lilyPadContainer.appendChild(pad);
+
+          // Add hop arrow except after last
+          if (index < this.currentSequence.length - 1) {
+            const arrow = document.createElement('div');
+            arrow.className = 'hop-arrow';
+            arrow.innerHTML = '➜';
+            this.lilyPadContainer.appendChild(arrow);
+          }
+        });
+      },
+
+      renderChoices() {
+        this.choiceContainer.innerHTML = '';
+
+        if (this.isAnswered) return;
+
+        const correctAnswer = this.currentSequence[this.missingIndex];
+        const choices = [correctAnswer];
+
+        // Generate distractors
+        const distractors = [];
+        for (let offset of [-2, -1, 1, 2, -3, 3]) {
+          const d = correctAnswer + offset * this.skipBy;
+          if (d > 0 && d <= 1000 && !choices.includes(d)) {
+            distractors.push(d);
+          }
+        }
+        // Add some off-pattern distractors
+        for (let offset of [-5, 5, -10, 10]) {
+          const d = correctAnswer + offset;
+          if (d > 0 && d <= 1000 && !choices.includes(d) && !distractors.includes(d)) {
+            distractors.push(d);
+          }
+        }
+
+        this.shuffleArray(distractors);
+        choices.push(...distractors.slice(0, 3));
+        this.shuffleArray(choices);
+
+        choices.forEach(choice => {
+          const btn = document.createElement('button');
+          btn.className = 'choice-btn';
+          btn.textContent = choice;
+          btn.dataset.value = choice;
+          btn.addEventListener('click', () => this.selectChoice(choice));
+          this.choiceContainer.appendChild(btn);
+        });
+      },
+
+      selectChoice(value) {
+        if (this.isAnswered) return;
+        this.isAnswered = true;
+
+        const correctAnswer = this.currentSequence[this.missingIndex];
+        const isCorrect = value === correctAnswer;
+
+        // Update lily pad
+        const missingPad = this.lilyPadContainer.querySelector('.lily-pad.missing');
+        if (missingPad) {
+          const numberEl = missingPad.querySelector('.pad-number');
+          numberEl.textContent = correctAnswer;
+          missingPad.classList.remove('missing');
+          missingPad.classList.add(isCorrect ? 'correct' : 'incorrect');
+        }
+
+        this.choiceContainer.innerHTML = '';
+
+        if (isCorrect) {
+          this.correctCount++;
+          this.feedback.textContent = window.i18n ? i18n.t('feedback.correct') + ' 🐸' : '✓ Great hop! 🐸';
+          this.feedback.classList.remove('error');
+        } else {
+          this.incorrectCount++;
+          this.feedback.textContent = window.i18n ? i18n.t('feedback.tryAgain') + ` It was ${correctAnswer}` : `✗ It was ${correctAnswer}`;
+          this.feedback.classList.add('error');
+        }
+        this.feedback.classList.add('show');
+
+        setTimeout(() => {
+          if (this.currentQuestion < this.totalQuestions - 1) {
+            this.nextQuestion();
+          } else {
+            this.showStats();
+          }
+        }, this.autoAdvanceDelay);
+      },
+
+      nextQuestion() {
+        this.currentQuestion++;
+        this.startQuestion();
+      },
+
+      resetCurrentQuestion() {
+        this.startQuestion();
+      },
+
+      showStats() {
+        this.statCorrect.textContent = this.correctCount;
+        this.statIncorrect.textContent = this.incorrectCount;
+
+        const percentage = (this.correctCount / this.totalQuestions) * 100;
+        if (percentage >= 80) {
+          this.statsIcon.textContent = '🌟';
+          this.statsMessage.textContent = window.i18n ? i18n.t('stats.amazing') : 'Amazing hopping!';
+        } else if (percentage >= 50) {
+          this.statsIcon.textContent = '🐸';
+          this.statsMessage.textContent = window.i18n ? i18n.t('stats.great') : 'Great skip counting!';
+        } else {
+          this.statsIcon.textContent = '💪';
+          this.statsMessage.textContent = window.i18n ? i18n.t('stats.goodEffort') : 'Keep practicing!';
+        }
+
+        this.statsOverlay.classList.add('show');
+      },
+
+      restartActivity() {
+        this.currentQuestion = 0;
+        this.correctCount = 0;
+        this.incorrectCount = 0;
+        this.statsOverlay.classList.remove('show');
+        this.startQuestion();
+      },
+
+      renderProgress() {
+        let html = '';
+        for (let i = 0; i < this.totalQuestions; i++) {
+          let className = 'progress-dot';
+          if (i < this.currentQuestion) {
+            className += ' completed';
+          } else if (i === this.currentQuestion) {
+            className += ' current';
+          }
+          html += `<div class="${className}"></div>`;
+        }
+        this.progress.innerHTML = html;
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.i18n && typeof i18n.init === 'function') {
+        i18n.init().then(() => SkipCountHop.init());
+      } else {
+        SkipCountHop.init();
+      }
+    });
+  </script>
+  <style>
+    /* Skip Count Hop specific styles */
+
+    .question-text {
+      font-family: var(--font-secondary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      margin-bottom: var(--space-4);
+      text-align: center;
+    }
+
+    .pattern-hint {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+
+    .hint-label {
+      font-family: var(--font-secondary);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-neutral-600);
+    }
+
+    .hint-text {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-1) var(--space-3);
+      background: linear-gradient(135deg, #bbf7d0, #86efac);
+      border: 2px solid #22c55e;
+      border-radius: var(--radius-full);
+      font-family: var(--font-secondary);
+      font-size: var(--text-base);
+      font-weight: var(--weight-bold);
+      color: #166534;
+    }
+
+    /* Lily Pad Container */
+    .lily-pad-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      margin: var(--space-6) 0;
+      flex-wrap: wrap;
+      padding: var(--space-4);
+    }
+
+    .lily-pad {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 90px;
+      min-height: 90px;
+      background: linear-gradient(135deg, #bbf7d0, #86efac);
+      border: 3px solid #22c55e;
+      border-radius: 50%;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .lily-pad .pad-icon {
+      font-size: 2rem;
+      position: absolute;
+      top: -8px;
+    }
+
+    .lily-pad .pad-number {
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: #166534;
+      margin-top: var(--space-2);
+    }
+
+    .lily-pad .frog {
+      font-size: 1.5rem;
+      position: absolute;
+      bottom: -5px;
+      animation: hop 0.6s ease-in-out infinite;
+    }
+
+    .lily-pad.missing {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border-color: #f59e0b;
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    .lily-pad.missing .pad-number {
+      color: #92400e;
+    }
+
+    .lily-pad.correct {
+      background: linear-gradient(135deg, #86efac, #4ade80);
+      border-color: #16a34a;
+    }
+
+    .lily-pad.incorrect {
+      background: linear-gradient(135deg, #fecaca, #fca5a5);
+      border-color: #dc2626;
+    }
+
+    .hop-arrow {
+      font-size: var(--text-2xl);
+      color: var(--color-neutral-400);
+    }
+
+    @keyframes hop {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Choice Container */
+    .choice-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      margin: var(--space-4) 0;
+      padding: var(--space-2);
+    }
+
+    .choice-btn {
+      min-width: 90px;
+      min-height: 60px;
+      padding: var(--space-3) var(--space-4);
+      font-family: var(--font-secondary);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-neutral-700);
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border: 3px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .choice-btn:hover {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Progress indicator */
+    .progress-indicator {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+
+    .progress-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-neutral-300);
+      transition: all 0.3s ease;
+    }
+
+    .progress-dot.current {
+      background: var(--color-primary);
+      transform: scale(1.2);
+    }
+
+    .progress-dot.completed {
+      background: #22c55e;
+    }
+
+    /* Feedback */
+    .activity-area {
+      padding-bottom: calc(var(--space-8) + 60px);
+    }
+
+    .feedback-message {
+      position: absolute;
+      bottom: var(--space-4);
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      max-width: 90%;
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      .lily-pad-container {
+        gap: var(--space-1);
+      }
+
+      .lily-pad {
+        min-width: 70px;
+        min-height: 70px;
+      }
+
+      .lily-pad .pad-number {
+        font-size: var(--text-xl);
+      }
+
+      .lily-pad .pad-icon {
+        font-size: 1.5rem;
+      }
+
+      .lily-pad .frog {
+        font-size: 1.2rem;
+      }
+
+      .hop-arrow {
+        font-size: var(--text-lg);
+      }
+
+      .choice-btn {
+        min-width: 75px;
+        min-height: 50px;
+        font-size: var(--text-xl);
+      }
+    }
+  </style>
+</body>
+</html>

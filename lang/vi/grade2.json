@@ -1,48 +1,295 @@
 {
   "title": "Hoạt động Lớp 2",
-  "description": "Tự tin cộng và trừ các số",
+  "description": "Xây dựng kỹ năng về giá trị vị trí, phép tính và đo lường",
   "levels": {
     "level1": {
-      "title": "Cấp 1",
-      "description": "Phép cộng trong phạm vi 100"
+      "title": "Số đến 1000 & Giá trị vị trí",
+      "goal": "Hiểu số đến 1000, biểu diễn chúng theo nhiều cách và so sánh, sắp xếp số.",
+      "learnMore": {
+        "g2-l1-big-idea": {
+          "title": "Ý tưởng lớn",
+          "content": "Ở Lớp 2, số phát triển đến **1000**. Học sinh học rằng hệ thống số của chúng ta được xây dựng trên nhóm mười: 10 đơn vị = 1 chục, và 10 chục = 1 trăm. Hiểu giá trị vị trí giúp so sánh, sắp xếp và tính toán với số lớn hơn."
+        },
+        "g2-l1-notice": {
+          "title": "Những điều cần chú ý",
+          "content": "* Có thể đếm nhảy theo 5, 10 và 100.\n* Hiểu rằng 347 nghĩa là 3 trăm, 4 chục và 7 đơn vị.\n* Có thể viết số dạng khai triển (ví dụ: 500 + 20 + 3).\n* So sánh số có ba chữ số bằng cách xem hàng trăm trước, sau đó hàng chục, rồi hàng đơn vị.\n* Có thể xác định vị trí số trên trục số và ước lượng vị trí.\n* Làm tròn số đến hàng chục hoặc hàng trăm gần nhất."
+        },
+        "g2-l1-home": {
+          "title": "Thử ở nhà",
+          "content": "* **Trò chơi A (ý tưởng cốt lõi): \"Xây Số Lớn\"**\n  Dùng khối trăm/chục/đơn vị (hoặc vẽ chúng). Nói số như 362. Con xây nó với 3 tấm trăm, 6 thanh chục và 2 đơn vị. Sau đó nói \"3 trăm, 6 chục, 2 đơn vị.\"\n* **Trò chơi B (biểu diễn thứ hai): \"Nhảy Trên Trục Số\"**\n  Vẽ trục số từ 0 đến 1000 (hoặc dùng phần như 200–300). Chọn số và tìm chúng trên trục. Hỏi: \"673 gần 600 hay 700 hơn?\""
+        },
+        "g2-l1-videos": {
+          "title": "Video tùy chọn",
+          "content": "**Tìm kiếm trên YouTube:**\n* <a href='https://www.youtube.com/results?search_query=place+value+to+1000+for+kids' target='_blank' rel='noopener noreferrer'>place value to 1000 for kids</a>\n* <a href='https://www.youtube.com/results?search_query=skip+counting+by+5s+10s+100s' target='_blank' rel='noopener noreferrer'>skip counting by 5s 10s 100s</a>\n* <a href='https://www.youtube.com/results?search_query=comparing+three+digit+numbers+for+kids' target='_blank' rel='noopener noreferrer'>comparing three digit numbers for kids</a>\n* <a href='https://www.youtube.com/results?search_query=rounding+to+nearest+10+and+100' target='_blank' rel='noopener noreferrer'>rounding to nearest 10 and 100</a>"
+        }
+      }
     },
     "level2": {
-      "title": "Cấp 2",
-      "description": "Phép trừ trong phạm vi 100"
+      "title": "Phép cộng & Phép trừ trong phạm vi 100",
+      "goal": "Xây dựng kỹ năng thành thạo cộng và trừ trong phạm vi 100 sử dụng mô hình, chiến lược tính nhẩm và nhóm lại.",
+      "learnMore": {
+        "g2-l2-big-idea": {
+          "title": "Ý tưởng lớn",
+          "content": "Ở Lớp 2, học sinh cộng và trừ số có hai chữ số thành thạo. Các em học chiến lược tính nhẩm (như chia số thành chục và đơn vị) và hiểu **nhóm lại** (đổi 10 đơn vị thành 1 chục, hoặc ngược lại) bằng mô hình như khối cơ số 10."
+        },
+        "g2-l2-notice": {
+          "title": "Những điều cần chú ý",
+          "content": "* Có thể cộng/trừ trong phạm vi 100 sử dụng chiến lược như \"cộng chục, sau đó đơn vị.\"\n* Hiểu khi nào cần nhóm lại: nếu đơn vị cộng lại từ 10 trở lên, tạo một chục mới.\n* Có thể thể hiện suy nghĩ bằng khối cơ số 10 hoặc trục số.\n* Dùng ước lượng để kiểm tra xem đáp án có hợp lý không (47 + 36 khoảng 50 + 40 = 90).\n* Giải bài toán có lời văn bằng cách xác định nên cộng hay trừ."
+        },
+        "g2-l2-home": {
+          "title": "Thử ở nhà",
+          "content": "* **Trò chơi A (ý tưởng cốt lõi): \"Cộng Cơ Số 10\"**\n  Dùng khối hoặc vẽ chục và đơn vị. Với 48 + 27: hiện 4 chục 8 đơn vị, sau đó 2 chục 7 đơn vị. Gộp lại: 6 chục và 15 đơn vị. Đổi 10 đơn vị thành 1 chục → 7 chục 5 đơn vị = 75.\n* **Trò chơi B (biểu diễn thứ hai): \"Nhảy Trục Số\"**\n  Với 63 − 28, bắt đầu ở 63, nhảy lùi 20 (đến 43), sau đó nhảy lùi 8 (đến 35). Hoặc đếm tiến từ 28 đến 63."
+        },
+        "g2-l2-videos": {
+          "title": "Video tùy chọn",
+          "content": "**Tìm kiếm trên YouTube:**\n* <a href='https://www.youtube.com/results?search_query=adding+two+digit+numbers+with+regrouping' target='_blank' rel='noopener noreferrer'>adding two digit numbers with regrouping</a>\n* <a href='https://www.youtube.com/results?search_query=subtracting+two+digit+numbers+with+regrouping' target='_blank' rel='noopener noreferrer'>subtracting two digit numbers with regrouping</a>\n* <a href='https://www.youtube.com/results?search_query=make+100+mental+math+strategies' target='_blank' rel='noopener noreferrer'>make 100 mental math strategies</a>\n* <a href='https://www.youtube.com/results?search_query=estimation+and+rounding+grade+2' target='_blank' rel='noopener noreferrer'>estimation and rounding grade 2</a>"
+        }
+      }
     },
     "level3": {
-      "title": "Cấp 3",
-      "description": "Giá trị vị trí đến 1000"
+      "title": "Chẵn/Lẻ, Nhóm Bằng Nhau & Mảng",
+      "goal": "Nhận biết quy luật (chẵn/lẻ) và xây dựng trực giác về nhóm bằng nhau và mảng như phép cộng lặp lại.",
+      "learnMore": {
+        "g2-l3-big-idea": {
+          "title": "Ý tưởng lớn",
+          "content": "Số chẵn có thể chia thành các cặp không còn dư. Mảng sắp xếp đồ vật thành các hàng và cột bằng nhau, giúp học sinh thấy **phép cộng lặp lại** (ví dụ: 3 hàng mỗi hàng 4 = 4+4+4). Đây là nền tảng cho phép nhân ở Lớp 3."
+        },
+        "g2-l3-notice": {
+          "title": "Những điều cần chú ý",
+          "content": "* Có thể xác định số chẵn hay lẻ bằng cách ghép cặp.\n* Nhận biết rằng số chẵn kết thúc bằng 0, 2, 4, 6 hoặc 8.\n* Có thể sắp xếp đồ vật thành các nhóm bằng nhau hoặc hàng.\n* Dùng đếm nhảy (theo 2, 5, 10) để đếm mảng nhanh chóng.\n* Hiểu rằng mảng có 3 hàng mỗi hàng 5 giống như 5+5+5."
+        },
+        "g2-l3-home": {
+          "title": "Thử ở nhà",
+          "content": "* **Trò chơi A (ý tưởng cốt lõi): \"Ghép Cặp\"**\n  Lấy một nắm đồ vật (10–20). Thử ghép thành cặp. Nếu còn dư một cái, đó là số lẻ. Nếu ghép hết, đó là số chẵn.\n* **Trò chơi B (biểu diễn thứ hai): \"Xây Mảng\"**\n  Dùng đồ vật nhỏ (tiền xu, khối). Tạo mảng: 4 hàng mỗi hàng 3. Đếm: 3+3+3+3 = 12. Sau đó lật ngược: 3 hàng mỗi hàng 4. Vẫn là 12!"
+        },
+        "g2-l3-videos": {
+          "title": "Video tùy chọn",
+          "content": "**Tìm kiếm trên YouTube:**\n* <a href='https://www.youtube.com/results?search_query=even+and+odd+numbers+for+kids' target='_blank' rel='noopener noreferrer'>even and odd numbers for kids</a>\n* <a href='https://www.youtube.com/results?search_query=arrays+and+equal+groups+grade+2' target='_blank' rel='noopener noreferrer'>arrays and equal groups grade 2</a>\n* <a href='https://www.youtube.com/results?search_query=repeated+addition+with+arrays' target='_blank' rel='noopener noreferrer'>repeated addition with arrays</a>\n* <a href='https://www.youtube.com/results?search_query=skip+counting+patterns+for+kids' target='_blank' rel='noopener noreferrer'>skip counting patterns for kids</a>"
+        }
+      }
     },
     "level4": {
-      "title": "Cấp 4",
-      "description": "Đo lường cơ bản"
+      "title": "Đo lường, Thời gian, Tiền & Dữ liệu",
+      "goal": "Đo chiều dài bằng đơn vị chuẩn, xem giờ đến 5 phút, đếm tiền xu và đọc biểu đồ đơn giản.",
+      "learnMore": {
+        "g2-l4-big-idea": {
+          "title": "Ý tưởng lớn",
+          "content": "Cấp độ này kết nối toán học với cuộc sống hằng ngày: đo bằng thước kẻ (inch và centimeter), xem giờ đến 5 phút, đếm tiền xu và đọc biểu đồ. Những kỹ năng này giúp học sinh thấy toán học hữu ích và thực tế."
+        },
+        "g2-l4-notice": {
+          "title": "Những điều cần chú ý",
+          "content": "* Có thể đo đồ vật chính xác bằng thước kẻ (căn chỉnh tại số 0).\n* So sánh chiều dài và tìm hiệu số (dài hơn bao nhiêu?).\n* Xem giờ đến 5 phút gần nhất và hiểu AM/PM.\n* Đếm tiền xu hỗn hợp bằng cách bắt đầu với giá trị lớn nhất.\n* Đọc biểu đồ cột và biểu đồ điểm để trả lời câu hỏi về dữ liệu."
+        },
+        "g2-l4-home": {
+          "title": "Thử ở nhà",
+          "content": "* **Trò chơi A (ý tưởng cốt lõi): \"Đo Quanh Nhà\"**\n  Tìm 5 đồ vật. Đo mỗi cái bằng inch và centimeter. So sánh: cái nào dài nhất? Dài hơn bao nhiêu?\n* **Trò chơi B (biểu diễn thứ hai): \"Đếm Tiền Xu\"**\n  Cho một hỗn hợp tiền xu (25 cent, 10 cent, 5 cent, 1 cent). Đếm cùng nhau: bắt đầu với 25 cent, sau đó 10 cent, 5 cent, 1 cent. Đạt mục tiêu như 87 cent."
+        },
+        "g2-l4-videos": {
+          "title": "Video tùy chọn",
+          "content": "**Tìm kiếm trên YouTube:**\n* <a href='https://www.youtube.com/results?search_query=measuring+with+a+ruler+for+kids' target='_blank' rel='noopener noreferrer'>measuring with a ruler for kids</a>\n* <a href='https://www.youtube.com/results?search_query=telling+time+to+5+minutes' target='_blank' rel='noopener noreferrer'>telling time to 5 minutes</a>\n* <a href='https://www.youtube.com/results?search_query=counting+coins+for+kids' target='_blank' rel='noopener noreferrer'>counting coins for kids</a>\n* <a href='https://www.youtube.com/results?search_query=reading+bar+graphs+grade+2' target='_blank' rel='noopener noreferrer'>reading bar graphs grade 2</a>"
+        }
+      }
     },
     "level5": {
-      "title": "Cấp 5",
-      "description": "Bài toán có lời văn"
+      "title": "Hình học, Thuộc tính & Chia Đều",
+      "goal": "Nhận biết và mô tả hình và phân chia hình thành các phần bằng nhau (một nửa/một phần ba/một phần tư).",
+      "learnMore": {
+        "g2-l5-big-idea": {
+          "title": "Ý tưởng lớn",
+          "content": "Hình có thuộc tính: cạnh, đỉnh (góc), mặt, cạnh. Học sinh học cách mô tả và phân loại hình theo các đặc điểm này. Các em cũng chia hình thành **các phần bằng nhau** (một nửa, một phần ba, một phần tư), xây dựng nền tảng cho phân số."
+        },
+        "g2-l5-notice": {
+          "title": "Những điều cần chú ý",
+          "content": "* Có thể đặt tên và mô tả hình 2D (tam giác, tứ giác, ngũ giác, lục giác) và hình 3D (khối lập phương, hình cầu, hình nón, hình trụ).\n* Đếm cạnh và đỉnh trên hình 2D; mặt, cạnh, đỉnh trên hình 3D.\n* Hiểu rằng các phần bằng nhau phải có cùng kích thước.\n* Có thể phân chia hình thành một nửa, một phần ba hoặc một phần tư và nhận biết phân số (ví dụ: \"1 trong 4 phần bằng nhau là một phần tư\")."
+        },
+        "g2-l5-home": {
+          "title": "Thử ở nhà",
+          "content": "* **Trò chơi A (ý tưởng cốt lõi): \"Săn Hình\"**\n  Tìm hình quanh nhà. Đếm cạnh và góc. Nó là hình chữ nhật? Lục giác? Hình trụ?\n* **Trò chơi B (biểu diễn thứ hai): \"Chia Đều\"**\n  Cắt bánh mì, pizza hoặc hình giấy thành các phần bằng nhau. Chia cho 2, 3 hoặc 4 người. Nói về một nửa, một phần ba, một phần tư. Các phần có bằng nhau không?"
+        },
+        "g2-l5-videos": {
+          "title": "Video tùy chọn",
+          "content": "**Tìm kiếm trên YouTube:**\n* <a href='https://www.youtube.com/results?search_query=2D+and+3D+shapes+for+kids' target='_blank' rel='noopener noreferrer'>2D and 3D shapes for kids</a>\n* <a href='https://www.youtube.com/results?search_query=shape+attributes+sides+vertices' target='_blank' rel='noopener noreferrer'>shape attributes sides vertices</a>\n* <a href='https://www.youtube.com/results?search_query=equal+shares+halves+thirds+fourths' target='_blank' rel='noopener noreferrer'>equal shares halves thirds fourths</a>\n* <a href='https://www.youtube.com/results?search_query=partitioning+shapes+into+fractions+grade+2' target='_blank' rel='noopener noreferrer'>partitioning shapes into fractions grade 2</a>"
+        }
+      }
     }
   },
   "activities": {
-    "twoDigitAddition": {
-      "title": "Cộng số có hai chữ số",
-      "description": "Cộng các số lớn hơn",
-      "instruction": "Tìm tổng"
+    "count-to-1000": {
+      "title": "Đường Đếm Đến 1000",
+      "description": "Điền số còn thiếu khi leo đến 1000!",
+      "instruction": "Điền số còn thiếu để hoàn thành đường đi!",
+      "whatNumber": "Số nào đi vào chỗ trống?"
     },
-    "twoDigitSubtraction": {
-      "title": "Trừ số có hai chữ số",
-      "description": "Trừ các số lớn hơn",
-      "instruction": "Tìm hiệu"
+    "skip-count-hop": {
+      "title": "Nhảy Đếm",
+      "description": "Nhảy theo 5, 10 và 100!",
+      "instruction": "Nhảy theo 5, 10 và 100!",
+      "skipBy": "Đếm nhảy theo {{skipBy}}",
+      "whatNumber": "Số nào còn thiếu?"
     },
-    "skipCounting": {
-      "title": "Đếm nhảy",
-      "description": "Đếm theo 2, 5 và 10",
-      "instruction": "Số tiếp theo là gì?"
+    "hundreds-tens-ones": {
+      "title": "Xây Trăm Chục Đơn Vị",
+      "description": "Xây số bằng trăm, chục và đơn vị.",
+      "instruction": "Thể hiện số bằng trăm, chục và đơn vị!",
+      "buildNumber": "Xây số này:",
+      "howMany": "Cần bao nhiêu mỗi loại?",
+      "hundreds": "trăm",
+      "tens": "chục",
+      "ones": "đơn vị"
     },
-    "moneyMath": {
-      "title": "Toán tiền",
-      "description": "Đếm tiền xu và tiền giấy",
-      "instruction": "Có bao nhiêu tiền?"
+    "expanded-form": {
+      "title": "Ghép Dạng Khai Triển",
+      "description": "Ghép số với dạng khai triển của nó.",
+      "instruction": "Ghép số với dạng khai triển của nó!",
+      "standardForm": "Dạng Chuẩn:",
+      "whichExpanded": "Đâu là dạng khai triển?"
+    },
+    "compare-three-digit": {
+      "title": "So Sánh Số 3 Chữ Số",
+      "description": "Chọn >, < hoặc = để so sánh.",
+      "instruction": "Chọn >, < hoặc = để so sánh!",
+      "whichSymbol": "Ký hiệu nào ở giữa?"
+    },
+    "order-numbers-1000": {
+      "title": "Sắp Xếp Số",
+      "description": "Sắp xếp số từ nhỏ đến lớn.",
+      "instruction": "Sắp xếp số từ nhỏ đến lớn!",
+      "dragToOrder": "Kéo để sắp xếp từ nhỏ đến lớn:",
+      "checkOrder": "Kiểm Tra Thứ Tự"
+    },
+    "number-line-1000": {
+      "title": "Trục Số Đến 1000",
+      "description": "Tìm vị trí số trên trục số.",
+      "instruction": "Số này ở đâu trên trục số?",
+      "placeNumber": "Đặt số này:"
+    },
+    "rounding": {
+      "title": "Làm Tròn Đến Chục/Trăm",
+      "description": "Làm tròn số đến hàng chục hoặc hàng trăm.",
+      "instruction": "Làm tròn số đến hàng chục hoặc hàng trăm!",
+      "round": "Làm tròn",
+      "toNearest": "đến",
+      "whatRounded": "{{number}} làm tròn đến {{roundTo}} gần nhất là bao nhiêu?"
+    },
+    "add-within-100": {
+      "title": "Cộng Trong Phạm Vi 100",
+      "description": "Dùng khối để cộng số có hai chữ số."
+    },
+    "subtract-within-100": {
+      "title": "Trừ Trong Phạm Vi 100",
+      "description": "Lấy đi chục và đơn vị để trừ."
+    },
+    "add-regrouping": {
+      "title": "Luyện Nhóm Lại: Cộng",
+      "description": "Luyện cộng có nhóm lại."
+    },
+    "subtract-regrouping": {
+      "title": "Luyện Nhóm Lại: Trừ",
+      "description": "Luyện trừ có nhóm lại."
+    },
+    "number-line-add-sub-100": {
+      "title": "Cộng/Trừ Trên Trục Số",
+      "description": "Nhảy theo chục và đơn vị trên trục số."
+    },
+    "make-100": {
+      "title": "Cặp Làm 100",
+      "description": "Tìm cặp số có tổng bằng 100."
+    },
+    "word-problems-100": {
+      "title": "Bài Toán Có Lời Văn: Cộng/Trừ",
+      "description": "Đọc câu chuyện ngắn và giải!"
+    },
+    "estimate-then-solve": {
+      "title": "Ước Lượng Rồi Giải",
+      "description": "Làm tròn để ước lượng, sau đó giải chính xác."
+    },
+    "even-odd": {
+      "title": "Cặp Chẵn Hay Lẻ",
+      "description": "Ghép cặp để xem số chẵn hay lẻ."
+    },
+    "build-array": {
+      "title": "Xây Mảng",
+      "description": "Xây mảng có hàng và cột."
+    },
+    "array-count": {
+      "title": "Có Bao Nhiêu Trong Mảng?",
+      "description": "Đếm nhanh hơn bằng hàng và cột."
+    },
+    "equal-groups": {
+      "title": "Câu Chuyện Nhóm Bằng Nhau",
+      "description": "Cộng các nhóm bằng nhau để tìm tổng."
+    },
+    "skip-count-patterns": {
+      "title": "Quy Luật Đếm Nhảy",
+      "description": "Dùng quy luật để đếm nhảy theo 2, 5 và 10."
+    },
+    "odd-even-number-line": {
+      "title": "Lẻ/Chẵn Trên Trục Số",
+      "description": "Tìm số chẵn trên trục số."
+    },
+    "measure-ruler": {
+      "title": "Đo Bằng Thước Kẻ",
+      "description": "Đo đồ vật bằng inch hoặc centimeter."
+    },
+    "compare-lengths": {
+      "title": "So Sánh Độ Dài",
+      "description": "Cái nào dài hơn? Dài hơn bao nhiêu?"
+    },
+    "add-subtract-lengths": {
+      "title": "Cộng/Trừ Độ Dài",
+      "description": "Cộng và trừ độ dài đã đo."
+    },
+    "time-five-min": {
+      "title": "Giờ Đến 5 Phút",
+      "description": "Đọc đồng hồ đến 5 phút gần nhất."
+    },
+    "build-time": {
+      "title": "Xây Giờ",
+      "description": "Đặt kim đồng hồ khớp với giờ."
+    },
+    "count-coins": {
+      "title": "Đếm Tiền Xu",
+      "description": "Cộng tiền xu để tìm tổng."
+    },
+    "bar-graph": {
+      "title": "Câu Hỏi Biểu Đồ Cột",
+      "description": "Đọc biểu đồ cột và trả lời câu hỏi."
+    },
+    "line-plot": {
+      "title": "Trò Chơi Điểm Biểu Đồ",
+      "description": "Tạo và đọc biểu đồ điểm đơn giản."
+    },
+    "shape-names-g2": {
+      "title": "Đặt Tên Hình",
+      "description": "Nhận biết các hình 2D và 3D thông thường."
+    },
+    "shape-attributes-g2": {
+      "title": "Đếm Cạnh và Đỉnh",
+      "description": "Đếm cạnh và đỉnh."
+    },
+    "3d-attributes": {
+      "title": "Mặt, Cạnh, Đỉnh",
+      "description": "Đếm mặt, cạnh và đỉnh trên hình 3D."
+    },
+    "compose-shapes": {
+      "title": "Ghép Hình",
+      "description": "Ghép các phần để tạo hình mới."
+    },
+    "equal-shares": {
+      "title": "Một Nửa, Một Phần Ba, Một Phần Tư",
+      "description": "Chia hình thành các phần bằng nhau."
+    },
+    "equal-or-not": {
+      "title": "Phần Nào Bằng Nhau?",
+      "description": "Chọn xem các phần có bằng nhau không."
+    },
+    "fraction-of-shape": {
+      "title": "Phân Số Của Hình",
+      "description": "Phần nào của hình được tô màu?"
+    },
+    "sort-shapes": {
+      "title": "Sắp Xếp Hình Theo Thuộc Tính",
+      "description": "Sắp xếp hình theo cạnh, góc hoặc loại."
     }
   }
 }

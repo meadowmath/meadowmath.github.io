@@ -1,48 +1,295 @@
 {
   "title": "Grade 2 Activities",
-  "description": "Adding and taking away with confidence",
+  "description": "Building fluency with place value, operations, and measurement",
   "levels": {
     "level1": {
-      "title": "Level 1",
-      "description": "Addition within 100"
+      "title": "Numbers to 1000 & Place Value",
+      "goal": "Understand numbers to 1000, represent them in multiple ways, and compare and order numbers.",
+      "learnMore": {
+        "g2-l1-big-idea": {
+          "title": "Big idea",
+          "content": "In Grade 2, numbers grow to **1000**. Students learn that our number system is built on groups of ten: 10 ones = 1 ten, and 10 tens = 1 hundred. Understanding place value helps with comparing, ordering, and computing with bigger numbers."
+        },
+        "g2-l1-notice": {
+          "title": "What to notice",
+          "content": "* Can skip count by 5s, 10s, and 100s.\n* Understands that 347 means 3 hundreds, 4 tens, and 7 ones.\n* Can write numbers in expanded form (e.g., 500 + 20 + 3).\n* Compares three-digit numbers by looking at hundreds first, then tens, then ones.\n* Can locate numbers on a number line and estimate position.\n* Rounds numbers to the nearest 10 or 100."
+        },
+        "g2-l1-home": {
+          "title": "Try at home",
+          "content": "* **Game A (core idea): \"Build Big Numbers\"**\n  Use hundreds/tens/ones blocks (or draw them). Say a number like 362. Child builds it with 3 hundred-flats, 6 ten-rods, and 2 ones. Then say it as \"3 hundreds, 6 tens, 2 ones.\"\n* **Game B (second representation): \"Number Line Jumps\"**\n  Draw a number line from 0 to 1000 (or use sections like 200–300). Pick numbers and find them on the line. Ask: \"Is 673 closer to 600 or 700?\""
+        },
+        "g2-l1-videos": {
+          "title": "Optional videos",
+          "content": "**Search YouTube for:**\n* <a href='https://www.youtube.com/results?search_query=place+value+to+1000+for+kids' target='_blank' rel='noopener noreferrer'>place value to 1000 for kids</a>\n* <a href='https://www.youtube.com/results?search_query=skip+counting+by+5s+10s+100s' target='_blank' rel='noopener noreferrer'>skip counting by 5s 10s 100s</a>\n* <a href='https://www.youtube.com/results?search_query=comparing+three+digit+numbers+for+kids' target='_blank' rel='noopener noreferrer'>comparing three digit numbers for kids</a>\n* <a href='https://www.youtube.com/results?search_query=rounding+to+nearest+10+and+100' target='_blank' rel='noopener noreferrer'>rounding to nearest 10 and 100</a>"
+        }
+      }
     },
     "level2": {
-      "title": "Level 2",
-      "description": "Subtraction within 100"
+      "title": "Addition & Subtraction Within 100",
+      "goal": "Build fluency adding and subtracting within 100 using models, mental strategies, and regrouping.",
+      "learnMore": {
+        "g2-l2-big-idea": {
+          "title": "Big idea",
+          "content": "In Grade 2, students add and subtract two-digit numbers fluently. They learn mental math strategies (like breaking numbers into tens and ones) and understand **regrouping** (trading 10 ones for 1 ten, or vice versa) using models like base-ten blocks."
+        },
+        "g2-l2-notice": {
+          "title": "What to notice",
+          "content": "* Can add/subtract within 100 using strategies like \"add tens, then ones.\"\n* Understands when to regroup: if ones add to 10 or more, make a new ten.\n* Can show thinking with base-ten blocks or a number line.\n* Uses estimation to check if an answer makes sense (47 + 36 is about 50 + 40 = 90).\n* Solves word problems by identifying whether to add or subtract."
+        },
+        "g2-l2-home": {
+          "title": "Try at home",
+          "content": "* **Game A (core idea): \"Base-Ten Addition\"**\n  Use blocks or draw tens and ones. For 48 + 27: show 4 tens 8 ones, then 2 tens 7 ones. Combine: 6 tens and 15 ones. Trade 10 ones for 1 ten → 7 tens 5 ones = 75.\n* **Game B (second representation): \"Number Line Hops\"**\n  For 63 − 28, start at 63, hop back 20 (to 43), then hop back 8 (to 35). Or count up from 28 to 63."
+        },
+        "g2-l2-videos": {
+          "title": "Optional videos",
+          "content": "**Search YouTube for:**\n* <a href='https://www.youtube.com/results?search_query=adding+two+digit+numbers+with+regrouping' target='_blank' rel='noopener noreferrer'>adding two digit numbers with regrouping</a>\n* <a href='https://www.youtube.com/results?search_query=subtracting+two+digit+numbers+with+regrouping' target='_blank' rel='noopener noreferrer'>subtracting two digit numbers with regrouping</a>\n* <a href='https://www.youtube.com/results?search_query=make+100+mental+math+strategies' target='_blank' rel='noopener noreferrer'>make 100 mental math strategies</a>\n* <a href='https://www.youtube.com/results?search_query=estimation+and+rounding+grade+2' target='_blank' rel='noopener noreferrer'>estimation and rounding grade 2</a>"
+        }
+      }
     },
     "level3": {
-      "title": "Level 3",
-      "description": "Place value to 1000"
+      "title": "Even/Odd, Equal Groups & Arrays",
+      "goal": "Notice patterns (even/odd) and build intuition for equal groups and arrays as repeated addition.",
+      "learnMore": {
+        "g2-l3-big-idea": {
+          "title": "Big idea",
+          "content": "Even numbers can be split into pairs with none left over. Arrays organize objects into equal rows and columns, helping students see **repeated addition** (e.g., 3 rows of 4 = 4+4+4). This is the foundation for multiplication in Grade 3."
+        },
+        "g2-l3-notice": {
+          "title": "What to notice",
+          "content": "* Can determine if a number is even or odd by pairing.\n* Recognizes that even numbers end in 0, 2, 4, 6, or 8.\n* Can arrange objects into equal groups or rows.\n* Uses skip counting (by 2s, 5s, 10s) to count arrays quickly.\n* Understands that an array with 3 rows of 5 is the same as 5+5+5."
+        },
+        "g2-l3-home": {
+          "title": "Try at home",
+          "content": "* **Game A (core idea): \"Pair It Up\"**\n  Grab a handful of objects (10–20). Try to pair them up. If there's one left over, it's odd. If all pair up, it's even.\n* **Game B (second representation): \"Build Arrays\"**\n  Use small objects (coins, blocks). Make an array: 4 rows of 3. Count: 3+3+3+3 = 12. Then flip it: 3 rows of 4. Still 12!"
+        },
+        "g2-l3-videos": {
+          "title": "Optional videos",
+          "content": "**Search YouTube for:**\n* <a href='https://www.youtube.com/results?search_query=even+and+odd+numbers+for+kids' target='_blank' rel='noopener noreferrer'>even and odd numbers for kids</a>\n* <a href='https://www.youtube.com/results?search_query=arrays+and+equal+groups+grade+2' target='_blank' rel='noopener noreferrer'>arrays and equal groups grade 2</a>\n* <a href='https://www.youtube.com/results?search_query=repeated+addition+with+arrays' target='_blank' rel='noopener noreferrer'>repeated addition with arrays</a>\n* <a href='https://www.youtube.com/results?search_query=skip+counting+patterns+for+kids' target='_blank' rel='noopener noreferrer'>skip counting patterns for kids</a>"
+        }
+      }
     },
     "level4": {
-      "title": "Level 4",
-      "description": "Measurement basics"
+      "title": "Measurement, Time, Money & Data",
+      "goal": "Measure length using standard units, tell time to 5 minutes, count coins, and read simple data displays.",
+      "learnMore": {
+        "g2-l4-big-idea": {
+          "title": "Big idea",
+          "content": "This level connects math to everyday life: measuring with rulers (inches and centimeters), telling time to 5 minutes, counting coins, and reading graphs. These skills help students see math as useful and practical."
+        },
+        "g2-l4-notice": {
+          "title": "What to notice",
+          "content": "* Can measure objects accurately with a ruler (aligning at zero).\n* Compares lengths and finds differences (how much longer?).\n* Tells time to the nearest 5 minutes and understands AM/PM.\n* Counts mixed coins by starting with the largest values.\n* Reads bar graphs and line plots to answer questions about data."
+        },
+        "g2-l4-home": {
+          "title": "Try at home",
+          "content": "* **Game A (core idea): \"Measure Around the House\"**\n  Find 5 objects. Measure each in inches and centimeters. Compare: which is longest? How much longer?\n* **Game B (second representation): \"Coin Counting\"**\n  Give a mix of coins (quarters, dimes, nickels, pennies). Count together: start with quarters (25¢ each), then dimes, nickels, pennies. Reach a goal like 87¢."
+        },
+        "g2-l4-videos": {
+          "title": "Optional videos",
+          "content": "**Search YouTube for:**\n* <a href='https://www.youtube.com/results?search_query=measuring+with+a+ruler+for+kids' target='_blank' rel='noopener noreferrer'>measuring with a ruler for kids</a>\n* <a href='https://www.youtube.com/results?search_query=telling+time+to+5+minutes' target='_blank' rel='noopener noreferrer'>telling time to 5 minutes</a>\n* <a href='https://www.youtube.com/results?search_query=counting+coins+for+kids' target='_blank' rel='noopener noreferrer'>counting coins for kids</a>\n* <a href='https://www.youtube.com/results?search_query=reading+bar+graphs+grade+2' target='_blank' rel='noopener noreferrer'>reading bar graphs grade 2</a>"
+        }
+      }
     },
     "level5": {
-      "title": "Level 5",
-      "description": "Word problems"
+      "title": "Shapes, Attributes & Equal Shares",
+      "goal": "Identify and describe shapes and partition shapes into equal shares (halves/thirds/fourths).",
+      "learnMore": {
+        "g2-l5-big-idea": {
+          "title": "Big idea",
+          "content": "Shapes have attributes: sides, vertices (corners), faces, edges. Students learn to describe and classify shapes by these features. They also split shapes into **equal parts** (halves, thirds, fourths), building the foundation for fractions."
+        },
+        "g2-l5-notice": {
+          "title": "What to notice",
+          "content": "* Can name and describe 2D shapes (triangle, quadrilateral, pentagon, hexagon) and 3D shapes (cube, sphere, cone, cylinder).\n* Counts sides and vertices on 2D shapes; faces, edges, vertices on 3D shapes.\n* Understands that equal shares must be the same size.\n* Can partition a shape into halves, thirds, or fourths and identify fractions (e.g., \"1 of 4 equal parts is one-fourth\")."
+        },
+        "g2-l5-home": {
+          "title": "Try at home",
+          "content": "* **Game A (core idea): \"Shape Hunt\"**\n  Find shapes around the house. Count sides and corners. Is it a rectangle? A hexagon? A cylinder?\n* **Game B (second representation): \"Fair Sharing\"**\n  Cut a sandwich, pizza, or paper shape into equal parts. Share with 2, 3, or 4 people. Talk about halves, thirds, fourths. Are the parts equal?"
+        },
+        "g2-l5-videos": {
+          "title": "Optional videos",
+          "content": "**Search YouTube for:**\n* <a href='https://www.youtube.com/results?search_query=2D+and+3D+shapes+for+kids' target='_blank' rel='noopener noreferrer'>2D and 3D shapes for kids</a>\n* <a href='https://www.youtube.com/results?search_query=shape+attributes+sides+vertices' target='_blank' rel='noopener noreferrer'>shape attributes sides vertices</a>\n* <a href='https://www.youtube.com/results?search_query=equal+shares+halves+thirds+fourths' target='_blank' rel='noopener noreferrer'>equal shares halves thirds fourths</a>\n* <a href='https://www.youtube.com/results?search_query=partitioning+shapes+into+fractions+grade+2' target='_blank' rel='noopener noreferrer'>partitioning shapes into fractions grade 2</a>"
+        }
+      }
     }
   },
   "activities": {
-    "twoDigitAddition": {
-      "title": "Two-Digit Addition",
-      "description": "Add larger numbers",
-      "instruction": "Find the sum"
+    "count-to-1000": {
+      "title": "Count to 1000 Trail",
+      "description": "Fill in missing numbers as you climb to 1000!",
+      "instruction": "Fill in the missing numbers to complete the trail!",
+      "whatNumber": "What number goes in the blank?"
     },
-    "twoDigitSubtraction": {
-      "title": "Two-Digit Subtraction",
-      "description": "Subtract larger numbers",
-      "instruction": "Find the difference"
+    "skip-count-hop": {
+      "title": "Skip Count Hop",
+      "description": "Hop by 5s, 10s, and 100s!",
+      "instruction": "Hop by 5s, 10s, and 100s!",
+      "skipBy": "Skip count by {{skipBy}}",
+      "whatNumber": "What number is missing?"
     },
-    "skipCounting": {
-      "title": "Skip Counting",
-      "description": "Count by 2s, 5s, and 10s",
-      "instruction": "What comes next?"
+    "hundreds-tens-ones": {
+      "title": "Hundreds Tens Ones Builder",
+      "description": "Build the number using hundreds, tens, and ones.",
+      "instruction": "Show the number using hundreds, tens, and ones!",
+      "buildNumber": "Build this number:",
+      "howMany": "How many of each do you need?",
+      "hundreds": "hundreds",
+      "tens": "tens",
+      "ones": "ones"
     },
-    "moneyMath": {
-      "title": "Money Math",
-      "description": "Count coins and bills",
-      "instruction": "How much money?"
+    "expanded-form": {
+      "title": "Expanded Form Match",
+      "description": "Match the number to its expanded form.",
+      "instruction": "Match the number to its expanded form!",
+      "standardForm": "Standard Form:",
+      "whichExpanded": "Which is the expanded form?"
+    },
+    "compare-three-digit": {
+      "title": "Compare 3-Digit Numbers",
+      "description": "Pick >, <, or = to compare.",
+      "instruction": "Pick >, <, or = to compare!",
+      "whichSymbol": "Which symbol goes in the middle?"
+    },
+    "order-numbers-1000": {
+      "title": "Order the Numbers",
+      "description": "Put numbers in order from least to greatest.",
+      "instruction": "Put numbers in order from least to greatest!",
+      "dragToOrder": "Drag to order from smallest to largest:",
+      "checkOrder": "Check Order"
+    },
+    "number-line-1000": {
+      "title": "Number Line to 1000",
+      "description": "Find where the number belongs on the number line.",
+      "instruction": "Where does the number belong on the number line?",
+      "placeNumber": "Place this number:"
+    },
+    "rounding": {
+      "title": "Round to the Nearest 10/100",
+      "description": "Round numbers to the nearest 10 or 100.",
+      "instruction": "Round numbers to the nearest 10 or 100!",
+      "round": "Round",
+      "toNearest": "to the nearest",
+      "whatRounded": "What is {{number}} rounded to the nearest {{roundTo}}?"
+    },
+    "add-within-100": {
+      "title": "Add Within 100",
+      "description": "Use blocks to add two-digit numbers."
+    },
+    "subtract-within-100": {
+      "title": "Subtract Within 100",
+      "description": "Take away tens and ones to subtract."
+    },
+    "add-regrouping": {
+      "title": "Regrouping Practice: Add",
+      "description": "Practice adding with regrouping."
+    },
+    "subtract-regrouping": {
+      "title": "Regrouping Practice: Subtract",
+      "description": "Practice subtracting with regrouping."
+    },
+    "number-line-add-sub-100": {
+      "title": "Add/Subtract on Number Line",
+      "description": "Jump by tens and ones on the number line."
+    },
+    "make-100": {
+      "title": "Make 100 Pairs",
+      "description": "Find pairs of numbers that make 100."
+    },
+    "word-problems-100": {
+      "title": "Word Problems: Add/Subtract",
+      "description": "Read a short story and solve!"
+    },
+    "estimate-then-solve": {
+      "title": "Estimate then Solve",
+      "description": "Round to estimate, then solve the exact answer."
+    },
+    "even-odd": {
+      "title": "Even or Odd Pairs",
+      "description": "Make pairs to see if the number is even or odd."
+    },
+    "build-array": {
+      "title": "Build an Array",
+      "description": "Build an array with rows and columns."
+    },
+    "array-count": {
+      "title": "How Many in the Array?",
+      "description": "Count faster using rows and columns."
+    },
+    "equal-groups": {
+      "title": "Equal Groups Story",
+      "description": "Add equal groups to find the total."
+    },
+    "skip-count-patterns": {
+      "title": "Skip Count Patterns",
+      "description": "Use patterns to skip count by 2s, 5s, and 10s."
+    },
+    "odd-even-number-line": {
+      "title": "Odd/Even on Number Line",
+      "description": "Find even numbers on the number line."
+    },
+    "measure-ruler": {
+      "title": "Measure with a Ruler",
+      "description": "Measure objects in inches or centimeters."
+    },
+    "compare-lengths": {
+      "title": "Compare Lengths",
+      "description": "Which is longer? How much longer?"
+    },
+    "add-subtract-lengths": {
+      "title": "Add/Subtract Lengths",
+      "description": "Add and subtract measured lengths."
+    },
+    "time-five-min": {
+      "title": "Time to 5 Minutes",
+      "description": "Read the clock to the nearest 5 minutes."
+    },
+    "build-time": {
+      "title": "Build the Time",
+      "description": "Set the clock hands to match the time."
+    },
+    "count-coins": {
+      "title": "Count the Coins",
+      "description": "Add coins to find the total."
+    },
+    "bar-graph": {
+      "title": "Bar Graph Questions",
+      "description": "Read the bar graph and answer questions."
+    },
+    "line-plot": {
+      "title": "Line Plot Dot Game",
+      "description": "Make and read a simple line plot."
+    },
+    "shape-names-g2": {
+      "title": "Name the Shapes",
+      "description": "Identify common 2D and 3D shapes."
+    },
+    "shape-attributes-g2": {
+      "title": "Sides and Vertices Counter",
+      "description": "Count sides and vertices."
+    },
+    "3d-attributes": {
+      "title": "Faces, Edges, Vertices",
+      "description": "Count faces, edges, and vertices on 3D shapes."
+    },
+    "compose-shapes": {
+      "title": "Compose the Shape",
+      "description": "Put parts together to make a new shape."
+    },
+    "equal-shares": {
+      "title": "Halves, Thirds, Fourths",
+      "description": "Split shapes into equal parts."
+    },
+    "equal-or-not": {
+      "title": "Which Parts Are Equal?",
+      "description": "Choose if the parts are equal."
+    },
+    "fraction-of-shape": {
+      "title": "Fraction of a Shape",
+      "description": "How much of the shape is shaded?"
+    },
+    "sort-shapes": {
+      "title": "Sort Shapes by Attribute",
+      "description": "Sort shapes by sides, corners, or type."
     }
   }
 }
